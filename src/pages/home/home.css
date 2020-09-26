@@ -1,0 +1,238 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+body{
+    display: flex;
+    width: 100vw;
+    background-color: #F8F9FA;
+    justify-content: center;
+}
+
+p{
+    font-family: 'Roboto', sans-serif;
+}
+
+a{
+    text-decoration: none;
+}
+
+/* Inicio Header*/
+header{
+    position: fixed;
+}
+.header{
+    max-width: 1440px !important;
+    width: 100vw;
+    height: 3em;
+    display: flex;
+    background-color: #4361EE;
+    align-items: center;
+}
+
+.logo, .logo a {
+    display: none;
+    align-items: center;
+}
+
+.logo p {
+    color: var(--secundaria);
+    font-weight: bolder;
+    font-size: large;
+    margin-left: .4em;
+}
+
+.logo img{
+    color: var(--secundaria);
+    background-color: transparent;
+    width: 2em;
+    height: 2.5em;
+}
+
+.busca-header{
+    display: none;
+    position: relative;
+}
+
+.filter-header{
+    display: none;
+    align-items: center;
+}
+
+.location{
+    display:flex;
+    align-items: center;
+}
+
+.icon-header{
+    display: flex;
+    align-items: center;
+}
+
+#icon-location{
+    color: #F8F9FA;
+}
+
+.header-location{
+    display: flex;
+    align-items: center;
+}
+
+.location p{
+    color: #F8F9FA;
+    margin: 0 auto;
+}
+
+#sua-localizacao{
+    display: none;
+}
+
+.header-option{
+    width: 10vw;
+    justify-content: space-between;
+    display: none;
+}
+
+.itens-header{
+    display: flex;
+    justify-content: center;
+    color: #F8F9FA;
+    font-size: 1.5em
+}
+/* Fim Header*/
+
+.content{
+    max-width: 1440px !important;
+    position: relative;
+    width: 100vw;
+    display: flex;
+    margin-top: 3.5em;
+}
+
+.conteudo{
+    flex-wrap: wrap;   
+    justify-content: center; 
+}
+
+.conteudo-restaurantes{
+    max-width: 1440px !important;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.info-proximo{
+    width: 90vw;
+    margin-bottom: 1.5vh;
+}
+
+.info-proximo p {
+    color: var(--destaque);
+    font-weight: bolder;
+    font-size: large;
+}
+
+.restaurantes{
+    display: flex;
+    height: 5em;
+    border: 1px solid var(--border);
+    border-radius: var(--border-radius);
+    margin-bottom: 2vh;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.foto-restaurante{
+    position: relative;
+    display:flex;
+    align-content: center;
+}
+
+.foto-restaurante img{
+    width: 5em;
+    height: 4em;
+    border-radius: var(--border-radius);
+}
+
+.info-restaurante{
+    width: 40vw;
+}
+
+.info-restaurante p{
+    color: var(--texto);
+}
+
+.nome-restaurante p{
+    font-weight: bold;
+}
+
+.infos{
+    margin-top: 0.2em;
+    margin-bottom: 0.2em;
+}
+
+.col-1{
+    margin-right: 0.5em;
+    color: var(--texto);
+}
+
+.categoria{
+    display: flex;
+}
+
+.categorias-main{
+    display: none;
+}
+
+.distance{
+    display: flex;
+}
+
+.info-pessoas{
+    align-self: flex-start;
+    margin-top: 0.4em;
+    margin-right: 0.2em;
+}
+
+.pessoas{
+    display: flex;
+    color: var(--principal);
+}
+
+.pessoa p{
+    font-weight: bolder;
+}
+
+/*Inicio footer*/
+footer{
+    position: fixed;
+    bottom: 0;
+}
+
+.menu-bar{
+    width: 100vw;
+    height: 3em;
+    background-color: #4361EE;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.menu-option{
+    align-content: center;
+    flex-wrap: wrap;
+}
+
+.menu-option p{
+    margin: 0 auto;
+    font-size: smaller;
+    color: #F8F9FA;
+}
+    
+.icon-footer{
+    display: flex;
+    justify-content: center;
+}
+
+.itens-footer{
+    display: flex;
+    justify-content: center;
+    color: #F8F9FA;
+}
+/*Fim footer*/

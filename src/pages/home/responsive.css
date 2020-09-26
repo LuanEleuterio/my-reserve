@@ -1,0 +1,345 @@
+@media (max-width:320px) {
+    body{
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    /*Inicio Header*/
+
+    .icon-header{
+        position: absolute;
+        left: 5vw;
+    }
+
+    .header-location{
+        position: absolute;
+        left: 15vw;
+    }
+    
+    .header-location p{
+        font-size: medium;
+        font-weight: bolder;
+        margin: 0;
+    }
+    /* Fim Header*/
+
+    .conteudo{
+        display: flex;
+    }
+    
+    .conteudo-restaurantes{
+        justify-content: center;
+    }
+
+    .restaurantes{
+        width: 90vw;
+    }
+
+    .info-pessoas{
+        width: 10vw;
+    }
+}
+
+@media (min-width:321px) and (max-width:425px) {
+    body{
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    /*Inicio Header*/
+    .header{
+        justify-content: center;
+    }
+
+    .icon-header{
+        position: absolute;
+        left: 5vw;
+        font-size: 1.3em;
+    }
+
+    .header-location p{
+        font-size: medium;
+        font-weight: bolder;
+        margin: 0;
+    }
+    /*Fim Header*/
+    .conteudo{
+        display: flex;
+    }
+
+    .conteudo-restaurantes{
+        justify-content: center;
+    }
+
+    .restaurantes{
+        width: 90vw;
+        justify-content: space-between;
+    }
+    
+    .info-restaurante{
+        width: 40vw;
+    }
+
+    .foto-restaurante{
+        left: 1em;
+    }
+
+    .info-pessoas{
+        width: 10vw;
+    }
+
+    /*Inicio footer*/
+
+    footer{
+        position: fixed;
+        bottom: 0;
+    }
+
+    .menu-option{
+        align-content: center;
+        flex-wrap: wrap;
+    }
+
+    .menu-option p{
+        margin: 0 auto;
+        font-size: smaller;
+        color: #F8F9FA;
+    }
+        
+    .icon-footer{
+        display: flex;
+        justify-content: center;
+    }
+
+    .itens-footer{
+        display: flex;
+        justify-content: center;
+        color: #F8F9FA;
+    }
+    /*Fim footer*/
+}
+
+@media (min-width:426px) and (max-width:768px){
+    body{
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .header{
+        justify-content: center;
+    }
+
+    .icon-header{
+        position: absolute;
+        left: 5vw;
+        font-size: 1.5em;
+    }
+
+    .header-location p{
+        font-size: large;
+        font-weight: bolder;
+        margin: 0;
+    }
+
+    .conteudo{
+        display: flex;
+    }
+    
+    .conteudo-restaurantes{
+        justify-content: space-between;
+        width: 92vw;
+    }
+
+    .restaurantes{
+        width: 45vw;
+    }
+
+    .foto-restaurante img{
+        width: 10vw;
+        min-width: 4em;
+        height: 4em;
+    }
+
+    .info-restaurante{
+        width: 18vw;
+    }
+}
+
+@media (min-width:769px)  {
+
+    body{
+        flex-wrap: wrap;
+    }
+
+    /*Inicio Header*/
+    .header{
+        position: absolute;
+        justify-content: space-around;
+    }
+
+    .logo, .logo a {
+        display: flex;
+    }
+
+    .logo img{
+        color: var(--secundaria);
+        width: 2em;
+        height: 2.5em;
+    }
+
+    .location{
+        flex-wrap: wrap;
+    }
+
+    .header-location{
+        width: 18vw;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+    }
+
+    .header-location p {
+        font-size: small;
+        margin: 0;
+    }
+
+    .header-option{
+        width: 12vw;
+    }
+
+    #sua-localizacao{
+        display: flex;
+        font-weight: bolder;
+        margin: 0;
+        font-size: medium;
+    }
+
+    .icon-header{
+        position: relative;
+        right: 0.3em;
+    }
+
+    .busca-header{
+        display: flex;
+    }
+
+    .filter-header{
+        position: relative;
+        display: flex;
+        left: 0.5em;
+    }
+
+    .name-box ::-webkit-input-placeholder{
+        color: var(--destaque);
+        font-size: large;
+        font-family: var(--font);
+        font-weight: 400;
+    }
+
+    .name-box input[type="text"] {
+        color : var(--destaque); 
+        font-size: large;
+        font-family: var(--font);
+        font-weight: 400;
+    }
+
+    #icon-search{
+        position: absolute;
+        color: var(--destaque);
+        font-size: 1.5em;
+        top: 0.3em;
+        left: 0.4em;
+    }
+
+    #icon-filter{
+        color: var(--secundaria);
+        font-size: 1.5em;
+        top: 0.4em;
+        left: 0.4em;
+    }
+
+    #search-bar{
+        border-radius: var(--border-radius);
+        border-color: var(--principal);
+        background-color: var(--input);
+        padding-left: 2.5em;
+        width: 40vw;
+        height: 2.1em;
+        border-style: none;
+        outline: none;
+    }
+
+    .header-option{
+        display: flex;
+    }
+
+    .menu-option p{
+        font-size: .9em;
+    }
+
+    /*Fim Header*/
+
+    .content{
+        margin-top: 4em;
+        justify-content: center;
+    }
+
+    .conteudo{
+        flex-wrap: wrap;
+        width: 90vw;
+    }
+
+    .categorias-main{
+        display: flex;
+        width: 90vw;
+        margin-bottom: 1em;
+    }
+
+    .img-categoria{
+        width: 5em;
+        height: 4em;
+        border-radius: var(--border-radius);
+    }
+
+    .info-proximo p {
+        font-size: x-large;
+    }
+
+    .conteudo-restaurantes{
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .restaurantes{
+        width: 28vw;
+        height: 6em;
+    }
+
+    .foto-restaurante{
+        width: 9vw;
+        max-width: 5em;
+        min-width: 3.5em;
+    }
+
+    .info-restaurante{
+        width: 12vw;
+    }
+
+    footer{
+        display: none;
+    }
+}
+
+@media (min-width:1390px) {
+
+    body{
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    #sua-localizacao{
+        font-size: large;
+    }
+
+    footer{
+        display: none;
+    }
+}
