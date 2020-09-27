@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    font-family: 'Roboto';
+}
+
+
+/*TAGs*/
+body{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+header{
+    display: flex;
+    align-items: center;
+    width: 100vw;
+    height: 8vh;
+    background-color: #4361EE;
+}
+
+
+/*Classes*/
+.titulo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 84vw;
+    color:white;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+.voltar{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.pedido{
+    display: flex;
+    border: solid 1px #CCC;
+    border-radius: 8px;
+    width: 90vw;
+    padding: 4px 0 4px 0;
+    margin: 10px 0 0 0;
+}
+.horario{
+    font-size: 1.4em;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    border-right: 1px solid #CCC;
+    width: 40%;
+}
+.pedido-cliente{
+    display: flex;
+    flex-direction: column;
+    padding-left: 10px;
+    width: 50vw;
+    flex-wrap: wrap;
+}
+.btn-pedido{
+    display: flex;
+    justify-content: flex-end;
+}
+.btn-cancelar{
+    border: none;
+    color: white;
+    background-color: #D62839;
+    border-radius: 10px;
+    font-size: 0.8em;
+    width: 25vw;
+    height: 4vh;
+}
+
+
+/*IDs*/
+#voltar{
+    display: flex;
+    width: 8vw;
+}
+
+
+/* Estilo de texto*/
+.texto-bold{
+    font-weight: bold;
+}
+
+.descricao{
+    color: #322153;
+    opacity: 60%;
+}
