@@ -17,6 +17,7 @@ a{
 /* Inicio Header*/
 header{
     position: fixed;
+    z-index: 5;
 }
 .header{
     max-width: 1440px !important;
@@ -177,7 +178,13 @@ header{
 }
 
 .categorias-main{
-    display: none;
+    display: none !important;
+}
+
+.tipo-categoria p{
+    display: flex;
+    justify-content: center;
+    width: 100vw;
 }
 
 .distance{
