@@ -21,7 +21,9 @@ header{
     height: 8vh;
     background-color: #4361EE;
 }
-
+main{
+    margin-bottom: 15%;
+}
 
 /*Classes*/
 .titulo{
@@ -43,7 +45,7 @@ header{
     border: solid 1px #CCC;
     border-radius: 8px;
     width: 90vw;
-    padding: 4px 0 4px 0;
+    
     margin: 10px 0 0 0;
 }
 .horario{
@@ -52,6 +54,7 @@ header{
     justify-content: center;
     flex-wrap: wrap;
     border-right: 1px solid #CCC;
+    padding: 4px 0 4px 0;
     width: 40%;
 }
 .pedido-cliente{
@@ -59,11 +62,13 @@ header{
     flex-direction: column;
     padding-left: 10px;
     width: 50vw;
+    padding: 4px 0 0 10px;
     flex-wrap: wrap;
 }
 .btn-pedido{
     display: flex;
     justify-content: flex-end;
+    padding: 0 0 4px 0;
 }
 .btn-cancelar{
     border: none;
@@ -75,6 +80,42 @@ header{
     height: 4vh;
 }
 
+
+footer{
+    position: fixed;
+    bottom: 0;
+}
+
+.menu-bar{
+    width: 100vw;
+    height: 3em;
+    background-color: #4361EE;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.menu-option{
+    align-content: center;
+    flex-wrap: wrap;
+}
+
+.menu-option p{
+    margin: 0 auto;
+    font-size: smaller;
+    color: #F8F9FA;
+}
+    
+.icon-footer{
+    display: flex;
+    justify-content: center;
+}
+
+.itens-footer{
+    display: flex;
+    justify-content: center;
+    color: #F8F9FA;
+}
 
 /*IDs*/
 #voltar{
@@ -91,4 +132,8 @@ header{
 .descricao{
     color: #322153;
     opacity: 60%;
+}
+
+.a-none{
+    text-decoration: none;
 }
