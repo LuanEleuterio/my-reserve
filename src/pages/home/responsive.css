@@ -35,7 +35,7 @@
         width: 90vw;
     }
 
-    .info-pessoas{
+    .info-num-pessoas{
         width: 10vw;
     }
 }
@@ -83,7 +83,7 @@
         left: 1em;
     }
 
-    .info-pessoas{
+    .info-num-pessoas{
         width: 10vw;
     }
 
@@ -186,6 +186,10 @@
         height: 2.5em;
     }
 
+    .logo p{
+        font-size: x-large;
+    }
+
     .location{
         flex-wrap: wrap;
     }
@@ -194,6 +198,7 @@
         width: 18vw;
         flex-wrap: wrap;
         justify-content: flex-start;
+        max-width: 260px;
     }
 
     .header-location p {
@@ -203,6 +208,7 @@
 
     .header-option{
         width: 12vw;
+        max-width: 173px;
     }
 
     #sua-localizacao{
@@ -265,6 +271,7 @@
         height: 2.1em;
         border-style: none;
         outline: none;
+        max-width: 531px;
     }
 
     .header-option{
@@ -290,17 +297,18 @@
     .categorias-main{
         display: flex !important;
         width: 90vw;
-        margin-bottom: 1em;
         justify-content: space-between;
+        max-width: 1296px;
+        margin: 0 auto;
+        margin-bottom: 1em;
     }
 
     .tipo-categoria{
         display: flex !important;
         flex-wrap: wrap;
-        margin-left: 1em;
-        margin-right: 1em;
         width: 11vw;
         justify-content: center;
+        outline: none;
     }
 
     .img-categoria{
@@ -320,9 +328,10 @@
         font-size: 0px;
         border: none;
         width: 10vw;
-        max-width: 100px;
+        max-width: 44px;
         background-color: transparent;
         background-image: url('../../icons/arrow-circle-left-solid.svg');
+        filter: url(#arrow-left);
         background-repeat: no-repeat;
         background-position-y: center;
         z-index: 5;
@@ -335,7 +344,7 @@
         font-size: 0px;
         border: none;
         width: 10vw;
-        max-width: 100px;
+        max-width: 44px;
         background-color: transparent;
         background-image: url('../../icons/arrow-circle-right-solid.svg');
         background-repeat: no-repeat;
@@ -370,6 +379,32 @@
         width: 12vw;
     }
 
+    .carrega-restaurante{
+        display: flex;
+        align-items: flex-end;
+        margin: 0 auto;
+    }
+
+    #btn-ver-mais{
+        width: 100vw;
+        max-width: 1296px;
+        height: 2em;
+        background-color: transparent;
+        border: solid var(--border) 1px;
+        border-radius: 4px;
+        color: var(--destaque);
+        font-size: medium;
+        font-family: var(--font);
+        font-weight: 400;
+        outline: none;
+    }
+
+    #btn-ver-mais:hover{
+        background-color: var(--destaque);
+        border: solid var(--destaque) 1px;
+        color: var(--secundaria);
+    }
+
     footer{
         display: none;
     }
@@ -384,6 +419,10 @@
 
     #sua-localizacao{
         font-size: large;
+    }
+
+    .carrega-restaurante{
+        display: flex;
     }
 
     footer{

@@ -113,13 +113,16 @@ header{
 }
 
 .conteudo-restaurantes{
-    max-width: 1440px !important;
+    max-width: 1296px !important;
     display: flex;
     flex-wrap: wrap;
+    margin: 0 auto;
 }
 
 .info-proximo{
     width: 90vw;
+    max-width: 1296px;
+    margin: 0 auto;
     margin-bottom: 1.5vh;
 }
 
@@ -137,6 +140,7 @@ header{
     margin-bottom: 2vh;
     justify-content: space-around;
     align-items: center;
+    max-width: 402px;
 }
 
 .foto-restaurante{
@@ -153,6 +157,7 @@ header{
 
 .info-restaurante{
     width: 40vw;
+    max-width: 173px;
 }
 
 .info-restaurante p{
@@ -191,19 +196,24 @@ header{
     display: flex;
 }
 
-.info-pessoas{
+.info-num-pessoas{
     align-self: flex-start;
     margin-top: 0.4em;
     margin-right: 0.2em;
 }
 
-.pessoas{
+.numero-pessoas{
     display: flex;
     color: var(--principal);
 }
 
-.pessoa p{
+.quantidade-pessoa p{
     font-weight: bolder;
+}
+
+.carrega-restaurante{
+    display:none;
+    max-width: 1296px;
 }
 
 /*Inicio footer*/
