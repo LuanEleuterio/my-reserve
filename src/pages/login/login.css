@@ -1,0 +1,129 @@
+@import url('../../theme/colors.css');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+body {
+    background: var(--secundaria);
+    color: var(--preto);
+}
+
+.container {
+    background: url('../../img/undraw_connected_world_wuay.svg') no-repeat center;
+    background-size: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    height: 600px;
+}
+
+.logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo p {
+    margin-left: .3rem;
+    font-weight: 700;
+}
+
+form {
+    border: 1px solid var(--border);
+    border-radius: var(--border-radius);
+    padding: 50px 20px;
+    max-width: 400px;
+    width: 85%;
+}
+
+.flex-outer {
+    list-style-type: none;
+}
+
+.flex-outer {
+    max-width: 350px;
+    margin: 0 auto;
+}
+
+.flex-outer li {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.flex-outer>li:not(:last-child) {
+    margin-bottom: 20px;
+}
+
+.flex-outer li input {
+    padding: 15px;
+    border: none;
+    width: 100%;
+}
+
+#forgot {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 5px;
+}
+
+#forgot a {
+    text-decoration: none;
+    color: var(--principal);
+    font-size: .9em;
+}
+
+input {
+    border: none;
+    outline: none;
+    background: none;
+}
+
+.password,
+.username {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    padding: 0px 15px 0px 20px;
+    border: 1px solid var(--border);
+    border-radius: var(--border-radius);
+    width: 350px;
+}
+
+.fa-lock,
+.fa-user {
+    display: inline-block;
+    color: #CCC;
+    margin-right: .5rem;
+}
+
+input[type=submit] {
+    margin: 0 auto;
+    padding: 8px 16px;
+    border-radius: var(--border-radius);
+    background: var(--principal);
+    color: var(--secundaria);
+    text-transform: uppercase;
+    letter-spacing: .09em;
+}
+
+.create-account {
+    margin-top: 2em;
+    max-width: 400px;
+    padding: 20px;
+    width: 85%;
+    border: 1px solid var(--border);
+    border-radius: var(--border-radius);
+    text-align: center;
+}
+
+.create-account a {
+    text-decoration: none;
+    color: var(--principal);
+}
+
+form,
+.logo {
+    margin-top: 1.5em;
+}

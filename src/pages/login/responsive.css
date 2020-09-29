@@ -1,0 +1,8 @@
+@media (max-width: 768px) {
+    .container {
+        background: none;
+    }
+    #forgot a {
+        font-size: .8em;
+    }
+}
