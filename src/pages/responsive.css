@@ -1,0 +1,68 @@
+@media(max-width:425px){
+    .foto-perfil{
+        display: none;
+    }
+    .titulo-in{
+        display: none;
+    }
+}
+
+@media(max-width:768px){
+    .foto-perfil{
+        display: none;
+    }
+    .horario{
+        width: 160px;
+    }
+    .titulo-in{
+        display: none;
+    }
+}
+
+@media(min-width: 768px) {
+    .foto-perfil{
+        display: none;
+    }
+    .horario{
+        width: 160px;
+    }
+    .pedido-cliente{
+        width: 62vw;
+    }
+    .titulo-in{
+        display: none;
+    }
+}
+
+@media(min-width: 1024px){
+    main{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    footer{
+        display: none;
+    }
+
+    .btn-pedido{
+        display: none;
+    }
+    .pedido{
+        margin: 1% 1% 1% 1%;
+        padding: 0.6% 0.6% 0.6% 0.6%;
+        width: 30%;
+    }
+    .horario{
+        border-right: none;
+    }
+    .foto-perfil{
+        display: block;
+        width: 10vw;
+    }
+
+
+    .none{
+        display: none;
+    }
+
+}
