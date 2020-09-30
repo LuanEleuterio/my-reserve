@@ -116,7 +116,14 @@ footer{
     justify-content: center;
     color: #F8F9FA;
 }
-
+.icon-pedido-lixeira{
+    display: flex;
+    justify-content: space-between;
+}
+.icon-pedido-pessoas{
+    display: flex;
+    justify-content: space-between;
+}
 /*IDs*/
 #voltar{
     display: flex;
