@@ -8,18 +8,24 @@
 
     .icon-header{
         position: absolute;
-        left: 5vw;
+        right: 13.5em;
+        font-size: 1.4em;
     }
 
     .header-location{
-        position: absolute;
-        left: 15vw;
+        position: relative;
+        left: 13vw;
     }
     
     .header-location p{
         font-size: medium;
         font-weight: bolder;
         margin: 0;
+    }
+
+    .mobile{
+        display: flex;
+        align-items: center;
     }
     /* Fim Header*/
 
@@ -52,14 +58,19 @@
 
     .icon-header{
         position: absolute;
-        left: 5vw;
-        font-size: 1.3em;
+        right: 90vw;
+        font-size: 1.5em;
     }
 
     .header-location p{
         font-size: medium;
         font-weight: bolder;
         margin: 0;
+    }
+
+    .mobile{
+        display: flex;
+        align-items: center;
     }
     /*Fim Header*/
     .conteudo{
@@ -130,7 +141,7 @@
 
     .icon-header{
         position: absolute;
-        left: 5vw;
+        right: 95vw;
         font-size: 1.5em;
     }
 
@@ -138,6 +149,11 @@
         font-size: large;
         font-weight: bolder;
         margin: 0;
+    }
+    
+    .mobile{
+        display: flex;
+        align-items: center;
     }
 
     .conteudo{
@@ -161,6 +177,12 @@
 
     .info-restaurante{
         width: 18vw;
+    }
+}
+
+@media(min-width: 769px) and (max-width: 920px){
+    #sua-localizacao{
+        font-size: small !important;
     }
 }
 
@@ -195,7 +217,7 @@
     }
 
     .header-location{
-        width: 18vw;
+        width: 21vw;
         flex-wrap: wrap;
         justify-content: flex-start;
         max-width: 260px;
@@ -218,11 +240,6 @@
         font-size: medium;
     }
 
-    .icon-header{
-        position: relative;
-        right: 0.3em;
-    }
-
     .busca-header{
         display: flex;
     }
@@ -231,6 +248,19 @@
         position: relative;
         display: flex;
         left: 0.5em;
+    }
+
+    .endereco-location{
+        display: flex;
+    }
+
+    #seu-endereco{
+        position: relative;
+        left: .5em;
+    }
+
+    .mobile{
+        display: none;
     }
 
     .name-box ::-webkit-input-placeholder{
@@ -415,6 +445,10 @@
     body{
         flex-direction: row;
         flex-wrap: wrap;
+    }
+
+    .mobile{
+        display: none;
     }
 
     #sua-localizacao{

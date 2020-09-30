@@ -57,9 +57,28 @@ header{
     align-items: center;
 }
 
+.mobile{
+    color: var(--secundaria);
+    display: none;
+    position: absolute;
+    right: 1em;
+}
+
 .location{
     display:flex;
     align-items: center;
+    max-height: 48px;
+}
+
+.endereco-location{
+    display: flex;
+}
+
+.location-input{
+    border: none;
+    background-color: var(--principal);
+    cursor: pointer;
+    outline: none;
 }
 
 .icon-header{
