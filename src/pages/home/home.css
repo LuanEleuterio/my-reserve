@@ -7,11 +7,16 @@ body{
 }
 
 p{
-    font-family: 'Roboto', sans-serif;
+    font-family: var(--font);
 }
 
 a{
     text-decoration: none;
+}
+
+h3{
+    font-family: var(--font);
+    color: var(--texto);
 }
 
 /* Inicio Header*/
@@ -55,6 +60,13 @@ header{
 .filter-header{
     display: none;
     align-items: center;
+}
+
+.btn-filter{
+    border: none;
+    background-color: var(--principal);
+    cursor: pointer;
+    outline: none;
 }
 
 .mobile{
@@ -116,6 +128,7 @@ header{
     color: #F8F9FA;
     font-size: 1.5em
 }
+
 /* Fim Header*/
 
 .content{
@@ -156,7 +169,6 @@ header{
     height: 5em;
     border: 1px solid var(--border);
     border-radius: var(--border-radius);
-    margin-bottom: 2vh;
     justify-content: space-around;
     align-items: center;
     max-width: 402px;
@@ -176,15 +188,23 @@ header{
 
 .info-restaurante{
     width: 40vw;
-    max-width: 173px;
+    max-width: 216px;
 }
 
 .info-restaurante p{
     color: var(--texto);
 }
 
-.nome-restaurante p{
+.nome-restaurante {
     font-weight: bold;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.restaurante-container{
+    cursor:pointer;
+    margin-bottom: 2vh;
 }
 
 .infos{
@@ -199,6 +219,7 @@ header{
 
 .categoria{
     display: flex;
+    align-items: center;
 }
 
 .categorias-main{
@@ -224,10 +245,12 @@ header{
 .numero-pessoas{
     display: flex;
     color: var(--principal);
+    align-items: baseline;
 }
 
-.quantidade-pessoa p{
+.quantidade-pessoa {
     font-weight: bolder;
+    margin-right: .1em;
 }
 
 .carrega-restaurante{
@@ -272,3 +295,12 @@ footer{
     color: #F8F9FA;
 }
 /*Fim footer*/
+
+.modal-conteiner{
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    background: var(--preto);
+    z-index: 10;
+    display: none;
+}

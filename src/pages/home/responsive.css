@@ -176,13 +176,17 @@
     }
 
     .info-restaurante{
-        width: 18vw;
+        width: 20vw;
     }
 }
 
 @media(min-width: 769px) and (max-width: 920px){
     #sua-localizacao{
         font-size: small !important;
+    }
+
+    .info-restaurante{
+        width: 10vw !important;
     }
 }
 
@@ -194,7 +198,7 @@
 
     /*Inicio Header*/
     .header{
-        position: absolute;
+        position: fixed;
         justify-content: space-around;
     }
 
@@ -248,6 +252,11 @@
         position: relative;
         display: flex;
         left: 0.5em;
+    }
+
+    .location-input{
+        width: 21vw;
+        max-width: 256px;
     }
 
     .endereco-location{
@@ -364,7 +373,7 @@
         filter: url(#arrow-left);
         background-repeat: no-repeat;
         background-position-y: center;
-        z-index: 5;
+        /*z-index: 5;*/
         top: 35%;
         margin-right: .5em;
         outline: none;
@@ -379,7 +388,7 @@
         background-image: url('../../icons/arrow-circle-right-solid.svg');
         background-repeat: no-repeat;
         background-position-y: center;
-        z-index: 5;
+        /*z-index: 5;*/ 
         top: 35%;
         right: 10%;
         outline: none;  
@@ -398,15 +407,22 @@
         width: 28vw;
         height: 6em;
     }
-
+    /*
     .foto-restaurante{
         width: 9vw;
         max-width: 5em;
         min-width: 3.5em;
+    }*/
+
+    .foto-restaurante img{
+        width: 10vw;
+        min-width: 3em;
+        max-width: 5em;
     }
 
     .info-restaurante{
-        width: 12vw;
+        width: 15vw;
+        min-width: 10vw;
     }
 
     .carrega-restaurante{
@@ -427,6 +443,7 @@
         font-family: var(--font);
         font-weight: 400;
         outline: none;
+        cursor: pointer;
     }
 
     #btn-ver-mais:hover{
@@ -437,6 +454,37 @@
 
     footer{
         display: none;
+    }
+
+    .modal-conteiner{
+        display: none;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .modal-conteudo{
+        width: 50vw;
+        max-width: 512px;
+        padding: 2vw;
+        box-sizing: border-box;
+        background: var(--secundaria);
+        border-radius: var(--border-radius);
+        position: relative;
+    }
+
+    .btn-fechar{
+        position: absolute;
+        background-color: transparent;
+        border: transparent;
+        outline: none;
+        top: 0.5em;
+        right: 1em;
+        cursor: pointer;
+    }
+
+    .fa-times{
+        color: var(--destaque);
+        font-size: large;
     }
 }
 

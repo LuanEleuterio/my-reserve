@@ -26,9 +26,11 @@
                 <i class="fas fa-search" id="icon-search"></i>
                 <input type="text" id="search-bar" value="" placeholder="Busque por restaurantes...">
             </div>
-            <div class="filter-header">
-                <i class="fas fa-filter" id="icon-filter"></i>
-            </div>
+            <button class='btn-filter'>
+                <div class="filter-header">
+                    <i class="fas fa-filter" id="icon-filter"></i>
+                </div>
+            </button>
         </div>
         <div class="location">
 
@@ -133,158 +135,8 @@
                 <p>Restaurantes próximos a você</p>
             </div>
             <div class="conteudo-restaurantes">
-                <a href="">
-                    <div class="restaurantes">
-                        <div class="foto-restaurante">
-                            <img src="../../img/bar-1846137_1920.jpg" alt="" class="foto">
-                        </div>
-                        <div class="info-restaurante">
-                            <div class="nome-restaurante infos">
-                                <p>Habbibs</p>
-                            </div>
-                            <div class="categoria infos">
-                                <div class="icon-restaurante col-1">
-                                    <i class="fas fa-utensils"></i>
-                                </div>
-                                <div class="categoria">
-                                    <p>Pizza</p>
-                                </div>
-                            </div>
-                            <div class="distance infos">
-                                <div class="icon-distance col-1">
-                                    <i class="fas fa-route"></i>
-                                </div>
-                                <div class="distancia">
-                                    <p>2km</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="info-num-pessoas">
-                            <div class="numero-pessoas">
-                                <div class="quantidade-pessoa">
-                                    <p>3</p>
-                                </div>
-                                <div class="icon-pessoa">
-                                    <i class="fas fa-user-friends"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-                <a href="">
-                    <div class="restaurantes">
-                        <div class="foto-restaurante">
-                            <img src="../../img/bar-1846137_1920.jpg" alt="" class="foto">
-                        </div>
-                        <div class="info-restaurante">
-                            <div class="nome-restaurante infos">
-                                <p>Habbibs</p>
-                            </div>
-                            <div class="categoria infos">
-                                <div class="icon-restaurante col-1">
-                                    <i class="fas fa-utensils"></i>
-                                </div>
-                                <div class="categoria">
-                                    <p>Pizza</p>
-                                </div>
-                            </div>
-                            <div class="distance infos">
-                                <div class="icon-distance col-1">
-                                    <i class="fas fa-route"></i>
-                                </div>
-                                <div class="distancia">
-                                    <p>2km</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="info-num-pessoas">
-                            <div class="numero-pessoas">
-                                <div class="quantidade-pessoa">
-                                    <p>3</p>
-                                </div>
-                                <div class="icon-pessoa">
-                                    <i class="fas fa-user-friends"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-                <a href="">
-                    <div class="restaurantes">
-                        <div class="foto-restaurante">
-                            <img src="../../img/bar-1846137_1920.jpg" alt="" class="foto">
-                        </div>
-                        <div class="info-restaurante">
-                            <div class="nome-restaurante infos">
-                                <p>Habbibs</p>
-                            </div>
-                            <div class="categoria infos">
-                                <div class="icon-restaurante col-1">
-                                    <i class="fas fa-utensils"></i>
-                                </div>
-                                <div class="categoria">
-                                    <p>Pizza</p>
-                                </div>
-                            </div>
-                            <div class="distance infos">
-                                <div class="icon-distance col-1">
-                                    <i class="fas fa-route"></i>
-                                </div>
-                                <div class="distancia">
-                                    <p>2km</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="info-num-pessoas">
-                            <div class="numero-pessoas">
-                                <div class="quantidade-pessoa">
-                                    <p>3</p>
-                                </div>
-                                <div class="icon-pessoa">
-                                    <i class="fas fa-user-friends"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-                <a href="">
-                    <div class="restaurantes">
-                        <div class="foto-restaurante">
-                            <img src="../../img/bar-1846137_1920.jpg" alt="" class="foto">
-                        </div>
-                        <div class="info-restaurante">
-                            <div class="nome-restaurante infos">
-                                <p>Habbibs</p>
-                            </div>
-                            <div class="categoria infos">
-                                <div class="icon-restaurante col-1">
-                                    <i class="fas fa-utensils"></i>
-                                </div>
-                                <div class="categoria">
-                                    <p>Pizza</p>
-                                </div>
-                            </div>
-                            <div class="distance infos">
-                                <div class="icon-distance col-1">
-                                    <i class="fas fa-route"></i>
-                                </div>
-                                <div class="distancia">
-                                    <p>2km</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="info-num-pessoas">
-                            <div class="numero-pessoas">
-                                <div class="quantidade-pessoa">
-                                    <p>3</p>
-                                </div>
-                                <div class="icon-pessoa">
-                                    <i class="fas fa-user-friends"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </a>
+
+
             </div>
             <div class="carrega-restaurante">
                 <button id="btn-ver-mais">Mostrar mais restaurantes</button>
@@ -329,11 +181,29 @@
         </section>
     </footer>
 
+    <div id="modal-filter" class="modal-conteiner">
+        <div class="modal-conteudo">
+            <button class="btn-fechar"><i class="fas fa-times"></i></button>
+            <h3>Filtros</h3>
+            <div class="filtro-conteudo">
+                <div class="filtro-distancia">
+                    <h3>dsadasdsd</h3>
+                </div>
+
+                <div class="filtro-pessoas">
+                    <h3>FilSAFDSFSDFSDFSDtros</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script src="https://kit.fontawesome.com/37a6fc82c8.js" crossorigin="anonymous"></script>
     <script type="text/javascript" src="../home/jquery.js"></script>
     <script type="text/javascript" src="../home/jquery-migrate.js"></script>
     <script type="text/javascript" src="../home/slick.min.js"></script>
     <script type="text/javascript" src="../home/slick.js"></script>
+    <script type="text/javascript" src='../home/allRestaurante.js'></script>
+    <script type="text/javascript" src="../home/home.js"></script>
 </body>
 
 </html>
