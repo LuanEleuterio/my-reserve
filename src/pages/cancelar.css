@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    font-family: 'Roboto';
+}
+
+
+/*TAGs*/
+body{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+header{
+    display: flex;
+    justify-content: center;
+    width: 100vw;
+    height: 16vh;
+    background-color: #4361EE;
+}
+main{
+    width: 90vw;
+    margin-top:24%;
+}
+span{
+    padding: 10px 0 10px 0;
+}
+
+.voltar{
+    position:absolute;
+    left: 20px;
+	top: 10px;
+}
+.titulo{
+    color:white;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+.conteudo-header{
+    padding-top: 2%;
+    display: flex;
+    justify-content: center;
+    width: 80vw;
+  
+}
+img{
+    border-top-left-radius: 50% 50%;
+    border-top-right-radius: 50% 50%;
+    border-bottom-right-radius: 50% 50%;
+    border-bottom-left-radius: 50% 50%;
+}
+.foto-perfil{
+    height: 28vw;
+    width: 28vw;
+}
+.foto{
+    position: absolute;
+    top:8%;
+    left: 35%;
+}
+
+.nome-pessoa{
+    display: flex;
+    flex-direction: column;
+}
+
+textarea{
+    border-radius: 10px;
+    border: none;
+    width: 90vw;
+    background-color: #F0F0F5;
+    outline: none;
+    padding: 3%;
+    resize:none;
+}
+
+.bold{
+    font-weight: bold;
+}
+
+.block-justificativa{
+    margin-top: 20%;
+}
+
+form{
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.botao-enviar{
+    background-color: #4361EE;
+    color: white;
+    border: none;
+    border-radius: 9px;
+    width: 80vw;
+    height: 6vh;
+    font-size: 1.2em;
+}
+.cb-email{
+    margin: 6% 0 6% 0;
+}
+
+.voltar{
+    display: flex;
+}
