@@ -1,27 +1,16 @@
 const conteinerRestaurantes = document.querySelector('.conteudo-restaurantes')
+const modalFilter = document.querySelector('.modal-conteiner')
+const modalPerfil = document.querySelector('.modal-perfil')
+const btnFilter = document.querySelector('.btn-filter')
+const btnPerfil = document.querySelector('#btn-perfil')
+const rangePessoa = document.querySelector('#range-pessoa')
+const rangeDistancia = document.querySelector('#range-distancia')
+const valueRangePessoa = document.querySelector('#value-range-pessoas')
+const valueRangeDistancia = document.querySelector('#value-range-distancia');
+
 
 function carregaRestaurantes() {
-    let restaurenteContainer;
-    let restaurantes;
-    let fotoRestaurante;
-    let imgRestaurante;
-    let infoRestaurante;
-    let nomeRestaurante;
-    let categoriaInfo;
-    let iconCategoria;
-    let nomeCategoria;
-    let distanceInfo;
-    let iconDistance;
-    let distancia;
-    let infoNumeroPessoas;
-    let numeroPessoas;
-    let qtdPessoas;
-    let iconPessoas;
-
     const allRestaurantes = listaRestaurantes;
-
-    console.log(listaRestaurantes);
-    console.log(allRestaurantes)
 
     allRestaurantes.forEach(values => {
         restaurenteContainer = document.createElement("a");
@@ -50,8 +39,8 @@ function carregaRestaurantes() {
         restaurantes.setAttribute("class", "restaurantes");
 
         fotoRestaurante.setAttribute("class", "foto-restaurante");
-        imgRestaurante.setAttribute("src", `${values.img_url}`);
-        console.log(values.img_url)
+        imgRestaurante.setAttribute("src", values.img_url);
+
         infoRestaurante.setAttribute("class", "info-restaurante");
         nomeRestaurante.setAttribute("class", "nome-restaurante infos");
         nomeRestaurante.textContent = values.name;
@@ -98,4 +87,41 @@ function carregaRestaurantes() {
 
 }
 
+function openModalFilter() {
+    modalFilter.classList.add('mostrar')
+
+    modalFilter.addEventListener("click", (e) => {
+        if (e.target.id == "button-fechar" || e.target.className == modalFilter.className) {
+            modalFilter.classList.remove('mostrar')
+        }
+    })
+}
+
+function openModalPerfil() {
+    modalPerfil.classList.add('mostrar');
+    //document.body.style.overflowY = 'hidden';
+
+    btnPerfil.addEventListener("click", (e) => {
+        console.log(e.target.className);
+        modalPerfil.classList.remove('mostrar')
+    })
+}
+
+btnPerfil.addEventListener("click", openModalPerfil)
+btnFilter.addEventListener("click", openModalFilter)
 window.addEventListener("load", carregaRestaurantes)
+
+
+window.addEventListener("load", () => {
+    valueRangePessoa.textContent = rangePessoa.value;
+})
+window.addEventListener("load", () => {
+    valueRangeDistancia.textContent = rangeDistancia.value + 'km';
+})
+
+rangePessoa.addEventListener('change', (e) => {
+    valueRangePessoa.textContent = e.target.value;
+})
+rangeDistancia.addEventListener('change', (e) => {
+    valueRangeDistancia.textContent = e.target.value + 'km';
+})

@@ -4,6 +4,7 @@ body{
     width: 100vw;
     background-color: #F8F9FA;
     justify-content: center;
+    overflow-x: hidden;
 }
 
 p{
@@ -26,7 +27,7 @@ header{
 }
 .header{
     max-width: 1440px !important;
-    width: 100vw;
+    width: 100vw !important;
     height: 3em;
     display: flex;
     background-color: #4361EE;
@@ -69,7 +70,7 @@ header{
     outline: none;
 }
 
-.mobile{
+.filter-mobile{
     color: var(--secundaria);
     display: none;
     position: absolute;
@@ -117,16 +118,17 @@ header{
 }
 
 .header-option{
+    display: none;
     width: 10vw;
     justify-content: space-between;
-    display: none;
 }
 
 .itens-header{
     display: flex;
     justify-content: center;
     color: #F8F9FA;
-    font-size: 1.5em
+    font-size: 1.8em;
+    margin-bottom: .1em;
 }
 
 /* Fim Header*/
@@ -303,4 +305,8 @@ footer{
     background: var(--preto);
     z-index: 10;
     display: none;
+}
+
+.modal-perfil{
+    display:none;
 }
