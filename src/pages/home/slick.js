@@ -8,9 +8,9 @@ $('.categorias-main').slick({
     arrows: true,
     responsive: [
         {
-            breakpoint: 768,
+            breakpoint: 600,
             settings: {
-                slidesToShow: 3,
+                slidesToShow: 7,
                 infinite: true,
                 slidesToScroll: 1,
                 infinite: true
@@ -19,7 +19,7 @@ $('.categorias-main').slick({
         {
             breakpoint: 1024,
             settings: {
-                slidesToShow: 5,
+                slidesToShow: 7,
                 infinite: true,
                 slidesToScroll: 1,
                 infinite: true

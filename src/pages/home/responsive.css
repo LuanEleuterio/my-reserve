@@ -6,6 +6,10 @@
 
     /*Inicio Header*/
 
+    .conteiner-header{
+        justify-content: unset;
+       }
+
     .icon-header{
         position: absolute;
         right: 13.5em;
@@ -193,12 +197,44 @@
 }
 
 @media(min-width: 769px) and (max-width: 920px){
-    #sua-localizacao{
-        font-size: small !important;
+
+    .logo img{
+        width: 1.7em !important;
+        height: 2em !important;
+    }
+
+    .logo p{
+        font-size: large !important;
+    }
+
+    #search-bar{
+        width: 35vw !important;
+        height: 1.9em !important;
+    }
+
+    #icon-filter{
+        font-size: 1em !important;
+    }
+
+    .header-location p{
+        font-size: smaller !important;
+    }
+
+    .menu-option {
+        font-size: smaller !important;
     }
 
     .info-restaurante{
         width: 10vw !important;
+    }
+
+    .img-carrousel img{
+        width: 5em !important;
+        height: 3.5em !important;
+    }
+
+    .name-categoria{
+        font-size: small !important;
     }
 }
 
@@ -210,8 +246,7 @@
 
     /*Inicio Header*/
     .header{
-        position: fixed;
-        justify-content: space-evenly;
+        justify-content: center;
     }
 
     .logo, .logo a {
@@ -271,6 +306,7 @@
 
     .busca-header{
         display: flex;
+        align-items: center;
     }
 
     .filter-header{
@@ -391,7 +427,6 @@
         filter: url(#arrow-left);
         background-repeat: no-repeat;
         background-position-y: center;
-        /*z-index: 5;*/
         top: 35%;
         margin-right: .5em;
         outline: none;
@@ -406,7 +441,6 @@
         background-image: url('../../icons/arrow-circle-right-solid.svg');
         background-repeat: no-repeat;
         background-position-y: center;
-        /*z-index: 5;*/ 
         top: 35%;
         right: 10%;
         outline: none;  
@@ -425,6 +459,7 @@
         width: 28vw;
         height: 6em;
     }
+
     /*
     .foto-restaurante{
         width: 9vw;
@@ -475,13 +510,13 @@
         display: none;
     }
 
-    .modal-conteiner{
+    .modal-conteiner-filter{
         display: none;
         justify-content: center;
         align-items: center;
     }
 
-    .modal-conteiner.mostrar{
+    .modal-conteiner-filter.mostrar{
         display: flex;
     }
 
@@ -542,6 +577,10 @@
         cursor: pointer;
     }
 
+    .filtro-nomenclatura{
+        color: var(--texto);
+    }
+
     .value-range-filter{
         display: flex;
         justify-content: center;
@@ -549,26 +588,53 @@
         font-size: large;
         font-weight: bolder;
     }
+
+    .modal-conteiner-perfil{
+        display: none;
+    }
+
+    .modal-conteiner-perfil.mostrar{
+        display: flex;
+    }
     
     .modal-perfil{
-        position: fixed;
-        display: none;
+        position: absolute;
+        display: flex;
         flex-wrap: wrap;
-        width: 15vw;
+        width: 13vw;
         height: 13em;
 
         background: var(--secundaria);
         border-radius: var(--border-radius);
         border: var(--preto);
-        box-shadow: 0 1px 5px 1px var(--preto);
+        box-shadow: 0 1px 3px 1px var(--preto);
         z-index: 10;
         top: 2.8em;
-        right: 1em;
+        right: 3vw;
     }
 
-    .modal-perfil.mostrar{
+    .mostrar .modal-perfil{
+        animation: modal-animation-perfil .3s;
+    }
+
+    .btn-modal-perfil{
         display: flex;
-        animation: modal-animation .3s;
+        align-items: center;
+        justify-content: center;
+
+        width: 100%;
+        border: none;
+        background: transparent;
+        outline: none;
+        cursor: pointer;
+    }
+
+    .btn-modal-perfil:hover .box-modal-perfil i{
+        color: var(--destaque);
+    }
+
+    .btn-modal-perfil:hover .box-modal-perfil p{
+        color: var(--destaque);
     }
 
     .box-modal-perfil{
@@ -576,28 +642,29 @@
         justify-content: flex-start;
         align-items: center;
         position: relative;
-        width: 100vw;
+        width: 90%;
     }
 
     .box-modal-perfil i{
+        display: flex;
+        justify-content: flex-start;
+
         box-sizing: border-box;
-        font-size: 1.5em;
+        font-size: 1.8vw;
         color: var(--texto);
         margin-left: .5em;
-        width: 5vw;
+        width: 3vw;
+        max-width: 45px;
     }
 
     .box-modal-perfil p{
         display: flex;
         justify-content: flex-start;
-        font-size: large;
+        font-size: 1.3vw;
         font-weight: bolder;
         color: var(--texto);
     }
 
-    .box-modal-perfil:hover{
-        
-    }
 
     @keyframes modal-animation {
         from{
@@ -608,6 +675,15 @@
         to{
             opacity: 1;
             transform: translate3d(0, 0, 0);
+        }
+    }
+
+    @keyframes modal-animation-perfil {
+        from{
+            opacity: 0;
+        }
+        to{
+            opacity: 1;
         }
     }
 }
@@ -633,5 +709,13 @@
 
     footer{
         display: none;
+    }
+
+    .box-modal-perfil i{
+        font-size: 1.4em;
+    }
+
+    .box-modal-perfil p{
+        font-size: 1.3em;
     }
 }

@@ -15,56 +15,58 @@
 
 <body>
     <header class="header">
-        <div class="logo">
-            <a href="">
-                <img src="../../icons/knife-fork.svg" alt="">
-                <p>myReserve</p>
-            </a>
-        </div>
-        <div class="busca-header">
-            <div class="name-box">
-                <i class="fas fa-search" id="icon-search"></i>
-                <input type="text" id="search-bar" value="" placeholder="Busque por restaurantes...">
+        <div class="conteiner-header">
+            <div class="logo">
+                <a href="">
+                    <img src="../../icons/knife-fork.svg" alt="">
+                    <p>myReserve</p>
+                </a>
             </div>
-            <button class='btn-filter'>
-                <div class="filter-header">
-                    <i class="fas fa-filter" id="icon-filter"></i>
+            <div class="busca-header">
+                <div class="name-box">
+                    <i class="fas fa-search" id="icon-search"></i>
+                    <input type="text" id="search-bar" value="" placeholder="Busque por restaurantes...">
                 </div>
-            </button>
-        </div>
-        <div class="location">
-            <div class='header-location'>
-                <p id="sua-localizacao">SUA LOCAZILAÇÃO</p>
-                <button class='location-input'>
-                    <div class="endereco-location">
-                        <div class="icon-header">
-                            <i class="fas fa-map-marker-alt" id='icon-location'></i>
-                        </div>
-                        <p id="seu-endereco">Rua Tenente Comandante Oliveira</p>
+                <button class='btn-filter'>
+                    <div class="filter-header">
+                        <i class="fas fa-filter" id="icon-filter"></i>
                     </div>
                 </button>
             </div>
-        </div>
-        <div class="filter-header filter-mobile">
-            <i class="fas fa-filter" id="icon-filter"></i>
-        </div>
-        <div class="header-option">
-            <button id='btn-reserva' class='btn-header-option'>
-                <div class="menu-option reserva">
-                    <div class="icon-footer">
-                        <i class="fas fa-chair itens-header"></i>
-                    </div>
-                    <p>Reservas</p>
+            <div class="location">
+                <div class='header-location'>
+                    <p id="sua-localizacao">SUA LOCAZILAÇÃO</p>
+                    <button class='location-input'>
+                        <div class="endereco-location">
+                            <div class="icon-header">
+                                <i class="fas fa-map-marker-alt" id='icon-location'></i>
+                            </div>
+                            <p id="seu-endereco">Rua Tenente Comandante Oliveira</p>
+                        </div>
+                    </button>
                 </div>
-            </button>
-            <button id='btn-perfil' class='btn-header-option'>
-                <div class="menu-option perfil">
-                    <div class="icon-footer">
-                        <i class="fas fa-user itens-header"></i>
+            </div>
+            <div class="filter-header filter-mobile">
+                <i class="fas fa-filter" id="icon-filter"></i>
+            </div>
+            <div class="header-option">
+                <button id='btn-reserva' class='btn-header-option'>
+                    <div class="menu-option reserva">
+                        <div class="icon-footer">
+                            <i class="fas fa-chair itens-header"></i>
+                        </div>
+                        <p>Reservas</p>
                     </div>
-                    <p>Perfil</p>
-                </div>
-            </button>
+                </button>
+                <button id='btn-perfil' class='btn-header-option'>
+                    <div class="menu-option perfil">
+                        <div class="icon-footer">
+                            <i class="fas fa-user itens-header"></i>
+                        </div>
+                        <p>Perfil</p>
+                    </div>
+                </button>
+            </div>
         </div>
     </header>
     <main class="content">
@@ -177,19 +179,19 @@
         </section>
     </footer>
 
-    <div id="modal-filter" class="modal-conteiner">
+    <div id="modal-filter" class="modal-conteiner-filter">
         <div class="modal-conteudo">
             <button class="btn-fechar"><i id="button-fechar" class="fas fa-times"></i></button>
             <h3>Filtros</h3>
             <div class="filtro-conteudo">
                 <div class="filtro-distancia">
-                    <p>Pessoas por reserva</p>
+                    <p class='filtro-nomenclatura'>Pessoas por reserva</p>
                     <input id="range-pessoa" class='slider-range-filter' type="range" min="1" max="30" value="5">
                     <p id='value-range-pessoas' class='value-range-filter'></p>
                 </div>
 
                 <div class="filtro-pessoas">
-                    <p>Distância</p>
+                    <p class='filtro-nomenclatura'>Distância</p>
                     <input id="range-distancia" class='slider-range-filter' type="range" min="1" max="30" value="5">
                     <p id="value-range-distancia" class='value-range-filter'></p>
                 </div>
@@ -197,18 +199,28 @@
         </div>
     </div>
 
-    <div class="modal-perfil">
-        <div class="editar-modal box-modal-perfil">
-            <i class="fas fa-user-cog"></i>
-            <p>Editar Dados</p>
-        </div>
-        <div class="pagamento-modal box-modal-perfil">
-            <i class="fas fa-credit-card"></i>
-            <p>Pagamento</p>
-        </div>
-        <div class="logout-modal box-modal-perfil">
-            <i class="fas fa-sign-out-alt"></i>
-            <p>Desconectar</p>
+    <div class="modal-conteiner-perfil">
+        <div class="modal-perfil">
+            <button id='btn-edit-perfil' class='btn-modal-perfil'>
+                <div class="editar-modal box-modal-perfil">
+                    <i class="fas fa-user-cog"></i>
+                    <p>Editar Dados</p>
+                </div>
+            </button>
+
+            <button id='btn-pagamento' class='btn-modal-perfil'>
+                <div class="pagamento-modal box-modal-perfil">
+                    <i class="fas fa-credit-card"></i>
+                    <p>Pagamento</p>
+                </div>
+            </button>
+
+            <button id='btn-sair' class='btn-modal-perfil'>
+                <div class="logout-modal box-modal-perfil">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <p>Desconectar</p>
+                </div>
+            </button>
         </div>
     </div>
 

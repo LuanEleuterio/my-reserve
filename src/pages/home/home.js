@@ -1,6 +1,6 @@
 const conteinerRestaurantes = document.querySelector('.conteudo-restaurantes')
-const modalFilter = document.querySelector('.modal-conteiner')
-const modalPerfil = document.querySelector('.modal-perfil')
+const modalFilter = document.querySelector('.modal-conteiner-filter')
+const modalPerfil = document.querySelector('.modal-conteiner-perfil')
 const btnFilter = document.querySelector('.btn-filter')
 const btnPerfil = document.querySelector('#btn-perfil')
 const rangePessoa = document.querySelector('#range-pessoa')
@@ -99,9 +99,8 @@ function openModalFilter() {
 
 function openModalPerfil() {
     modalPerfil.classList.add('mostrar');
-    //document.body.style.overflowY = 'hidden';
 
-    btnPerfil.addEventListener("click", (e) => {
+    modalPerfil.addEventListener("click", (e) => {
         console.log(e.target.className);
         modalPerfil.classList.remove('mostrar')
     })

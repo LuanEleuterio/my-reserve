@@ -25,13 +25,20 @@ header{
     position: fixed;
     z-index: 5;
 }
+
 .header{
-    max-width: 1440px !important;
     width: 100vw !important;
     height: 3em;
     display: flex;
     background-color: #4361EE;
     align-items: center;
+}
+
+.conteiner-header{
+    width: 100vw;
+    max-width: 1440px !important;
+    display: flex;
+    justify-content: space-evenly;
 }
 
 .logo, .logo a {
@@ -74,7 +81,8 @@ header{
     color: var(--secundaria);
     display: none;
     position: absolute;
-    right: 1em;
+    right: 0.5em;
+    top: 1em;
 }
 
 .location{
@@ -298,7 +306,7 @@ footer{
 }
 /*Fim footer*/
 
-.modal-conteiner{
+.modal-conteiner-filter{
     width: 100vw;
     height: 100vh;
     position: fixed;
@@ -307,6 +315,17 @@ footer{
     display: none;
 }
 
+.modal-conteiner-perfil{
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    background: transparent;
+    z-index: 10;
+    display: none;
+    max-width: 1440px;
+}
+
 .modal-perfil{
     display:none;
+    max-width: 205px;
 }
