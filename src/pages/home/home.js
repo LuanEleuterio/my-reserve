@@ -8,6 +8,7 @@ const rangeDistancia = document.querySelector('#range-distancia')
 const valueRangePessoa = document.querySelector('#value-range-pessoas')
 const valueRangeDistancia = document.querySelector('#value-range-distancia');
 const testeT = document.querySelector('#btn-edit-perfil')
+const categoriaMain = document.querySelector('.categorias-main')
 
 
 function carregaRestaurantes() {
@@ -88,6 +89,41 @@ function carregaRestaurantes() {
 
 }
 
+function carregaCategorias() {
+    const allCategorias = listaCategorias;
+    var scale = 'scale(1.5)';
+
+    btnPrev = document.createElement("button")
+
+    allCategorias.forEach(categoria => {
+        tipoCategoria = document.createElement("a");
+        imgCarrousel = document.createElement("figure");
+        imgCategoria = document.createElement("img");
+        nameCategoria = document.createElement("span");
+
+        tipoCategoria.setAttribute("class", "tipo-categoria")
+        imgCarrousel.setAttribute("class", "img-carrousel")
+        imgCategoria.setAttribute("class", "img-categoria")
+        nameCategoria.setAttribute("class", "name-categoria")
+        btnPrev.setAttribute("class", "slick-prev slick-arrow")
+
+        imgCategoria.setAttribute("src", categoria.img_url)
+        nameCategoria.textContent = categoria.name
+
+        tipoCategoria.appendChild(imgCarrousel)
+        imgCarrousel.appendChild(imgCategoria)
+        tipoCategoria.appendChild(nameCategoria)
+
+        categoriaMain.appendChild(tipoCategoria)
+
+    })
+
+
+
+
+
+}
+
 function openModalFilter() {
     modalFilter.classList.add('mostrar')
 
@@ -110,6 +146,7 @@ function openModalPerfil() {
 btnPerfil.addEventListener("click", openModalPerfil)
 btnFilter.addEventListener("click", openModalFilter)
 window.addEventListener("load", carregaRestaurantes)
+window.addEventListener("load", carregaCategorias)
 
 
 window.addEventListener("load", () => {
@@ -124,8 +161,4 @@ rangePessoa.addEventListener('change', (e) => {
 })
 rangeDistancia.addEventListener('change', (e) => {
     valueRangeDistancia.textContent = e.target.value + 'km';
-})
-
-testeT.addEventListener('click', () => {
-    alert("Tu clicou mermao")
 })
