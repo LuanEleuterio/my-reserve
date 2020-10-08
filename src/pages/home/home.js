@@ -7,6 +7,7 @@ const rangePessoa = document.querySelector('#range-pessoa')
 const rangeDistancia = document.querySelector('#range-distancia')
 const valueRangePessoa = document.querySelector('#value-range-pessoas')
 const valueRangeDistancia = document.querySelector('#value-range-distancia');
+const testeT = document.querySelector('#btn-edit-perfil')
 
 
 function carregaRestaurantes() {
@@ -123,4 +124,8 @@ rangePessoa.addEventListener('change', (e) => {
 })
 rangeDistancia.addEventListener('change', (e) => {
     valueRangeDistancia.textContent = e.target.value + 'km';
+})
+
+testeT.addEventListener('click', () => {
+    alert("Tu clicou mermao")
 })

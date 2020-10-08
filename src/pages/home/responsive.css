@@ -125,7 +125,6 @@
     .menu-option p{
         margin: 0 auto;
         font-size: smaller;
-        color: #F8F9FA;
     }
         
     .icon-footer{
@@ -136,7 +135,6 @@
     .itens-footer{
         display: flex;
         justify-content: center;
-        color: #F8F9FA;
     }
     /*Fim footer*/
 }
@@ -254,7 +252,6 @@
     }
 
     .logo img{
-        color: var(--secundaria);
         width: 2em;
         height: 2.5em;
     }
@@ -356,7 +353,7 @@
     }
 
     #icon-filter{
-        color: var(--secundaria);
+        color: var(--preto);
         font-size: 1.5em;
         top: 0.4em;
         left: 0.4em;
