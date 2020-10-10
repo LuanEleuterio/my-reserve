@@ -1,5 +1,16 @@
 @import url("../../theme/colors.css");
 
+/* font-icons */
+@font-face {
+  font-family: "Glyphicons Halflings";
+  src: url(../../fonts/glyphicons-halflings-regular.eot);
+  src: url(../../fonts/glyphicons-halflings-regular.eot?#iefix) format("embedded-opentype"),
+    url(../../fonts/glyphicons-halflings-regular.woff2) format("woff2"),
+    url(../../fonts/glyphicons-halflings-regular.woff) format("woff"),
+    url(../../fonts/glyphicons-halflings-regular.ttf) format("truetype"),
+    url(../../fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular) format("svg");
+}
+
 body {
   background-image: linear-gradient(var(--input), var(--secundaria));
 }
@@ -178,6 +189,11 @@ input[type="file"] {
   width: 90%;
 }
 
+#eye {
+  padding: 1px;
+  font-size: 15px;
+}
+
 .pass-container button {
   display: inline-block;
   color: var(--preto);
@@ -186,6 +202,26 @@ input[type="file"] {
 *:focus {
   outline: 0 !important;
 }
+
+/* eye icon start */
+.glyphicon {
+  position: relative;
+  top: 1px;
+  display: inline-block;
+  font-family: "Glyphicons Halflings";
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1;
+  border: none;
+  outline: none;
+}
+.glyphicon-eye-open:before {
+  content: "\e105";
+}
+.glyphicon-eye-close:before {
+  content: "\e106";
+}
+/* eye icon end */
 
 #submit {
   margin: 30px auto;
