@@ -9,7 +9,6 @@
   <link rel="stylesheet" href="cad-empresa.css">
   <link rel="stylesheet" href="responsive.css">
 
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 </head>
 
 <body>
@@ -120,12 +119,9 @@
 
         <label id="label-senha" for="password">Senha</label>
         <div class="pass-container">
-          <input type="password" name="senha" id="senha" required />
-          <button type="button" class="btn glyphicon glyphicon-eye-close" onclick="mostrar(this)"></button>
-          <!-- <i class="far fa-eye" id="showPassword"></i> -->
+          <input type="password" name="senha" id="password" required />
+          <button type="button" id="eye" class="glyphicon glyphicon-eye-close" onclick="mostrar(this)"></button>
         </div>
-
-        <!-- <input type="button" id="showPassword" value="show" class="button" /> -->
 
         <div class="field">
           <input id="submit" type="submit" value="Cadastrar">
@@ -133,9 +129,6 @@
   </div>
   </fieldset>
   </form>
-
-  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
-  <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
 
   <script src="cad-empresa.js"></script>
   <script src="https://kit.fontawesome.com/37a6fc82c8.js" crossorigin="anonymous"></script>
