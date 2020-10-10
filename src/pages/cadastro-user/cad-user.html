@@ -50,7 +50,7 @@
         <div class="field-group">
 
           <div class="field">
-            <label for="cnpj">CPF</label>
+            <label for="cpf">CPF</label>
             <input type="text" name="cpf" id="cpf" />
           </div>
           <div class="field">
@@ -66,9 +66,13 @@
             <label for="email">E-mail</label>
             <input type="email" name="email" id="email" placeholder="email@exemplo.com" />
           </div>
+
           <div class="field">
-            <label for="password">Senha</label>
-            <input type="text" name="password" id="password" />
+            <label id="label-senha" for="password">Senha</label>
+            <div class="pass-container">
+              <input type="password" name="senha" id="password" required />
+              <button type="button" id="eye" class="glyphicon glyphicon-eye-close" onclick="mostrar(this)"></button>
+            </div>
           </div>
 
         </div>
@@ -82,7 +86,7 @@
   </div>
   </form>
 
-  <script src="cad-user.js"></script>
+  <script type="text/javascript" src="cad-user.js"></script>
   <script src="https://kit.fontawesome.com/37a6fc82c8.js" crossorigin="anonymous"></script>
 </body>
 
