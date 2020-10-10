@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Informações do Restaurante</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='./info-restaurante.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='./responsive.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='./../../theme/colors.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='./../../theme/default.css'>
+
+</head>
+
+<body>
+    <header class="header">
+        <div class="conteiner-header">
+            <div class="logo">
+                <a href="">
+                    <img src="../../icons/knife-fork-black.svg" alt="">
+                    <p>myReserve</p>
+                </a>
+            </div>
+            <div class="busca-header">
+                <div class="name-box">
+                    <i class="fas fa-search" id="icon-search"></i>
+                    <input type="text" id="search-bar" value="" placeholder="Busque por restaurantes...">
+                </div>
+                <button class='btn-filter'>
+                    <div class="filter-header">
+                        <i class="fas fa-filter" id="icon-filter"></i>
+                    </div>
+                </button>
+            </div>
+            <div class="location">
+                <div class='header-location'>
+                    <p id="sua-localizacao">SUA LOCAZILAÇÃO</p>
+                    <button class='location-input'>
+                        <div class="endereco-location">
+                            <div class="icon-header">
+                                <i class="fas fa-map-marker-alt" id='icon-location'></i>
+                            </div>
+                            <p id="seu-endereco">Rua Tenente Comandante Oliveira</p>
+                        </div>
+                    </button>
+                </div>
+            </div>
+            <div class="filter-header filter-mobile">
+                <i class="fas fa-filter" id="icon-filter"></i>
+            </div>
+            <div class="header-option">
+                <button id='btn-reserva' class='btn-header-option'>
+                    <div class="menu-option reserva">
+                        <div class="icon-footer">
+                            <i class="fas fa-chair itens-header"></i>
+                        </div>
+                        <p>Reservas</p>
+                    </div>
+                </button>
+                <button id='btn-perfil' class='btn-header-option'>
+                    <div class="menu-option perfil">
+                        <div class="icon-footer">
+                            <i class="fas fa-user itens-header"></i>
+                        </div>
+                        <p>Perfil</p>
+                    </div>
+                </button>
+            </div>
+        </div>
+    </header>
+    <main class="content">
+        <section class="conteudo">
+            <div class="info-restaurante">
+                <div class="img-restaurante info-box">
+                    <img id='foto-rest' src="../../img/restaurant-4011989_1920.jpg">
+                </div>
+                <div class="restaurante info-box">
+                    <div class="details-restaurante">
+                        <p id='nome-restaurante'>Madero Personalite Inc. </p>
+
+                        <div class="tipo-categoria col-info">
+                            <i class="fas fa-utensils col-icon-info"></i>
+                            <p class='col-paragrafo'>Árabe</p>
+                        </div>
+                        <div class="endereco col-info">
+                            <i class="fas fa-map-marker-alt col-icon-info"></i>
+                            <p class='col-paragrafo'>Avenida Jucelino Kubitschek</p>
+                        </div>
+                        <div class="distancia col-info">
+                            <i class="fas fa-route col-icon-info"></i>
+                            <p class='col-paragrafo'>3km</p>
+                        </div>
+                        <div class="horario col-info">
+                            <i class="far fa-clock col-icon-info"></i>
+                            <span class='horario-funcionamento'>
+                                <p>Horário de funcionamento</p>
+                                <p id="hora-funcionamento">10:00am - 19:00pm</p>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="descricao-rest">
+                        <p>Descrição</p>
+                        <p id='descricao'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sed animi ducimus,
+                            itaque quidem dicta aut nemo ea dolorum quibusdam cupiditate! Quam incidunt sed cumque illum
+                            asperiores veritatis totam at nisi!
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui dolore totam ipsa rerum est
+                            unde itaque ea a dolores rem, obcaecati pariatur tempora porro, possimus veritatis minima
+                            aliquam! Placeat, odio.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="info-horarios"></div>
+        </section>
+    </main>
+    <footer>
+        <a href=" https://google.com">
+            <section class="menu-bar">
+                <div class="menu-option home">
+                    <div class="icon-footer">
+                        <i class="fas fa-home itens-footer"></i>
+                    </div>
+                    <p>Inicio</p>
+                </div>
+        </a>
+        <a href="https://google.com">
+            <div class="menu-option busca">
+                <div class="icon-footer">
+                    <i class="fas fa-search itens-footer"></i>
+                </div>
+                <p>Buscar</p>
+            </div>
+        </a>
+        <a href="https://google.com">
+            <div class="menu-option reserva">
+                <div class="icon-footer">
+                    <i class="fas fa-chair itens-footer"></i>
+                </div>
+                <p>Reservas</p>
+            </div>
+        </a>
+        <a href="https://google.com">
+            <div class="menu-option perfil">
+                <div class="icon-footer">
+                    <i class="fas fa-user itens-footer"></i>
+                </div>
+                <p>Perfil</p>
+            </div>
+        </a>
+        </section>
+    </footer>
+
+    <div id="modal-filter" class="modal-conteiner-filter">
+        <div class="modal-conteudo">
+            <button class="btn-fechar"><i id="button-fechar" class="fas fa-times"></i></button>
+            <h3>Filtros</h3>
+            <div class="filtro-conteudo">
+                <div class="filtro-distancia">
+                    <p class='filtro-nomenclatura'>Pessoas por reserva</p>
+                    <input id="range-pessoa" class='slider-range-filter' type="range" min="1" max="30" value="5">
+                    <p id='value-range-pessoas' class='value-range-filter'></p>
+                </div>
+
+                <div class="filtro-pessoas">
+                    <p class='filtro-nomenclatura'>Distância</p>
+                    <input id="range-distancia" class='slider-range-filter' type="range" min="1" max="30" value="5">
+                    <p id="value-range-distancia" class='value-range-filter'></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-conteiner-perfil">
+        <div class="modal-perfil">
+            <button id='btn-edit-perfil' class='btn-modal-perfil'>
+                <div class="editar-modal box-modal-perfil">
+                    <i class="fas fa-user-cog"></i>
+                    <p>Editar Dados</p>
+                </div>
+            </button>
+
+            <button id='btn-pagamento' class='btn-modal-perfil'>
+                <div class="pagamento-modal box-modal-perfil">
+                    <i class="fas fa-credit-card"></i>
+                    <p>Pagamento</p>
+                </div>
+            </button>
+
+            <button id='btn-sair' class='btn-modal-perfil'>
+                <div class="logout-modal box-modal-perfil">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <p>Desconectar</p>
+                </div>
+            </button>
+        </div>
+    </div>
+
+    <script src="https://kit.fontawesome.com/37a6fc82c8.js" crossorigin="anonymous"></script>
+    <script type="text/javascript" src='../info-restaurante/info-restaurante.js'></script>
+</body>
+
+</html>
