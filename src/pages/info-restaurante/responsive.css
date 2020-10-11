@@ -156,6 +156,26 @@
 
    /* Fim header*/
 
+   #name-horario{
+    font-size: medium !important;
+   }
+
+   #date-reserva{
+    font-size: small !important;
+   }
+
+}
+
+@media(min-width: 921px) and (max-width: 1150px){
+
+   #name-horario{
+    font-size: large !important;
+   }
+
+   #date-reserva{
+    font-size: small !important;
+   }
+
 }
 
 @media (min-width:769px)  {
@@ -294,9 +314,98 @@
 
     /*Fim Header*/
 
+    /*Inicio Horiarios p/ reserva */
     .info-horarios{
         display: flex;
+        justify-content: center;
+        align-content: flex-start;
+        flex-wrap: wrap;
+        width: 30vw;
+        max-width: 432px;
+        position: fixed;
+        right: 0vw;
+        background-color: transparent; 
+        box-shadow: -3px -3px 9px -6px var(--preto);
+        height: 100vh;
     }
+
+    .info-horarios p{
+        color: var(--texto);
+    }
+
+    .box-name-horario{
+        width: 100vw;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 3em;
+    }
+
+    #name-horario{
+        font-size: x-large;
+        font-weight: bold;
+    }
+
+    #date-reserva{
+        margin-left: .7em;
+        margin-top: .2em;
+        font-weight: bolder;
+    }
+
+    .conteiner-horario{
+        width: 100vw;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-top: 1em;
+        overflow: auto;
+        height: 85vh;
+    }
+
+    .button-horario{
+        background-color: transparent;
+        border: none;
+        outline: none;
+        height: 4em;
+        margin-bottom: 1em;
+        max-width: 382px;
+        cursor: pointer;
+    }
+
+    .button-horario:last-child{
+        margin-bottom: 2.5em;
+    }
+
+    .box-horario{
+        width: 25vw;
+        display: flex;
+        justify-content: space-evenly;
+        height: 4em;
+        border: 1px solid var(--border);
+        border-radius: var(--border-radius);
+        max-width: 382px;
+    }
+
+    .col-horario{
+        display: flex;
+        align-items: center;
+    }
+
+    .vagas p{
+        color: var(--destaque);
+    }
+
+    .icon-clock{
+        font-size: 2em;
+        color: var(--preto);
+    }
+
+    #hour-reserva{
+        font-size: large;
+        font-weight: bolder;
+    }
+
+    /*Fim Horiarios p/ reserva */
 
  /* Modals Filter e Perfil*/
     .modal-conteiner-filter{
