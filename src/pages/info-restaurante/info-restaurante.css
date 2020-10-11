@@ -100,7 +100,8 @@ header{
 
 .name-page p{
     color: var(--preto);
-    font-size: bold;
+    font-size: large;
+    font-weight: bolder;
 }
 
 #btn-arrow-header{
@@ -300,6 +301,41 @@ header{
     font-size: medium;
     font-weight: 300;
     margin-top: 0.5em;
+}
+
+.ver-horario{
+    width: 100vw;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 2em;
+}
+
+.ver-horario::before{
+    content: ' ';
+    display: inline-block;
+    width: 91vw;
+    max-width: 907px;
+    height: -1px;
+    border-bottom: 1px solid rgba(34,34,34, .1);
+    margin-top: 1em;
+}
+
+
+#btn-ver-horario{
+    width: 80vw;
+    height: 2em;
+
+    font-size: medium;
+    font-family: var(--font);
+    font-weight: bolder;
+    color: var(--secundaria);
+    border: var(--destaque);
+
+    background-color: var(--destaque);
+    border-radius: var(--border-radius);
+    outline: none;
+    margin-top: 1.5em;
 }
 
 /* Fim Info restaurante */

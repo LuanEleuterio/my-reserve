@@ -96,6 +96,49 @@
     }
     /*Fim Header*/
 
+    .info-restaurante{
+        width: 100vw;
+    }
+
+    /*Inicio info restaurante */
+
+    .img-restaurante{
+        height: 10em;
+    }
+    
+    .img-restaurante::after{
+        width: 91vw;
+    }
+
+    #foto-rest{
+        width: 9em;
+        height: 8em;
+    }
+
+    #nome-restaurante{
+        font-size: x-large;
+        font-weight: bold;
+    }
+
+    .details-restaurante{
+        width: 90vw;
+    }
+
+    .details-restaurante::after{
+        width: 91vw;
+    }
+
+    .description-rest{
+       width: 90vw;
+    }
+
+    .description-rest p {
+        font-size: large;
+        font-weight: bold;
+        color: var(--texto);
+    }
+    /*Fim info restaurante */
+
     /*Inicio footer*/
     footer{
         position: fixed;
@@ -147,6 +190,49 @@
         margin: 0;
     }
     /*Fim header*/
+
+    .info-restaurante{
+        width: 100vw;
+    }
+
+    /*Inicio info restaurante */
+
+    .img-restaurante{
+        height: 10em;
+    }
+    
+    .img-restaurante::after{
+        width: 91vw;
+    }
+
+    #foto-rest{
+        width: 9em;
+        height: 8em;
+    }
+
+    #nome-restaurante{
+        font-size: x-large;
+        font-weight: bold;
+    }
+
+    .details-restaurante{
+        width: 90vw;
+    }
+
+    .details-restaurante::after{
+        width: 91vw;
+    }
+
+    .description-rest{
+       width: 90vw;
+    }
+
+    .description-rest p {
+        font-size: large;
+        font-weight: bold;
+        color: var(--texto);
+    }
+    /*Fim info restaurante */
 }
 
 @media(min-width: 769px) and (max-width: 920px){
@@ -363,7 +449,11 @@
 
     /*Fim Header*/
 
-    /*Inicio Horiarios p/ reserva */
+    .ver-horario{
+        display: none;
+    }
+
+    /*Inicio Horarios p/ reserva */
     .info-horarios{
         display: flex;
         justify-content: center;
