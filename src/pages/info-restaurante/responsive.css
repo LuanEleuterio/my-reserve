@@ -26,13 +26,50 @@
         font-weight: bolder;
         margin: 0;
     }
-
-    .filter-mobile{
-        display: flex;
-        align-items: center;
-    }
     /* Fim Header*/
 
+    .info-restaurante{
+        width: 100vw;
+    }
+
+    /*Inicio info restaurante */
+
+    .img-restaurante{
+        height: 10em;
+    }
+    
+    .img-restaurante::after{
+        width: 91vw;
+    }
+
+    #foto-rest{
+        width: 9em;
+        height: 8em;
+    }
+
+    #nome-restaurante{
+        font-size: x-large;
+        font-weight: bold;
+    }
+
+    .details-restaurante{
+        width: 90vw;
+    }
+
+    .details-restaurante::after{
+        width: 91vw;
+    }
+
+    .description-rest{
+       width: 90vw;
+    }
+
+    .description-rest p {
+        font-size: large;
+        font-weight: bold;
+        color: var(--texto);
+    }
+    /*Fim info restaurante */
     
 }
 
@@ -57,13 +94,7 @@
         font-weight: bolder;
         margin: 0;
     }
-
-    .filter-mobile{
-        display: flex;
-        align-items: center;
-    }
     /*Fim Header*/
-    
 
     /*Inicio footer*/
     footer{
@@ -115,14 +146,7 @@
         font-weight: bolder;
         margin: 0;
     }
-    
-    .filter-mobile{
-        display: flex;
-        align-items: center;
-    }
     /*Fim header*/
-
-
 }
 
 @media(min-width: 769px) and (max-width: 920px){
@@ -164,6 +188,18 @@
     font-size: small !important;
    }
 
+   .icon-clock{
+    font-size: 1.2em !important;
+    }
+
+    #hour-reserva{
+        font-size: small !important;
+    }
+
+    .vagas p{
+        font-size: smaller !important;
+    }
+
 }
 
 @media(min-width: 921px) and (max-width: 1150px){
@@ -175,6 +211,18 @@
    #date-reserva{
     font-size: small !important;
    }
+
+   .icon-clock{
+       font-size: 1.2em !important;
+   }
+
+   #hour-reserva{
+       font-size: small !important;
+   }
+
+   .vagas p{
+    font-size: smaller !important;
+}
 
 }
 
@@ -203,6 +251,7 @@
     }
 
     .location{
+        display: flex;
         flex-wrap: wrap;
     }
 
@@ -247,12 +296,6 @@
         align-items: center;
     }
 
-    .filter-header{
-        position: relative;
-        display: flex;
-        left: 0.5em;
-    }
-
     .location-input{
         width: 21vw;
         max-width: 256px;
@@ -265,10 +308,6 @@
     #seu-endereco{
         position: relative;
         left: .5em;
-    }
-
-    .filter-mobile{
-        display: none;
     }
 
     .name-box ::-webkit-input-placeholder{
@@ -310,6 +349,16 @@
         border-style: none;
         outline: none;
         max-width: 531px;
+    }
+
+    .filter-header {
+        position: relative;
+        display: flex;
+        left: 0.5em;
+    }
+
+    .name-page{
+        display: none;
     }
 
     /*Fim Header*/
@@ -359,7 +408,7 @@
         flex-wrap: wrap;
         margin-top: 1em;
         overflow: auto;
-        height: 85vh;
+        height: 80vh;
     }
 
     .button-horario{
@@ -373,7 +422,7 @@
     }
 
     .button-horario:last-child{
-        margin-bottom: 2.5em;
+        margin-bottom: 1em;
     }
 
     .box-horario{
@@ -601,9 +650,6 @@
     }
 
     /*Header */
-    .filter-mobile{
-        display: none;
-    }
 
     #sua-localizacao{
         font-size: large;

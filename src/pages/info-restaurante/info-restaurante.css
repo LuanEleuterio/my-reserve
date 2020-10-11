@@ -67,11 +67,6 @@ header{
     position: relative;
 }
 
-.filter-header{
-    display: none;
-    align-items: center;
-}
-
 .btn-filter{
     border: none;
     background-color: transparent;
@@ -79,16 +74,8 @@ header{
     outline: none;
 }
 
-.filter-mobile{
-    color: var(--preto);
-    display: none;
-    position: absolute;
-    right: 0.5em;
-    top: 1em;
-}
-
 .location{
-    display:flex;
+    display: none;
     align-items: center;
     max-height: 48px;
 }
@@ -102,6 +89,31 @@ header{
     background-color: transparent;
     cursor: pointer;
     outline: none;
+}
+
+.name-page{
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.name-page p{
+    color: var(--preto);
+    font-size: bold;
+}
+
+#btn-arrow-header{
+    border: none;
+    background: transparent;
+    outline: none;
+    position: absolute;
+    left: 1em;
+}
+
+.arrow-header{
+    color: var(--preto);
+    font-size: 1.3em;
 }
 
 .icon-header{
@@ -279,7 +291,7 @@ header{
 }
 
 .description-rest p{
-    font-size: xx-large;
+    font-size: x-large;
     font-weight: bolder;
     color: var(--texto);
 }
