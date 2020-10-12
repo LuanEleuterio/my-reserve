@@ -101,7 +101,7 @@ header{
 .name-page p{
     color: var(--preto);
     font-size: large;
-    font-weight: bolder;
+    font-weight: bold;
 }
 
 #btn-arrow-header{
