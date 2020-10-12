@@ -250,6 +250,11 @@
         font-size: large !important;
     }
 
+    #icon-search{
+        font-size: 1.3em !important;
+        top: 0.5em !important;
+    }
+
     #search-bar{
         width: 35vw !important;
         height: 1.9em !important;
@@ -287,6 +292,34 @@
 
     .vagas p{
         font-size: smaller !important;
+    }
+
+    #nome-restaurante{
+        font-size: x-large;
+    }
+
+    .col-icon-info{
+        font-size: 1em;
+    }
+
+    .col-paragrafo{
+        font-size: small;
+    }
+
+    .description-rest p {
+        font-size: large;
+    }
+
+    #description{
+        font-size: small;
+    }
+
+    .horario-funcionamento p{
+        font-size: small;
+    }
+
+    .button-horario:last-child{
+        margin-bottom: 2.5em !important;
     }
 
 }

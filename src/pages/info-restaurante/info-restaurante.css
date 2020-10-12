@@ -312,7 +312,7 @@ header{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    margin-bottom: 2em;
+    margin-bottom: 1.5em;
 }
 
 .ver-horario::before{
@@ -328,9 +328,8 @@ header{
 
 #btn-ver-horario{
     width: 80vw;
-    height: 2em;
-
-    font-size: medium;
+    height: 2.5em;
+    font-size: large;
     font-family: var(--font);
     font-weight: bolder;
     color: var(--secundaria);
