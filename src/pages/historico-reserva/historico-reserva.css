@@ -164,6 +164,7 @@ header{
     font-size: smaller;
     color: var(--preto);
 }
+
 /* Fim Header*/
 
 .content{
@@ -171,6 +172,7 @@ header{
     position: relative;
     width: 100vw;
     display: flex;
+    justify-content: center;
     margin-top: 3.5em;
 }
 
@@ -191,6 +193,7 @@ header{
     max-width: 1296px;
     margin: 0 auto;
     margin-bottom: 1.5vh;
+    display: none;
 }
 
 .info-reserva p {
@@ -204,7 +207,7 @@ header{
     height: 5em;
     border: 1px solid var(--border);
     border-radius: var(--border-radius);
-    justify-content: space-around;
+    justify-content: space-evenly;
     align-items: center;
     max-width: 402px;
     margin-bottom: 2vh;

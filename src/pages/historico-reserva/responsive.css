@@ -246,7 +246,7 @@
     }
 }
 
-@media(min-width: 769px) and (max-width: 920px){
+@media(min-width: 769px) and (max-width: 950px){
 
     .logo img{
         width: 1.7em !important;
@@ -274,18 +274,14 @@
         font-size: smaller !important;
     }
 
+    .restaurantes {
+        width: 44vw !important;
+    }
+
     .info-restaurante{
-        width: 10vw !important;
+        width: 15vw !important;
     }
 
-    .img-carrousel img{
-        width: 5em !important;
-        height: 3.5em !important;
-    }
-
-    .name-categoria{
-        font-size: small !important;
-    }
 }
 
 @media (min-width:769px)  {
@@ -294,6 +290,7 @@
         flex-wrap: wrap;
     }
 
+   
     /*Inicio Header*/
     .header{
         justify-content: center;
@@ -313,6 +310,7 @@
     }
 
     .location{
+        display: flex;
         flex-wrap: wrap;
     }
 
@@ -345,7 +343,6 @@
         font-size: 1em;
     }
 
-
     #sua-localizacao{
         display: flex;
         font-weight: bolder;
@@ -356,12 +353,6 @@
     .busca-header{
         display: flex;
         align-items: center;
-    }
-
-    .filter-header{
-        position: relative;
-        display: flex;
-        left: 0.5em;
     }
 
     .location-input{
@@ -376,10 +367,6 @@
     #seu-endereco{
         position: relative;
         left: .5em;
-    }
-
-    .filter-mobile{
-        display: none;
     }
 
     .name-box ::-webkit-input-placeholder{
@@ -400,7 +387,7 @@
         position: absolute;
         color: var(--destaque);
         font-size: 1.5em;
-        top: 0.3em;
+        top: 0.4em;
         left: 0.4em;
     }
 
@@ -423,6 +410,16 @@
         max-width: 531px;
     }
 
+    .filter-header {
+        position: relative;
+        display: flex;
+        left: 0.5em;
+    }
+
+    .name-page{
+        display: none;
+    }
+
     /*Fim Header*/
 
     .content{
@@ -433,6 +430,10 @@
     .conteudo{
         flex-wrap: wrap;
         width: 90vw;
+    }
+
+    .info-reserva{
+        display: flex;
     }
     
     .info-reserva p {
