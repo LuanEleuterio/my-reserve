@@ -4,7 +4,7 @@ body{
     width: 100vw;
     background-color: #F8F9FA;
     justify-content: center;
-    overflow-x: hidden;
+    
 }
 
 p{
@@ -67,11 +67,6 @@ header{
     position: relative;
 }
 
-.filter-header{
-    display: none;
-    align-items: center;
-}
-
 .btn-filter{
     border: none;
     background-color: transparent;
@@ -79,16 +74,8 @@ header{
     outline: none;
 }
 
-.filter-mobile{
-    color: var(--preto);
-    display: none;
-    position: absolute;
-    right: 0.5em;
-    top: 1em;
-}
-
 .location{
-    display:flex;
+    display: none;
     align-items: center;
     max-height: 48px;
 }
@@ -102,6 +89,32 @@ header{
     background-color: transparent;
     cursor: pointer;
     outline: none;
+}
+
+.name-page{
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.name-page p{
+    color: var(--preto);
+    font-size: large;
+    font-weight: bold;
+}
+
+#btn-arrow-header{
+    border: none;
+    background: transparent;
+    outline: none;
+    position: absolute;
+    left: 1em;
+}
+
+.arrow-header{
+    color: var(--preto);
+    font-size: 1.3em;
 }
 
 .icon-header{
@@ -151,7 +164,6 @@ header{
     font-size: smaller;
     color: var(--preto);
 }
-
 /* Fim Header*/
 
 .content{
@@ -174,17 +186,17 @@ header{
     margin: 0 auto;
 }
 
-.info-proximo{
+.info-reserva{
     width: 90vw;
     max-width: 1296px;
     margin: 0 auto;
     margin-bottom: 1.5vh;
 }
 
-.info-proximo p {
+.info-reserva p {
     color: var(--destaque);
     font-weight: bolder;
-    font-size: large;
+    font-size: x-large;
 }
 
 .restaurantes{
@@ -195,6 +207,8 @@ header{
     justify-content: space-around;
     align-items: center;
     max-width: 402px;
+    margin-bottom: 2vh;
+    max-width: 380px;
 }
 
 .foto-restaurante{
@@ -219,61 +233,42 @@ header{
 }
 
 .nome-restaurante {
+    font-size: large;
     font-weight: bold;
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
 }
 
-.restaurante-container{
-    cursor:pointer;
-    margin-bottom: 2vh;
+.col-info{
+    font-size: small;
 }
 
-.infos{
-    margin-top: 0.2em;
-    margin-bottom: 0.2em;
+.btns-option{
+    width: 10vw;
+    max-width: 133px;
 }
 
-.col-1{
-    margin-right: 0.5em;
-    color: var(--texto);
-}
-
-.categoria{
-    display: flex;
-    align-items: center;
-}
-
-.categorias-main{
-    display: none !important;
-}
-
-.tipo-categoria p{
-    display: flex;
-    justify-content: center;
-    width: 100vw;
-}
-
-.distance{
-    display: flex;
-}
-
-.info-num-pessoas{
-    align-self: flex-start;
-    margin-top: 0.4em;
-    margin-right: 0.2em;
-}
-
-.numero-pessoas{
-    display: flex;
-    color: var(--principal);
-    align-items: baseline;
-}
-
-.quantidade-pessoa {
+.col-btn{
+    width: 10vw;
+    height: 1.8em;
+    max-width: 136px;
     font-weight: bolder;
-    margin-right: .1em;
+    color: var(--secundaria);
+    border: none;
+    border-radius: var(--border-radius);
+    outline: none;
+    cursor: pointer;
+}
+
+.btn-ver-restaurante{
+    height: 2.5em;
+    background-color: var(--destaque);
+    margin-bottom: .5em;
+}
+
+.btn-cancelar{
+    background-color: var(--vermelho);
 }
 
 .carrega-restaurante{

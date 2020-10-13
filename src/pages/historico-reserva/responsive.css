@@ -41,7 +41,7 @@
         justify-content: center;
     }
 
-    .restaurante-container:last-child{
+    .restaurantes:last-child{
         margin-bottom: 3.5em;
     }
 
@@ -49,9 +49,19 @@
         width: 90vw;
     }
 
-    .info-num-pessoas{
-        width: 10vw;
+    .info-restaurante{
+        width: 32vw;
     }
+
+    .btns-option{
+        width: 26vw;
+    }
+
+    .col-btn{
+        width: 26vw;
+        font-size: x-small;
+    }
+
 }
 
 @media (min-width:321px) and (max-width:425px) {
@@ -85,7 +95,7 @@
         display: flex;
     }
 
-    .restaurante-container:last-child{
+    .restaurantes:last-child{
         margin-bottom: 3.5em;
     }
 
@@ -95,19 +105,19 @@
 
     .restaurantes{
         width: 90vw;
-        justify-content: space-between;
     }
-    
+
     .info-restaurante{
-        width: 40vw;
+        width: 32vw;
     }
 
-    .foto-restaurante{
-        left: 1em;
+    .btns-option{
+        width: 26vw;
     }
 
-    .info-num-pessoas{
-        width: 10vw;
+    .col-btn{
+        width: 26vw;
+        font-size: small;
     }
 
     /*Inicio footer*/
@@ -137,6 +147,37 @@
         justify-content: center;
     }
     /*Fim footer*/
+}
+
+@media (min-width:426px) and (max-width:620px){
+    
+    .conteudo-restaurantes{
+        justify-content: center !important;
+    }
+
+    .restaurantes{
+        width: 90vw !important;
+    }
+
+    .foto-restaurante img{
+        width: 5em !important;
+        height: 4em !important;
+    }
+
+    .info-restaurante{
+        width: 25vw !important;
+    }
+
+    .btns-option{
+        width: 26vw !important;
+        max-width: 110px;
+    }
+
+    .col-btn{
+        width: 26vw !important;
+        font-size: small !important;
+        max-width: 110px;
+    }
 }
 
 @media (min-width:426px) and (max-width:768px){
@@ -170,7 +211,7 @@
         display: flex;
     }
 
-    .restaurante-container:last-child{
+    .restaurantes:last-child{
         margin-bottom: 3.5em;
     }
     
@@ -190,7 +231,18 @@
     }
 
     .info-restaurante{
-        width: 20vw;
+        width: 17vw;
+    }
+
+    .btns-option{
+        width: 16vw;
+        max-width: 110px;
+    }
+
+    .col-btn{
+        width: 16vw;
+        font-size: small;
+        max-width: 110px;
     }
 }
 
@@ -382,68 +434,8 @@
         flex-wrap: wrap;
         width: 90vw;
     }
-
-    .categorias-main{
-        display: flex !important;
-        width: 90vw;
-        justify-content: space-between;
-        max-width: 1296px;
-        margin: 0 auto;
-        margin-bottom: 1em;
-    }
-
-    .tipo-categoria{
-        display: flex !important;
-        flex-wrap: wrap;
-        width: 11vw;
-        justify-content: center;
-        outline: none;
-    }
-
-    .img-categoria{
-        width: 7em;
-        height: 4.5em;
-        border-radius: var(--border-radius);
-    }
-
-    .name-categoria{
-        width: 100vw;
-        display: flex;
-        justify-content: center;
-        margin-top: .5em;
-        color: var(--texto);
-    }
     
-    button.slick-prev{
-        font-size: 0px;
-        border: none;
-        width: 10vw;
-        max-width: 44px;
-        background-color: transparent;
-        background-image: url('../../icons/arrow-circle-left-solid.svg');
-        filter: url(#arrow-left);
-        background-repeat: no-repeat;
-        background-position-y: center;
-        top: 35%;
-        margin-right: .5em;
-        outline: none;
-    }
-    
-    button.slick-next{
-        font-size: 0px;
-        border: none;
-        width: 10vw;
-        max-width: 44px;
-        background-color: transparent;
-        background-image: url('../../icons/arrow-circle-right-solid.svg');
-        background-repeat: no-repeat;
-        background-position-y: center;
-        top: 35%;
-        right: 10%;
-        outline: none;  
-    }
-    
-    .info-proximo p {
+    .info-reserva p {
         font-size: x-large;
     }
 
@@ -457,13 +449,6 @@
         height: 6em;
     }
 
-    /*
-    .foto-restaurante{
-        width: 9vw;
-        max-width: 5em;
-        min-width: 3.5em;
-    }*/
-
     .foto-restaurante img{
         width: 10vw;
         min-width: 3em;
@@ -471,8 +456,8 @@
     }
 
     .info-restaurante{
-        width: 15vw;
-        min-width: 10vw;
+        width: 8vw;
+        max-width: 112px;
     }
 
     .carrega-restaurante{
