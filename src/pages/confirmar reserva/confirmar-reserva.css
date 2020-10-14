@@ -220,6 +220,7 @@ header{
 
 .conteiner-horario{
     width: 100vw;
+    height: 14vh;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
