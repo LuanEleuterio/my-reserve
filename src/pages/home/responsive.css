@@ -52,6 +52,10 @@
     .info-num-pessoas{
         width: 10vw;
     }
+    #myModal, .modal-container, .modal-content{
+        display: none;
+        background: none;
+    }
 }
 
 @media (min-width:321px) and (max-width:425px) {
@@ -137,6 +141,10 @@
         justify-content: center;
     }
     /*Fim footer*/
+    #myModal, .modal-container, .modal-content{
+        display: none;
+        background: none;
+    }
 }
 
 @media (min-width:426px) and (max-width:768px){
@@ -191,6 +199,10 @@
 
     .info-restaurante{
         width: 20vw;
+    }
+    #myModal, .modal-container, .modal-content{
+        display: none;
+        background: none;
     }
 }
 
@@ -662,6 +674,9 @@
         color: var(--texto);
     }
 
+    .modal-content{
+        animation: modal-animation .5s;
+    }
 
     @keyframes modal-animation {
         from{
