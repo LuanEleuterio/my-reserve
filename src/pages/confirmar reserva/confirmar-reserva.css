@@ -391,6 +391,11 @@ footer{
 .unq{
     margin-left: 17%;
 }
+.block-layout{
+    display: flex;
+    width: 90vw;
+    padding-top: 6%;
+}
 .btn-confirmar{
     color: white;
     background-color: #4788ff;
