@@ -69,7 +69,6 @@ header{
     font-weight: 400;
 }
 
-
 #icon-search{
     position: absolute;
     color: var(--destaque);
@@ -125,7 +124,147 @@ header{
     flex-wrap: wrap;
     align-content: center;
     justify-content: center;
-    height: 75vh; 
+}
+
+.conteudo-restaurantes{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 0 auto;
+}
+
+.restaurantes{
+    width: 90vw;
+    max-width: 290px;
+    display: flex;
+    height: 5em;
+    border: 1px solid var(--border);
+    border-radius: var(--border-radius);
+    justify-content: space-around;
+    align-items: center;
+    max-width: 402px;
+}
+
+.foto-restaurante{
+    position: relative;
+    display:flex;
+    align-content: center;
+}
+
+.foto-restaurante img{
+    width: 5em;
+    height: 4em;
+    border-radius: var(--border-radius);
+}
+
+.info-restaurante{
+    width: 40vw;
+    max-width: 216px;
+}
+
+.info-restaurante p{
+    color: var(--texto);
+}
+
+.nome-restaurante {
+    font-weight: bold;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.restaurante-container{
+    cursor:pointer;
+    margin-bottom: 2vh;
+}
+
+.restaurante-container:last-child{
+    margin-bottom: 3.5em;
+}
+
+.infos{
+    margin-top: 0.2em;
+    margin-bottom: 0.2em;
+}
+
+.col-1{
+    margin-right: 0.5em;
+    color: var(--texto);
+}
+
+.distance{
+    display: flex;
+}
+
+.info-num-pessoas{
+    align-self: flex-start;
+    margin-top: 0.4em;
+    margin-right: 0.2em;
+}
+
+.numero-pessoas{
+    display: flex;
+    color: var(--principal);
+    align-items: baseline;
+}
+
+.quantidade-pessoa {
+    font-weight: bolder;
+    margin-right: .1em;
+}
+
+.categoria{
+    display: flex;
+    align-items: center;
+}
+
+.categorias-main{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 3em;
+}
+
+.nomenclatura-categoria{
+    width: 84vw;
+}
+
+#ident-categoria{
+    color: var(--destaque);
+    font-size: large;
+    font-weight: bolder;
+    margin-bottom: 0.5em;
+}
+
+.tipo-categoria{
+    display: flex !important;
+    flex-wrap: wrap;
+    width: 42vw;
+    justify-content: center;
+    outline: none;
+}
+
+.tipo-categoria p{
+    display: flex;
+    color: var(--texto);    
+    justify-content: center;
+    width: 100vw;
+}
+
+.img-categoria{
+    width: 7em;
+    height: 4.5em;
+    border-radius: var(--border-radius);
+}
+
+.name-categoria{
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    margin-top: .2em;
+    margin-bottom: .2em;
+    color: var(--texto);
+    font-weight: bolder;
 }
  
 /*Inicio footer*/

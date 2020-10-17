@@ -64,10 +64,6 @@
         display: flex;
     }
 
-    .restaurantes:last-child{
-        margin-bottom: 3.5em;
-    }
-
     .conteudo-restaurantes{
         justify-content: center;
     }
@@ -149,7 +145,7 @@
     }
 }
 
-@media (min-width:426px) and (max-width:768px){
+@media (min-width:426px){
     body{
         flex-direction: row;
         flex-wrap: wrap;
@@ -159,29 +155,9 @@
         justify-content: center;
     }
 
-    .icon-header{
-        position: absolute;
-        right: 95vw;
-        font-size: 1.5em;
-    }
-
-    .header-location p{
-        font-size: large;
-        font-weight: bolder;
-        margin: 0;
-    }
-    
-    .filter-mobile{
-        display: flex;
-        align-items: center;
-    }
-
     .conteudo{
         display: flex;
-    }
-
-    .restaurantes:last-child{
-        margin-bottom: 3.5em;
+        max-width: 708px;
     }
     
     .conteudo-restaurantes{
@@ -191,16 +167,19 @@
 
     .restaurantes{
         width: 45vw;
+        max-width: 345px;
     }
 
     .foto-restaurante img{
         width: 10vw;
+        max-width: 78px;
         min-width: 4em;
         height: 4em;
     }
 
     .info-restaurante{
         width: 17vw;
+        max-width: 160px;
     }
 
     .btns-option{
