@@ -220,6 +220,8 @@ header{
 
 .categorias-main{
     display: flex;
+    width: 90vw;
+    max-width: 413px;
     justify-content: center;
     flex-wrap: wrap;
     margin-bottom: 3em;
@@ -240,6 +242,7 @@ header{
     display: flex !important;
     flex-wrap: wrap;
     width: 42vw;
+    max-width: 135px;
     justify-content: center;
     outline: none;
 }
