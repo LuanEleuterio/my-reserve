@@ -1,164 +1,89 @@
-const conteinerRestaurantes = document.querySelector('.conteudo-restaurantes')
-const modalFilter = document.querySelector('.modal-conteiner-filter')
-const modalPerfil = document.querySelector('.modal-conteiner-perfil')
-const btnFilter = document.querySelector('.btn-filter')
-const btnPerfil = document.querySelector('#btn-perfil')
-const rangePessoa = document.querySelector('#range-pessoa')
-const rangeDistancia = document.querySelector('#range-distancia')
-const valueRangePessoa = document.querySelector('#value-range-pessoas')
-const valueRangeDistancia = document.querySelector('#value-range-distancia');
-const testeT = document.querySelector('#btn-edit-perfil')
-const categoriaMain = document.querySelector('.categorias-main')
+const containerClientes = document.querySelector('.conteudo-clientes')
 
+function carregaClientes() {
+    const allClientes = listaClientes;
 
-function carregaRestaurantes() {
-    const allRestaurantes = listaRestaurantes;
+    allClientes.forEach(values => {
+        clienteContainer = document.createElement("a");
+        clientes = document.createElement("div");
 
-    allRestaurantes.forEach(values => {
-        restaurenteContainer = document.createElement("a");
-        restaurantes = document.createElement("div");
+        fotoCliente = document.createElement("div");
+        imgCliente = document.createElement("img");
 
-        fotoRestaurante = document.createElement("div");
-        imgRestaurante = document.createElement("img");
+        infoCliente = document.createElement("div");
+        nomeCliente = document.createElement("p");
 
-        infoRestaurante = document.createElement("div");
-        nomeRestaurante = document.createElement("p");
+        dataInfo = document.createElement("div");
+        iconCalendar = document.createElement("i");
+        dataText = document.createElement("p");
 
-        categoriaInfo = document.createElement("div");
-        iconCategoria = document.createElement("i");
-        nomeCategoria = document.createElement("p");
+        hourInfo = document.createElement("div");
+        iconRelogio = document.createElement("i");
+        hourText = document.createElement("p");
 
-        distanceInfo = document.createElement("div");
-        iconDistance = document.createElement("i");
-        distancia = document.createElement("p");
-
-        infoNumeroPessoas = document.createElement("div");
+        containerIcons = document.createElement("div");
         numeroPessoas = document.createElement("div");
         qtdPessoas = document.createElement("p");
-        iconPessoas = document.createElement("i");
+        iconPessoas = document.createElement("i");      
 
-        restaurenteContainer.setAttribute("class", "restaurante-container");
-        restaurantes.setAttribute("class", "restaurantes");
+        infoDeletar = document.createElement("div");
+        iconRemove = document.createElement("i");        
 
-        fotoRestaurante.setAttribute("class", "foto-restaurante");
-        imgRestaurante.setAttribute("src", values.img_url);
+        clienteContainer.setAttribute("class", "cliente-container");
+        clientes.setAttribute("class", "clientes");
 
-        infoRestaurante.setAttribute("class", "info-restaurante");
-        nomeRestaurante.setAttribute("class", "nome-restaurante infos");
-        nomeRestaurante.textContent = values.name;
+        fotoCliente.setAttribute("class", "foto-cliente");
+        imgCliente.setAttribute("src", values.img_url);
 
-        categoriaInfo.setAttribute("class", "categoria infos");
-        iconCategoria.setAttribute("class", "fas fa-utensils col-1");
-        nomeCategoria.setAttribute("class", "categoria")
-        nomeCategoria.textContent = values.category;
+        infoCliente.setAttribute("class", "info-cliente");
+        nomeCliente.setAttribute("class", "nome-cliente infos");
+        nomeCliente.textContent = values.name;
 
-        distanceInfo.setAttribute("class", "distance infos")
-        iconDistance.setAttribute("class", "fas fa-route col-1");
-        distancia.setAttribute("class", "distancia")
-        distancia.textContent = '2km';
+        dataInfo.setAttribute("class", "data infos");
+        iconCalendar.setAttribute("class", "far fa-calendar-check col-1");
+        dataText.setAttribute("class", "data")
+        dataText.textContent = values.date;
 
-        infoNumeroPessoas.setAttribute("class", "info-num-pessoas");
+        hourInfo.setAttribute("class", "hourInfo infos")
+        iconRelogio.setAttribute("class", "far fa-clock col-1");
+        hourText.setAttribute("class", "horario")
+        hourText.textContent = '16:30';
+
+        containerIcons.setAttribute("class", "container-icons");
         numeroPessoas.setAttribute("class", "numero-pessoas");
         qtdPessoas.setAttribute("class", "quantidade-pessoa");
         iconPessoas.setAttribute("class", "fas fa-user-friends icon-pessoa");
         qtdPessoas.textContent = values.totalPessoas;
 
-        restaurenteContainer.appendChild(restaurantes);
-        restaurantes.appendChild(fotoRestaurante);
-        fotoRestaurante.appendChild(imgRestaurante);
+        infoDeletar.setAttribute("class", "info-deletar");
+        iconRemove.setAttribute("class", "fas fa-trash-alt icon-remove");
 
-        restaurantes.appendChild(infoRestaurante);
-        infoRestaurante.appendChild(nomeRestaurante);
-        infoRestaurante.appendChild(categoriaInfo);
-        categoriaInfo.appendChild(iconCategoria);
-        categoriaInfo.appendChild(nomeCategoria);
+        clienteContainer.appendChild(clientes);
+        clientes.appendChild(fotoCliente);
+        fotoCliente.appendChild(imgCliente);
 
-        infoRestaurante.appendChild(distanceInfo);
-        distanceInfo.appendChild(iconDistance);
-        distanceInfo.appendChild(distancia);
+        clientes.appendChild(infoCliente);
+        infoCliente.appendChild(nomeCliente);
+        infoCliente.appendChild(dataInfo);
+        dataInfo.appendChild(iconCalendar);
+        dataInfo.appendChild(dataText);
 
-        restaurantes.appendChild(infoNumeroPessoas);
-        infoNumeroPessoas.appendChild(numeroPessoas);
+        infoCliente.appendChild(hourInfo);
+        hourInfo.appendChild(iconRelogio);
+        hourInfo.appendChild(hourText);
+
+        clientes.appendChild(containerIcons);
+        containerIcons.appendChild(numeroPessoas);
         numeroPessoas.appendChild(qtdPessoas);
         numeroPessoas.appendChild(iconPessoas);
 
-        conteinerRestaurantes.appendChild(restaurenteContainer);
+        containerIcons.appendChild(infoDeletar);
+        infoDeletar.appendChild(iconRemove);
 
+        containerClientes.appendChild(clienteContainer);
 
     });
 
 }
 
-function carregaCategorias() {
-    const allCategorias = listaCategorias;
-    var scale = 'scale(1.5)';
-
-    btnPrev = document.createElement("button")
-
-    allCategorias.forEach(categoria => {
-        tipoCategoria = document.createElement("a");
-        imgCarrousel = document.createElement("figure");
-        imgCategoria = document.createElement("img");
-        nameCategoria = document.createElement("span");
-
-        tipoCategoria.setAttribute("class", "tipo-categoria")
-        imgCarrousel.setAttribute("class", "img-carrousel")
-        imgCategoria.setAttribute("class", "img-categoria")
-        nameCategoria.setAttribute("class", "name-categoria")
-        btnPrev.setAttribute("class", "slick-prev slick-arrow")
-
-        imgCategoria.setAttribute("src", categoria.img_url)
-        nameCategoria.textContent = categoria.name
-
-        tipoCategoria.appendChild(imgCarrousel)
-        imgCarrousel.appendChild(imgCategoria)
-        tipoCategoria.appendChild(nameCategoria)
-
-        categoriaMain.appendChild(tipoCategoria)
-
-    })
-
-
-
-
-
-}
-
-function openModalFilter() {
-    modalFilter.classList.add('mostrar')
-
-    modalFilter.addEventListener("click", (e) => {
-        if (e.target.id == "button-fechar" || e.target.className == modalFilter.className) {
-            modalFilter.classList.remove('mostrar')
-        }
-    })
-}
-
-function openModalPerfil() {
-    modalPerfil.classList.add('mostrar');
-
-    modalPerfil.addEventListener("click", (e) => {
-        console.log(e.target.className);
-        modalPerfil.classList.remove('mostrar')
-    })
-}
-
-btnPerfil.addEventListener("click", openModalPerfil)
-btnFilter.addEventListener("click", openModalFilter)
-window.addEventListener("load", carregaRestaurantes)
-window.addEventListener("load", carregaCategorias)
-
-
-window.addEventListener("load", () => {
-    valueRangePessoa.textContent = rangePessoa.value;
-})
-window.addEventListener("load", () => {
-    valueRangeDistancia.textContent = rangeDistancia.value + 'km';
-})
-
-rangePessoa.addEventListener('change', (e) => {
-    valueRangePessoa.textContent = e.target.value;
-})
-rangeDistancia.addEventListener('change', (e) => {
-    valueRangeDistancia.textContent = e.target.value + 'km';
-})
+window.addEventListener("load", carregaClientes)

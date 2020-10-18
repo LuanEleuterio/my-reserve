@@ -4,20 +4,20 @@
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Home myReserve</title>
+    <title>Cancelar Reserva</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='./home.css'>
     <link rel='stylesheet' type='text/css' media='screen' href='./responsive.css'>
     <link rel='stylesheet' type='text/css' media='screen' href='./../../theme/colors.css'>
     <link rel='stylesheet' type='text/css' media='screen' href='./../../theme/default.css'>
-    <link rel="stylesheet" type="text/css" href="../home/slick.css" />
+    <link rel="stylesheet" href="../home/rest-cancelar-reserva.css">
 </head>
 
 <body>
-    <header class="header">
-        <div class="conteiner-header">
+    <header>
+        <div class="header-container">
             <div class="logo">
-                <a href="">
+                <a href="#">
                     <img src="../../icons/knife-fork-black.svg" alt="">
                     <p>myReserve</p>
                 </a>
@@ -25,155 +25,85 @@
             <div class="busca-header">
                 <div class="name-box">
                     <i class="fas fa-search" id="icon-search"></i>
-                    <input type="text" id="search-bar" value="" placeholder="Busque por restaurantes...">
-                </div>
-                <button class='btn-filter'>
-                    <div class="filter-header">
-                        <i class="fas fa-filter" id="icon-filter"></i>
-                    </div>
-                </button>
-            </div>
-            <div class="location">
-                <div class='header-location'>
-                    <p id="sua-localizacao">SUA LOCAZILAÇÃO</p>
-                    <button class='location-input'>
-                        <div class="endereco-location">
-                            <div class="icon-header">
-                                <i class="fas fa-map-marker-alt" id='icon-location'></i>
-                            </div>
-                            <p id="seu-endereco">Rua Tenente Comandante Oliveira</p>
-                        </div>
-                    </button>
+                    <input type="text" id="search-bar" value="" placeholder="Buscar reserva">
                 </div>
             </div>
-            <div class="filter-header filter-mobile">
-                <i class="fas fa-filter" id="icon-filter"></i>
-            </div>
-            <div class="header-option">
-                <button id='btn-reserva' class='btn-header-option'>
-                    <div class="menu-option reserva">
-                        <div class="icon-footer">
-                            <i class="fas fa-chair itens-header"></i>
+
+            <div class="container-tooltip">
+                <ul>
+                    <li class="tooltip">
+                        <a href="#" class="icone-perfil">
+                            <i class="fas fa-user"></i>
+                            <p>Perfil</p>
+                        </a>
+
+                        <div class="tooltipMenu bottomSide">
+                            <ul class="container-tooltip" id="menu-profile">
+                                <li>
+                                    <i class="fas fa-user-cog profile-icon"></i>
+                                    <p>Editar Dados</p>
+                                </li>
+                                <li>
+                                    <i class="fas fa-credit-card profile-icon"></i>
+                                    <p>Pagamento</p>
+                                </li>
+                                <li>
+                                    <i class="fas fa-sign-out-alt profile-icon"></i>
+                                    <p>Desconectar</p>
+                                </li>
+                            </ul>
                         </div>
-                        <p>Reservas</p>
-                    </div>
-                </button>
-                <button id='btn-perfil' class='btn-header-option'>
-                    <div class="menu-option perfil">
-                        <div class="icon-footer">
-                            <i class="fas fa-user itens-header"></i>
-                        </div>
-                        <p>Perfil</p>
-                    </div>
-                </button>
+                    </li>
+                </ul>
             </div>
+
         </div>
     </header>
+
     <main class="content">
         <section class="conteudo">
-            <div class="categorias-main">
-            </div>
             <div class="info-proximo">
-                <p>Restaurantes próximos a você</p>
+                <p>Controlar Reservas</p>
             </div>
-            <div class="conteudo-restaurantes">
+            <div class="conteudo-clientes" id="myBtn">
             </div>
-            <div class="carrega-restaurante">
-                <button id="btn-ver-mais">Mostrar mais restaurantes</button>
+            <div class="carrega-cliente">
+                <button id="btn-ver-mais">Mostrar mais reservas</button>
             </div>
         </section>
 
-    </main>
-    <footer>
-        <a href=" https://google.com">
-            <section class="menu-bar">
-                <div class="menu-option home">
-                    <div class="icon-footer">
-                        <i class="fas fa-home itens-footer"></i>
+        <div id="myModal" class="modal">
+            <div class="model-container">
+                <div class="modal-content">
+                    <span class="close-btn">&times;</span>
+
+                    <div class="modal-conteudo" id="cancelar-conteudo">
+                        <h4>Cancelamento da Reserva</h4>
+                        <div class="info-hour-date">
+                            <div class="hour">
+                                <i class="fas fa-clock"></i>
+                                <p>11:00 às 12:00</p>
+                            </div>
+                            <div class="date">
+                                <p>13/09/2020</p>
+                            </div>
+                        </div>
+                        <div class="justify">
+                            <h4>Justificativa</h4>
+                            <textarea name="justify" id="" cols="84" rows="8"></textarea>
+                        </div>
+
+                        <input id="submit" type="submit" value="Confirmar">
+
                     </div>
-                    <p>Inicio</p>
-                </div>
-        </a>
-        <a href="https://google.com">
-            <div class="menu-option busca">
-                <div class="icon-footer">
-                    <i class="fas fa-search itens-footer"></i>
-                </div>
-                <p>Buscar</p>
-            </div>
-        </a>
-        <a href="https://google.com">
-            <div class="menu-option reserva">
-                <div class="icon-footer">
-                    <i class="fas fa-chair itens-footer"></i>
-                </div>
-                <p>Reservas</p>
-            </div>
-        </a>
-        <a href="https://google.com">
-            <div class="menu-option perfil">
-                <div class="icon-footer">
-                    <i class="fas fa-user itens-footer"></i>
-                </div>
-                <p>Perfil</p>
-            </div>
-        </a>
-        </section>
-    </footer>
-
-    <div id="modal-filter" class="modal-conteiner-filter">
-        <div class="modal-conteudo">
-            <button class="btn-fechar"><i id="button-fechar" class="fas fa-times"></i></button>
-            <h3>Filtros</h3>
-            <div class="filtro-conteudo">
-                <div class="filtro-distancia">
-                    <p class='filtro-nomenclatura'>Pessoas por reserva</p>
-                    <input id="range-pessoa" class='slider-range-filter' type="range" min="1" max="30" value="5">
-                    <p id='value-range-pessoas' class='value-range-filter'></p>
-                </div>
-
-                <div class="filtro-pessoas">
-                    <p class='filtro-nomenclatura'>Distância</p>
-                    <input id="range-distancia" class='slider-range-filter' type="range" min="1" max="30" value="5">
-                    <p id="value-range-distancia" class='value-range-filter'></p>
                 </div>
             </div>
         </div>
-    </div>
 
-    <div class="modal-conteiner-perfil">
-        <div class="modal-perfil">
-            <button id='btn-edit-perfil' class='btn-modal-perfil'>
-                <div class="editar-modal box-modal-perfil">
-                    <i class="fas fa-user-cog"></i>
-                    <p>Editar Dados</p>
-                </div>
-            </button>
-
-            <button id='btn-pagamento' class='btn-modal-perfil'>
-                <div class="pagamento-modal box-modal-perfil">
-                    <i class="fas fa-credit-card"></i>
-                    <p>Pagamento</p>
-                </div>
-            </button>
-
-            <button id='btn-sair' class='btn-modal-perfil'>
-                <div class="logout-modal box-modal-perfil">
-                    <i class="fas fa-sign-out-alt"></i>
-                    <p>Desconectar</p>
-                </div>
-            </button>
-        </div>
-    </div>
-
-    <script src="https://kit.fontawesome.com/37a6fc82c8.js" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="../home/jquery.js"></script>
-    <script type="text/javascript" src="../home/jquery-migrate.js"></script>
-    <script type="text/javascript" src="../home/slick.min.js"></script>
-    <script type="text/javascript" src="../home/slick.js"></script>
-    <script type="text/javascript" src='../home/allRestaurante.js'></script>
-    <script type="text/javascript" src="../home/home.js"></script>
-    <script type="text/javascript" src='../home/allCategorias.js'></script>
+        <script src="https://kit.fontawesome.com/37a6fc82c8.js" crossorigin="anonymous"></script>
+        <script type="text/javascript" src='../home/allClientes.js'></script>
+        <script type="text/javascript" src="../home/home.js"></script>
+        <script type="text/javascript" src="../home/rest-cancelar-reserva.js"></script>
 </body>
 
 </html>
