@@ -120,6 +120,7 @@ a {
 }
 
 .conteudo{
+    max-width: 1440px;
     display: flex;
     flex-direction: row;
     margin-bottom: 2em;
@@ -129,8 +130,96 @@ a {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    align-content: center;
     width: 70vw;
-    max-width: 960px;
+    max-width: 1015px;
+    height: 80vh;
+    max-height: 608px;
+}
+
+.model-conteiner{
+    max-width: 512px;
+}
+
+.modal-content{
+    width: 50vw;
+    max-width: 512px;
+    display: flex;
+    justify-content: center;
+}
+
+form fieldset{
+    border: none
+}
+
+fieldset label{
+    color: var(--texto);
+    font-size: large;
+    font-weight: bolder;
+}
+
+fieldset span{
+    color: var(--texto);
+    font-weight: bolder;
+    font-size: medium;
+}
+
+fieldset input{
+    background-color: var(--input);
+    border-radius: var(--border-radius);
+    border: none;
+    height: 2em;
+    text-align: center;
+    color: var(--texto);
+    font-weight: bold;
+}
+
+.box-conteudo{
+    max-width: 512px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.dados p{
+    font-family: var(--font);
+    color: var(--texto) !important;
+    font-size: xx-large;
+    font-weight: bolder;
+    margin-bottom: 1em;
+}
+
+.field{
+    display: flex;
+    align-items: center;
+    margin: 1.5em 0em 1.5em  0em;
+}
+
+.select-horario{
+    margin-left: 2em;
+}
+
+#total-vagas-horario{
+    margin-left: 4em;
+}
+
+#total-pessoa-reserva{
+    margin-left: 2.3em;
+}
+
+#horario-de, #horario-ate{
+    width: 7em;
+}
+
+#submit{
+    width: 40vw;
+    max-width: 410px;
+    height: 2.5em;
+    font-size: medium;
+    font-weight: bolder;
+    color: var(--secundaria);
+    background-color: var(--destaque);
+    margin-top: 1.2em;
 }
 
 .box-horarios{

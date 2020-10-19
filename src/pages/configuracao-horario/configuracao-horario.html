@@ -10,7 +10,6 @@
     <link rel='stylesheet' type='text/css' media='screen' href='./responsive.css'>
     <link rel='stylesheet' type='text/css' media='screen' href='./../../theme/colors.css'>
     <link rel='stylesheet' type='text/css' media='screen' href='./../../theme/default.css'>
-    <link rel="stylesheet" href="../home/rest-cancelar-reserva.css">
 </head>
 
 <body>
@@ -63,7 +62,46 @@
     <main class="content">
         <section class="conteudo">
             <div class="box-config-horario">
+                <div class="model-container">
+                    <div class="modal-content">
+                        <form id="form">
+                            <fieldset>
+                                <div class="box-conteudo">
+                                    <legend>
+                                        <div class="dados">
+                                            <p>Configuração de Horário</p>
+                                        </div>
+                                    </legend>
+
+                                    <div class="field">
+                                        <label for="total-vagas-horario">Total de vagas por horário</label>
+                                        <input type="number" name="total-vagas-horario" id="total-vagas-horario" />
+                                    </div>
+
+                                    <div class="field">
+                                        <label for="total-pessoa-reserva">Total de pessoas por reserva</label>
+                                        <input type="number" name="total-pessoa-reserva" id="total-pessoa-reserva" />
+                                    </div>
+                                    <div class="field">
+                                        <label>Horário</label>
+                                        <div class="select-horario">
+                                            <span>De:</span>
+                                            <input type="text" name="horario-de" id="horario-de" />
+                                            <span>Até:</span>
+                                            <input type="text" name="horario-ate" id="horario-ate" />
+                                        </div>
+                                    </div>
+
+                                    <div class="field">
+                                        <input id="submit" type="submit" value="Confirmar horário">
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
             </div>
+
             <div class="box-horarios">
                 <div class="box-name-horario">
                     <p id='name-horario'>Horários</p>
@@ -84,6 +122,7 @@
                     </button>
                 </div>
             </div>
+        </section>
     </main>
     <div id="myModal" class="modal" style="display: none;">
         <div class="model-container">
@@ -114,9 +153,6 @@
     </div>
 
     <script src="https://kit.fontawesome.com/37a6fc82c8.js" crossorigin="anonymous"></script>
-    <script type="text/javascript" src='../home/allClientes.js'></script>
-    <script type="text/javascript" src="../home/home.js"></script>
-    <script type="text/javascript" src="../home/rest-cancelar-reserva.js"></script>
 </body>
 
 </html>
