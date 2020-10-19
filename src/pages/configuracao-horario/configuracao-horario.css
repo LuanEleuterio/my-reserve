@@ -169,6 +169,7 @@ fieldset input{
     border-radius: var(--border-radius);
     border: none;
     height: 2em;
+    font-size: medium;
     text-align: center;
     color: var(--texto);
     font-weight: bold;
@@ -176,9 +177,6 @@ fieldset input{
 
 .box-conteudo{
     max-width: 512px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
 }
 
 .dados p{
@@ -204,16 +202,17 @@ fieldset input{
 }
 
 #total-pessoa-reserva{
-    margin-left: 2.3em;
+    margin-left: 2.6em;;
 }
 
 #horario-de, #horario-ate{
     width: 7em;
+    margin-right: .5em;
 }
 
 #submit{
     width: 40vw;
-    max-width: 410px;
+    max-width: 455px;
     height: 2.5em;
     font-size: medium;
     font-weight: bolder;

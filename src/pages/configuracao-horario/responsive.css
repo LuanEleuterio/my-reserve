@@ -4,7 +4,7 @@
     }
 }
 
-@media (min-width: 769px) and (max-width: 920px) {
+@media (min-width: 768px) and (max-width: 920px) {
     .logo img {
         width: 1.7em !important;
         height: 2em !important;
@@ -19,22 +19,20 @@
         height: 1.9em !important;
     }
 
-    .info-cliente {
-        width: 10vw !important;
+    .icon-clock {
+        font-size: 1.5em;
     }
-    .clientes p {
-        font-size: 0.6em;
+
+    #hour-reserva {
+        font-size: medium;
     }
-    .container-icons {
-        margin-top: 1em;
-        font-size: 0.7em;
-    }
-    .col-1 {
-        margin-right: 0.2em;
+
+    .icon-edit{
+        font-size: 1.1em;
     }
 }
 
-@media (min-width: 769px) {
+@media (min-width: 768px) {
     body {
         flex-wrap: wrap;
     }
