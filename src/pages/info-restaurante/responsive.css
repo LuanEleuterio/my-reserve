@@ -831,6 +831,7 @@
     }
     .preco{
         width: 15vw;
+        max-width: 178px;
         flex-direction: row;
         justify-content: space-between;
     }
