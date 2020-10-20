@@ -90,18 +90,6 @@ ul li:hover .tooltipMenu {
     border-color: transparent transparent var(--background) transparent;
 }
 
-.aqui a {
-    text-decoration: none;
-    color: var(--preto);
-    margin-left: 0.8rem;
-}
-.aqui {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-}
-
 p {
     font-family: var(--font);
     font-size: 14px;

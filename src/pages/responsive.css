@@ -136,6 +136,9 @@
         flex-wrap: wrap;
         width: 92vw;
     }
+    form .field-group{
+        display: flex;
+    }
 }
 @media (min-width: 426px) and (max-width: 600px) {
     .modal-conteudo h4 {
@@ -172,6 +175,12 @@
 
     .info-cliente {
         width: 20vw;
+    }
+    form .field-group{
+        flex-direction: column;
+    }
+    .modal-content{
+        width: 65%;;
     }
 }
 
@@ -267,5 +276,18 @@
         background: var(--secundaria);
         border-radius: var(--border-radius);
         position: relative;
+    }
+    form .field-group {
+        flex: 1;
+      }
+      form .field-group .field + .field {
+        margin-left: 24px;
+      }
+      
+      form .field-group input + input {
+        margin-left: 24px;
+      }
+      .modal-content{
+        width: 60%;;
     }
 }

@@ -4,12 +4,13 @@
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Cancelar Reserva</title>
+    <title>Editar pagamento</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='home-restaurante.css'>
     <link rel='stylesheet' type='text/css' media='screen' href='responsive.css'>
     <link rel='stylesheet' type='text/css' media='screen' href='../theme/colors.css'>
     <link rel='stylesheet' type='text/css' media='screen' href='../theme/default.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='rest-editar-pag.css'>
 </head>
 
 <body>
@@ -42,7 +43,7 @@
                                     <i class="fas fa-user-cog profile-icon"></i>
                                     <p>Editar Dados</p>
                                 </li>
-                                <li>
+                                <li id="myBtn">
                                     <i class="fas fa-credit-card profile-icon"></i>
                                     <p>Pagamento</p>
                                 </li>
@@ -72,9 +73,67 @@
         </section>
     </main>
 
+    <div id="myModal" class="modal">
+
+        <div class="model-container">
+            <div class="modal-content">
+                <span class="close-btn">&times;</span>
+
+                <form id="form">
+
+                    <fieldset>
+                        <legend>
+                            <h2>Dados de pagamento</h2>
+                        </legend>
+
+                        <div class="field">
+                            <label for="nome">Nome do Beneficiário</label>
+                            <input type="text" name="nome" id="nome" />
+                        </div>
+
+                        <div class="field">
+                            <label for="identidade">CPF/CNPJ</label>
+                            <input type="text" name="identidade" id="identidade" />
+                        </div>
+
+                        <div class="field-group">
+                            <div class="field">
+                                <label for="banco">Banco</label>
+                                <input type="text" name="banco" id="banco" />
+                            </div>
+                            <div class="field">
+                                <label for="agencia">Agência</label>
+                                <input type="text" name="agencia" id="agencia" />
+                            </div>
+                        </div>
+
+                        <div class="field-group">
+                            <div class="field">
+                                <label for="tipo-conta">Tipo de conta</label>
+                                <input type="text" name="tipo-conta" id="tipo-conta" />
+                            </div>
+                            <div class="field">
+                                <label for="nr-conta">Número da conta</label>
+                                <input type="text" name="nr-conta" id="nr-conta" />
+                            </div>
+                        </div>
+                        
+                        <div class="field">
+                            <input id="submit" type="submit" value="Salvar alterações">
+                        </div>
+                    </fieldset>
+
+            </div>
+            </form>
+
+        </div>
+    </div>
+    </div>
+
     <script src="https://kit.fontawesome.com/37a6fc82c8.js" crossorigin="anonymous"></script>
     <script type="text/javascript" src='allClientes.js'></script>
     <script type="text/javascript" src="home.js"></script>
+    <script type="text/javascript" src="rest-editar-pag.js"></script>
 </body>
 
 </html>
