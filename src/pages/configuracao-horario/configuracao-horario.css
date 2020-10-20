@@ -358,7 +358,7 @@ fieldset input{
 }
 
 .mostrar .modal-config{
-    animation: modal-animation .3s;
+    animation: modal-animation .5s;
 }
 
 .modal-config h3{
