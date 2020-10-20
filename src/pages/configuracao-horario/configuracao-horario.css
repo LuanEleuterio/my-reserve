@@ -219,6 +219,7 @@ fieldset input{
     color: var(--secundaria);
     background-color: var(--destaque);
     margin-top: 1.2em;
+    cursor: pointer;
 }
 
 .box-horarios{
@@ -421,6 +422,7 @@ fieldset input{
     color: var(--secundaria);
     background-color: var(--destaque);
     margin-top: 1.2em;
+    cursor: pointer;
 }
 
 #cancel-btn-modal{
@@ -431,7 +433,10 @@ fieldset input{
     font-weight: bolder;
     color: var(--secundaria);
     background-color: #D62839;
+    border: none;
+    border-radius: var(--border-radius);
     margin-top: 1.2em;
+    cursor: pointer;
 }
 
 #hour-reserva-modal{
