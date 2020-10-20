@@ -310,6 +310,127 @@ fieldset input{
 }
 
 #hour-reserva{
+    color: var(--texto);
     font-size: large;
     font-weight: bolder;
+}
+
+/*Modal*/
+.modal-config-hour{
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    background: var(--preto);
+    z-index: 10;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-config-hour.mostrar{
+    display: flex;
+}
+
+.modal-config{
+    width: 50vw;
+    height: 30em;
+    max-width: 693px;
+    padding: 2em;
+    box-sizing: border-box;
+    background: var(--secundaria);
+    border-radius: var(--border-radius);
+    position: relative;
+}
+
+.btn-fechar{
+    position: absolute;
+    background-color: transparent;
+    border: transparent;
+    outline: none;
+    top: 0.5em;
+    right: 1em;
+    cursor: pointer;
+}
+
+.fa-times{
+    color: var(--destaque);
+    font-size: large;
+}
+
+.mostrar .modal-config{
+    animation: modal-animation .3s;
+}
+
+.modal-config h3{
+    display: flex;
+    justify-content: center;
+    color: var(--texto);
+    font-weight: bolder;
+    font-size: x-large;
+    margin-bottom: .8em;
+}
+
+.hour-content-info{
+    display: flex;
+    justify-content: center;
+    height: 4em;
+    border: 1px solid var(--border);
+    border-radius: var(--border-radius);
+    max-width: 626px;
+    position: relative;
+}
+
+.modal-hour p{
+    font-size: x-large !important;
+}
+
+.form-content{
+    display: flex;
+    justify-content: center;
+}
+
+.modal-field{
+    justify-content: center;
+}
+
+#total-vagas-horario-modal{
+    margin-left: 4em;
+}
+
+#total-pessoa-reserva-modal{
+    margin-left: 2.6em;;
+}
+
+#horario-de-modal, #horario-ate-modal{
+    width: 7em;
+    margin-right: .5em;
+}
+
+.btn-modal{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#submit-modal{
+    width: 40vw;
+    max-width: 455px;
+    height: 2.5em;
+    font-size: medium;
+    font-weight: bolder;
+    color: var(--secundaria);
+    background-color: var(--destaque);
+    margin-top: 1.2em;
+}
+
+#cancel-btn-modal{
+    width: 40vw;
+    max-width: 455px;
+    height: 2.5em;
+    font-size: medium;
+    font-weight: bolder;
+    color: var(--secundaria);
+    background-color: #D62839;
+    margin-top: 1.2em;
 }
