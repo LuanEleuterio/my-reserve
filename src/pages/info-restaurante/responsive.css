@@ -811,10 +811,13 @@
 
 .info-pessoas{
     display: flex;
-
     color: #322153;
     flex-wrap: wrap;
+    flex-direction: column;
   
+}
+.preco{
+    flex-direction: row;
 }
 
 .box-quant{
@@ -858,8 +861,7 @@ margin-left: 17%;
 }
 .block-layout{
 display: flex;
-width: 90vw;
-margin: 1% 2% 0 0;
+
 }
 .btn-confirmar{
 color: white;
