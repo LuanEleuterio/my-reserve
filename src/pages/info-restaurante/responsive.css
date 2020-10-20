@@ -805,8 +805,12 @@
 
 .divisor{
     border-bottom: 1px solid #CCC;
-    margin-top: 1%;
+    margin-top: 4%;
     width: 22vw;
+}
+
+.info-block{
+    margin-bottom: 2%;
 }
 
 .info-pessoas{
@@ -814,10 +818,12 @@
     color: #322153;
     flex-wrap: wrap;
     flex-direction: column;
-  
+    margin: 2% 0 2% 0;
 }
 .preco{
+    width: 12vw;
     flex-direction: row;
+    justify-content: space-between;
 }
 
 .box-quant{
@@ -828,47 +834,54 @@
     border-radius: 4px;
 }
 .info-pagamento{
-
-display: flex;
-flex-direction: column;
+    display: flex;
+    flex-direction: column;
 }
 .btn-radio{
-color: #4788ff;
-fill: #4788ff;
-margin-left: 15% ;
+    color: #4788ff;
+    fill: #4788ff;
+    margin-left: 15% ;
 }
+
 .bold{
-font-weight: bold;
+    font-weight: bold;
 }
+
 .opaco{
-color:rgb(155, 155, 155);
-padding: 2% 0 2% 0;
+    color:rgb(155, 155, 155);
+    padding: 2% 0 2% 0;
 }
 .font-azul{
-color: #4788ff;
+    color: #4788ff;
 }
 .cartao{
-padding: 2% 0 2% 0;
+    display: flex;
+    align-items: center;
+    padding: 1% 0 1% 0;
 }
 .debito{
-padding: 2% 0 2% 0;
+    display: flex;
+    padding: 1% 0 0 0;
 }
 .credito{
-padding: 2% 0 4% 0;
+    display: flex;
+    padding: 1% 0 0 0;
 }
 .unq{
-margin-left: 17%;
+    margin-left: 16.4%;
 }
 .block-layout{
-display: flex;
-
+    display: flex;
+    justify-content: space-between;
+    width: 13vw;
 }
 .btn-confirmar{
-color: white;
-background-color: #4788ff;
-border-radius: 8px;
-width: 22vw;
-height: 5vh;
-border: none;
-outline: none;
+    color: white;
+    background-color: #4788ff;
+    border-radius: 8px;
+    width: 22vw;
+    height: 5vh;
+    border: none;
+    outline: none;
+    margin-top:2% ;
 }
