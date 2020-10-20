@@ -136,10 +136,42 @@
         flex-wrap: wrap;
         width: 92vw;
     }
+    form img {
+        margin-right: 1em;
+    }
+    form .categoria {
+        display: flex;
+        justify-content: space-between;
+    }
+    #categoria-option {
+        border: none;
+        background-color: var(--input);
+        border-radius: var(--border-radius);
+    }
 }
 @media (min-width: 426px) and (max-width: 600px) {
-    .modal-conteudo h4 {
-        font-size: 0.8em;
+    form .dados h4 {
+        font-size: .8em;
+    }
+    form img {
+        margin-right: .5em;
+    }
+    form .categoria {
+        width: 160px;
+    }
+    #categoria-option {
+        width: 90px;
+    }
+}
+@media(min-width: 601px){
+    form img {
+        margin-right: 1em;
+    }
+    form .categoria {
+        width: 200px;
+    }
+    #categoria-option {
+        width: 130px;
     }
 }
 
@@ -172,6 +204,9 @@
 
     .info-cliente {
         width: 20vw;
+    }
+    .modal-content {
+        width: 80%;
     }
 }
 
@@ -267,5 +302,8 @@
         background: var(--secundaria);
         border-radius: var(--border-radius);
         position: relative;
+    }
+    .modal-content {
+        width: 55%;
     }
 }
