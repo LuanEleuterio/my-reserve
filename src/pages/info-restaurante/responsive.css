@@ -335,7 +335,7 @@
    }
 
    .icon-clock{
-       font-size: 1.2em !important;
+    font-size: 1.5em !important;
    }
 
    #hour-reserva{
@@ -568,14 +568,17 @@
 
     .vagas p{
         color: var(--destaque);
+        display: flex;
+        justify-content: center;
     }
 
     .icon-clock{
         font-size: 2em;
-        color: var(--preto);
+        color: var(--destaque);
     }
 
     #hour-reserva{
+        color: var(--texto);
         font-size: large;
         font-weight: bolder;
     }
@@ -766,6 +769,144 @@
         display: none;
     }
 
+        
+    /*Modal de horarios para reserva*/
+    .modalHorario{
+        display:flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 50vw;
+        max-width: 627px;
+        padding: 2vw;
+        box-sizing: border-box;
+        background: var(--secundaria);
+        border-radius: var(--border-radius);
+        position: relative;
+    }
+
+    .modalHorario h3{
+        display: flex;
+        justify-content: center;
+        font-weight: bold;
+        width: 100vw;
+        margin-bottom: 1em;
+    }
+
+    .hour-modal-conteudo{
+        max-width: 558px;
+    }
+
+    .box-horario-modal{
+        width: 41vw;
+        max-width: 556px;
+    }
+
+    .divisor{
+        border-bottom: 1px solid #CCC;
+        margin-top: 1em;
+        width: 41vw;
+        max-width: 556px;
+    }
+
+    .info-block{
+        margin-bottom: 2%;
+    }
+
+    .clock-modal{
+        font-size: 2em !important;
+    }
+
+    #hour-reserva-modal{
+        color: var(--texto);
+        font-size: large;
+        font-weight: bolder;
+    }
+
+    .info-pessoas{
+        display: flex;
+        color: #322153;
+        flex-wrap: wrap;
+        flex-direction: column;
+        margin: 2% 0 2% 0;
+    }
+    .preco{
+        width: 15vw;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .box-quant{
+        display: flex;
+        justify-content: center;
+        border: 1px solid #CCC;
+        width: 4vw;
+        border-radius: 4px;
+        margin-right: 1em;
+    }
+    .info-pagamento{
+        display: flex;
+        flex-direction: column;
+    }
+    .btn-radio{
+        color: #4788ff;
+        fill: #4788ff;
+        margin-left: 15% ;
+    }
+
+    .bold{
+        font-weight: bold;
+    }
+
+    .opaco{
+        color:rgb(155, 155, 155);
+        padding: 2% 0 2% 0;
+    }
+    .font-azul{
+        color: #4788ff;
+    }
+
+    .pagamento{
+        flex-wrap: nowrap;
+    }
+
+    .cartao{
+        display: flex;
+        align-items: center;
+        padding: 1% 0 1% 0;
+    }
+    .cartao .font-azul{
+        margin-left: .5em;
+    }
+    .debito{
+        display: flex;
+        padding: 1% 0 0 0;
+    }
+    .credito{
+        display: flex;
+        padding: 1% 0 0 0;
+    }
+    .unq{
+        margin-left: 16.4%;
+    }
+    .block-layout{
+        display: flex;
+        width: 16vw;
+    }
+    .btn-confirmar{
+        color: var(--secundaria);
+        font-family: var(--font);
+        font-size: large;
+        font-weight: bolder;
+        background-color: #4788ff;
+        border-radius: 8px;
+        width: 41vw;
+        height: 2.5em;
+        border: none;
+        outline: none;
+        max-width: 558px;
+        cursor: pointer;
+    }
+
 }
 
 @media (min-width:1390px) {
@@ -795,93 +936,4 @@
         display: none;
     }
 
-}
-
-/*Modal de horarios para reserva*/
-.modalHorario{
-    display:flex;
-    flex-wrap: wrap;
-}
-
-.divisor{
-    border-bottom: 1px solid #CCC;
-    margin-top: 4%;
-    width: 22vw;
-}
-
-.info-block{
-    margin-bottom: 2%;
-}
-
-.info-pessoas{
-    display: flex;
-    color: #322153;
-    flex-wrap: wrap;
-    flex-direction: column;
-    margin: 2% 0 2% 0;
-}
-.preco{
-    width: 12vw;
-    flex-direction: row;
-    justify-content: space-between;
-}
-
-.box-quant{
-    display: flex;
-    justify-content: center;
-    border: 1px solid #CCC;
-    width: 4vw;
-    border-radius: 4px;
-}
-.info-pagamento{
-    display: flex;
-    flex-direction: column;
-}
-.btn-radio{
-    color: #4788ff;
-    fill: #4788ff;
-    margin-left: 15% ;
-}
-
-.bold{
-    font-weight: bold;
-}
-
-.opaco{
-    color:rgb(155, 155, 155);
-    padding: 2% 0 2% 0;
-}
-.font-azul{
-    color: #4788ff;
-}
-.cartao{
-    display: flex;
-    align-items: center;
-    padding: 1% 0 1% 0;
-}
-.debito{
-    display: flex;
-    padding: 1% 0 0 0;
-}
-.credito{
-    display: flex;
-    padding: 1% 0 0 0;
-}
-.unq{
-    margin-left: 16.4%;
-}
-.block-layout{
-    display: flex;
-    justify-content: space-between;
-    width: 13vw;
-}
-.btn-confirmar{
-    color: white;
-    background-color: #4788ff;
-    border-radius: 8px;
-    width: 22vw;
-    height: 5vh;
-    border: none;
-    outline: none;
-    margin-top:2% ;
 }

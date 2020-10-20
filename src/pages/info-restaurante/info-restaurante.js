@@ -3,22 +3,17 @@ const modalHorario = document.getElementById("modal-horario")
 
 for (let i = 0; i < btn_horario.length; i++) {
 
-  (function(index){
-    btn_horario[index].addEventListener("click", function() {
-      console.log(index)
-
+  (function (index) {
+    btn_horario[index].addEventListener("click", function () {
       modalHorario.classList.add("mostrar")
-      console.log(modalHorario.className)
-
     })
   })(i)
 }
 
-modalHorario.addEventListener("click",function(e){
-
-  if(e.target.className == modalHorario.className){
+modalHorario.addEventListener("click", function (e) {
+  if (e.target.className == modalHorario.className || e.target.id == "button-fechar") {
     modalHorario.classList.remove("mostrar")
   }
-  
+
 })
 
