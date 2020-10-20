@@ -1,9 +1,11 @@
 const modalConfigHour = document.querySelector(".modal-config-hour")
-const btnHorario = document.querySelector("#btn-horario")
+const btnHorario = document.querySelectorAll(".button-horario")
+const modalHourReserva = document.querySelector("#hour-reserva-modal")
 
-function openModalConfig() {
+
+function openModalConfig(event) {
     modalConfigHour.classList.add('mostrar')
-    console.log(modalConfigHour)
+    modalHourReserva.innerText = event.target.innerText;
     modalConfigHour.addEventListener("click", (e) => {
         if (e.target.id == "button-fechar" || e.target.className == modalConfigHour.className) {
             modalConfigHour.classList.remove('mostrar')
@@ -12,4 +14,8 @@ function openModalConfig() {
 }
 
 
-btnHorario.addEventListener("click", openModalConfig)
+for (let i = 0; i < btnHorario.length; i++) {
+    btnHorario[i].addEventListener("click", (event) => {
+        openModalConfig(event)
+    })
+}

@@ -259,7 +259,6 @@ fieldset input{
     flex-wrap: wrap;
     margin-top: 1em;
     overflow: auto;
-    height: 80vh;
 }
 
 .button-horario{
@@ -433,4 +432,10 @@ fieldset input{
     color: var(--secundaria);
     background-color: #D62839;
     margin-top: 1.2em;
+}
+
+#hour-reserva-modal{
+    color: var(--texto);
+    font-size: large;
+    font-weight: bolder;
 }
