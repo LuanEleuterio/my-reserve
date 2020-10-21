@@ -10,6 +10,9 @@
     <link rel='stylesheet' type='text/css' media='screen' href='./responsive.css'>
     <link rel='stylesheet' type='text/css' media='screen' href='./../../theme/colors.css'>
     <link rel='stylesheet' type='text/css' media='screen' href='./../../theme/default.css'>
+    <link rel="stylesheet" href="../../css/modals-header.css">
+    <link rel="stylesheet" href="../../css/editar-perfil.css">
+    <link rel="stylesheet" href="../../css/editar-pagamento.css">
 </head>
 
 <body>
@@ -121,6 +124,105 @@
         </section>
     </footer>
 
+    <div id="myModal-editar" class="modal">
+        <div class="model-container">
+            <div class="modal-content">
+                <span class="close-btn-editar">&times;</span>
+
+                <form id="form-editar">
+
+                    <fieldset>
+                        <legend>
+                            <div class="dados">
+                                <img src="../../img/foto4.jpg" alt="">
+                                <h2>Dados pessoais</h2>
+                            </div>
+                        </legend>
+
+                        <div class="field">
+                            <label for="name">Nome completo</label>
+                            <input type="text" name="name" id="name-editar" />
+                        </div>
+
+                        <div class="field">
+                            <label for="cpf">CPF</label>
+                            <input type="text" name="cpf" id="cpf-editar" />
+                        </div>
+                        <div class="field">
+                            <label for="whatsapp">Whatsapp</label>
+                            <input type="text" name="whatsapp" id="whatsapp-editar" placeholder="(xx) xxxxx-xxxx" />
+                        </div>
+
+                        <div class="field">
+                            <label for="email">E-mail</label>
+                            <input type="email" name="email" id="email-editar" placeholder="email@exemplo.com" />
+                        </div>
+
+                        <label id="label-senha" for="password">Senha</label>
+                        <div class="pass-container">
+                            <input type="password" name="senha" id="password-editar" required />
+                            <button type="button" id="eye" class="glyphicon glyphicon-eye-close"
+                                onclick="mostrar(this)"></button>
+                        </div>
+
+                        <div class="field">
+                            <input id="submit-editar" type="submit" value="Salvar alterações">
+                        </div>
+                    </fieldset>
+
+            </div>
+            </form>
+
+        </div>
+    </div>
+
+    <div id="myModal-pagamento" class="modal">
+
+        <div class="model-container">
+            <div class="modal-content">
+                <span class="close-btn-pag">&times;</span>
+
+                <form id="form-pag">
+
+                    <fieldset>
+                        <legend>
+                            <h2>Dados de pagamento</h2>
+                        </legend>
+
+                        <div class="field">
+                            <label for="nro-cartao">Número do cartão<i class="fas fa-lock"></i></label>
+                            <input type="text" name="nro-cartao" id="nro-cartao" />
+                        </div>
+
+                        <div class="field">
+                            <label for="validade">Validade</label>
+                            <input type="text" name="validade" id="validade" />
+                        </div>
+                        <div class="field">
+                            <label for="cvv">CVV</label>
+                            <input type="text" name="cvv" id="cvv" />
+                        </div>
+
+                        <div class="field">
+                            <label for="nome">Nome do titular</label>
+                            <input type="text" name="nome" id="nome-pag" />
+                        </div>
+                        <div class="field">
+                            <label for="identidade">CPF/CNPJ do titular</label>
+                            <input type="text" name="identidade" id="identidade" />
+                        </div>
+
+                        <div class="field">
+                            <input id="submit" type="submit" value="Salvar alterações">
+                        </div>
+                    </fieldset>
+
+            </div>
+            </form>
+
+        </div>
+    </div>
+
     <div id="modal-filter" class="modal-conteiner-filter">
         <div class="modal-conteudo">
             <button class="btn-fechar"><i id="button-fechar" class="fas fa-times"></i></button>
@@ -144,14 +246,14 @@
     <div class="modal-conteiner-perfil">
         <div class="modal-perfil">
             <button id='btn-edit-perfil' class='btn-modal-perfil'>
-                <div class="editar-modal box-modal-perfil">
+                <div class="editar-modal box-modal-perfil" id='myBtn-editar'>
                     <i class="fas fa-user-cog"></i>
                     <p>Editar Dados</p>
                 </div>
             </button>
 
             <button id='btn-pagamento' class='btn-modal-perfil'>
-                <div class="pagamento-modal box-modal-perfil">
+                <div class="pagamento-modal box-modal-perfil" id='myBtn-pag'>
                     <i class="fas fa-credit-card"></i>
                     <p>Pagamento</p>
                 </div>
@@ -169,6 +271,9 @@
     <script src="https://kit.fontawesome.com/37a6fc82c8.js" crossorigin="anonymous"></script>
     <script type="text/javascript" src='../historico-reserva/allReservas.js'></script>
     <script type="text/javascript" src="../historico-reserva/historico-reserva.js"></script>
+    <script type="text/javascript" src='../../utils/editar-perfil.js'></script>
+    <script type="text/javascript" src='../../utils/editar-pagamento.js'></script>
+    <script type="text/javascript" src="../../utils/modals-header.js"></script>
 </body>
 
 </html>
