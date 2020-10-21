@@ -66,9 +66,16 @@ form fieldset {
     min-inline-size: auto;
     border: 0;
 }
+.image-profile {
+    margin: 0 auto;
+    max-width: 200px;
+    display: flex;
+    justify-content: center;
+}
 form fieldset label img {
-    width: 100%;
+    width: 200px;
     height: 170px;
+    border-radius: var(--border-radius);
 }
 label {
     font-weight: bold;
@@ -77,9 +84,9 @@ label {
     visibility: hidden;
 }
 .svg {
-    position: absolute;
-    top: -5px;
-    right: 70px;
+    position: relative;
+    bottom: 65px;
+    right: 30px;
     width: 20px;
 }
 
@@ -115,6 +122,10 @@ form .dados {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+.fa-lock {
+    margin-left: .3em;
+    color: var(--border);
 }
 
 /* form end */
