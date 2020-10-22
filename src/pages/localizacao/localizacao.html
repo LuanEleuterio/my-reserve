@@ -9,6 +9,7 @@
     <link rel='stylesheet' type='text/css' media='screen' href='./localizacao.css'>
     <link rel='stylesheet' type='text/css' media='screen' href='./../../theme/colors.css'>
     <link rel='stylesheet' type='text/css' media='screen' href='./../../theme/default.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='modal-localizacao.css'>
 </head>
 
 <body>
@@ -26,7 +27,7 @@
         <section class="conteudo">
             <img src="../../img/undraw_Destination_6jtj.svg" alt="">
 
-            <h3>Nos diga onde você está!</h3>
+            <h3 id="modal">Nos diga onde você está!</h3>
 
             <div class="busca-endereco">
                 <i class="fas fa-search" id="icon-search"></i>
@@ -36,15 +37,38 @@
             <div class="titulo">
                 <p>Endereços encontrados</p>
             </div>
-            <div class="conteudo-enderecos"></div>
+            <div class="conteudo-enderecos" id="myBtn"></div>
             <!-- <div class="localizacao-atual">
                 <i class="fas fa-map-marker-alt" id='icon-location'></i>
                 <p class="rua">Rua Tenente Comandante Oliveira, 471</p>
                 <p class="sua-localizacao">SUA LOCAZILAÇÃO ATUAL</p>
             </div> -->
-            <a href="#" id="myBtn"><h5>Não encontrei meu endereço</h5></a>
+            <a href="#">
+                <h5>Não encontrei meu endereço</h5>
+            </a>
         </section>
     </main>
+    <div id="myModal" class="modal">
+        <div class="model-container">
+            <div class="modal-content">
+                <span class="close-btn">&times;</span>
+
+                <div class="conteudo-localizacao">
+                    <p class="paragrafo">Avenida Guarapiranga</p>
+                    <p class="paragrafo">Socorro, São Paulo - SP, Brasil</p>
+
+                    <div class="numero">
+                        <label for="numero">Número</label>
+                        <input type="text" name="numero" id="numero" maxlength="5">
+                    </div>
+                    <div class="field">
+                        <input id="submit" type="submit" value="Confirmar">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
     <footer>
         <a href=" https://google.com">
             <section class="menu-bar">
@@ -85,6 +109,7 @@
     <script src="https://kit.fontawesome.com/37a6fc82c8.js" crossorigin="anonymous"></script>
     <script type="text/javascript" src="enderecos.js"></script>
     <script type="text/javascript" src="localizacao.js"></script>
+    <script type="text/javascript" src="modal-localizacao.js"></script>
 </body>
 
 </html>

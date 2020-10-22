@@ -1,0 +1,118 @@
+*:focus {
+  outline: 0;
+}
+
+/* Modal background start */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 7; /* Sit on top */
+  padding-top: 4vh; /*Location of the box*/
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.7); /* Black w/ opacity */
+}
+/* Modal background end */
+
+/* modal start */
+.model-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.modal-content {
+  background-color: var(--secundaria);
+  margin: 44% auto;
+  padding: 0 10px 10px 40px;
+  width: 90%;
+  border-radius: 8px;
+}
+.modal-content {
+  animation: modal-animation 0.8s;
+}
+@keyframes modal-animation {
+  from {
+    opacity: 0;
+    transform: translate3d(0, -80px, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+/* modal end */
+
+/* close button start */
+.close-btn {
+  padding: 5px;
+  color: var(--principal);
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+.close-btn:hover,
+.close-btn:focus {
+  color: var(--destaque);
+  text-decoration: none;
+  cursor: pointer;
+}
+/* close button end */
+
+/* Modal content start*/
+.paragrafo,
+.numero,
+.field {
+  font-size: 14px;
+}
+.conteudo-localizacao {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  margin: 20px 20px 0 0;
+  min-inline-size: auto;
+  border: 0;
+  height: 140px;
+}
+.conteudo-localizacao .numero {
+  display: flex;
+  width: 130px;
+  align-items: center;
+  justify-content: space-between;
+}
+.conteudo-localizacao .field {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+.conteudo-localizacao input[type="text"] {
+  width: 60px;
+  height: 25px;
+  border: 1px solid var(--border);
+  border-radius: var(--border-radius);
+  padding: 4px;
+}
+/* Modal content end */
+
+/* submit button start */
+#submit {
+  /* margin-top: 10px; */
+  width: 100%;
+  padding: 5px 10px;
+  background: var(--principal);
+  border-radius: 8px;
+  color: var(--secundaria);
+  font-size: 16px;
+  border: 0;
+  transition: background-color 0.2s;
+  cursor: pointer;
+}
+#submit:hover {
+  background: var(--destaque);
+}
+/* submit button end */
