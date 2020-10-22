@@ -7,7 +7,6 @@
     <title>Historico de Reservas</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='./filtro-mobile.css'>
-    <link rel='stylesheet' type='text/css' media='screen' href='./responsive.css'>
     <link rel='stylesheet' type='text/css' media='screen' href='./../../theme/colors.css'>
     <link rel='stylesheet' type='text/css' media='screen' href='./../../theme/default.css'>
 </head>
@@ -19,24 +18,25 @@
                 <button id='btn-arrow-header'>
                     <i class="fas fa-arrow-left arrow-header"></i>
                 </button>
-                <p>Filtros</p>
+                <p>Localização</p>
             </div>
         </div>
     </header>
     <main class="content">
         <section class="conteudo">
-            <div class="filtro-conteudo">
-                <div class="filtro-distancia">
-                    <p class='filtro-nomenclatura'>Pessoas por reserva</p>
-                    <input id="range-pessoa" class='slider-range-filter' type="range" min="1" max="30" value="5">
-                    <p id='value-range-pessoas' class='value-range-filter'></p>
-                </div>
+            <img src="../../img/undraw_Destination_6jtj.svg" alt="">
 
-                <div class="filtro-pessoas">
-                    <p class='filtro-nomenclatura'>Distância</p>
-                    <input id="range-distancia" class='slider-range-filter' type="range" min="1" max="30" value="5">
-                    <p id="value-range-distancia" class='value-range-filter'></p>
-                </div>
+            <h3>Nos diga onde você está!</h3>
+
+            <div class="busca-endereco">
+                <i class="fas fa-search" id="icon-search"></i>
+                <input type="text" id="search-bar" value="" placeholder="Buscar por endereço">
+            </div>
+
+            <div class="localizacao-atual">
+                <i class="fas fa-map-marker-alt" id='icon-location'></i>
+                <p class="rua">Rua Tenente Comandante Oliveira, 471</p>
+                <p class="sua-localizacao">SUA LOCAZILAÇÃO ATUAL</p>
             </div>
         </section>
     </main>
@@ -78,8 +78,6 @@
     </footer>
 
     <script src="https://kit.fontawesome.com/37a6fc82c8.js" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="../filtro-mobile/filtro-mobile.js"></script>
-    <script type="text/javascript" src="../../utils/filtros.js"></script>
 </body>
 
 </html>
