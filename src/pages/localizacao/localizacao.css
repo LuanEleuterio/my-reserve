@@ -61,11 +61,11 @@ header {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100vh;
+    height: 105vh;
 }
 section img {
     width: 300px;
-    height: 250px;
+    height: 230px;
 }
 section h3 {
     font-weight: bold;
@@ -130,8 +130,12 @@ h3 {
 }
 
 .conteudo h5 {
-    margin-bottom: 30px;
+    margin-bottom: 35px;
     color: red;
+}
+.titulo {
+    width: 300px;
+    font-size: 18px;
 }
 
 /* Main end */
