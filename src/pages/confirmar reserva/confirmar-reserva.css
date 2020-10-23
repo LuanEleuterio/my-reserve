@@ -346,6 +346,12 @@ footer{
         flex-wrap: wrap;
       
 }
+.qtd-pessoas{
+    max-width: 383px;
+}
+.method-pagamento{
+    max-width: 383px;
+}
 .preco{
     justify-content: space-between;
 }
