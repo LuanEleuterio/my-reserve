@@ -64,4 +64,4 @@ setTimeout(function () {
             // instead of a settings object
         ]
     });
-}, 100);
+}, 1000);
