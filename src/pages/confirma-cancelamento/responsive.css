@@ -272,3 +272,10 @@
 
 }
 
+@media (min-width:1280px){
+    
+    .imagem-main{
+        margin-top: 4%;
+    }
+}
+
