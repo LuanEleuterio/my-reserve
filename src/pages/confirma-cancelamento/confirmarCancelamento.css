@@ -175,15 +175,48 @@ header{
 .imagem-main{
     display: flex;
     justify-content: center;
-    margin-top: 20%;
+    margin: 20% 0 5% 0;
 }
 
 
+.divisor{
+    margin: 4% 0 4% 0;
+    border-bottom: 1px solid #CCC;
+}
+.nomeRestaurante{
+    color: #322153;
+    font-size: 1.3em;
+    font-weight: 500;
+    padding-bottom: 2%;
+}
+.tipoRestaurante{
+    color: #322153;
+    padding-bottom: 2%;
+}
+.enderecoRestaurante{
+    color: #322153;
+}
 
+.alerta{
+    text-align: left;
+    width: 90vw;
+    color:#D62839;
+}
+
+
+.btnConfirmar{
+    color: white;
+    outline: none;
+    border-radius: 9px;
+    width: 90vw;
+    height: 5vh;
+    border: none;
+    background-color:#4788FF;
+}
 
 
 .box-horario{
-    width: 80vw;
+    width: 90vw;
     display: flex;
     justify-content: space-evenly;
     height: 4em;
