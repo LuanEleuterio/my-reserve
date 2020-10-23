@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="../../css/modals-header.css">
     <link rel="stylesheet" href="../../css/editar-perfil.css">
     <link rel="stylesheet" href="../../css/editar-pagamento.css">
+    <link rel="stylesheet" href="modalCancelar.css">
 </head>
 
 <body>
@@ -265,6 +266,62 @@
                     <p>Desconectar</p>
                 </div>
             </button>
+        </div>
+    </div>
+
+    <!--Modal Confirmacao de cancelamento-->
+    <div id="modal-cancelar" class="modal-conteiner-filter">
+        <div class="modal-conteudo containerCancelar">
+            <button class="btn-fechar"><i id="button-fechar" class="fas fa-times"></i></button>
+            <div>
+                <h3>Cancelamento da Reserva</h3>
+            </div>
+            <div class="filtro-conteudo">
+                
+                <div class="modalInfoRestaurante">
+
+                    <span class="snNomeRestaurante">Habib's</span>
+
+                    <div class="lineRestaurante">
+                        <svg width="16" height="17" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M6.66654 7.82617H8.88872V0.826172H11.1109V7.82617C11.1109 10.0362 9.12204 11.8262 6.66654 11.8262V20.8262H4.44436V11.8262C1.98885 11.8262 0 10.0362 0 7.82617V0.826172H2.22218V7.82617H4.44436V0.826172H6.66654V7.82617ZM14.4444 12.8262V4.82617C14.4444 3.06617 16.9333 0.826172 19.9999 0.826172V20.8262H17.7777V12.8262H14.4444Z" fill="#322153" fill-opacity="0.6"/>
+                        </svg>
+                        <span class="snTipoRestaurante">Arabe</span>
+                    </div>
+
+                    <div class="lineRestaurante">
+                        <svg width="16" height="16" viewBox="0 0 14 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M7.00055 1.52588e-05C10.3106 1.52588e-05 13.0006 2.69002 13.0006 6.00002C13.0006 10.5 7.00055 17 7.00055 17C7.00055 17 1.00055 10.5 1.00055 6.00002C1.00055 2.69002 3.69055 1.52588e-05 7.00055 1.52588e-05ZM14 18H0V20H14V18ZM2.99951 6.00001C2.99951 3.79001 4.78951 2.00002 6.99951 2.00002C9.20951 2.00002 10.9995 3.79001 10.9995 6.00001C10.9995 8.13 8.91951 11.46 6.99951 13.91C5.07951 11.47 2.99951 8.13 2.99951 6.00001ZM5.00049 6.00002C5.00049 4.90002 5.90049 4.00002 7.00049 4.00002C8.10049 4.00002 9.00049 4.90002 9.00049 6.00002C9.00049 7.10002 8.11049 8.00002 7.00049 8.00002C5.90049 8.00002 5.00049 7.10002 5.00049 6.00002Z" fill="#322153" fill-opacity="0.6"/>
+                        </svg>     
+                        <span class="snEnderecoRestaurante">Av. Jucelino Kubitschek, 1004</span>
+                    </div>
+                </div>
+                <div class="containerRelogio">
+                    <div class="box-horario">
+                        <div class="icon-horario col-horario">
+                            <i class="far fa-clock icon-clock"></i>
+                        </div>
+                        <div class="horario-reserva col-horario">
+                            <p id='hour-reserva'>12:00 às 13:00</p>
+                        </div>
+        
+                        <div class="vagas col-horario">
+                            <span>
+                                <p>02/09/2020</p>
+                                <p id='qtd-vagas'></p>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="divisor"></div>
+
+                <span class="alerta">Você está cancelando essa reserva próximo ao horário reservado,
+                este cancelamento resultará no não reembolso da taxa de reserva!</span>
+
+                <div><button class="btnConfirmarCancelamento">Confirmar</button></div>
+                    
+            </div>
         </div>
     </div>
 

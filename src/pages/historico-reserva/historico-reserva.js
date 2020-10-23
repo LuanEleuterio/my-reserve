@@ -68,8 +68,36 @@ function carregaReservas() {
 
 
     });
+    /*Inicio modal cancelar*/
 
+    const btnModalCancelar = document.getElementsByClassName("btn-cancelar")
+    const modalCancelar = document.getElementById("modal-cancelar")
+
+    for (let i = 0; i < btnModalCancelar.length; i++) {
+
+        (function(index){
+            btnModalCancelar[index].addEventListener("click", function() {
+      
+            modalCancelar.classList.add("mostrar")
+      
+          })
+        })(i)
+      }
+      
+      modalCancelar.addEventListener("click",function(e){
+      
+        if(e.target.className == modalCancelar.className || e.target.id == "button-fechar"){
+            modalCancelar.classList.remove("mostrar")
+        }
+        
+      })
+      
+    /*Fim modal cancelar*/
 }
+
+
+
+
 
 function openModalFilter() {
     modalFilter.classList.add('mostrar')
@@ -81,6 +109,7 @@ function openModalFilter() {
     })
 }
 
+
 function openModalPerfil() {
     modalPerfil.classList.add('mostrar');
 
@@ -89,6 +118,7 @@ function openModalPerfil() {
         modalPerfil.classList.remove('mostrar')
     })
 }
+
 
 btnPerfil.addEventListener("click", openModalPerfil)
 btnFilter.addEventListener("click", openModalFilter)
@@ -108,3 +138,8 @@ rangePessoa.addEventListener('change', (e) => {
 rangeDistancia.addEventListener('change', (e) => {
     valueRangeDistancia.textContent = e.target.value + 'km';
 })
+
+
+
+
+

@@ -335,3 +335,97 @@ footer{
     display:none;
     max-width: 205px;
 }
+
+
+/*CSS Modal Cancelamento*/
+
+.divisor{
+    margin-top: 4%;
+    margin-bottom: 2%;
+    border-bottom: solid 1px #CCC;
+}
+
+.containerCancelar{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.snNomeRestaurante{
+    color: #322153d7;
+    font-size: 0.8em;
+    padding-right: 2%;
+    font-weight: 500;
+}
+
+.snTipoRestaurante{
+    color: #322153;
+    padding-right: 2%;
+    padding-left: 6%;
+    font-size: 0.8em;
+}
+
+.snEnderecoRestaurante{
+    color: #322153;
+    font-size: 0.8em;
+    padding-right: 2%;
+    display: contents;
+}
+
+.modalInfoRestaurante{
+    margin-top: 2%;
+    margin-bottom: 2%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.box-horario{
+    width: 90vw;
+    display: flex;
+    justify-content: space-evenly;
+    height: 4em;
+    border: 1px solid var(--border);
+    border-radius: var(--border-radius);
+    max-width: 382px;
+}
+
+.col-horario{
+    display: flex;
+    align-items: center;
+}
+
+.icon-clock{
+    font-size: 2em;
+    color: var(--preto);
+}
+
+#hour-reserva{
+    font-size: large;
+    font-weight: bolder;
+}
+.containerRelogio{
+    display: flex;
+    justify-content: center;
+}
+
+.alerta{
+    color:#D62839;
+    text-align: left;
+}
+.blockBtnCan{
+    width: 100vw;
+}
+
+.btnConfirmarCancelamento{
+    margin-top: 2%;
+    color:white;
+    border: none;
+    border-radius: 9px;
+    outline: none;
+    width: 100%;
+    height: 3vh;
+    background-color: #4788FF;
+}
+
+.lineRestaurante{
+    display: flex;
+}

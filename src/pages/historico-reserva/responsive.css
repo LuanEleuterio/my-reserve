@@ -247,7 +247,7 @@
 }
 
 @media(min-width: 769px) and (max-width: 950px){
-
+    
     .logo img{
         width: 1.7em !important;
         height: 2em !important;
@@ -672,6 +672,7 @@
 }
 
 @media (min-width:1390px) {
+    
 
     body{
         flex-direction: row;
@@ -701,4 +702,5 @@
     .box-modal-perfil p{
         font-size: 1.3em;
     }
+
 }
