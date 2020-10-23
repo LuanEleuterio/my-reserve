@@ -101,45 +101,6 @@
         width: 100vw;
     }
 
-    /*Inicio info restaurante */
-
-    .img-restaurante{
-        height: 10em;
-    }
-    
-    .img-restaurante::after{
-        width: 91vw;
-    }
-
-    #foto-rest{
-        width: 90vw;
-        height: 8em;
-        margin-top: 1em;
-    }
-
-    #nome-restaurante{
-        font-size: x-large;
-        font-weight: bold;
-    }
-
-    .details-restaurante{
-        width: 90vw;
-    }
-
-    .details-restaurante::after{
-        width: 91vw;
-    }
-
-    .description-rest{
-       width: 90vw;
-    }
-
-    .description-rest p {
-        font-size: large;
-        font-weight: bold;
-        color: var(--texto);
-    }
-    /*Fim info restaurante */
 
     /*Inicio footer*/
     footer{
@@ -197,45 +158,6 @@
         width: 100vw;
     }
 
-    /*Inicio info restaurante */
-
-    .img-restaurante{
-        height: 10em;
-    }
-    
-    .img-restaurante::after{
-        width: 91vw;
-    }
-
-    #foto-rest{
-        width: 90vw;
-        height: 8em;
-        margin-top: 1em;
-    }
-
-    #nome-restaurante{
-        font-size: x-large;
-        font-weight: bold;
-    }
-
-    .details-restaurante{
-        width: 90vw;
-    }
-
-    .details-restaurante::after{
-        width: 91vw;
-    }
-
-    .description-rest{
-       width: 90vw;
-    }
-
-    .description-rest p {
-        font-size: large;
-        font-weight: bold;
-        color: var(--texto);
-    }
-    /*Fim info restaurante */
 }
 
 @media(min-width: 769px) and (max-width: 920px){

@@ -168,6 +168,46 @@ header{
 
 /* Fim Header*/
 
+
+
+/*Inicio do Main*/
+
+.imagem-main{
+    display: flex;
+    justify-content: center;
+    margin-top: 20%;
+}
+
+
+
+
+
+.box-horario{
+    width: 80vw;
+    display: flex;
+    justify-content: space-evenly;
+    height: 4em;
+    border: 1px solid var(--border);
+    border-radius: var(--border-radius);
+    max-width: 382px;
+}
+
+.col-horario{
+    display: flex;
+    align-items: center;
+}
+
+.icon-clock{
+    font-size: 2em;
+    color: var(--preto);
+}
+
+#hour-reserva{
+    font-size: large;
+    font-weight: bolder;
+}
+/*Fim Main*/
+
 /*Inicio footer*/
 footer{
     position: fixed;
@@ -200,3 +240,4 @@ footer{
     color: var(--preto);
 }
 /*Fim footer*/
+
