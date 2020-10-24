@@ -7,6 +7,7 @@
     <title>Home myReserve</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='./home.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='./localizacao.css'>
     <link rel='stylesheet' type='text/css' media='screen' href='./responsive.css'>
     <link rel='stylesheet' type='text/css' media='screen' href='./../../theme/colors.css'>
     <link rel='stylesheet' type='text/css' media='screen' href='./../../theme/default.css'>
@@ -36,7 +37,7 @@
                     </div>
                 </button>
             </div>
-            <div class="location">
+            <div class="location" id="myBtn">
                 <div class='header-location'>
                     <p id="sua-localizacao">SUA LOCAZILAÇÃO</p>
                     <button class='location-input'>
@@ -176,6 +177,45 @@
         </div>
     </div>
 
+
+
+
+    <div id="myModal" class="modal">
+
+        <div class="model-container">
+            <div class="modal-content">
+                <span class="close-btn">&times;</span>
+
+                <section class="conteudo-modal-lcl">
+                    <img src="../../img/undraw_Destination_6jtj.svg" alt="">
+        
+                    <h3>Nos diga onde você está!</h3>
+        
+                    <div class="buscar-endereco">
+                        <i class="fas fa-search" id="icone-search"></i>
+                        <input type="text" id="barra-pesquisa" value="" placeholder="Buscar por endereço">
+                    </div>
+        
+                    <div class="localizacao-atual">
+                        <i class="fas fa-map-marker-alt" id='icon-location'></i>
+                        <p class="rua">Rua Tenente Comandante Oliveira, 471</p>
+                        <p class="sua-localizacao">SUA LOCAZILAÇÃO ATUAL</p>
+                    </div>
+                </section>
+        </div>
+    </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
     <div id="myModal-pagamento" class="modal">
 
         <div class="model-container">
@@ -276,6 +316,7 @@
     <script type="text/javascript" src='../home/allRestaurante.js'></script>
     <script type="text/javascript" src='../home/allCategorias.js'></script>
     <script type="text/javascript" src="../home/home.js"></script>
+    <script type="text/javascript" src="../home/localizacao.js"></script>
     <script type="text/javascript" src='../../utils/editar-perfil.js'></script>
     <script type="text/javascript" src='../../utils/editar-pagamento.js'></script>
     <script type="text/javascript" src="../../utils/modals-header.js"></script>

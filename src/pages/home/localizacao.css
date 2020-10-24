@@ -1,0 +1,124 @@
+*:focus {
+  outline: 0;
+}
+
+/* Modal background start */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 7; /* Sit on top */
+  padding-top: 4vh; /*Location of the box*/
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.7); /* Black w/ opacity */
+}
+/* Modal background end */
+
+/* modal start */
+.model-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 60px;
+}
+.modal-content {
+  background-color: var(--secundaria);
+  padding: 0 10px 10px 40px;
+  width: 70%;
+  height: 30%;
+  border-radius: 8px;
+}
+/* modal end */
+
+/* close button start */
+.close-btn {
+  padding: 5px;
+  color: var(--principal);
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+.close-btn:hover,
+.close-btn:focus {
+  color: var(--destaque);
+  text-decoration: none;
+  cursor: pointer;
+}
+/* close button end */
+
+/* Main start */
+.conteudo-modal-lcl {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* height: 100vh; */
+}
+section img {
+  width: 300px;
+  height: 230px;
+}
+section h3 {
+  font-weight: bold;
+  margin: 15px 0 5px 0;
+}
+
+.buscar-endereco {
+  width: 450px;
+  margin: 15px 0;
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--border);
+  border-radius: var(--border-radius);
+  padding: 10px;
+}
+
+.buscar-endereco input[type="text"] {
+  color: var(--destaque);
+  font-size: small;
+  font-family: var(--font);
+  font-weight: 400;
+  border: none;
+  background: none;
+}
+#icone-search {
+  position: relative;
+  color: var(--destaque);
+  font-size: 1.2em;
+  margin: 0 0.7em 0 0.3em;
+}
+
+#barra-pesquisa::-webkit-input-placeholder {
+  color: var(--destaque);
+  font-size: small;
+  font-family: var(--font);
+  font-weight: 400;
+}
+
+.localizacao-atual {
+  width: 450px;
+  margin: 15px 0 20px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid var(--border);
+  border-radius: var(--border-radius);
+  padding: 15px;
+}
+#icon-location {
+  color: var(--preto);
+}
+.localizacao-atual p {
+  font-size: .8em;
+}
+
+h3 {
+  font-family: var(--font);
+  color: var(--texto);
+}
+
+/* Main end */
