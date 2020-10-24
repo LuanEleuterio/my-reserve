@@ -436,7 +436,7 @@
         width: 90vw;
         height: 10em;
         max-width: 512px;
-        padding: 2vw;
+        padding: 2em;
         box-sizing: border-box;
         background: var(--secundaria);
         border-radius: var(--border-radius);
