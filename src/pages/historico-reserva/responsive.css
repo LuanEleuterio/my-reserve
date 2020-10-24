@@ -284,6 +284,18 @@
 
 }
 
+@media (min-width: 769px) and (max-width: 875px){
+    .restaurantes{
+        margin: 1vh .5vw 2vh .5vw !important;
+    }
+}
+
+@media (min-width: 876px) and (max-width: 1357px){
+    .restaurantes{
+        margin: 1vh .8vw 2vh .8vw !important;
+    }
+}
+
 @media (min-width:769px)  {
 
     body{
@@ -442,12 +454,13 @@
 
     .conteudo-restaurantes{
         display: flex;
-        justify-content: space-between;
+        justify-content: start;
     }
 
     .restaurantes{
         width: 28vw;
         height: 6em;
+        margin: 1vh .8em 2vh .9em;
     }
 
     .foto-restaurante img{
@@ -470,7 +483,7 @@
 
     #btn-ver-mais{
         width: 100vw;
-        max-width: 1296px;
+        max-width: 1226px;
         height: 2em;
         background-color: transparent;
         border: solid var(--border) 1px;
@@ -506,7 +519,7 @@
     .modal-conteudo{
         width: 50vw;
         max-width: 512px;
-        padding: 2vw;
+        padding: 2em !important;
         box-sizing: border-box;
         background: var(--secundaria);
         border-radius: var(--border-radius);
