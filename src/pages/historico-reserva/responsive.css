@@ -455,6 +455,13 @@
     .conteudo-reserva{
         display: flex;
         justify-content: start;
+<<<<<<< HEAD:src/pages/home/responsive.css
+    }
+
+    .restaurante-container{
+        margin: 1vh .8em 2vh .8em;
+=======
+>>>>>>> page/historico-reserva:src/pages/historico-reserva/responsive.css
     }
 
     .reservas{
@@ -470,8 +477,12 @@
     }
 
     .info-restaurante{
+<<<<<<< HEAD:src/pages/home/responsive.css
+        width: 15vw;
+=======
         width: 9vw;
         max-width: 112px;
+>>>>>>> page/historico-reserva:src/pages/historico-reserva/responsive.css
     }
 
     .carrega-reserva{
@@ -506,6 +517,8 @@
         display: none;
     }
 
+<<<<<<< HEAD:src/pages/home/responsive.css
+=======
     .modal-conteiner-filter{
         display: none;
         justify-content: center;
@@ -662,6 +675,7 @@
     }
 
 
+>>>>>>> page/historico-reserva:src/pages/historico-reserva/responsive.css
     @keyframes modal-animation {
         from{
             opacity: 0;
@@ -681,6 +695,12 @@
         to{
             opacity: 1;
         }
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1279px){
+    .restaurante-container{
+        margin: 1vh .8vw 2vh .8vw !important;
     }
 }
 
@@ -707,6 +727,9 @@
     footer{
         display: none;
     }
+<<<<<<< HEAD:src/pages/home/responsive.css
+}
+=======
 
     .box-modal-perfil i{
         font-size: 1.4em;
@@ -717,3 +740,4 @@
     }
 
 }
+>>>>>>> page/historico-reserva:src/pages/historico-reserva/responsive.css
