@@ -1,0 +1,329 @@
+    @import url('../../theme/colors.css');
+    * {
+        font-weight: 700;
+    }
+    
+    html {
+        scroll-behavior: smooth;
+    }
+    
+    body {
+        background: var(--secundaria);
+        color: var(--preto);
+    }
+    
+    #page-home {
+        height: 100vh;
+        background: url('../../img/undraw_eating_together_tjhx.svg') no-repeat;
+        background-position: 650px 50px;
+        background-size: 650px;
+    }
+    
+    header {
+        display: flex;
+        justify-content: center;
+        height: 80px;
+        background-color: var(--principal);
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 10;
+    }
+    
+    .container-menu {
+        display: flex;
+        justify-content: space-between;
+        margin: 0px 30px 0px 5px;
+        width: 100%;
+    }
+    
+    .logo,
+    .logo a {
+        display: flex;
+        align-items: center;
+    }
+    
+    .logo p {
+        margin-left: .4rem;
+    }
+    
+    .logo img {
+        width: 2em;
+        height: 2.5em;
+    }
+    
+    .menu {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        justify-content: flex-start;
+    }
+    
+    nav ul,
+    nav li {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+    
+    nav ul {
+        display: flex;
+    }
+
+      .tooltipMenu{
+        min-height: 700px;
+        width: 75%;
+      }
+      
+      .tooltipMenu ul li{
+        color: var(--destaque);
+        padding: 10px 20px 10px 20px;
+        font-family: sans-serif;
+        font-size: 15px;
+        width: 200px;
+        height: 100px;
+        background: var(--background);
+      }
+      
+      
+      .tooltipMenu ul li:hover{
+        background: var(--destaque);
+        color: white;
+        cursor: pointer;
+        font-weight: bold;
+      }
+      /**************************Tooltip ends*************************/
+      
+      .tooltip{
+        position: relative;
+        display: inline-block;
+      }
+      
+      .tooltipMenu {
+        visibility: hidden;
+        position: absolute;
+        z-index: 1;
+      }
+      
+      nav ul li:hover .tooltipMenu{
+        visibility: visible;
+        cursor: pointer;
+      }
+      
+      .bottomSide {
+        margin-top: 35px;
+        top: 100%;
+        right: 95px;
+      }
+      
+      .tooltipMenu::after {
+          content: " ";
+          position: absolute;
+          border-width: 10px;
+          border-style: solid;
+      }
+      
+      .bottomSide.tooltipMenu::after {
+          bottom: 100%;
+          margin-left: 100px;
+          border-color: transparent transparent var(--background) transparent;
+      }
+      
+      .far {
+          font-size: 50px;
+          margin: 5px;
+      }
+      .icon-menu {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          
+        box-shadow: 5px 5px 5px var(--border);
+      }
+     
+    .logo a,
+    .nav a,
+    .sign a {
+        padding: 15px;
+        text-decoration: none;
+        color: var(--secundaria);
+        margin-left: .8rem;
+    }
+    
+    nav .active a,
+    nav a:hover {
+        background-color: rgba(0, 0, 0, 0.03);
+        border-radius: 8px;
+        color: #fff;
+    }
+    
+    nav {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+    }
+    
+    .menuMobile {
+        display: none;
+        width: 30px;
+        height: 30px;
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+    
+    .mm-line {
+        height: 3px;
+        background-color: var(--destaque);
+    }
+    
+    .home {
+        height: 75vh;
+        flex: 1;
+        max-width: 560px;
+        margin: 120px 30px 0px 35px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    
+    .home h1 {
+        font-size: 54px;
+        color: var(--principal);
+    }
+    
+    .home p {
+        max-width: 350px;
+        font-size: 20px;
+        margin-top: 24px;
+        line-height: 38px;
+        color: var(--texto);
+    }
+    
+    .home a {
+        width: 100%;
+        max-width: 260px;
+        height: 60px;
+        background: var(--principal);
+        border-radius: 8px;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        overflow: hidden;
+        margin-top: 40px;
+    }
+    
+    .home a span {
+        display: block;
+        background: rgba(0, 0, 0, 0.08);
+        width: 72px;
+        height: 72px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background-color 0.2s;
+    }
+    
+    .home a strong {
+        flex: 1;
+        text-align: center;
+        color: var(--secundaria);
+    }
+    
+    .home a:hover {
+        background: var(--destaque);
+    }
+    
+    .team a {
+        text-decoration: none;
+    }
+    .team,
+    .why {
+        height: 100vh;
+        background: url('../../img/undraw_connected_world_wuay.svg') no-repeat;
+        background-position: 200px center;
+        background-size: 1000px;
+        margin: 0px 30px;
+    }
+    
+    .team h2 {
+        position: relative;
+        top: 140px;
+        max-width: 470px;
+        font-size: 54px;
+        color: var(--texto);
+        margin: 0 auto;
+    }
+    
+    .team p {
+        position: relative;
+        top: 160px;
+        max-width: 800px;
+        text-align: center;
+        font-size: 20px;
+        margin: 0 auto;
+        line-height: 30px;
+        color: var(--preto);
+    }
+    
+    .information {
+        position: relative;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        /* background-color: rgb(73, 72, 72); */
+        top: 200px;
+        max-width: 1300px;
+        width: 100%;
+        height: 170px;
+        flex-wrap: wrap;
+    }
+    
+    .info {
+        width: 90px;
+        height: 90px;
+        border: 1px solid #000;
+        border-radius: 50%;
+    }
+    
+    .info p {
+        font-size: 16px;
+        width: 150px;
+        top: 10px;
+        right: 20px;
+        color: var(--preto);
+    }
+    
+    .why h2 {
+        position: relative;
+        top: 140px;
+        text-align: center;
+        font-size: 54px;
+        color: var(--texto);
+    }
+    
+    .why p {
+        position: relative;
+        top: 160px;
+        max-width: 800px;
+        text-align: center;
+        font-size: 18px;
+        margin: 0 auto;
+        line-height: 30px;
+        color: var(--preto);
+        margin-bottom: 35px;
+    }
+    
+    .photo-container img {
+        border-radius: 50%;
+    }
+    
+    .rede-social {
+        display: flex;
+        justify-content: space-around;
+        margin: 20px 0px 30px 0px;
+    }
+    
+    .fab {
+        color: black;
+    }

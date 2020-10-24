@@ -1,0 +1,42 @@
+@media (max-width: 800px) {
+    
+    .container-menu {
+        flex-direction: column;
+    }
+    header .container-menu {
+        flex-direction: row;
+    }
+    nav ul {
+        flex-direction: column;
+        display: none;
+        position: absolute;
+        left: 0;
+        width: 100%;
+        background-color: #fff;
+    }
+    .menuMobile {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+    }
+    .home h1,
+    .team h2,
+    .why h2 {
+        font-size: 2em;
+    }
+    .team,
+    .why {
+        background: none;
+    }
+}
+
+@media(max-width: 425px) {
+    #page-home,
+    .team,
+    .why {
+        background: none;
+    }
+    /* .team {
+        margin-bottom: 100px;
+    } */
+}
