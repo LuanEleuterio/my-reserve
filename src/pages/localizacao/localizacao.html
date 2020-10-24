@@ -4,9 +4,10 @@
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Localização</title>
+    <title>Localização 5</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='./localizacao.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='./home.css'>
     <link rel='stylesheet' type='text/css' media='screen' href='./../../theme/colors.css'>
     <link rel='stylesheet' type='text/css' media='screen' href='./../../theme/default.css'>
 </head>
@@ -23,21 +24,44 @@
         </div>
     </header>
     <main class="content">
-        <section class="conteudo">
-            <img src="../../img/undraw_Destination_6jtj.svg" alt="">
+        <section class="endereco-container">
+            <fieldset>
+                <legend>
+                    <h3>Endereço</h3>
+                    <span>Selecione o endereço no mapa</span>
+                </legend>
 
-            <h3>Nos diga onde você está!</h3>
+                <img src="../../img/maps.png" alt="">
 
-            <div class="busca-endereco">
-                <i class="fas fa-search" id="icon-search"></i>
-                <input type="text" id="search-bar" value="" placeholder="Buscar por endereço">
-            </div>
+                <form action="">
+                    <div class="field-group">
+                        <div class="field">
+                            <label for="cep">CEP</label>
+                            <input type="text" name="cep" maxlength="9" id="cep" placeholder="00000-000" />
+                        </div>
+                        <div class="field">
+                            <label for="localidade">Cidade</label>
+                            <input type="text" name="localidade" id="localidade">
+                        </div>
 
-            <div class="localizacao-atual">
-                <i class="fas fa-map-marker-alt" id='icon-location'></i>
-                <p class="rua">Rua Tenente Comandante Oliveira, 471</p>
-                <p class="sua-localizacao">SUA LOCAZILAÇÃO ATUAL</p>
-            </div>
+                    </div>
+
+                    <div class="field-group">
+                        <div class="field">
+                            <label for="logradouro">Logradouro</label>
+                            <input type="text" name="logradouro" id="logradouro" />
+                        </div>
+
+                        <div class="field">
+                            <label for="numero">Número</label>
+                            <input type="number" name="numero" id="numero" />
+                        </div>
+                    </div>
+                    <div class="field">
+                        <input id="submit" type="submit" value="Confirmar localização">
+                      </div>
+                </form>
+            </fieldset>
         </section>
     </main>
     <footer>
@@ -78,6 +102,7 @@
     </footer>
 
     <script src="https://kit.fontawesome.com/37a6fc82c8.js" crossorigin="anonymous"></script>
+    <script src="cep.js"></script>
 </body>
 
 </html>
