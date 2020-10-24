@@ -1,15 +1,15 @@
-const conteinerRestaurantes = document.querySelector('.conteudo-restaurantes')
+const conteinerReservas = document.querySelector('.conteudo-reserva')
 
 function carregaReservas() {
     const allReservas = listaReservas;
 
     allReservas.forEach(values => {
-        restaurantes = document.createElement("div");
+        reservas = document.createElement("div");
 
         fotoRestaurante = document.createElement("div");
         imgRestaurante = document.createElement("img");
 
-        infoRestaurante = document.createElement("div");
+        infoReserva = document.createElement("div");
         nomeRestaurante = document.createElement("p");
         dataReserva = document.createElement("p");
         hourReserva = document.createElement("p");
@@ -20,12 +20,12 @@ function carregaReservas() {
         btnCancelar = document.createElement("button")
 
         // restaurenteContainer.setAttribute("class", "restaurante-container");
-        restaurantes.setAttribute("class", "restaurantes");
+        reservas.setAttribute("class", "reservas");
 
         fotoRestaurante.setAttribute("class", "foto-restaurante");
         imgRestaurante.setAttribute("src", values.img_url);
 
-        infoRestaurante.setAttribute("class", "info-restaurante");
+        infoReserva.setAttribute("class", "info-restaurante");
         nomeRestaurante.setAttribute("class", "nome-restaurante");
         nomeRestaurante.textContent = values.name_restaurante;
         dataReserva.setAttribute("class", "data-reserva col-info");
@@ -41,20 +41,20 @@ function carregaReservas() {
         btnVerRestaurante.textContent = "Visitar"
         btnCancelar.textContent = "Cancelar"
 
-        restaurantes.appendChild(fotoRestaurante);
+        reservas.appendChild(fotoRestaurante);
         fotoRestaurante.appendChild(imgRestaurante);
 
-        restaurantes.appendChild(infoRestaurante);
-        infoRestaurante.appendChild(nomeRestaurante);
-        infoRestaurante.appendChild(dataReserva);
-        infoRestaurante.appendChild(hourReserva);
-        infoRestaurante.appendChild(statusReserva);
+        reservas.appendChild(infoReserva);
+        infoReserva.appendChild(nomeRestaurante);
+        infoReserva.appendChild(dataReserva);
+        infoReserva.appendChild(hourReserva);
+        infoReserva.appendChild(statusReserva);
 
-        restaurantes.appendChild(buttonsOption)
+        reservas.appendChild(buttonsOption)
         buttonsOption.appendChild(btnVerRestaurante)
         if (values.status_reserva == "Reservado") { buttonsOption.appendChild(btnCancelar) }
 
-        conteinerRestaurantes.appendChild(restaurantes);
+        conteinerReservas.appendChild(reservas);
 
 
     });

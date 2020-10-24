@@ -37,15 +37,15 @@
         display: flex;
     }
     
-    .conteudo-restaurantes{
+    .conteudo-reserva{
         justify-content: center;
     }
 
-    .restaurantes:last-child{
+    .reservas:last-child{
         margin-bottom: 3.5em;
     }
 
-    .restaurantes{
+    .reservas{
         width: 90vw;
     }
 
@@ -95,15 +95,15 @@
         display: flex;
     }
 
-    .restaurantes:last-child{
+    .reservas:last-child{
         margin-bottom: 3.5em;
     }
 
-    .conteudo-restaurantes{
+    .conteudo-reserva{
         justify-content: center;
     }
 
-    .restaurantes{
+    .reservas{
         width: 90vw;
     }
 
@@ -151,11 +151,11 @@
 
 @media (min-width:426px) and (max-width:620px){
     
-    .conteudo-restaurantes{
+    .conteudo-reserva{
         justify-content: center !important;
     }
 
-    .restaurantes{
+    .reservas{
         width: 90vw !important;
     }
 
@@ -211,16 +211,16 @@
         display: flex;
     }
 
-    .restaurantes:last-child{
+    .reservas:last-child{
         margin-bottom: 3.5em;
     }
     
-    .conteudo-restaurantes{
+    .conteudo-reserva{
         justify-content: space-between;
         width: 92vw;
     }
 
-    .restaurantes{
+    .reservas{
         width: 45vw;
     }
 
@@ -274,7 +274,7 @@
         font-size: smaller !important;
     }
 
-    .restaurantes {
+    .reservas {
         width: 44vw !important;
     }
 
@@ -285,13 +285,13 @@
 }
 
 @media (min-width: 769px) and (max-width: 875px){
-    .restaurantes{
+    .reservas{
         margin: 1vh .5vw 2vh .5vw !important;
     }
 }
 
 @media (min-width: 876px) and (max-width: 1357px){
-    .restaurantes{
+    .reservas{
         margin: 1vh .8vw 2vh .8vw !important;
     }
 }
@@ -452,12 +452,12 @@
         font-size: x-large;
     }
 
-    .conteudo-restaurantes{
+    .conteudo-reserva{
         display: flex;
         justify-content: start;
     }
 
-    .restaurantes{
+    .reservas{
         width: 28vw;
         height: 6em;
         margin: 1vh .8em 2vh .9em;
@@ -474,7 +474,7 @@
         max-width: 112px;
     }
 
-    .carrega-restaurante{
+    .carrega-reserva{
         display: flex;
         align-items: flex-end;
         margin: 0 auto;
@@ -700,7 +700,7 @@
         font-size: large;
     }
 
-    .carrega-restaurante{
+    .carrega-reserva{
         display: flex;
     }
 

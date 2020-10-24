@@ -181,7 +181,7 @@ header{
     justify-content: center; 
 }
 
-.conteudo-restaurantes{
+.conteudo-reserva{
     max-width: 1296px !important;
     display: flex;
     flex-wrap: wrap;
@@ -202,7 +202,7 @@ header{
     font-size: x-large;
 }
 
-.restaurantes{
+.reservas{
     display: flex;
     height: 5em;
     border: 1px solid var(--border);
@@ -274,7 +274,7 @@ header{
     background-color: var(--vermelho);
 }
 
-.carrega-restaurante{
+.carrega-reserva{
     display:none;
     max-width: 1296px;
 }

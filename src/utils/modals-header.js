@@ -27,9 +27,6 @@ function openModalPerfil() {
 
 btnPerfil.addEventListener("click", openModalPerfil)
 btnFilter.addEventListener("click", openModalFilter)
-window.addEventListener("load", carregaRestaurantes)
-window.addEventListener("load", carregaCategorias)
-
 
 window.addEventListener("load", () => {
     valueRangePessoa.textContent = rangePessoa.value;
