@@ -49,6 +49,7 @@
         outline: none;
         color: var(--preto);
         font-size: medium;
+        cursor: pointer;
     }
 
     #btn-sign-up:hover {
@@ -281,7 +282,8 @@
     #no-have-account{
         color: var(--destaque);
         font-weight: 300;
-        margin-top: .2em
+        margin-top: .2em;
+        cursor: pointer;
     }
     
     .team a {
@@ -410,4 +412,73 @@
 
     .photo-container img{
         border-radius: 50%;
+    }
+
+    /*Modal*/
+
+    .modal-type-form {
+        width: 100vw;
+        height: 100vh;
+        top: 0;
+        position: fixed;
+        background: var(--preto);
+        z-index: 10;
+        display: none;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .modal-type-form.mostrar{
+        display: flex;
+    }
+
+    .modal-conteudo{
+        width: 90vw;
+        height: 10em;
+        max-width: 512px;
+        padding: 2vw;
+        box-sizing: border-box;
+        background: var(--secundaria);
+        border-radius: var(--border-radius);
+        position: relative;
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .mostrar .modal-conteudo{
+        animation: modal-animation .3s;
+    }
+
+    .modal-sign-up{
+        display: flex;
+        flex-wrap: wrap;
+        width: 10em;
+        justify-content: center;
+        text-decoration: none;
+        color: var(--preto)
+    }
+
+    .modal-sign-up:hover{
+        background-color: rgba(0, 0, 0, 0.03);
+        border-radius: 8px;
+    }
+
+    .icon-modal{
+        display: flex !important;
+        justify-content: center;
+        align-items: center;
+        width: 100vw;
+        margin-bottom: .1em;
+    }
+
+    @keyframes modal-animation {
+        from{
+            opacity: 0;
+            transform: translate3d(0, -80px, 0);
+        }
+
+        to{
+            opacity: 1;
+            transform: translate3d(0, 0, 0);
+        }
     }
