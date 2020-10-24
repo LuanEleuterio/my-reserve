@@ -524,6 +524,165 @@
         }
     }
 }
+@media(min-width: 768px) and (max-width: 1023px){
+.conteudo-modal-lcl {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 350px;
+  }
+  section img {
+    width: 300px;
+    height: 230px;
+  }
+  section h3 {
+    font-weight: bold;
+    margin: 15px 0 5px 0;
+  }
+  
+  .buscar-endereco {
+    width: 310px;
+    margin: 15px 0;
+    display: flex;
+    align-items: center;
+    border: 1px solid var(--border);
+    border-radius: var(--border-radius);
+    padding: 10px;
+  }
+  
+  .buscar-endereco input[type="text"] {
+    color: var(--destaque);
+    font-size: small;
+    font-family: var(--font);
+    font-weight: 400;
+    border: none;
+    background: none;
+  }
+  #icone-search {
+    position: relative;
+    color: var(--destaque);
+    font-size: 1.2em;
+    margin: 0 0.7em 0 0.3em;
+  }
+  
+  #barra-pesquisa::-webkit-input-placeholder {
+    color: var(--destaque);
+    font-size: small;
+    font-family: var(--font);
+    font-weight: 400;
+  }
+  
+  .localizacao-atual {
+    width: 310px;
+    margin: 15px 0 20px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid var(--border);
+    border-radius: var(--border-radius);
+    padding: 15px;
+  }
+  #icon-location {
+    color: var(--preto);
+  }
+  .localizacao-atual p {
+    font-size: .7em;
+  }
+  
+  h3 {
+    font-family: var(--font);
+    color: var(--texto);
+  }
+  
+  .not-found{
+    color: red;
+    margin: 10px 0;
+  }
+  
+}
+
+@media(min-width: 1024px){
+    /* Main start */
+.conteudo-modal-lcl {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 450px;
+  }
+  section img {
+    width: 300px;
+    height: 230px;
+  }
+  section h3 {
+    font-weight: bold;
+    margin: 15px 0 5px 0;
+  }
+  
+  .buscar-endereco {
+    width: 450px;
+    margin: 15px 0;
+    display: flex;
+    align-items: center;
+    border: 1px solid var(--border);
+    border-radius: var(--border-radius);
+    padding: 10px;
+  }
+  
+  .buscar-endereco input[type="text"] {
+    color: var(--destaque);
+    font-size: small;
+    font-family: var(--font);
+    font-weight: 400;
+    border: none;
+    background: none;
+  }
+  #icone-search {
+    position: relative;
+    color: var(--destaque);
+    font-size: 1.2em;
+    margin: 0 0.7em 0 0.3em;
+  }
+  
+  #barra-pesquisa::-webkit-input-placeholder {
+    color: var(--destaque);
+    font-size: small;
+    font-family: var(--font);
+    font-weight: 400;
+  }
+  
+  .localizacao-atual {
+    width: 450px;
+    margin: 15px 0 20px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid var(--border);
+    border-radius: var(--border-radius);
+    padding: 15px;
+  }
+  #icon-location {
+    color: var(--preto);
+  }
+  .localizacao-atual p {
+    font-size: .8em;
+  }
+  
+  h3 {
+    font-family: var(--font);
+    color: var(--texto);
+  }
+  
+  .not-found{
+    color: red;
+    margin: 10px 0;
+  }
+  
+  /* Main end */
+}
 
 @media (min-width: 769px) and (max-width: 1279px){
     .restaurante-container{
