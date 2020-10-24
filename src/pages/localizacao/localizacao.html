@@ -27,40 +27,20 @@
         <section class="endereco-container">
             <fieldset>
                 <legend>
-                    <h3>Endereço</h3>
-                    <span>Selecione o endereço no mapa</span>
+                    <h3>Você está nessa localização?</h3>
                 </legend>
 
-                <img src="../../img/maps.png" alt="">
+                <div class="localizacao-atual">
+                    <i class="fas fa-map-marker-alt" id='icon-location'></i>
+                    <p class="rua">Rua Tenente Comandante Oliveira, 471</p>
+                    <p class="sua-localizacao">SUA LOCAZILAÇÃO ATUAL</p>
+                </div>
 
-                <form action="">
-                    <div class="field-group">
-                        <div class="field">
-                            <label for="cep">CEP</label>
-                            <input type="text" name="cep" maxlength="9" id="cep" placeholder="00000-000" />
-                        </div>
-                        <div class="field">
-                            <label for="localidade">Cidade</label>
-                            <input type="text" name="localidade" id="localidade">
-                        </div>
+                <img src="../../img/maps3.jpg" alt="">
 
-                    </div>
-
-                    <div class="field-group">
-                        <div class="field">
-                            <label for="logradouro">Logradouro</label>
-                            <input type="text" name="logradouro" id="logradouro" />
-                        </div>
-
-                        <div class="field">
-                            <label for="numero">Número</label>
-                            <input type="number" name="numero" id="numero" />
-                        </div>
-                    </div>
-                    <div class="field">
-                        <input id="submit" type="submit" value="Confirmar localização">
-                      </div>
-                </form>
+                <div class="field">
+                    <input id="submit" type="submit" value="Confirmar localização">
+                </div>
             </fieldset>
         </section>
     </main>

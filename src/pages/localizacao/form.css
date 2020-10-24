@@ -8,82 +8,39 @@
   padding: 0 10px;
 }
 fieldset {
-  margin-top: 25px;
+  margin-top: 50px;
   max-width: 400px;
   border: none;
 }
 fieldset img {
   width: 100%;
+  height: 50vh;
   border-radius: var(--border-radius);
-  margin-bottom: 20px;
 }
 legend {
   width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 20px;
 }
 
 legend h2 {
   font-size: 24px;
 }
 
-legend span {
-  font-size: 14px;
-  font-weight: normal;
-  color: var(--texto);
-}
-form .field-group {
+.field {
   flex: 1;
-  display: flex;
-}
-form .field {
-  flex: 1;
-
+  width: 300px;
   display: flex;
   flex-direction: column;
   margin-bottom: 12px;
 }
-#cep {
-  width: 100px;
-}
-#localidade {
-  width: 200px;
-}
-#logradouro {
-  width: 190px;
-}
-#numero {
-  width: 110px;
-}
-form .field input[type="text"],
-form .field input[type="email"],
-form .field input[type="number"],
-form .field input[type="password"] {
-  flex: 1;
-  background: var(--input);
-  border-radius: 8px;
-  border: 0;
-  padding: 8px 12px;
-  font-size: 14px;
-  color: var(--preto);
-}
-
-form .field input::placeholder {
-  color: var(--border);
-}
-form .field label {
-  font-size: 14px;
-  margin-bottom: 4px;
-}
-form .field-group .field + .field {
-  margin-left: 6px;
-}
 
 #submit {
-  margin: 15px auto;
-  width: 70%;
+  position: relative;
+  bottom: 60px;
+  margin: 0px auto;
+  width: 60%;
   height: 36px;
   background: var(--principal);
   border-radius: 8px;

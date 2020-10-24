@@ -55,6 +55,29 @@ header {
 }
 /* Header end */
 
+/* Main start */
+.localizacao-atual {
+    width: 300px;
+    margin: 15px 0 20px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid var(--border);
+    border-radius: var(--border-radius);
+    padding: 15px;
+}
+#icon-location {
+    color: var(--preto);
+}
+
+.rua {
+    max-width: 120px;
+}
+.sua-localizacao {
+    max-width: 100px;
+}
+/* Main end */
+
 /*Inicio footer*/
 footer {
     position: fixed;
