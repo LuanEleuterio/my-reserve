@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Reserve</title>
 
-    <link rel="icon" type="imagem/png" href="src/img/knife-fork.svg" />
+    <link rel="icon" type="imagem/png" href="src/icons/knife-fork.svg" />
     <link rel="stylesheet" href="src/pages/principal/principal.css">
     <link rel="stylesheet" href="src/theme/default.css">
     <link rel="stylesheet" href="src/pages/principal/responsive.css">
@@ -14,86 +14,80 @@
 </head>
 
 <body>
-    <div id="page-home">
-        <header>
-            <div class="container-menu">
-                <div class="logo">
-                    <a href="#">
-                        <img src="src/img/knife-fork.svg" alt="">
-                        <p>myReserve</p>
-                    </a>
-                </div>
-                <div class="menu">
-                    <nav>
-
-                        <div class="nav">
-                            <ul>
-                                <li><a href="#team">Team</a></li>
-                                <li><a href="#why">Why myReserve</a></li>
-                            </ul>
-                        </div>
-
-                        <div class="sign">
-                            <ul>
-                                <li><a href="">Sign in</a></li>
-                                <li class="tooltip"><a href="">Sign up</a>
-
-                                    <div class="tooltipMenu bottomSide">
-                                        <ul class="aqui">
-                                            <li class="icon-menu"><i class="far fa-user"></i>
-                                                <p>Cliente</p>
-                                            </li>
-                                            <li class="icon-menu"><i class="far fa-building"></i>
-                                                <p>Empresa</p>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-
-                        <div class="menuMobile">
-                            <div class="mm-line"></div>
-                            <div class="mm-line"></div>
-                            <div class="mm-line"></div>
-                        </div>
-
-                    </nav>
-                </div>
+    <header>
+        <div class="container-menu">
+            <div class="logo">
+                <a href="#">
+                    <img src="src/icons/knife-fork-black.svg" alt="">
+                    <p id="myReserve">myReserve</p>
+                </a>
             </div>
-        </header>
+            <div class="menu">
+                <nav>
+                    <div class="nav">
+                        <ul>
+                            <li><a href="#team">Sobre o myReserve</a></li>
+                            <li><a href="#why">Team</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="sign">
+                        <ul>
+                            <li><a href="">Entrar</a></li>
+                            <li class="tooltip">
+                                <button id="btn-sign-up">Cadastrar</button>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <div id="page-home">
 
         <section class="home">
-            <h1>Criado para suas reservas.</h1>
-            <p>Ajudamos pessoas a aproveitar seu tempo de forma eficiente.</p>
-            <a href="">
-                <span>
-                    <i class="fas fa-sign-in-alt" style="font-size: 20px; color: white;"></i>
-                </span>
-                <strong>Sign in</strong>
-            </a>
+            <div class="init-my">
+                <div class="info-my">
+                    <h1>Criado para suas reservas.</h1>
+                    <p>Ajudamos pessoas a aproveitar seu tempo de forma eficiente.</p>
+                </div>
+                <div class="login-my">
+                    <a href="">
+                        <span>
+                            <i class="fas fa-sign-in-alt" style="font-size: 20px; color: var(--secundaria);"></i>
+                        </span>
+                        <strong>Entrar</strong>
+                    </a>
+                    <p id='no-have-account'>Não tem uma conta?</p>
+                </div>
+            </div>
+            <div class="eating-my">
+                <img src="./src/img/undraw_eating_together_tjhx.svg" alt="">
+            </div>
         </section>
 
         <section id="team" class="team">
             <h2>Reserve quando e onde quiser.</h2>
-            <p>O My Reserve oferece à você tudo de que precisa para reservar seu lugar melhor com mais rapidez.</p>
+            <p>O myReserve oferece à você tudo de que precisa para reservar seu lugar com mais rapidez.</p>
+            <p>A missão do myReserve é simples: facilitar a reserva nos restaurantes de sua prefência.</p>
             <div class="information">
-                <div class="photo-container ">
-                    <img src="src/img/up_high_sales_business_finance_icon-icons.com_76287.svg" alt="">
+                <div class="photo-container items-team">
+                    <i class="fas fa-chart-line icon-social"></i>
                     <div class="rede-social">
-                        <a href="">Otimize</a>
+                        <p>Otimize</p>
                     </div>
                 </div>
-                <div class="photo-container ">
-                    <img src="src/img/1495574616-map-location-solid-style-14_84572.svg" alt="">
+                <div class="photo-container items-team">
+                    <i class="fas fa-map-marked-alt icon-social"></i>
                     <div class="rede-social">
-                        <a href="">Escolha</a>
+                        <p>Escolha</p>
                     </div>
                 </div>
-                <div class="photo-container ">
-                    <img src="src/img/iconfinder-653-company-employee-group-people-team-4017596_113084.svg" alt="">
+                <div class="photo-container items-team">
+                    <i class="fas fa-users icon-social"></i>
                     <div class="rede-social">
-                        <a href="">Compartilhe</a>
+                        <p>Compartilhe</p>
                     </div>
                 </div>
                 <!-- <div class="photo-container ">
@@ -106,16 +100,14 @@
         </section>
 
         <section id="why" class="why">
-            <h2>Sobre o myReserve</h2>
+            <h2>Team</h2>
             <p>O myReserve foi criado à partir do Projeto Integrador do programa de bolsa do Santander Coders -
                 FullStack Java ministrado pela Digital House.</p>
-            <p>A missão do My Reserve é simples: facilitar a reserva nos restaurantes de sua prefência.</p>
-
             <div class="information">
 
                 <div class="photo-container ">
                     <img src="src/img/foto1.jpg" alt="">
-                    <div class="rede-social">
+                    <div class="rede-social team-rede">
                         <a href=""><i class="fab fa-linkedin-in"></i></a>
                         <a href=""><i class="fab fa-github"></i></a>
                     </div>
@@ -123,21 +115,14 @@
 
                 <div class="photo-container ">
                     <img src="src/img/foto2.jpg" alt="">
-                    <div class="rede-social">
+                    <div class="rede-social team-rede">
                         <a href=""><i class="fab fa-linkedin-in"></i></a>
                         <a href=""><i class="fab fa-github"></i></a>
                     </div>
                 </div>
                 <div class="photo-container ">
                     <img src="src/img/foto3.jpg" alt="">
-                    <div class="rede-social">
-                        <a href=""><i class="fab fa-linkedin-in"></i></a>
-                        <a href=""><i class="fab fa-github"></i></a>
-                    </div>
-                </div>
-                <div class="photo-container ">
-                    <img src="src/img/foto4.jpg" alt="">
-                    <div class="rede-social">
+                    <div class="rede-social team-rede">
                         <a href=""><i class="fab fa-linkedin-in"></i></a>
                         <a href=""><i class="fab fa-github"></i></a>
                     </div>
@@ -147,7 +132,20 @@
 
     </div>
 
+
+    <div class="tooltipMenu bottomSide">
+        <div class="cliente-sign-up">
+            <i class="far fa-user"></i>
+            <p>Cliente</p>
+        </div>
+        <div class="estab-sign-up">
+            <i class="far fa-building"></i>
+            <p>Estabelecimento</p>
+        </div>
+    </div>
+
     <script src="https://kit.fontawesome.com/37a6fc82c8.js" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="./src/pages/principal/principal.js"></script>
 </body>
 
 </html>
