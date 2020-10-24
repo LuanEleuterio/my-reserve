@@ -6,6 +6,16 @@
     }
 }
 
+@media(min-width:300px) and (max-width:370px){
+    .icon-modal{
+        width: 40vw !important;
+    }
+
+    .modal-sign-up p{
+        font-size: small !important;
+    }
+}
+
 @media (max-width:320px) {
     .menu{
         display: none;
