@@ -1,8 +1,13 @@
 @media(min-width:320px) and (max-width:768px){
     body{
         background-image: url('./../../img/undraw_connected_world_wuay.svg');
+        background-position: 50%;
         background-attachment: fixed;
         background-size: contain;
+        background-repeat: no-repeat;
+    }
+    .container-menu {
+        justify-content: center;
     }
 }
 

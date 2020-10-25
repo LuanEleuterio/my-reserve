@@ -30,7 +30,7 @@
         box-shadow: 0px 1px 3px 0px var(--destaque);
         position: fixed;
         top: 0;
-        width: 100vw;
+        width: 100%;
         z-index: 10;
     }
     
@@ -38,7 +38,7 @@
         display: flex;
         justify-content: space-between;
         margin: 0px 30px 0px 5px;
-        width: 100vw;
+        width: 100%;
         max-width: 1440px;
     }
 
@@ -181,6 +181,7 @@
     .sign ul{
         width: 10em;
         align-items: center;
+        margin-right: 30px;
     }
     
     nav .active a,
@@ -214,7 +215,7 @@
         margin-top: 5em;
         height: 33em;
         flex: 1;
-        width: 100vw;
+        width: 100%;
         max-width: 1440px;
         display: flex;
         justify-content: space-evenly;
@@ -284,6 +285,7 @@
         font-weight: 300;
         margin-top: .2em;
         cursor: pointer;
+        font-size: 18px;
     }
     
     .team a {
@@ -295,7 +297,7 @@
         flex-wrap: wrap;
         align-content: center;
         justify-content: center;
-        height: 33em;
+        height: 42em;
         background: url('../../img/undraw_connected_world_wuay.svg') no-repeat;
         background-position: center;
         margin: 0px 30px;
@@ -311,7 +313,8 @@
         font-size: 54px;
         color: var(--texto);
         margin: 0 auto;
-        margin-bottom: 1em
+        margin-bottom: 1em;
+        text-align: center;
     }
     
     .team p {
