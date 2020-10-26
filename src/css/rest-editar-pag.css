@@ -135,12 +135,12 @@ form .field label {
   }
 }
 
-  
-@media (max-width: 425px) {
-  body {
-      display: none;
-  }
+@media (min-width: 300px) and (max-width: 768px){
+ #myModal-perfil{
+   display: none !important;
+ }
 }
+
 @media (min-width: 426px) {
   form .field-group{
       display: flex;
