@@ -1,18 +1,18 @@
 // Pega o modal
-var modal = document.getElementById("myModal");
+var modalPag = document.getElementById("myModal-pagamento");
 
 // Pega o botão que irá abrir o modal
-var btn = document.getElementById("myBtn");
+var btnPag = document.getElementById("myBtn");
 
 // Pega a tag que irá fechar o modal
-var span = document.getElementsByClassName("close-btn")[0];
+var spanPag = document.getElementsByClassName("btn-pag")[0];
 
 // Quando clicar, abre o modal 
-btn.onclick = function () {
-  modal.style.display = "flex";
+btnPag.onclick = function () {
+  modalPag.style.display = "flex";
 }
 
 // Quando clicar, fecha o modal
-span.onclick = function () {
-  modal.style.display = "none";
+spanPag.onclick = function () {
+  modalPag.style.display = "none";
 }

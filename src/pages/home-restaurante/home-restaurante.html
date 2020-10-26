@@ -11,6 +11,7 @@
     <link rel='stylesheet' type='text/css' media='screen' href='../../theme/colors.css'>
     <link rel='stylesheet' type='text/css' media='screen' href='../../theme/default.css'>
     <link rel='stylesheet' type='text/css' media='screen' href='rest-editar-pag.css'>
+    <link rel="stylesheet" href="rest-cancelar-reserva.css">
 </head>
 
 <body>
@@ -65,7 +66,7 @@
             <div class="info-proximo">
                 <p>Controlar Reservas</p>
             </div>
-            <div class="conteudo-clientes">
+            <div class="conteudo-clientes" id="myBtn-cancel"></div>
             </div>
             <div class="carrega-cliente">
                 <button id="btn-ver-mais">Mostrar mais reservas</button>
@@ -101,12 +102,39 @@
         </section>
     </footer>
 
+    <div id="myModal-cancel" class="modal">
+        <div class="model-container modal-cancel-rest">
+            <div class="modal-content cancel-hour">
+                <span class="close-btn btn-cancel">&times;</span>
 
-    <div id="myModal" class="modal">
+                <div class="modal-conteudo" id="cancelar-conteudo">
+                    <h4>Cancelamento da Reserva</h4>
+                    <div class="info-hour-date">
+                        <div class="hour">
+                            <i class="fas fa-clock"></i>
+                            <p>11:00 às 12:00</p>
+                        </div>
+                        <div class="date">
+                            <p>13/09/2020</p>
+                        </div>
+                    </div>
+                    <div class="justify">
+                        <h4>Justificativa</h4>
+                        <textarea name="justify" id="" cols="84" rows="8"></textarea>
+                    </div>
+
+                    <input id="submit" type="submit" value="Confirmar">
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="myModal-pagamento" class="modal">
 
         <div class="model-container modal-pagamento-rest">
             <div class="modal-content modal-pag-rest">
-                <span class="close-btn">&times;</span>
+                <span class="close-btn btn-pag">&times;</span>
 
                 <form id="form">
 
@@ -162,6 +190,7 @@
     <script type="text/javascript" src='allClientes.js'></script>
     <script type="text/javascript" src="home.js"></script>
     <script type="text/javascript" src="rest-editar-pag.js"></script>
+    <script type="text/javascript" src="rest-cancelar-reserva.js"></script>
 </body>
 
 </html>
