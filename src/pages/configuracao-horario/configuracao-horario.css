@@ -19,6 +19,10 @@ body {
     font-size: 20px;
 }
 
+.container-tooltip{
+    display: flex;
+}
+
 .container-tooltip ul,
 .container-tooltip li {
     list-style: none;
@@ -29,6 +33,13 @@ body {
 .container-tooltip ul {
     display: flex;
     flex-direction: column;
+}
+
+#btn-perfil-rest{
+    outline: none;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
 }
 
 .tooltipMenu {
@@ -141,30 +152,30 @@ a {
     max-width: 512px;
 }
 
-.modal-content{
+.modal-content-hour{
     width: 50vw;
     max-width: 512px;
     display: flex;
     justify-content: center;
 }
 
-form fieldset{
-    border: none
+.fieldset-hour{
+    border: none;
 }
 
-fieldset label{
+.fieldset-hour label{
     color: var(--texto);
     font-size: large;
     font-weight: bolder;
 }
 
-fieldset span{
+.fieldset-hour span{
     color: var(--texto);
     font-weight: bolder;
     font-size: medium;
 }
 
-fieldset input{
+.fieldset-hour input{
     background-color: var(--input);
     border-radius: var(--border-radius);
     border: none;
@@ -187,7 +198,7 @@ fieldset input{
     margin-bottom: 1em;
 }
 
-.field{
+.field-hour{
     display: flex;
     align-items: center;
     margin: 1.5em 0em 1.5em  0em;
