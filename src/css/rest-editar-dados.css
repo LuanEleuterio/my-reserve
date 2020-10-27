@@ -64,7 +64,7 @@
 /* close button end */
 
 /* form start */
-form {
+.form-perfil {
   margin: 0 auto;
   padding: 5px 10px;
   max-width: 400px;
@@ -73,12 +73,12 @@ form {
   display: flex;
   flex-direction: column;
 }
-form fieldset {
+.modal-perfil-fieldset {
   margin-top: 5px;
   min-inline-size: auto;
   border: 0;
 }
-form legend {
+.modal-perfil-fieldset {
   width: 100%;
   display: flex;
   align-items: center;
@@ -93,22 +93,22 @@ form .dados {
   justify-content: space-around;
 }
 
-form img {
+.form-perfil img {
   border-radius: 50%;
   /* margin-right: 1em; */
   width: 80px;
   height: 80px;
 }
-form .field {
+.form-perfil .field {
   flex: 1;
 
   display: flex;
   flex-direction: column;
   margin-bottom: 5px;
 }
-form .field input[type="text"],
-form .field input[type="email"],
-form .field input[type="password"],
+.form-perfil .field input[type="text"],
+.form-perfil .field input[type="email"],
+.form-perfil .field input[type="password"],
 .pass-container {
   flex: 1;
   background: var(--input);
@@ -118,11 +118,11 @@ form .field input[type="password"],
   font-size: 14px;
   color: var(--preto);
 }
-form .field input::placeholder {
+.form-perfil .field input::placeholder {
   color: var(--border);
   font-size: 14px;
 }
-form .field label {
+.form-perfil .field label {
   font-size: 14px;
   margin-bottom: 2px;
 }
