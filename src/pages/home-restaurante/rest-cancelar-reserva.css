@@ -89,7 +89,7 @@ textarea {
   border-color: var(--border);
   resize: none;
   padding: 8px;
-  background-color: var(--secundaria);
+  background-color: var(--input);
   margin: .4em 0;
 }
 
