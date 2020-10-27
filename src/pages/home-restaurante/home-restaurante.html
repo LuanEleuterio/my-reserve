@@ -12,7 +12,8 @@
     <link rel='stylesheet' type='text/css' media='screen' href='../../theme/default.css'>
     <link rel='stylesheet' type='text/css' media='screen' href='../../css/rest-editar-pag.css'>
     <link rel='stylesheet' type='text/css' media='screen' href='../../css/rest-editar-dados.css'>
-    <link rel="stylesheet" href="rest-cancelar-reserva.css">
+    <link rel="stylesheet" type='text/css' media='screen' href="rest-cancelar-reserva.css">
+    <link rel="stylesheet" type='text/css' media='screen' href="../../css/modal-perfil-rest.css">
 </head>
 
 <body>
@@ -32,30 +33,32 @@
             </div>
 
             <div class="container-tooltip">
-                <ul>
-                    <li class="tooltip">
-                        <a href="#" class="icone-perfil">
-                            <i class="fas fa-user"></i>
-                            <p>Perfil</p>
-                        </a>
+                <a href="#" class="icone-perfil">
+                    <i class="fas fa-cog"></i>
+                    <p>Configuração de horários</p>
+                </a>
+                <button id='btn-perfil-rest' class="icone-perfil">
+                    <i class="fas fa-user"></i>
+                    <p>Perfil</p>
+                </button>
 
-                        <div class="tooltipMenu bottomSide">
-                            <ul class="container-tooltip" id="menu-profile">
-                                <li id="myBtn-perfil">
-                                    <i class=" fas fa-user-cog profile-icon"></i>
-                                    <p>Editar Dados</p>
-                                </li>
-                                <li id="myBtn-pag">
-                                    <i class="fas fa-credit-card profile-icon"></i>
-                                    <p>Pagamento</p>
-                                </li>
-                                <li>
-                                    <i class="fas fa-sign-out-alt profile-icon"></i>
-                                    <p>Desconectar</p>
-                                </li>
-                            </ul>
-                        </div>
-                    </li>
+                <div class="tooltipMenu bottomSide">
+                    <ul class="container-tooltip" id="menu-profile">
+                        <li id="myBtn-perfil">
+                            <i class=" fas fa-user-cog profile-icon"></i>
+                            <p>Editar Dados</p>
+                        </li>
+                        <li id="myBtn-pag">
+                            <i class="fas fa-credit-card profile-icon"></i>
+                            <p>Pagamento</p>
+                        </li>
+                        <li>
+                            <i class="fas fa-sign-out-alt profile-icon"></i>
+                            <p>Desconectar</p>
+                        </li>
+                    </ul>
+                </div>
+                </li>
                 </ul>
             </div>
 
@@ -273,12 +276,38 @@
         </div>
     </div>
 
+    <div class="modal-conteiner-perfil-rest">
+        <div class="modal-perfil-rest-sidebar">
+            <button id='btn-edit-perfil-rest' class='btn-modal-perfil-rest'>
+                <div class="editar-modal box-modal-perfil-rest" id='myBtn-editar-rest'>
+                    <i class="fas fa-user-cog"></i>
+                    <p>Editar Dados</p>
+                </div>
+            </button>
+
+            <button id='btn-pagamento-rest' class='btn-modal-perfil-rest'>
+                <div class="pagamento-modal box-modal-perfil-rest" id='myBtn-pag-rest'>
+                    <i class="fas fa-credit-card"></i>
+                    <p>Pagamento</p>
+                </div>
+            </button>
+
+            <button id='btn-sair-rest' class='btn-modal-perfil-rest'>
+                <div class="logout-modal box-modal-perfil-rest">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <p>Desconectar</p>
+                </div>
+            </button>
+        </div>
+    </div>
+
     <script src="https://kit.fontawesome.com/37a6fc82c8.js" crossorigin="anonymous"></script>
     <script type="text/javascript" src='allClientes.js'></script>
     <script type="text/javascript" src="home.js"></script>
     <script type="text/javascript" src="../../utils/rest-editar-pag.js"></script>
     <script type="text/javascript" src="../../utils/rest-editar-dados.js"></script>
     <script type="text/javascript" src="rest-cancelar-reserva.js"></script>
+    <script type="text/javascript" src="../../utils/modal-perfil-rest.js"></script>
 </body>
 
 </html>

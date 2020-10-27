@@ -2,7 +2,7 @@
 var modalPag = document.getElementById("myModal-pagamento");
 
 // Pega o botão que irá abrir o modal
-var btnPag = document.getElementById("myBtn-pag");
+var btnPag = document.getElementById("myBtn-pag-rest");
 
 // Pega a tag que irá fechar o modal
 var spanPag = document.getElementsByClassName("btn-pag")[0];

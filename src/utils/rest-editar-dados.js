@@ -2,7 +2,7 @@
 var modalPerfil = document.getElementById("myModal-perfil");
 
 // Pega o botão que irá abrir o modal
-var btnPerfil = document.getElementById("myBtn-perfil");
+var btnPerfil = document.getElementById("myBtn-editar-rest");
 
 // Pega a tag que irá fechar o modal
 var spanPerfil = document.getElementsByClassName("btn-perfil")[0];
