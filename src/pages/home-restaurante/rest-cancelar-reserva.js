@@ -8,7 +8,7 @@ var btnCancel = document.getElementById("myBtn-cancel");
 var spanCancel = document.getElementsByClassName("btn-cancel")[0];
 // Quando clicar, abre o modal 
 btnCancel.onclick = function () {
-  modalCancel.style.display = "block";
+  modalCancel.style.display = "flex";
 }
 
 // Quando clicar, fecha o modal
