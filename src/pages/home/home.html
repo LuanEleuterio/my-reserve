@@ -8,6 +8,7 @@
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='./home.css'>
     <link rel='stylesheet' type='text/css' media='screen' href='./localizacao.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='./modal-endereco.css'>
     <link rel='stylesheet' type='text/css' media='screen' href='./responsive.css'>
     <link rel='stylesheet' type='text/css' media='screen' href='./../../theme/colors.css'>
     <link rel='stylesheet' type='text/css' media='screen' href='./../../theme/default.css'>
@@ -177,7 +178,76 @@
         </div>
     </div>
 
-<!-- MODAL LOCALIZAÇÃO -->
+
+
+
+
+
+
+<!-- MODAL NOT-FOUND START-->
+<div id="myModal-not-found" class="modal">
+
+    <div class="model-container-lcl">
+        <div class="modal-content-lcl">
+            <span class="close-btnn-lcl">&times;</span>
+
+            <section class="endereco-container">
+                <fieldset id="field-container">
+                    <legend>
+                        <h3>Endereço</h3>
+                        <span>Selecione o endereço no mapa</span>
+                    </legend>
+    
+                    <img class="img-maps" src="../../img/maps.png" alt="">
+    
+                    <form action="">
+                        <div class="group">
+                            <div class="container-input">
+                                <label for="cep">CEP</label>
+                                <input type="text" name="cep" maxlength="9" id="cep" placeholder="00000-000" />
+                            </div>
+                            <div class="container-input">
+                                <label for="localidade">Cidade</label>
+                                <input type="text" name="localidade" id="localidade">
+                            </div>
+    
+                        </div>
+    
+                        <div class="group">
+                            <div class="container-input">
+                                <label for="logradouro">Logradouro</label>
+                                <input type="text" name="logradouro" id="logradouro" />
+                            </div>
+    
+                            <div class="container-input">
+                                <label for="numero">Número</label>
+                                <input type="number" name="numero" id="numero" />
+                            </div>
+                        </div>
+                        <div class="container-input">
+                            <input id="submit" type="submit" value="Confirmar localização">
+                          </div>
+                    </form>
+                </fieldset>
+            </section>
+
+    </div>
+</div>
+</div>
+<!-- MODAL NOT-FOUND END-->
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- MODAL LOCALIZAÇÃO START-->
     <div id="myModal" class="modal">
 
         <div class="model-container">
@@ -199,14 +269,14 @@
                         <p class="rua">Rua Tenente Comandante Oliveira, 471</p>
                         <p class="sua-localizacao">SUA LOCAZILAÇÃO ATUAL</p>
                     </div>
-                    <a href="#" class="not-found">
+                    <a href="#" id="not-found" class="not-found">
                         <h5>Não encontrei meu endereço</h5>
                     </a>
                 </section>
         </div>
     </div>
     </div>
-<!-- MODAL LOCALIZAÇÃO -->
+<!-- MODAL LOCALIZAÇÃO END-->
     <div id="myModal-pagamento" class="modal">
 
         <div class="model-container">
@@ -307,6 +377,7 @@
     <script type="text/javascript" src='../home/allRestaurante.js'></script>
     <script type="text/javascript" src='../home/allCategorias.js'></script>
     <script type="text/javascript" src="../home/home.js"></script>
+    <script type="text/javascript" src="../home/not-found.js"></script>
     <script type="text/javascript" src="../home/localizacao.js"></script>
     <script type="text/javascript" src='../../utils/editar-perfil.js'></script>
     <script type="text/javascript" src='../../utils/editar-pagamento.js'></script>

@@ -28,24 +28,27 @@
 .modal-content {
   background-color: var(--secundaria);
   padding: 0 10px 10px 40px;
-  width: 70%;
+  width: 75%;
   height: 30%;
   border-radius: 8px;
 }
 /* modal end */
 
 /* close button start */
-.close-btn {
+.close-btn, .close-btnn {
   padding: 5px;
   color: var(--principal);
   float: right;
   font-size: 28px;
   font-weight: bold;
 }
-.close-btn:hover,
-.close-btn:focus {
+.close-btn:hover, .close-btnn:hover,
+.close-btn:focus, .close-btnn:focus {
   color: var(--destaque);
   text-decoration: none;
   cursor: pointer;
 }
 /* close button end */
+.modal-content{
+  animation: modal-animation .5s;
+}
