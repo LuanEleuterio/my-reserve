@@ -559,6 +559,8 @@
     font-weight: 400;
     border: none;
     background: none;
+    width: 30vw;
+    max-width: 381px;
   }
   #icone-search {
     position: relative;
@@ -639,6 +641,9 @@
     font-weight: 400;
     border: none;
     background: none;
+    width: 30vw;
+    max-width: 381px;
+
   }
   #icone-search {
     position: relative;
