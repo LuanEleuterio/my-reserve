@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../theme/colors.css">
+    <link rel="stylesheet" href="../../theme/default.css">
+    <link rel="stylesheet" href="perfil.css">
+    <link rel="stylesheet" href="responsive.css">
+    <title>Perfil</title>
+</head>
+
+<body>
+    <header>
+        <div class="conteudo-header">
+            <div class="voltar">
+                <a id="btn-arrow-header">
+                    <i class="fas fa-arrow-left"></i>
+                </a>
+            </div>
+
+            <div class="titulo">
+                <span>Perfil</span>
+            </div>
+        </div>
+    </header>
+
+    <main>
+
+        <form method="POST">
+            <fieldset>
+                <label for="anexo-foto" class="image-profile">
+                    <img src="../../img/foto9.jpg" alt="">
+                    <img src="../../icons/4124810-camera-photographic-equipment-photographic-object-photography-picture_113912.svg"
+                        alt="" class="svg">
+                </label>
+                <input type="file" id="anexo-foto">
+
+                <div class="field">
+                    <label for="name">Nome do Estabelecimento</label>
+                    <input type="text" name="name" id="name" />
+                </div>
+                <div class="field">
+                    <label for="email">E-mail</label>
+                    <input type="email" name="email" id="email" placeholder="email@exemplo.com" />
+                </div>
+                <div class="field">
+                    <label for="endereco">Endereço</label>
+                    <input type="text" name="endereco" id="endereco" />
+                </div>
+
+                <div class="field">
+                    <label for="cnpj">CNPJ</label>
+                    <input type="text" name="cnpj" id="cnpj" />
+                </div>
+                <div class="field">
+                    <label for="telefone">Telefone</label>
+                    <input type="text" name="telefone" id="telefone" placeholder="(xx) xxxxx-xxxx" />
+                </div>
+
+                <label id="label-senha" for="password">Senha</label>
+                <div class="pass-container">
+                    <input type="password" name="senha" id="password" required />
+                    <button type="button" id="eye" class="glyphicon glyphicon-eye-close"
+                        onclick="mostrar(this)"></button>
+                </div>
+
+
+                <div class="dados">
+                    <h2>Dados de Pagamento</h2>
+                </div>
+
+                <div class="field">
+                    <label for="nome">Nome do Beneficiário</label>
+                    <input type="text" name="nome" id="nome" />
+                </div>
+
+                <div class="field">
+                    <label for="identidade">CPF/CNPJ</label>
+                    <input type="text" name="identidade" id="identidade" />
+                </div>
+
+                <div class="field-group">
+                    <div class="field">
+                        <label for="banco">Banco</label>
+                        <input type="text" name="banco" id="banco" />
+                    </div>
+                    <div class="field">
+                        <label for="agencia">Agência</label>
+                        <input type="text" name="agencia" id="agencia" />
+                    </div>
+                </div>
+
+                <div class="field-group">
+                    <div class="field">
+                        <label for="tipo-conta">Tipo de conta</label>
+                        <input type="text" name="tipo-conta" id="tipo-conta" />
+                    </div>
+                    <div class="field">
+                        <label for="nr-conta">Número da conta</label>
+                        <input type="text" name="nr-conta" id="nr-conta" />
+                    </div>
+                </div>
+            </fieldset>
+
+            <input class="botao btn-blue" type="submit" value="Salvar alteracoes">
+            <input class="botao btn-red" type="button" value="Desconectar">
+
+        </form>
+
+    </main>
+
+    <footer>
+        <a id="footer-home">
+            <section class="menu-bar">
+                <div class="menu-option home">
+                    <div class="icon-footer">
+                        <i class="fas fa-home itens-footer"></i>
+                    </div>
+                    <p>Inicio</p>
+                </div>
+        </a>
+        <a id="footer-home">
+            <div class="menu-option busca">
+                <div class="icon-footer">
+                    <i class="fas fa-search itens-footer"></i>
+                </div>
+                <p>Buscar</p>
+            </div>
+        </a>
+        <a id="footer-reserva">
+            <div class="menu-option reserva">
+                <div class="icon-footer">
+                    <i class="fas fa-chair itens-footer"></i>
+                </div>
+                <p>Reservas</p>
+            </div>
+        </a>
+        <a id="footer-perfil">
+            <div class="menu-option perfil">
+                <div class="icon-footer">
+                    <i class="fas fa-user itens-footer"></i>
+                </div>
+                <p>Perfil</p>
+            </div>
+        </a>
+        </section>
+    </footer>
+
+    <script src="https://kit.fontawesome.com/37a6fc82c8.js" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="senha.js"></script>
+    <script type="text/javascript" src="../../utils/geral-rest.js"></script>
+    <script type="text/javascript" src="../../utils/footer-redirect-rest.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+@media (max-width: 767px) {
+  #page-create-point form .field-group {
+    display: block;
+  }
+  #page-create-point form .field-group .field + .field {
+    margin-left: 0px;
+  }
+  #page-create-point form {
+    padding: 20px;
+  }
+  
+}
+
+@media (max-width: 425px) {
+  #submit {
+    width: 100%;
+  }
+  #page-create-point form h1, #page-create-point form legend h2 {
+    font-size: 20px;
+  }
+  .arquivo {
+    height: 180px;
+  }
+  .image {
+    height: 150px;
+  }
+  #page-create-point header {
+    flex-direction: row-reverse;
+  }
+
+  #page-create-point header a {
+    
+    margin-right: 0px;
+  }
+  #page-create-point header a span {
+    display: none;
+  }
+}
