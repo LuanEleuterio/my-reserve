@@ -5,7 +5,6 @@ const footerPerfil = document.querySelector("#footer-perfil")
 
 
 footerHome.addEventListener("click", () => {
-    console.log("clicou")
     window.location.href = '../home/home.html'
 })
 
