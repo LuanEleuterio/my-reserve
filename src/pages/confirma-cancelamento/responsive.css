@@ -206,18 +206,6 @@
     font-size: small !important;
    }
 
-   .icon-clock{
-    font-size: 1.2em !important;
-    }
-
-    #hour-reserva{
-        font-size: small !important;
-    }
-
-    .vagas p{
-        font-size: smaller !important;
-    }
-
     #nome-restaurante{
         font-size: x-large;
     }
@@ -258,17 +246,6 @@
     font-size: small !important;
    }
 
-   .icon-clock{
-       font-size: 1.2em !important;
-   }
-
-   #hour-reserva{
-       font-size: small !important;
-   }
-
-   .vagas p{
-    font-size: smaller !important;
-}
 
 }
 

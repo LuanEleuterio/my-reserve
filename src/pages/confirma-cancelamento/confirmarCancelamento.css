@@ -172,10 +172,15 @@ header{
 
 /*Inicio do Main*/
 
+.container-main{
+    max-width: 768px;
+}
+
 .imagem-main{
     display: flex;
     justify-content: center;
-    margin: 20% 0 5% 0;
+    margin-top: 3em;
+    margin-bottom: 1em;
 }
 
 
@@ -183,11 +188,16 @@ header{
     margin: 4% 0 4% 0;
     border-bottom: 1px solid #CCC;
 }
+
+.nome-rest{
+    margin-bottom: .5em;
+}
 .nomeRestaurante{
     color: #322153;
     font-size: 1.3em;
     font-weight: 500;
     padding-bottom: 2%;
+    margin-bottom: .5em;
 }
 .tipoRestaurante{
     color: #322153;
@@ -201,6 +211,7 @@ header{
     text-align: left;
     width: 90vw;
     color:#D62839;
+    max-width: 768px;
 }
 
 
@@ -212,6 +223,8 @@ header{
     height: 5vh;
     border: none;
     background-color:#4788FF;
+    max-width: 768px;
+    font-size: medium;
 }
 
 
@@ -222,7 +235,7 @@ header{
     height: 4em;
     border: 1px solid var(--border);
     border-radius: var(--border-radius);
-    max-width: 382px;
+    max-width: 768px;
 }
 
 .col-horario{
@@ -232,7 +245,7 @@ header{
 
 .icon-clock{
     font-size: 2em;
-    color: var(--preto);
+    color: var(--destaque);
 }
 
 #hour-reserva{
