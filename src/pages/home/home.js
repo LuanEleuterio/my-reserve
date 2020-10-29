@@ -29,6 +29,7 @@ function carregaRestaurantes() {
         iconPessoas = document.createElement("i");
 
         restaurenteContainer.setAttribute("class", "restaurante-container");
+        restaurenteContainer.setAttribute("href", "../info-restaurante/info-restaurante.html")
         restaurantes.setAttribute("class", "restaurantes");
 
         fotoRestaurante.setAttribute("class", "foto-restaurante");
