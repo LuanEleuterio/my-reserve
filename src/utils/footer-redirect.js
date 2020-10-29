@@ -10,8 +10,7 @@ footerHome.addEventListener("click", () => {
 })
 
 footerSearch.addEventListener("click", () => {
-    console.log(footerHome)
-    //window.location.href = '../buscar-mobile/buscar-mobile.html'
+    window.location.href = '../busca-mobile/busca-mobile.html'
 })
 
 footerReserva.addEventListener("click", () => {
