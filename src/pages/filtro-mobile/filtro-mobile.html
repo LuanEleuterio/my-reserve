@@ -4,10 +4,10 @@
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Localização 5</title>
+    <title>Historico de Reservas</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='./localizacao.css'>
-    <link rel='stylesheet' type='text/css' media='screen' href='./form.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='./filtro-mobile.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='./responsive.css'>
     <link rel='stylesheet' type='text/css' media='screen' href='./../../theme/colors.css'>
     <link rel='stylesheet' type='text/css' media='screen' href='./../../theme/default.css'>
 </head>
@@ -19,49 +19,25 @@
                 <button id='btn-arrow-header'>
                     <i class="fas fa-arrow-left arrow-header"></i>
                 </button>
-                <p>Localização</p>
+                <p>Filtros</p>
             </div>
         </div>
     </header>
     <main class="content">
-        <section class="endereco-container">
-            <fieldset>
-                <legend>
-                    <h3>Endereço</h3>
-                    <span>Selecione o endereço no mapa</span>
-                </legend>
+        <section class="conteudo">
+            <div class="filtro-conteudo">
+                <div class="filtro-distancia">
+                    <p class='filtro-nomenclatura'>Pessoas por reserva</p>
+                    <input id="range-pessoa" class='slider-range-filter' type="range" min="1" max="30" value="5">
+                    <p id='value-range-pessoas' class='value-range-filter'></p>
+                </div>
 
-                <img src="../../img/maps.png" alt="">
-
-                <form action="">
-                    <div class="field-group">
-                        <div class="field">
-                            <label for="cep">CEP</label>
-                            <input type="text" name="cep" maxlength="9" id="cep" placeholder="00000-000" />
-                        </div>
-                        <div class="field">
-                            <label for="localidade">Cidade</label>
-                            <input type="text" name="localidade" id="localidade">
-                        </div>
-
-                    </div>
-
-                    <div class="field-group">
-                        <div class="field">
-                            <label for="logradouro">Logradouro</label>
-                            <input type="text" name="logradouro" id="logradouro" />
-                        </div>
-
-                        <div class="field">
-                            <label for="numero">Número</label>
-                            <input type="number" name="numero" id="numero" />
-                        </div>
-                    </div>
-                    <div class="field">
-                        <input id="submit" type="submit" value="Confirmar localização">
-                    </div>
-                </form>
-            </fieldset>
+                <div class="filtro-pessoas">
+                    <p class='filtro-nomenclatura'>Distância</p>
+                    <input id="range-distancia" class='slider-range-filter' type="range" min="1" max="30" value="5">
+                    <p id="value-range-distancia" class='value-range-filter'></p>
+                </div>
+            </div>
         </section>
     </main>
     <footer>
@@ -102,7 +78,8 @@
     </footer>
 
     <script src="https://kit.fontawesome.com/37a6fc82c8.js" crossorigin="anonymous"></script>
-    <script src="cep.js"></script>
+    <script type="text/javascript" src="../filtro-mobile/filtro-mobile.js"></script>
+    <script type="text/javascript" src="../../utils/filtros.js"></script>
     <script type="text/javascript" src="../../utils/footer-redirect.js"></script>
 </body>
 
