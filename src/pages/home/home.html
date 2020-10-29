@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="../../css/modals-header.css">
     <link rel="stylesheet" href="../../css/editar-perfil.css">
     <link rel="stylesheet" href="../../css/editar-pagamento.css">
+    <link rel="stylesheet" href="../../css/modal-endereco.css">
 </head>
 
 <body>
@@ -36,7 +37,7 @@
                     </div>
                 </button>
             </div>
-            <div class="location">
+            <div class="location" id="myBtn-loc">
                 <div class='header-location'>
                     <p id="sua-localizacao">SUA LOCAZILAÇÃO</p>
                     <button class='location-input'>
@@ -268,6 +269,58 @@
         </div>
     </div>
 
+    <div id="myModal-not-found" class="modal modal-loc">
+
+        <div class="model-container-lcl">
+            <div class="modal-content-lcl">
+                <span class="close-btnn-lcl">&times;</span>
+
+                <section class="endereco-container">
+                    <fieldset id="field-container">
+                        <legend class="legend-loc">
+                            <h3>Endereço</h3>
+                            <span>Selecione o endereço no mapa</span>
+                        </legend>
+
+                        <img class="img-maps" src="../../img/maps.png" alt="">
+
+                        <form action="" class="form-loc">
+                            <div class="group">
+                                <div class="container-input">
+                                    <label for="cep">CEP</label>
+                                    <input type="text" name="cep" maxlength="9" id="cep" placeholder="00000-000" />
+                                </div>
+                                <div class="container-input">
+                                    <label for="localidade">Cidade</label>
+                                    <input type="text" name="localidade" id="localidade">
+                                </div>
+
+                            </div>
+
+                            <div class="group">
+                                <div class="container-input">
+                                    <label for="logradouro">Logradouro</label>
+                                    <input type="text" name="logradouro" id="logradouro" />
+                                </div>
+
+                                <div class="container-input">
+                                    <label for="numero">Número</label>
+                                    <input type="number" name="numero" id="numero" />
+                                </div>
+                            </div>
+                            <div class="container-input">
+                                <input id="submit" type="submit" value="Confirmar localização">
+                            </div>
+                        </form>
+                    </fieldset>
+                </section>
+
+            </div>
+        </div>
+    </div>
+    <!-- MODAL NOT-FOUND END-->
+
+
     <script src="https://kit.fontawesome.com/37a6fc82c8.js" crossorigin="anonymous"></script>
     <script type="text/javascript" src="../home/jquery.js"></script>
     <script type="text/javascript" src="../home/jquery-migrate.js"></script>
@@ -279,6 +332,7 @@
     <script type="text/javascript" src='../../utils/editar-perfil.js'></script>
     <script type="text/javascript" src='../../utils/editar-pagamento.js'></script>
     <script type="text/javascript" src="../../utils/modals-header.js"></script>
+    <script type="text/javascript" src="../../utils/not-found.js"></script>
 </body>
 
 </html>
