@@ -121,6 +121,8 @@ filterRedirect.addEventListener("click", () => {
 })
 
 locationInput.addEventListener("click", () => {
-    window.location.href = '../localizacao-mobile/localizacao.html'
+    if (window.innerWidth < 769) {
+        window.location.href = '../localizacao-mobile/localizacao.html'
+    }
 })
 
