@@ -1,5 +1,7 @@
 const conteinerReservas = document.querySelector('.conteudo-reserva')
 
+
+
 function carregaReservas() {
     const allReservas = listaReservas;
 
@@ -68,9 +70,11 @@ function carregaReservas() {
 
         (function (index) {
             btnModalCancelar[index].addEventListener("click", function () {
-
-                modalCancelar.classList.add("mostrar")
-
+                if (window.innerWidth > 768) {
+                    modalCancelar.classList.add("mostrar")
+                } else {
+                    window.location.href = '../confirma-cancelamento/confirmarCancelamento.html'
+                }
             })
         })(i)
     }
