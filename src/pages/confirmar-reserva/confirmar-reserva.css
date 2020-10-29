@@ -34,6 +34,7 @@ header{
     align-items: center;
     /*border-bottom: 1px solid var(--destaque);*/
     box-shadow: 0px 1px 3px 0px var(--destaque);
+    justify-content: center;
 }
 
 .conteiner-header{
@@ -410,4 +411,6 @@ footer{
     height: 5vh;
     border: none;
     outline: none;
+    max-width: 691px;
+    cursor: pointer;
 }
