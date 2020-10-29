@@ -1,5 +1,6 @@
 const btn_horario = document.getElementsByClassName("button-horario");
 const modalHorario = document.getElementById("modal-horario")
+const btnVerHorarios = document.querySelector("#btn-ver-horario")
 
 for (let i = 0; i < btn_horario.length; i++) {
 
@@ -15,5 +16,9 @@ modalHorario.addEventListener("click", function (e) {
     modalHorario.classList.remove("mostrar")
   }
 
+})
+
+btnVerHorarios.addEventListener("click", () => {
+  window.location.href = '../info-horarios/info-horarios.html'
 })
 
