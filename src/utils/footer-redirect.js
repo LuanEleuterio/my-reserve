@@ -18,7 +18,7 @@ footerReserva.addEventListener("click", () => {
 })
 
 footerPerfil.addEventListener("click", () => {
-    window.location.href = '../perfil-cliente/perfil-cliente.html'
+    window.location.href = '../cliente-perfil/perfil.html'
 })
 
 
