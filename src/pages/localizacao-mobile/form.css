@@ -25,9 +25,14 @@ legend {
   margin-bottom: 20px;
 }
 
+legend h3{
+  font-weight: bold;
+}
+
 legend h2 {
   font-size: 24px;
 }
+
 
 legend span {
   font-size: 14px;
@@ -76,6 +81,7 @@ form .field input::placeholder {
 form .field label {
   font-size: 14px;
   margin-bottom: 4px;
+  font-weight: bolder;
 }
 form .field-group .field + .field {
   margin-left: 6px;
