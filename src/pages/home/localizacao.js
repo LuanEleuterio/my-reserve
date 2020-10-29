@@ -1,3 +1,4 @@
+/*
 // Pega o modal
 var modal = document.getElementById("myModal");
 
@@ -7,7 +8,7 @@ var btn = document.getElementById("myBtn");
 // Pega a tag que irá fechar o modal
 var span = document.getElementsByClassName("close-btn")[0];
 
-// Quando clicar, abre o modal 
+// Quando clicar, abre o modal
 btn.onclick = function () {
   modal.style.display = "block";
 }
@@ -35,4 +36,4 @@ function mostrar(e) {
     e.classList.remove("glyphicon-eye-open"); //remove classe olho aberto
     e.classList.add("glyphicon-eye-close"); //coloca classe olho fechado
   }
-}
+}*/

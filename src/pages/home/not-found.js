@@ -2,7 +2,7 @@
 var modalNotFound = document.getElementById("myModal-not-found");
 
 // Pega o botão que irá abrir o modal
-var btnNotFound = document.getElementById("not-found");
+var btnNotFound = document.getElementById("myBtn-loc");
 
 // Pega a tag que irá fechar o modal
 var spanCloseNf = document.getElementsByClassName("close-btnn-lcl")[0];

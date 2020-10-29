@@ -1,20 +1,20 @@
 // Pega o modal
-const modal = document.getElementById("myModal-editar");
+const modalEditar = document.getElementById("myModal-editar");
 
 // Pega o botão que irá abrir o modal
-const btn = document.getElementById("myBtn-editar");
+const btnEditar = document.getElementById("myBtn-editar");
 
 // Pega a tag que irá fechar o modal
-const span = document.getElementsByClassName("close-btn-editar")[0];
+const spanEditar = document.getElementsByClassName("close-btn-editar")[0];
 
 // Quando clicar, abre o modal 
-btn.onclick = function () {
-    modal.style.display = "block";
+btnEditar.onclick = function () {
+    modalEditar.style.display = "block";
 }
 
 // Quando clicar, fecha o modal
-span.onclick = function () {
-    modal.style.display = "none";
+spanEditar.onclick = function () {
+    modalEditar.style.display = "none";
 }
 
 // mostrar senha - inicio
