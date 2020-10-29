@@ -1,6 +1,7 @@
 const conteinerRestaurantes = document.querySelector('.conteudo-restaurantes')
 const categoriaMain = document.querySelector('.categorias-main')
 const filterRedirect = document.querySelector('.filter-mobile')
+const locationInput = document.querySelector(".location-input")
 
 
 function carregaRestaurantes() {
@@ -114,8 +115,12 @@ function carregaCategorias() {
 
 window.addEventListener("load", carregaRestaurantes)
 window.addEventListener("load", carregaCategorias)
+
 filterRedirect.addEventListener("click", () => {
     window.location.href = '../filtro-mobile/filtro-mobile.html'
 })
 
+locationInput.addEventListener("click", () => {
+    window.location.href = '../localizacao-mobile/localizacao.html'
+})
 
