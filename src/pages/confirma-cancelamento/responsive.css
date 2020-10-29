@@ -1,0 +1,258 @@
+@media (max-width:320px) {
+    body{
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    /*Inicio Header*/
+
+    .conteiner-header{
+        justify-content: unset;
+       }
+
+    .icon-header{
+        position: absolute;
+        right: 13.5em;
+        font-size: 1.4em;
+    }
+
+    .header-location{
+        position: relative;
+        left: 13vw;
+    }
+    
+    .header-location p{
+        font-size: medium;
+        font-weight: bolder;
+        margin: 0;
+    }
+    /* Fim Header*/
+
+    .info-restaurante{
+        width: 100vw;
+    }
+
+    /*Inicio info restaurante */
+
+    .img-restaurante{
+        height: 10em;
+    }
+    
+    .img-restaurante::after{
+        width: 91vw;
+    }
+
+    #foto-rest{
+        width: 90vw;
+        height: 8em;
+        margin-top: 1em;
+    }
+
+    #nome-restaurante{
+        font-size: x-large;
+        font-weight: bold;
+    }
+
+    .details-restaurante{
+        width: 90vw;
+    }
+
+    .details-restaurante::after{
+        width: 91vw;
+    }
+
+    .description-rest{
+       width: 90vw;
+    }
+
+    .description-rest p {
+        font-size: large;
+        font-weight: bold;
+        color: var(--texto);
+    }
+    /*Fim info restaurante */
+    
+}
+
+@media (min-width:321px) and (max-width:425px) {
+    body{
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    /*Inicio Header*/
+    .header{
+        justify-content: center;
+    }
+
+    .icon-header{
+        position: absolute;
+        right: 90vw;
+        font-size: 1.5em;
+    }
+
+    .header-location p{
+        font-size: medium;
+        font-weight: bolder;
+        margin: 0;
+    }
+    /*Fim Header*/
+
+    .info-restaurante{
+        width: 100vw;
+    }
+
+
+    /*Inicio footer*/
+    footer{
+        position: fixed;
+        bottom: 0;
+    }
+
+    .menu-option{
+        align-content: center;
+        flex-wrap: wrap;
+    }
+
+    .menu-option p{
+        margin: 0 auto;
+        font-size: smaller;
+    }
+        
+    .icon-footer{
+        display: flex;
+        justify-content: center;
+    }
+
+    .itens-footer{
+        display: flex;
+        justify-content: center;
+    }
+    /*Fim footer*/
+}
+
+@media (min-width:426px) and (max-width:768px){
+    body{
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    /*Inicio Header */
+    .header{
+        justify-content: center;
+    }
+
+    .icon-header{
+        position: absolute;
+        right: 95vw;
+        font-size: 1.5em;
+    }
+
+    .header-location p{
+        font-size: large;
+        font-weight: bolder;
+        margin: 0;
+    }
+    /*Fim header*/
+
+    .info-restaurante{
+        width: 100vw;
+    }
+
+}
+
+@media(min-width: 769px) and (max-width: 920px){
+
+    /*Inicio Header */
+
+
+    .logo img{
+        width: 1.7em !important;
+        height: 2em !important;
+    }
+
+    .logo p{
+        font-size: large !important;
+    }
+
+    #icon-search{
+        font-size: 1.3em !important;
+        top: 0.5em !important;
+    }
+
+    #search-bar{
+        width: 35vw !important;
+        height: 1.9em !important;
+    }
+
+    #icon-filter{
+        font-size: 1em !important;
+    }
+
+    .header-location p{
+        font-size: smaller !important;
+    }
+
+    .menu-option {
+        font-size: smaller !important;
+    }
+
+   /* Fim header*/
+
+   #name-horario{
+    font-size: medium !important;
+   }
+
+   #date-reserva{
+    font-size: small !important;
+   }
+
+    #nome-restaurante{
+        font-size: x-large;
+    }
+
+    .col-icon-info{
+        font-size: 1em;
+    }
+
+    .col-paragrafo{
+        font-size: small;
+    }
+
+    .description-rest p {
+        font-size: large;
+    }
+
+    #description{
+        font-size: small;
+    }
+
+    .horario-funcionamento p{
+        font-size: small;
+    }
+
+    .button-horario:last-child{
+        margin-bottom: 2.5em !important;
+    }
+
+}
+
+@media(min-width: 921px) and (max-width: 1150px){
+
+   #name-horario{
+    font-size: large !important;
+   }
+
+   #date-reserva{
+    font-size: small !important;
+   }
+
+
+}
+
+@media (min-width:1280px){
+    
+    .imagem-main{
+        margin-top: 4%;
+    }
+}
+

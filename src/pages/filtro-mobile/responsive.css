@@ -1,0 +1,247 @@
+@media (max-width:320px) {
+    body{
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    /*Inicio Header*/
+
+    .conteiner-header{
+        justify-content: unset;
+       }
+
+    .icon-header{
+        position: absolute;
+        right: 13.5em;
+        font-size: 1.4em;
+    }
+
+    .header-location{
+        position: relative;
+        left: 13vw;
+    }
+    
+    .header-location p{
+        font-size: medium;
+        font-weight: bolder;
+        margin: 0;
+    }
+
+    .filter-mobile{
+        display: flex;
+        align-items: center;
+    }
+    /* Fim Header*/
+
+    .conteudo{
+        display: flex;
+    }
+    
+    .conteudo-restaurantes{
+        justify-content: center;
+    }
+
+    .restaurantes:last-child{
+        margin-bottom: 3.5em;
+    }
+
+    .restaurantes{
+        width: 90vw;
+    }
+
+    .info-restaurante{
+        width: 32.5vw;
+    }
+
+    .btns-option{
+        width: 26vw;
+    }
+
+    .col-btn{
+        width: 26vw;
+        font-size: x-small;
+    }
+
+}
+
+@media (min-width:321px) and (max-width:425px) {
+    body{
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    /*Inicio Header*/
+    .header{
+        justify-content: center;
+    }
+
+    .icon-header{
+        position: absolute;
+        right: 90vw;
+        font-size: 1.5em;
+    }
+
+    .header-location p{
+        font-size: medium;
+        font-weight: bolder;
+        margin: 0;
+    }
+
+    .filter-mobile{
+        display: flex;
+        align-items: center;
+    }
+    /*Fim Header*/
+    .conteudo{
+        display: flex;
+    }
+
+    .restaurantes:last-child{
+        margin-bottom: 3.5em;
+    }
+
+    .conteudo-restaurantes{
+        justify-content: center;
+    }
+
+    .restaurantes{
+        width: 90vw;
+    }
+
+    .info-restaurante{
+        width: 32vw;
+    }
+
+    .btns-option{
+        width: 26vw;
+    }
+
+    .col-btn{
+        width: 26vw;
+        font-size: small;
+    }
+
+    /*Inicio footer*/
+
+    footer{
+        position: fixed;
+        bottom: 0;
+    }
+
+    .menu-option{
+        align-content: center;
+        flex-wrap: wrap;
+    }
+
+    .menu-option p{
+        margin: 0 auto;
+        font-size: smaller;
+    }
+        
+    .icon-footer{
+        display: flex;
+        justify-content: center;
+    }
+
+    .itens-footer{
+        display: flex;
+        justify-content: center;
+    }
+    /*Fim footer*/
+}
+
+@media (min-width:426px) and (max-width:620px){
+    
+    .conteudo-restaurantes{
+        justify-content: center !important;
+    }
+
+    .restaurantes{
+        width: 90vw !important;
+    }
+
+    .foto-restaurante img{
+        width: 5em !important;
+        height: 4em !important;
+    }
+
+    .info-restaurante{
+        width: 25vw !important;
+    }
+
+    .btns-option{
+        width: 26vw !important;
+        max-width: 110px;
+    }
+
+    .col-btn{
+        width: 26vw !important;
+        font-size: small !important;
+        max-width: 110px;
+    }
+}
+
+@media (min-width:426px) and (max-width:768px){
+    body{
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .header{
+        justify-content: center;
+    }
+
+    .icon-header{
+        position: absolute;
+        right: 95vw;
+        font-size: 1.5em;
+    }
+
+    .header-location p{
+        font-size: large;
+        font-weight: bolder;
+        margin: 0;
+    }
+    
+    .filter-mobile{
+        display: flex;
+        align-items: center;
+    }
+
+    .conteudo{
+        display: flex;
+    }
+
+    .restaurantes:last-child{
+        margin-bottom: 3.5em;
+    }
+    
+    .conteudo-restaurantes{
+        justify-content: space-between;
+        width: 92vw;
+    }
+
+    .restaurantes{
+        width: 45vw;
+    }
+
+    .foto-restaurante img{
+        width: 10vw;
+        min-width: 4em;
+        height: 4em;
+    }
+
+    .info-restaurante{
+        width: 17vw;
+    }
+
+    .btns-option{
+        width: 16vw;
+        max-width: 110px;
+    }
+
+    .col-btn{
+        width: 16vw;
+        font-size: small;
+        max-width: 110px;
+    }
+}
