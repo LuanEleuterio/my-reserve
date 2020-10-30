@@ -1,7 +1,5 @@
 const conteinerReservas = document.querySelector('.conteudo-reserva')
 
-
-
 function carregaReservas() {
     const allReservas = listaReservas;
 
@@ -57,9 +55,10 @@ function carregaReservas() {
         if (values.status_reserva == "Reservado") { buttonsOption.appendChild(btnCancelar) }
 
         conteinerReservas.appendChild(reservas);
-
-
     });
+}
+
+function modalCancelar() {
 
     /*Inicio modal cancelar*/
 
@@ -86,11 +85,25 @@ function carregaReservas() {
         }
 
     })
+}
 
-    /*Fim modal cancelar*/
+function modalVisitar() {
+    const btnVisitar = document.getElementsByClassName("btn-ver-restaurante")
+
+    for (let i = 0; i < btnVisitar.length; i++) {
+
+        (function (index) {
+            btnVisitar[index].addEventListener("click", function () {
+                window.location.href = '../info-restaurante/info-restaurante.html'
+            })
+        })(i)
+    }
+
 }
 
 window.addEventListener("load", carregaReservas)
+window.addEventListener("load", modalVisitar)
+window.addEventListener("load", modalCancelar)
 
 
 

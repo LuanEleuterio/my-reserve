@@ -12,7 +12,9 @@ btnVolta.addEventListener("click", () => {
     window.location.href = "javascript:history.back()"
 })
 
-voltaHomeLogo.addEventListener("click", () => {
-    window.location.href = "../home/home.html"
-})
+if (voltaHomeLogo != null) {
+    voltaHomeLogo.addEventListener("click", () => {
+        window.location.href = "../home/home.html"
+    })
+}
 

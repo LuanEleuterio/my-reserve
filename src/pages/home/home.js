@@ -85,7 +85,6 @@ function carregaRestaurantes() {
 
 function carregaCategorias() {
     const allCategorias = listaCategorias;
-    var scale = 'scale(1.5)';
 
     btnPrev = document.createElement("button")
 
