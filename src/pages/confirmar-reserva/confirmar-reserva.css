@@ -361,10 +361,20 @@ footer{
 }
 .box-quant{
     margin-right: 5%;
-    border: 1px solid #CCC;
-    width: 4vw;
     border-radius: 4px;
-    padding: 0 7% 0 4%;
+}
+
+#ipt-qtd-pessoa{
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: transparent;
+    width: 15vw;
+    height: 1.8em;
+    max-width: 50px;
+    text-align: center;
+    font-weight: bold;
+    font-size: medium;
+    color: var(--preto);
 }
 .info-pagamento{
     
@@ -402,6 +412,7 @@ footer{
     display: flex;
     width: 90vw;
     padding-top: 6%;
+    align-items: center;
 }
 .btn-confirmar{
     color: white;
