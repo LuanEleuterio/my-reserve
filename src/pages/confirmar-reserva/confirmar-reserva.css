@@ -221,7 +221,6 @@ header{
 
 .conteiner-horario{
     width: 100vw;
-    height: 14vh;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
@@ -235,10 +234,11 @@ header{
     margin-bottom: 1em;
     max-width: 382px;
     cursor: pointer;
+    margin-top: 1em
 }
 
 .button-horario:last-child{
-    margin-bottom: 4em;
+    margin-bottom: 2em;
 }
 
 .box-horario{
@@ -262,7 +262,7 @@ header{
 
 .icon-clock{
     font-size: 2em;
-    color: var(--preto);
+    color: var(--destaque);
 }
 
 #hour-reserva{
@@ -413,4 +413,6 @@ footer{
     outline: none;
     max-width: 691px;
     cursor: pointer;
+    font-size: medium;
+    font-weight: bolder;
 }

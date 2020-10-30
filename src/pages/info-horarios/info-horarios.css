@@ -260,7 +260,7 @@ header{
 
 .icon-clock{
     font-size: 2em;
-    color: var(--preto);
+    color: var(--destaque);
 }
 
 #hour-reserva{
