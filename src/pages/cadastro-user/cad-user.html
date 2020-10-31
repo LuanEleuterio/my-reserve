@@ -44,27 +44,25 @@
 
         <div class="field">
           <label for="name">Nome completo</label>
-          <input type="text" name="name" id="name" />
+          <input type="text" name="name" id="name" required />
         </div>
 
         <div class="field-group">
 
           <div class="field">
             <label for="cpf">CPF</label>
-            <input type="text" name="cpf" id="cpf" />
+            <input type="text" name="cpf" id="cpf" maxlength="14" placeholder="xxx.xxx.xxx-xx" required />
           </div>
           <div class="field">
             <label for="whatsapp">Whatsapp</label>
-            <input type="text" name="whatsapp" id="whatsapp" placeholder="(xx) xxxxx-xxxx" />
+            <input type="text" name="whatsapp" id="whatsapp" placeholder="(xx) xxxxx-xxxx" maxlength="15" required />
           </div>
         </div>
 
         <div class="field-group">
-
-
           <div class="field">
             <label for="email">E-mail</label>
-            <input type="email" name="email" id="email" placeholder="email@exemplo.com" />
+            <input type="email" name="email" id="email" placeholder="email@exemplo.com" required />
           </div>
 
           <div class="field">

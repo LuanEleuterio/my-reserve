@@ -199,6 +199,10 @@ header{
     padding-bottom: 2%;
     margin-bottom: .5em;
 }
+.tipoRestaurante, .enderecoRestaurante {
+    display: flex;
+    align-items: center;
+}
 .tipoRestaurante{
     color: #322153;
     padding-bottom: 2%;
@@ -206,12 +210,16 @@ header{
 .enderecoRestaurante{
     color: #322153;
 }
+.tipoRestaurante span, .enderecoRestaurante span {
+    margin-left: 1em;
+}
 
 .alerta{
     text-align: left;
     width: 90vw;
     color:#D62839;
     max-width: 768px;
+    font-size: 14px;
 }
 
 

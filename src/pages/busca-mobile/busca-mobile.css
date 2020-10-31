@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
 body{
     display: flex;
-    width: 100vw;
     background-color: #F8F9FA;
     justify-content: center;
     
@@ -27,7 +26,7 @@ header{
 }
 
 .header{
-    width: 100vw !important;
+    width: 100% !important;
     height: 3em;
     display: flex;
     background-color: var(--secundaria);
@@ -37,14 +36,14 @@ header{
 }
 
 .conteiner-header{
-    width: 100vw;
+    width: 100%;
     max-width: 1440px !important;
     display: flex;
     justify-content: space-evenly;
 }
 
 .name-page{
-    width: 100vw;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -113,7 +112,7 @@ header{
 .content{
     max-width: 1440px !important;
     position: relative;
-    width: 100vw;
+    width: 100%;
     display: flex;
     justify-content: center;
     margin-top: 3.5em;
@@ -251,7 +250,7 @@ header{
     display: flex;
     color: var(--texto);    
     justify-content: center;
-    width: 100vw;
+    width: 100%;
 }
 
 .img-categoria{
@@ -261,7 +260,7 @@ header{
 }
 
 .name-categoria{
-    width: 100vw;
+    width: 100%;
     display: flex;
     justify-content: center;
     margin-top: .2em;

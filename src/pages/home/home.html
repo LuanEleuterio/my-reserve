@@ -7,8 +7,8 @@
     <title>Home myReserve</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='./home.css'>
-    <link rel='stylesheet' type='text/css' media='screen' href='./responsive.css'>
-    <link rel='stylesheet' type='text/css' media='screen' href='./../../theme/colors.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href="./responsive.css">
+    <link rel='stylesheet' type='text/css' media='screen' href='../../theme/colors.css'>
     <link rel='stylesheet' type='text/css' media='screen' href='./../../theme/default.css'>
     <link rel="stylesheet" type="text/css" href="../home/slick.css" />
     <link rel="stylesheet" href="../../css/modals-header.css">
@@ -142,21 +142,21 @@
 
                         <div class="field">
                             <label for="name">Nome completo</label>
-                            <input type="text" name="name" id="name-editar" />
+                            <input type="text" name="name" id="name-editar" required />
                         </div>
 
                         <div class="field">
                             <label for="cpf">CPF</label>
-                            <input type="text" name="cpf" id="cpf-editar" />
+                            <input type="text" name="cpf" id="cpf-editar" maxlength="14" required />
                         </div>
                         <div class="field">
                             <label for="whatsapp">Whatsapp</label>
-                            <input type="text" name="whatsapp" id="whatsapp-editar" placeholder="(xx) xxxxx-xxxx" />
+                            <input type="text" name="whatsapp" id="whatsapp-editar" placeholder="(xx) xxxxx-xxxx" required />
                         </div>
 
                         <div class="field">
                             <label for="email">E-mail</label>
-                            <input type="email" name="email" id="email-editar" placeholder="email@exemplo.com" />
+                            <input type="email" name="email" id="email-editar" placeholder="email@exemplo.com" required />
                         </div>
 
                         <label id="label-senha" for="password">Senha</label>
@@ -192,25 +192,25 @@
 
                         <div class="field">
                             <label for="nro-cartao">Número do cartão<i class="fas fa-lock"></i></label>
-                            <input type="text" name="nro-cartao" id="nro-cartao" />
+                            <input type="text" name="nro-cartao" id="nro-cartao" required />
                         </div>
 
                         <div class="field">
                             <label for="validade">Validade</label>
-                            <input type="text" name="validade" id="validade" />
+                            <input type="text" name="validade" id="validade" maxlength="5" required />
                         </div>
                         <div class="field">
                             <label for="cvv">CVV</label>
-                            <input type="text" name="cvv" id="cvv" />
+                            <input type="text" name="cvv" id="cvv" required />
                         </div>
 
                         <div class="field">
                             <label for="nome">Nome do titular</label>
-                            <input type="text" name="nome" id="nome-pag" />
+                            <input type="text" name="nome" id="nome-pag" required />
                         </div>
                         <div class="field">
                             <label for="identidade">CPF/CNPJ do titular</label>
-                            <input type="text" name="identidade" id="identidade" />
+                            <input type="text" name="identidade" id="identidade" maxlength="18" required />
                         </div>
 
                         <div class="field">
@@ -288,11 +288,11 @@
                             <div class="group">
                                 <div class="container-input">
                                     <label for="cep">CEP</label>
-                                    <input type="text" name="cep" maxlength="9" id="cep" placeholder="00000-000" />
+                                    <input type="text" name="cep" maxlength="9" id="cep" placeholder="00000-000" required />
                                 </div>
                                 <div class="container-input">
                                     <label for="localidade">Cidade</label>
-                                    <input type="text" name="localidade" id="localidade">
+                                    <input type="text" name="localidade" id="localidade" required>
                                 </div>
 
                             </div>
@@ -300,12 +300,12 @@
                             <div class="group">
                                 <div class="container-input">
                                     <label for="logradouro">Logradouro</label>
-                                    <input type="text" name="logradouro" id="logradouro" />
+                                    <input type="text" name="logradouro" id="logradouro" required />
                                 </div>
 
                                 <div class="container-input">
                                     <label for="numero">Número</label>
-                                    <input type="number" name="numero" id="numero" />
+                                    <input type="number" name="numero" id="numero" required />
                                 </div>
                             </div>
                             <div class="container-input">

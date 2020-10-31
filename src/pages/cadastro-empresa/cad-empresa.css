@@ -25,7 +25,7 @@ body {
 }
 
 #page-create-point header {
-  margin-top: 48px;
+  /* margin-top: 48px; */
 
   display: flex;
   justify-content: space-between;
@@ -92,7 +92,7 @@ input[type="file"] {
 }
 
 #page-create-point form {
-  margin: 80px auto;
+  margin: 40px auto;
   padding: 64px;
   max-width: 730px;
   background: var(--secundaria);

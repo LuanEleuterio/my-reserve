@@ -218,6 +218,7 @@ header{
     position: relative;
     display:flex;
     align-content: center;
+    margin-right: .3em;
 }
 
 .foto-restaurante img{

@@ -261,6 +261,7 @@ header{
 
 .col-info{
     display: flex;
+    align-items: center;
     margin-bottom: .6em;
 }
 
@@ -302,9 +303,10 @@ header{
 }
 
 #description{
-    font-size: medium;
+    font-size: 15px;
     font-weight: 300;
     margin-top: 0.5em;
+    text-align: justify;
 }
 
 .ver-horario{

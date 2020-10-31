@@ -80,7 +80,6 @@
 }
 .modal-perfil-fieldset {
   width: 100%;
-  display: flex;
   align-items: center;
   margin-bottom: 10px;
   border: none;
