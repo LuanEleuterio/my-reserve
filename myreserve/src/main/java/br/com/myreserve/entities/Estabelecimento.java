@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -25,21 +26,6 @@ public class Estabelecimento {
 	private Boolean estab_ativo;
 	private String descricao;
 	private Integer fk_categoria;
-	
-	public Estabelecimento() {}
-
-	public Estabelecimento(String nome_estabelecimento, String email, String hora_funcionamento, String cnpj,
-			String senha, String img_estabelecimento, Boolean estab_ativo, String descricao, Integer fk_categoria) {
-		this.nome_estabelecimento = nome_estabelecimento;
-		this.email = email;
-		this.hora_funcionamento = hora_funcionamento;
-		this.cnpj = cnpj;
-		this.senha = senha;
-		this.img_estabelecimento = img_estabelecimento;
-		this.estab_ativo = estab_ativo;
-		this.descricao = descricao;
-		this.fk_categoria = fk_categoria;
-	}
 	
 	@OneToOne(mappedBy="estabelecimento")
 	private Set<Categoria> categoria;
@@ -63,6 +49,34 @@ public class Estabelecimento {
 	public void setDadosRecebimento(Set<DadosRecebimento> dadosRecebimento) {
 		this.dadosRecebimento = dadosRecebimento;
 	}
+		
+	@OneToMany(mappedBy="estabelecimento")
+	@JsonIgnoreProperties("estabTelefone")
+	private Set<Telefone> telefone;
+	
+	public Set<Telefone> getTelefone() {
+		return telefone;
+	}
+	
+	public void setTelefone(Set<Telefone> telefone) {
+		this.telefone = telefone;
+	}
+	
+	public Estabelecimento() {}
+
+	public Estabelecimento(String nome_estabelecimento, String email, String hora_funcionamento, String cnpj,
+			String senha, String img_estabelecimento, Boolean estab_ativo, String descricao, Integer fk_categoria) {
+		this.nome_estabelecimento = nome_estabelecimento;
+		this.email = email;
+		this.hora_funcionamento = hora_funcionamento;
+		this.cnpj = cnpj;
+		this.senha = senha;
+		this.img_estabelecimento = img_estabelecimento;
+		this.estab_ativo = estab_ativo;
+		this.descricao = descricao;
+		this.fk_categoria = fk_categoria;
+	}
+	
 
 	public Integer getId_estabelecimento() {
 		return id_estabelecimento;

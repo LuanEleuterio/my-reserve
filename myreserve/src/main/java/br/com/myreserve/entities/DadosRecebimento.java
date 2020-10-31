@@ -23,6 +23,19 @@ public class DadosRecebimento {
 	private String agencia;
 	private String conta;
 	
+	@OneToOne
+	@JoinColumn(name = "fk_estabelecimento")
+	@JsonIgnoreProperties("dadosRecebimento")
+	private Estabelecimento estabelecimento;
+	
+	public Estabelecimento getEstabelecimento() {
+		return estabelecimento;
+	}
+
+	public void setEstabelecimento(Estabelecimento estabelecimento) {
+		this.estabelecimento = estabelecimento;
+	}
+	
 	public DadosRecebimento() {}
 
 	public DadosRecebimento(String nome_beneficiario, String cpf_cnpj, String banco, String agencia, String conta) {
@@ -33,19 +46,6 @@ public class DadosRecebimento {
 		this.conta = conta;
 	}
 	
-	@OneToOne
-	@JoinColumn(name = "fk_estabelecimento")
-	@JsonIgnoreProperties("dadosRecebimento")
-	private Estabelecimento estabelecimento;
-	
-	
-	public Estabelecimento getEstabelecimento() {
-		return estabelecimento;
-	}
-
-	public void setEstabelecimento(Estabelecimento estabelecimento) {
-		this.estabelecimento = estabelecimento;
-	}
 	
 	public Integer getId() {
 		return id;
