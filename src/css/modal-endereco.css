@@ -94,17 +94,24 @@
   flex-direction: column;
   margin-bottom: 12px;
 }
+#field-container .form-loc {
+  padding: 0;
+  max-width: 400px;
+  width: 100%;
+}
+
 #cep {
-  width: 9em;
+  width: 10em;
 }
 #localidade {
-  width: 200px;
+  margin-right: 6px;
+  width: 250px;
 }
 #logradouro {
-  width: 200px;
+  width: 250px;
 }
 #numero {
-  width: 9em;
+  width: 10em;
 }
 .form-loc .container-input input[type="text"],
 .form-loc .container-input input[type="email"],

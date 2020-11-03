@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
 body{
     display: flex;
-    width: 100vw;
+    /* width: 100vw; */
     background-color: #F8F9FA;
     justify-content: center;
     overflow-x: hidden;
@@ -27,7 +27,7 @@ header{
 }
 
 .header{
-    width: 100vw !important;
+    width: 100% !important;
     height: 3em;
     display: flex;
     justify-content: inherit;
@@ -38,7 +38,7 @@ header{
 }
 
 .conteiner-header{
-    width: 100vw;
+    width: 100%;
     max-width: 1440px !important;
     display: flex;
     justify-content: space-evenly;
@@ -93,7 +93,7 @@ header{
 }
 
 .name-page{
-    width: 100vw;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;

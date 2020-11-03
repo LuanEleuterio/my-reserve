@@ -385,7 +385,7 @@ footer{
 .btn-radio{
     color: #4788ff;
     fill: #4788ff;
-    margin-left: 15% ;
+    /* margin-left: 20% ; */
 }
 .bold{
     font-weight: bold;
@@ -400,15 +400,15 @@ footer{
 .cartao{
     padding: 2% 0 2% 0;
 }
-.debito{
+.debito, .credito{
+    display: flex;
+    justify-content: space-between;
     padding: 2% 0 2% 0;
+    width: 100px;
+    
+    /* background-color: red; */
 }
-.credito{
-    padding: 2% 0 4% 0;
-}
-.unq{
-    margin-left: 17%;
-}
+
 .block-layout{
     display: flex;
     width: 90vw;

@@ -3,13 +3,13 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh;
-  color: var(--texto)!important;
-  padding: 0 10px;
+  color: var(--texto);
 }
+
 fieldset {
-  margin-top: 25px;
-  max-width: 400px;
+  height: 80vh;
+  margin-top: 85px;
+  max-width: 300px;
   border: none;
 }
 fieldset img {
@@ -50,22 +50,25 @@ form .field {
   flex-direction: column;
   margin-bottom: 12px;
 }
+/* .form-lcl-mobile {
+  max-width: 250px;
+  margin: 0 auto;
+} */
 #cep {
-  width: 100px;
+  width: 8em;
 }
 #localidade {
-  width: 200px;
+  margin-right: 6px;
+  width: 190px;
 }
 #logradouro {
   width: 190px;
 }
 #numero {
-  width: 110px;
+  width: 8em;
 }
 form .field input[type="text"],
-form .field input[type="email"],
-form .field input[type="number"],
-form .field input[type="password"] {
+form .field input[type="number"] {
   flex: 1;
   background: var(--input);
   border-radius: 8px;

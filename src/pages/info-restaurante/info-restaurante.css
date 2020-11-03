@@ -1,7 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+@font-face {
+    font-family: "Glyphicons Halflings";
+    src: url(../../fonts/glyphicons-halflings-regular.eot);
+    src: url(../../fonts/glyphicons-halflings-regular.eot?#iefix) format("embedded-opentype"),
+      url(../../fonts/glyphicons-halflings-regular.woff2) format("woff2"),
+      url(../../fonts/glyphicons-halflings-regular.woff) format("woff"),
+      url(../../fonts/glyphicons-halflings-regular.ttf) format("truetype"),
+      url(../../fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular) format("svg");
+  }
+  
 body{
     display: flex;
-    width: 100vw;
+    /* width: 100vw; */
     background-color: #F8F9FA;
     justify-content: center;
     overflow-x: hidden;
@@ -27,7 +37,7 @@ header{
 }
 
 .header{
-    width: 100vw !important;
+    width: 100% !important;
     height: 3em;
     display: flex;
     background-color: var(--secundaria);
@@ -37,7 +47,7 @@ header{
 }
 
 .conteiner-header{
-    width: 100vw;
+    width: 100%;
     max-width: 1440px !important;
     display: flex;
     justify-content: space-evenly;
@@ -92,7 +102,7 @@ header{
 }
 
 .name-page{
-    width: 100vw;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -168,7 +178,7 @@ header{
 /* Fim Header*/
 
 .content{
-    width: 100vw;
+    width: 100%;
     max-width: 1440px;
     margin-top: 3em;
 }
@@ -180,7 +190,7 @@ header{
 }
 
 .info-box{
-    width: 100vw;
+    width: 100%;
     max-width: 907px;
 }
 
@@ -310,7 +320,7 @@ header{
 }
 
 .ver-horario{
-    width: 100vw;
+    width: 100%;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
