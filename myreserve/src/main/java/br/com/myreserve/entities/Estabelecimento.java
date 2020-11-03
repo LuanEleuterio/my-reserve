@@ -38,6 +38,17 @@ public class Estabelecimento {
 		this.categoria = categoria;
 	}
 	
+	@OneToMany(mappedBy="estabelecimento")
+	private Set<Horario> horario;
+	
+	public Set<Horario> getHorario() {
+		return horario;
+	}
+	
+	public void setHorario(Set<Horario> horario) {
+		this.horario = horario;
+	}
+	
 	@OneToOne(mappedBy="estabelecimento")
 	@JsonIgnoreProperties("estabelecimento")
 	private Set<DadosRecebimento> dadosRecebimento;
