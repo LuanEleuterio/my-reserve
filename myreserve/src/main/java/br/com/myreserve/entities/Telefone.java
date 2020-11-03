@@ -58,6 +58,5 @@ public class Telefone {
 	public void setNumero(String numero) {
 		this.numero = numero;
 	}
-	
-	
+
 }

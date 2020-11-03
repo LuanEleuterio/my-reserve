@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.myreserve.entities.Categoria;
-import br.com.myreserve.entities.Telefone;
 import br.com.myreserve.repositories.CategoriaRepository;
 
 @RestController

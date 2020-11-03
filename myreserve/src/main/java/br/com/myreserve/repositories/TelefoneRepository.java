@@ -6,4 +6,5 @@ import br.com.myreserve.entities.Telefone;
 
 public interface TelefoneRepository extends CrudRepository<Telefone, Integer>{
 
+	Telefone findOneByFk_estabelecimento(Integer id);
 }

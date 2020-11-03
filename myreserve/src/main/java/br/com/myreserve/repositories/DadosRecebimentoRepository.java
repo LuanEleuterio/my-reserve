@@ -2,6 +2,9 @@ package br.com.myreserve.repositories;
 
 import org.springframework.data.repository.CrudRepository;
 
-public interface DadosRecebimentoRepository extends CrudRepository<DadosRecebimentoRepository, Integer>{
+import br.com.myreserve.entities.DadosRecebimento;
 
+public interface DadosRecebimentoRepository extends CrudRepository<DadosRecebimento, Integer>{
+	
+	DadosRecebimento findOneByFk_estabelecimento(Integer id);
 }
