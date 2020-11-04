@@ -38,8 +38,9 @@ public class HorarioController {
 	}
 	
 	@PutMapping("/{id_horario}")
-	public Horario updateHorario(@RequestBody Horario horario, @PathVariable int id_horario) {
-		Horario HorarioDB = horarioRepository.findOneByCodigo(id_horario);
+	public Horario updateHorario(@RequestBody Horario horario, @PathVariable int id_horario) throws Exception{
+		Horario HorarioDB = horarioRepository.findById(id_horario)
+				.orElseThrow(() -> new IllegalAccessException());
 		
 		if(horario.getHorario_de() != null) horario.setHorario_de(horario.getHorario_de());
 		

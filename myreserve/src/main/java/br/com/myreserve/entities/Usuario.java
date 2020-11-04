@@ -1,11 +1,16 @@
 package br.com.myreserve.entities;
 
 import java.util.Date;
+import java.util.Set;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 public class Usuario {
@@ -13,7 +18,8 @@ public class Usuario {
 	@Id 
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id_usuario;
-	private String nome_usuario;
+	@Column(name = "nome_usuario")
+	private String nome;
 	private String cpf;
 	private Date dt_nasc;
 	private String email;
@@ -22,11 +28,23 @@ public class Usuario {
 	private String senha;
 	private Boolean user_ativo;
 	
+	@OneToMany(mappedBy="usuario")
+	@JsonIgnoreProperties("usuario")
+	private Set<Reserva> reservaUser;
+	
+	public Set<Reserva> getReserva() {
+		return reservaUser;
+	}
+	
+	public void setTelefone(Set<Reserva> reservaUser) {
+		this.reservaUser = reservaUser;
+	}
+	
 	public Usuario() {}
 
-	public Usuario(String nome_usuario, String cpf, Date dt_nasc, String email,
+	public Usuario(String nome, String cpf, Date dt_nasc, String email,
 			String telefone, String img_perfil, String senha, Boolean user_ativo) {
-		this.nome_usuario = nome_usuario;
+		this.nome = nome;
 		this.cpf = cpf;
 		this.dt_nasc = dt_nasc;
 		this.email = email;
@@ -41,11 +59,11 @@ public class Usuario {
 	}
 	
 	public String getNome_usuario() {
-		return nome_usuario;
+		return nome;
 	}
 
-	public void setNome_usuario(String nome_usuario) {
-		this.nome_usuario = nome_usuario;
+	public void setNome_usuario(String nome) {
+		this.nome = nome;
 	}
 
 	public String getCpf() {

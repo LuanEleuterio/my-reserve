@@ -25,6 +25,14 @@ public class DadosPagamento {
 	@JsonIgnoreProperties("DadosPagementos")
 	private Usuario UsuarioPagamento;
 	
+	public Usuario getUsuarioPagamento() {
+		return UsuarioPagamento;
+	}
+
+	public void setUsuarioPagamento(Usuario usuarioPagamento) {
+		UsuarioPagamento = usuarioPagamento;
+	}
+	
 	public DadosPagamento() {}
 
 	public int getId_pag() {
@@ -67,13 +75,5 @@ public class DadosPagamento {
 		this.cpf = cpf;
 	}
 
-	public Usuario getUsuarioPagamento() {
-		return UsuarioPagamento;
-	}
 
-	public void setUsuarioPagamento(Usuario usuarioPagamento) {
-		UsuarioPagamento = usuarioPagamento;
-	}
-	
-	
 }

@@ -32,8 +32,9 @@ public class DadosPagamentoController {
 	}
 	
 	@PutMapping("/{id_pag}")
-	public DadosPagamento updateDadosPagamento(@RequestBody DadosPagamento dadosPagamento , @PathVariable int id_pag) {
-		DadosPagamento dadosPagamentoDB = dadosPagamentoRepository.findOneByCodigo(id_pag);
+	public DadosPagamento updateDadosPagamento(@RequestBody DadosPagamento dadosPagamento , @PathVariable int id_pag) throws Exception {
+		DadosPagamento dadosPagamentoDB = dadosPagamentoRepository.findById(id_pag)
+				.orElseThrow(() -> new IllegalAccessException());
 		
 		if(!dadosPagamento.getNumero_cartao().isEmpty()) dadosPagamento.setNumero_cartao(dadosPagamento.getNumero_cartao());
 		

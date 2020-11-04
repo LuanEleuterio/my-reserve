@@ -9,5 +9,4 @@ import br.com.myreserve.entities.Usuario;
 public interface UsuarioRepository extends CrudRepository<Usuario, Integer> {
 	
 	List<Usuario> findByNomeContaining(String nome_usuario);
-
 }

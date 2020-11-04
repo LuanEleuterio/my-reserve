@@ -15,31 +15,41 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 public class Horario {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id_horario;
+	private Integer id_horario;
 	private Date horario_de;
 	private Date horario_ate;
 	private Integer qtd_pessoa_vaga;
 	private Integer total_vagas;
 	private Integer vagas_at_moment;
 	
+	
 	@ManyToOne
 	@JoinColumn(name = "fk_estabelecimento")
 	@JsonIgnoreProperties("horario")
 	private Estabelecimento estabHorario;
 	
+	public Estabelecimento getEstabHorario() {
+		return estabHorario;
+	}
 	
-	public Horario() {}
+	public void setEstabHorario(Estabelecimento estabHorario) {
+		this.estabHorario = estabHorario;
+	}
 
+	public Horario() {}
+	
+	public Horario(Date horario_de, Date horario_ate, Integer qtd_pessoa_vaga, Integer total_vagas,
+			Integer vagas_at_moment, Estabelecimento estabHorario) {
+		this.horario_de = horario_de;
+		this.horario_ate = horario_ate;
+		this.qtd_pessoa_vaga = qtd_pessoa_vaga;
+		this.total_vagas = total_vagas;
+		this.vagas_at_moment = vagas_at_moment;
+	}
 
 	public int getId_horario() {
 		return id_horario;
 	}
-
-
-	public void setId_horario(int id_horario) {
-		this.id_horario = id_horario;
-	}
-
 
 	public Date getHorario_de() {
 		return horario_de;
@@ -88,16 +98,6 @@ public class Horario {
 
 	public void setVagas_at_moment(Integer vagas_at_moment) {
 		this.vagas_at_moment = vagas_at_moment;
-	}
-
-
-	public Estabelecimento getEstabHorario() {
-		return estabHorario;
-	}
-
-
-	public void setEstabHorario(Estabelecimento estabHorario) {
-		this.estabHorario = estabHorario;
 	}
 
 }

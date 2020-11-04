@@ -1,9 +1,15 @@
 package br.com.myreserve.entities;
 
+import java.util.Set;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 public class Categoria {
@@ -13,6 +19,18 @@ public class Categoria {
 	private Integer id_categoria;
 	private String tipo_categoria;
 	
+	@OneToMany(mappedBy="categoria")
+	@JsonIgnoreProperties("categoria")
+	private Set<Estabelecimento> estabs;
+	
+	public Set<Estabelecimento> getEstabs() {
+		return estabs;
+	}
+	
+	public void setEstabs(Set<Estabelecimento> estabs) {
+		this.estabs = estabs;
+	}
+
 	public Categoria() {}
 
 	public Categoria(String tipo_categoria) {

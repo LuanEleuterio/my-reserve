@@ -6,5 +6,4 @@ import br.com.myreserve.entities.DadosRecebimento;
 
 public interface DadosRecebimentoRepository extends CrudRepository<DadosRecebimento, Integer>{
 	
-	DadosRecebimento findOneByFk_estabelecimento(Integer id);
 }

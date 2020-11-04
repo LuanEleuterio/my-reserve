@@ -6,6 +6,6 @@ import br.com.myreserve.entities.Reserva;
 
 public interface ReservaRepository extends CrudRepository<Reserva, Integer>{
 
-	Reserva findOneByFk_estabelecimento(Integer id);
-	Reserva findOneByFk_usuario(Integer id);
+	//Reserva findOneByFk_estabelecimento(Integer id);
+	//Reserva findOneByFk_usuario(Integer id);
 }

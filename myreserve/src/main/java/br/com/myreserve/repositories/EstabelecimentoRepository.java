@@ -8,5 +8,5 @@ import br.com.myreserve.entities.Estabelecimento;
 
 public interface EstabelecimentoRepository extends CrudRepository<Estabelecimento, Integer>{
 	
-	List<Estabelecimento> findByNomeContaining(String nome_estabelecimento);
+	List<Estabelecimento> findByNomeContaining(String nome);
 }
