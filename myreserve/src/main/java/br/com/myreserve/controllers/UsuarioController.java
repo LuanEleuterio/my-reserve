@@ -41,7 +41,12 @@ public class UsuarioController {
 		Usuario userDB = usuarioRepository.findById(idUser)
 				.orElseThrow(() -> new IllegalAccessException());
 		if(dadosUsuario.getNome_usuario() != null) userDB.setNome_usuario(dadosUsuario.getNome_usuario());
+		if(dadosUsuario.getDt_nasc() != null) userDB.setDt_nasc(dadosUsuario.getDt_nasc());
+		if(dadosUsuario.getEmail() != null) userDB.setEmail(dadosUsuario.getEmail());
+		if(dadosUsuario.getTelefone() != null) userDB.setTelefone(dadosUsuario.getTelefone());
 		if(dadosUsuario.getImg_perfil() != null) userDB.setImg_perfil(dadosUsuario.getImg_perfil());
+		if(dadosUsuario.getSenha() != null) userDB.setSenha(dadosUsuario.getSenha());
+		
 		return usuarioRepository.save(userDB);
 		
 	}

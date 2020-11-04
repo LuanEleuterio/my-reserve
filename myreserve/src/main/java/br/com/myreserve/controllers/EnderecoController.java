@@ -39,7 +39,7 @@ public class EnderecoController {
 	
 	@PutMapping("/{id_endereco}")
 	public Endereco updateEndereco(@PathVariable int id_endereco, @RequestBody Endereco dadosEndereco) throws Exception{
-		Endereco enderecoDB = enderecoRepository.findOneById(id_endereco)
+		Endereco enderecoDB = enderecoRepository.findById(id_endereco)
 				.orElseThrow(() -> new IllegalAccessException());
 		if(dadosEndereco.getEstado() != null) enderecoDB.setEstado(dadosEndereco.getEstado());
 		if(dadosEndereco.getCidade() != null) enderecoDB.setCidade(dadosEndereco.getCidade());

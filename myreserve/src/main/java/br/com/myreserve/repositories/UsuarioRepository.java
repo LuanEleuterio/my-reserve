@@ -8,6 +8,6 @@ import br.com.myreserve.entities.Usuario;
 
 public interface UsuarioRepository extends CrudRepository<Usuario, Integer> {
 	
-	List<Usuario> findByNome_usuarioContaining(String nome);
+	List<Usuario> findByNomeContaining(String nome);
 
 }

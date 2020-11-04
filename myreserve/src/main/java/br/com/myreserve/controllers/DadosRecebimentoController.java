@@ -22,8 +22,8 @@ public class DadosRecebimentoController {
 	DadosRecebimentoRepository recebeRepository;
 	
 	@GetMapping("/{idEstab}")
-	public DadosRecebimento getDadosById(@PathVariable Integer id){
-		return recebeRepository.findOneByFk_estabelecimento(id);
+	public Optional<DadosRecebimento> getDadosById(@PathVariable Integer id){
+		return recebeRepository.findById(id);
 	}
 	
 	@PostMapping()
@@ -32,8 +32,9 @@ public class DadosRecebimentoController {
 	}
 	
 	@PutMapping("/{idEstab}")
-	public DadosRecebimento updateDadosRecebimento(@PathVariable Integer idEstab, @RequestBody DadosRecebimento dadosRecebimento) {
-		DadosRecebimento dadosDB = recebeRepository.findOneByFk_estabelecimento(idEstab);
+	public DadosRecebimento updateDadosRecebimento(@PathVariable Integer idEstab, @RequestBody DadosRecebimento dadosRecebimento) throws Exception{
+		DadosRecebimento dadosDB = recebeRepository.findById(idEstab)
+				.orElseThrow(() -> new IllegalAccessException());
 		
 		if(dadosRecebimento.getNome_beneficiario() != null) dadosDB.setNome_beneficiario(dadosRecebimento.getNome_beneficiario());
 		if(dadosRecebimento.getBanco() != null) dadosDB.setBanco(dadosRecebimento.getBanco());

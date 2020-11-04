@@ -6,6 +6,4 @@ import br.com.myreserve.entities.CancelJustifica;
 
 public interface CancelJustificaRepository extends CrudRepository<CancelJustifica, Integer> {
 
-	CancelJustifica findOneByCodigo(int id_cancel);
-
 }

@@ -38,7 +38,8 @@ public class TelefoneController {
 	
 	@PutMapping("/{idEstab}")
 	public Telefone updateTelefone(@PathVariable Integer idEstab, @RequestBody Telefone dadosTelefone) throws Exception{
-		Telefone telefoneDB = telefoneRepository.findOneByFk_estabelecimento(idEstab);
+		Telefone telefoneDB = telefoneRepository.findById(idEstab)
+				.orElseThrow(() -> new IllegalAccessException());
 		
 		if(dadosTelefone.getDdd() != null) telefoneDB.setDdd(dadosTelefone.getDdd());
 		if(dadosTelefone.getNumero() != null) telefoneDB.setNumero(dadosTelefone.getNumero());

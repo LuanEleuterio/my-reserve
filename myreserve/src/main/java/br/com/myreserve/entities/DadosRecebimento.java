@@ -23,17 +23,17 @@ public class DadosRecebimento {
 	private String agencia;
 	private String conta;
 	
+	
 	@OneToOne
 	@JoinColumn(name = "fk_estabelecimento")
-	@JsonIgnoreProperties("dadosRecebimento")
-	private Estabelecimento estabelecimento;
+	private Estabelecimento dadosEstab;
 	
 	public Estabelecimento getEstabelecimento() {
-		return estabelecimento;
+		return dadosEstab;
 	}
 
-	public void setEstabelecimento(Estabelecimento estabelecimento) {
-		this.estabelecimento = estabelecimento;
+	public void setEstabelecimento(Estabelecimento dadosEstab) {
+		this.dadosEstab = dadosEstab;
 	}
 	
 	public DadosRecebimento() {}

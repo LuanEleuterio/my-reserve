@@ -8,54 +8,46 @@ import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
-import org.apache.tomcat.util.json.ParseException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 
 import br.com.myreserve.entities.Estabelecimento;
 import br.com.myreserve.entities.Horario;
 import br.com.myreserve.entities.Reserva;
 import br.com.myreserve.entities.Usuario;
 
+import br.com.myreserve.repositories.EstabelecimentoRepository;
+import br.com.myreserve.repositories.HorarioRepository;
+import br.com.myreserve.repositories.ReservaRepository;
+import br.com.myreserve.repositories.UsuarioRepository;
+
 public class RequisitaReservaService {
 	
 	private static String atNow;
-	
-	@Autowired
-	Estabelecimento estabelecimentoRepository;
-	@Autowired
-	Usuario usuarioRepository;
-	@Autowired
-	Horario horarioRepository;
-	@Autowired
-	Reserva reservaRepository;
+	private static String timeReserva;
+
 	
 	public final static SimpleDateFormat parser = new SimpleDateFormat("HH:mm");
-		
-	public static void addReserva(Object identifiers, Integer qtdPessoas) throws Exception{
-		
+	
+	@Bean
+	public static boolean addReserva(Horario horario, Integer qtdPessoas) throws Exception{
+		Reserva reserva;
 		atNow = LocalDateTime.now(ZoneId.of("America/Sao_Paulo")).minusHours(1).format(DateTimeFormatter.ofPattern("HH:mm"));
-		   
-		LocalDateTime.now(ZoneId.of("America/Sao_Paulo")).minusHours(1).format(DateTimeFormatter.ofPattern("HH:mm"));
-		Horario horarioDB = horarioRepository.findById(identifiers.horario)
-				.orElseThrow(() -> new IllegalAccessException());
-		
-		if(horarioDB.getVagas_at_moment() >= qtdPessoas && checkHour(atNow, horarioDB.getHorario_de())) {
-			
+		if(horario.getVagas_at_moment() >= qtdPessoas && checkHour(atNow, horario.getHorario_de())) {
+			return true;
 		}
+		return false;
 	}
 	
-	 public static boolean checkHour(String timeAtNow, String timeReserva) {
-	        try {
+	@Bean
+	 public static boolean checkHour(String timeAtNow, Date date) throws java.text.ParseException{
+	        	timeReserva = parser.format(date);
 	            Date present = parser.parse(timeAtNow);
 	            Date reserva = parser.parse(timeReserva);
 	            if (present.after(reserva)) {
 	                return true;
+	            }else { 
+	            	return false;
 	            }
-	        } catch (ParseException e) {
-	            // Invalid date was entered
-	        }
-	        return false;
-	    }
-	
-	
+	    }	
 }

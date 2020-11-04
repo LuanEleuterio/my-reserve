@@ -2,10 +2,13 @@ package br.com.myreserve.entities;
 
 import java.util.Set;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
@@ -17,7 +20,8 @@ public class Estabelecimento {
 	@Id 
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id_estabelecimento;
-	private String nome_estabelecimento;
+	@Column(name ="nome_restaurante")
+	private String nome;
 	private String email;
 	private String hora_funcionamento;
 	private String cnpj;
@@ -25,20 +29,22 @@ public class Estabelecimento {
 	private String img_estabelecimento;
 	private Boolean estab_ativo;
 	private String descricao;
-	private Integer fk_categoria;
+	private Integer max_pessoas;
 	
-	@OneToOne(mappedBy="estabelecimento")
-	private Set<Categoria> categoria;
+	@ManyToOne
+	@JoinColumn(name = "fk_categoria")
+	@JsonIgnoreProperties("estabs")
+	private Categoria categoria;
 	
-	public Set<Categoria> getCategoria() {
+	public Categoria getCategoria() {
 		return categoria;
 	}
 	
-	public void setCategoria(Set<Categoria> categoria) {
+	public void setCategoria(Categoria categoria) {
 		this.categoria = categoria;
 	}
 	
-	@OneToMany(mappedBy="estabelecimento")
+	@OneToMany(mappedBy="estabHorario")
 	private Set<Horario> horario;
 	
 	public Set<Horario> getHorario() {
@@ -49,19 +55,20 @@ public class Estabelecimento {
 		this.horario = horario;
 	}
 	
-	@OneToOne(mappedBy="estabelecimento")
-	@JsonIgnoreProperties("estabelecimento")
-	private Set<DadosRecebimento> dadosRecebimento;
+	@OneToOne(mappedBy="dadosEstab")
+	@JsonIgnoreProperties("dadosEstab")
+	@JoinColumn(name = "fk_estabelecimento")
+	private DadosRecebimento dadosRecebimento;
 	
-	public Set<DadosRecebimento> getDadosRecebimento() {
+	public DadosRecebimento getDadosRecebimento() {
 		return dadosRecebimento;
 	}
 	
-	public void setDadosRecebimento(Set<DadosRecebimento> dadosRecebimento) {
+	public void setDadosRecebimento(DadosRecebimento dadosRecebimento) {
 		this.dadosRecebimento = dadosRecebimento;
 	}
 		
-	@OneToMany(mappedBy="estabelecimento")
+	@OneToMany(mappedBy="estabTelefone")
 	@JsonIgnoreProperties("estabTelefone")
 	private Set<Telefone> telefone;
 	
@@ -75,9 +82,9 @@ public class Estabelecimento {
 	
 	public Estabelecimento() {}
 
-	public Estabelecimento(String nome_estabelecimento, String email, String hora_funcionamento, String cnpj,
-			String senha, String img_estabelecimento, Boolean estab_ativo, String descricao, Integer fk_categoria) {
-		this.nome_estabelecimento = nome_estabelecimento;
+	public Estabelecimento(String nome, String email, String hora_funcionamento, String cnpj,
+			String senha, String img_estabelecimento, Boolean estab_ativo, String descricao, Integer max_pessoas, Integer fk_categoria) {
+		this.nome = nome;
 		this.email = email;
 		this.hora_funcionamento = hora_funcionamento;
 		this.cnpj = cnpj;
@@ -85,7 +92,7 @@ public class Estabelecimento {
 		this.img_estabelecimento = img_estabelecimento;
 		this.estab_ativo = estab_ativo;
 		this.descricao = descricao;
-		this.fk_categoria = fk_categoria;
+		this.max_pessoas = max_pessoas;
 	}
 	
 
@@ -94,11 +101,11 @@ public class Estabelecimento {
 	}
 
 	public String getNome_estabelecimento() {
-		return nome_estabelecimento;
+		return nome;
 	}
 
-	public void setNome_estabelecimento(String nome_estabelecimento) {
-		this.nome_estabelecimento = nome_estabelecimento;
+	public void setNome_estabelecimento(String nome) {
+		this.nome = nome;
 	}
 
 	public String getEmail() {
@@ -156,12 +163,15 @@ public class Estabelecimento {
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
+	
+	
 
-	public Integer getFk_categoria() {
-		return fk_categoria;
+	public Integer getMax_pessoas() {
+		return max_pessoas;
 	}
 
-	public void setFk_categoria(Integer fk_categoria) {
-		this.fk_categoria = fk_categoria;
+	public void setMax_pessoas(Integer max_pessoas) {
+		this.max_pessoas = max_pessoas;
 	}
+
 }		
