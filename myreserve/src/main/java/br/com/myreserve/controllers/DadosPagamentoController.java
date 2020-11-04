@@ -35,13 +35,13 @@ public class DadosPagamentoController {
 	public DadosPagamento updateDadosPagamento(@RequestBody DadosPagamento dadosPagamento , @PathVariable int id_pag) {
 		DadosPagamento dadosPagamentoDB = dadosPagamentoRepository.findOneByCodigo(id_pag);
 		
-		if(dadosPagamento.getNumero_cartao().isEmpty()) dadosPagamento.setNumero_cartao(dadosPagamento.getNumero_cartao());
+		if(!dadosPagamento.getNumero_cartao().isEmpty()) dadosPagamento.setNumero_cartao(dadosPagamento.getNumero_cartao());
 		
-		if(dadosPagamento.getData_validade().isEmpty()) dadosPagamento.setData_validade(dadosPagamento.getData_validade());
+		if(!dadosPagamento.getData_validade().isEmpty()) dadosPagamento.setData_validade(dadosPagamento.getData_validade());
 		
-		if(dadosPagamento.getCvv().isEmpty()) dadosPagamento.setCvv(dadosPagamento.getCvv());
+		if(!dadosPagamento.getCvv().isEmpty()) dadosPagamento.setCvv(dadosPagamento.getCvv());
 		
-		if(dadosPagamento.getCpf().isEmpty()) dadosPagamento.setCpf(dadosPagamento.getCpf());
+		if(!dadosPagamento.getCpf().isEmpty()) dadosPagamento.setCpf(dadosPagamento.getCpf());
 		
 		dadosPagamentoRepository.save(dadosPagamentoDB);
 		
