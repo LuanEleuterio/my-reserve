@@ -6,4 +6,6 @@ import br.com.myreserve.entities.DadosPagamento;
 
 public interface DadosPagamentoRepository extends CrudRepository<DadosPagamento, Integer>{
 
+	DadosPagamento findOneByCodigo(int id_pag);
+
 }

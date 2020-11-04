@@ -38,7 +38,7 @@ public class HorarioController {
 	}
 	
 	@PutMapping("/{id_horario}")
-	public Horario updateConsulta(@RequestBody Horario horario, @PathVariable int id_horario) {
+	public Horario updateHorario(@RequestBody Horario horario, @PathVariable int id_horario) {
 		Horario HorarioDB = horarioRepository.findOneByCodigo(id_horario);
 		
 		if(horario.getHorario_de() != null) horario.setHorario_de(horario.getHorario_de());
