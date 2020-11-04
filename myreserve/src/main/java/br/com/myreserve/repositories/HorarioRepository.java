@@ -6,4 +6,6 @@ import br.com.myreserve.entities.Horario;
 
 public interface HorarioRepository extends CrudRepository<Horario, Integer>{
 
+	Horario findOneByCodigo(int id_horario);
+
 }
