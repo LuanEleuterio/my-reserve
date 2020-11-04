@@ -51,18 +51,4 @@ public class ReservaController {
 		return reservaRepository.save(reservaDB);
 	}
 	
-	@PutMapping("/{idUser}")
-	public Reserva updateReservaUser(@PathVariable Integer idUser, @RequestBody Reserva dadosReserva) throws Exception{
-		Reserva reservaDB = reservaRepository.findOneByFk_usuario(idUser);
-		
-		if(dadosReserva.getValor_reserva() != null) reservaDB.setValor_reserva(dadosReserva.getValor_reserva());
-		if(dadosReserva.getData_reserva() != null) reservaDB.setData_reserva(dadosReserva.getData_reserva());
-		if(dadosReserva.getHora_reserva() != null) reservaDB.setHora_reserva(dadosReserva.getHora_reserva());
-		if(dadosReserva.getStatus_reserva() != null) reservaDB.setStatus_reserva(dadosReserva.getStatus_reserva());
-		if(dadosReserva.getQtd_pessoa() != null) reservaDB.setQtd_pessoa(dadosReserva.getQtd_pessoa());
-		if(dadosReserva.getFk_usuario() != null) reservaDB.setFk_usuario(dadosReserva.getFk_usuario());
-		if(dadosReserva.getFk_horario() != null) reservaDB.setFk_horario(dadosReserva.getFk_horario());
-		
-		return reservaRepository.save(reservaDB);
-	}
 }

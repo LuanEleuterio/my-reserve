@@ -43,19 +43,7 @@ public class UsuarioController {
 		if(dadosUsuario.getNome_usuario() != null) userDB.setNome_usuario(dadosUsuario.getNome_usuario());
 		if(dadosUsuario.getImg_perfil() != null) userDB.setImg_perfil(dadosUsuario.getImg_perfil());
 		return usuarioRepository.save(userDB);
+		
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 }

@@ -12,6 +12,9 @@ import org.apache.tomcat.util.json.ParseException;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import br.com.myreserve.entities.Estabelecimento;
+import br.com.myreserve.entities.Horario;
+import br.com.myreserve.entities.Reserva;
+import br.com.myreserve.entities.Usuario;
 
 public class RequisitaReservaService {
 	
