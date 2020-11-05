@@ -40,8 +40,8 @@ public class RequisitaReservaService {
 	}
 	
 	@Bean
-	 public static boolean checkHour(String timeAtNow, Date date) throws java.text.ParseException{
-	        	timeReserva = parser.format(date);
+	 public static boolean checkHour(String timeAtNow, String timeReserva) throws java.text.ParseException{
+	        	timeReserva = parser.format(timeReserva);
 	            Date present = parser.parse(timeAtNow);
 	            Date reserva = parser.parse(timeReserva);
 	            if (present.after(reserva)) {

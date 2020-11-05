@@ -6,5 +6,4 @@ import br.com.myreserve.entities.Endereco;
 
 public interface EnderecoRepository extends CrudRepository<Endereco, Integer> {
 
-	Endereco findOneById(int id_endereco);
 }
