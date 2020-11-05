@@ -18,7 +18,9 @@ public class Categoria {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id_categoria;
 	private String tipo_categoria;
+	private String img_categoria;
 	
+	/*
 	@OneToMany(mappedBy="categoria")
 	@JsonIgnoreProperties("categoria")
 	private Set<Estabelecimento> estabs;
@@ -30,11 +32,12 @@ public class Categoria {
 	public void setEstabs(Set<Estabelecimento> estabs) {
 		this.estabs = estabs;
 	}
-
+	*/
 	public Categoria() {}
 
-	public Categoria(String tipo_categoria) {
+	public Categoria(String tipo_categoria, String img_categoria) {
 		this.tipo_categoria = tipo_categoria;
+		this.img_categoria = img_categoria;
 	}
 
 	public Integer getId_categoria() {
@@ -48,8 +51,14 @@ public class Categoria {
 	public void setTipo_categoria(String tipo_categoria) {
 		this.tipo_categoria = tipo_categoria;
 	}
-	
-	
+
+	public String getImg_categoria() {
+		return img_categoria;
+	}
+
+	public void setImg_categoria(String img_categoria) {
+		this.img_categoria = img_categoria;
+	}
 	
 	
 

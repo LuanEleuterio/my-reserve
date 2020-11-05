@@ -13,18 +13,20 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 public class Horario {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id_horario;
-	private Date horario_de;
-	private Date horario_ate;
+	
+	private String horario_de;
+	private String horario_ate;
 	private Integer qtd_pessoa_vaga;
 	private Integer total_vagas;
 	private Integer vagas_at_moment;
-	
+	private Integer fk_estabelecimento;
 	
 	@ManyToOne
-	@JoinColumn(name = "fk_estabelecimento")
+	@JoinColumn(name = "fk_estabelecimento", insertable=false, updatable=false)
 	@JsonIgnoreProperties("horario")
 	private Estabelecimento estabHorario;
 	
@@ -38,35 +40,36 @@ public class Horario {
 
 	public Horario() {}
 	
-	public Horario(Date horario_de, Date horario_ate, Integer qtd_pessoa_vaga, Integer total_vagas,
-			Integer vagas_at_moment, Estabelecimento estabHorario) {
+	public Horario(String horario_de, String horario_ate, Integer qtd_pessoa_vaga, Integer total_vagas,
+			Integer vagas_at_moment, Estabelecimento estabHorario, Integer fk_estabelecimento) {
 		this.horario_de = horario_de;
 		this.horario_ate = horario_ate;
 		this.qtd_pessoa_vaga = qtd_pessoa_vaga;
 		this.total_vagas = total_vagas;
 		this.vagas_at_moment = vagas_at_moment;
+		this.fk_estabelecimento = fk_estabelecimento;
 	}
 
-	public int getId_horario() {
+	
+	public Integer getId_horario() {
 		return id_horario;
 	}
 
-	public Date getHorario_de() {
+	public String getHorario_de() {
 		return horario_de;
 	}
 
-
-	public void setHorario_de(Date horario_de) {
+	public void setHorario_de(String horario_de) {
 		this.horario_de = horario_de;
 	}
 
 
-	public Date getHorario_ate() {
+	public String getHorario_ate() {
 		return horario_ate;
 	}
 
 
-	public void setHorario_ate(Date horario_ate) {
+	public void setHorario_ate(String horario_ate) {
 		this.horario_ate = horario_ate;
 	}
 
@@ -99,6 +102,16 @@ public class Horario {
 	public void setVagas_at_moment(Integer vagas_at_moment) {
 		this.vagas_at_moment = vagas_at_moment;
 	}
+
+	public Integer getFk_estabelecimento() {
+		return fk_estabelecimento;
+	}
+
+	public void setFk_estabelecimento(Integer fk_estabelecimento) {
+		this.fk_estabelecimento = fk_estabelecimento;
+	}
+	
+	
 
 }
 

@@ -20,8 +20,10 @@ public class Estabelecimento {
 	@Id 
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id_estabelecimento;
-	@Column(name ="nome_restaurante")
+	
+	@Column(name ="nome_estabelecimento")
 	private String nome;
+	
 	private String email;
 	private String hora_funcionamento;
 	private String cnpj;
@@ -31,9 +33,10 @@ public class Estabelecimento {
 	private String descricao;
 	private Integer max_pessoas;
 	
-	@ManyToOne
-	@JoinColumn(name = "fk_categoria")
-	@JsonIgnoreProperties("estabs")
+	private Integer fk_categoria;
+
+	@OneToOne
+	@JoinColumn(name = "fk_categoria",  insertable=false, updatable=false)
 	private Categoria categoria;
 	
 	public Categoria getCategoria() {
@@ -45,6 +48,7 @@ public class Estabelecimento {
 	}
 	
 	@OneToMany(mappedBy="estabHorario")
+	@JsonIgnoreProperties("estabHorario")
 	private Set<Horario> horario;
 	
 	public Set<Horario> getHorario() {
@@ -93,18 +97,18 @@ public class Estabelecimento {
 		this.estab_ativo = estab_ativo;
 		this.descricao = descricao;
 		this.max_pessoas = max_pessoas;
+		this.fk_categoria = fk_categoria;
 	}
 	
-
 	public Integer getId_estabelecimento() {
 		return id_estabelecimento;
 	}
 
-	public String getNome_estabelecimento() {
+	public String getNome() {
 		return nome;
 	}
 
-	public void setNome_estabelecimento(String nome) {
+	public void setNome(String nome) {
 		this.nome = nome;
 	}
 
@@ -164,14 +168,20 @@ public class Estabelecimento {
 		this.descricao = descricao;
 	}
 	
-	
-
 	public Integer getMax_pessoas() {
 		return max_pessoas;
 	}
 
 	public void setMax_pessoas(Integer max_pessoas) {
 		this.max_pessoas = max_pessoas;
+	}
+
+	public Integer getFk_categoria() {
+		return fk_categoria;
+	}
+
+	public void setFk_categoria(Integer fk_categoria) {
+		this.fk_categoria = fk_categoria;
 	}
 
 }		

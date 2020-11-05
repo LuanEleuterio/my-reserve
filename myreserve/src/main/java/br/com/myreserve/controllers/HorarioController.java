@@ -16,7 +16,7 @@ import br.com.myreserve.entities.Horario;
 import br.com.myreserve.repositories.HorarioRepository;
 
 @RestController
-@RequestMapping("/Horario")
+@RequestMapping("/horario")
 public class HorarioController {
 	
 	@Autowired
