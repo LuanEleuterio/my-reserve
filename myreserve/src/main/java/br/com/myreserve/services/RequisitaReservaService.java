@@ -11,8 +11,11 @@ import java.util.Date;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 
+import br.com.myreserve.entities.Estabelecimento;
 import br.com.myreserve.entities.Horario;
 import br.com.myreserve.entities.Reserva;
+import br.com.myreserve.entities.Usuario;
+
 import br.com.myreserve.repositories.EstabelecimentoRepository;
 import br.com.myreserve.repositories.HorarioRepository;
 import br.com.myreserve.repositories.ReservaRepository;

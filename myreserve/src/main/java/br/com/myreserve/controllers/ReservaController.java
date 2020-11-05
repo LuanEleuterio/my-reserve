@@ -1,4 +1,4 @@
-	package br.com.myreserve.controllers;
+package br.com.myreserve.controllers;
 
 import java.util.Optional;
 
@@ -72,19 +72,13 @@ public class ReservaController {
 			return "Não foi possível realizar a reserva";
 		}
 	}
-	
-	@PutMapping("/{idEstab}")
-	public Reserva updateReservaEstab(@PathVariable Integer idEstab, @RequestBody Reserva dadosReserva) throws Exception{
-		Reserva reservaDB = reservaRepository.findById(idEstab)
+
+	@PutMapping("/{status}")
+	public Reserva updateStatus(@PathVariable Integer id_reserva, @RequestBody Reserva statusReserva) throws Exception{
+		Reserva reservaDB = reservaRepository.findById(id_reserva)
 				.orElseThrow(() -> new IllegalAccessException());
 		
-		if(dadosReserva.getValor_reserva() != null) reservaDB.setValor_reserva(dadosReserva.getValor_reserva());
-		if(dadosReserva.getData_reserva() != null) reservaDB.setData_reserva(dadosReserva.getData_reserva());
-		if(dadosReserva.getHora_reserva() != null) reservaDB.setHora_reserva(dadosReserva.getHora_reserva());
-		if(dadosReserva.getStatus_reserva() != null) reservaDB.setStatus_reserva(dadosReserva.getStatus_reserva());
-		if(dadosReserva.getQtd_pessoa() != null) reservaDB.setQtd_pessoa(dadosReserva.getQtd_pessoa());
-		//if(dadosReserva.getFk_usuario() != null) reservaDB.setFk_usuario(dadosReserva.getFk_usuario());
-		//if(dadosReserva.getFk_horario() != null) reservaDB.setFk_horario(dadosReserva.getFk_horario());
+		if(statusReserva.getStatus_reserva() != null) reservaDB.setStatus_reserva(statusReserva.getStatus_reserva());
 		
 		return reservaRepository.save(reservaDB);
 	}

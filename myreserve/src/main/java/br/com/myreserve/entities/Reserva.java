@@ -24,9 +24,6 @@ public class Reserva {
 	private Date hora_reserva;
 	private String status_reserva;
 	private Integer qtd_pessoa;
-//	private Integer fk_usuario;
-//	private Integer fk_estabelecimento;
-//	private Integer fk_horario;
 	
 	@ManyToOne
 	@JoinColumn(name = "fk_estabelecimento")
@@ -74,8 +71,6 @@ public class Reserva {
 		this.hora_reserva = hora_reserva;
 		this.status_reserva = status_reserva;
 		this.qtd_pessoa = qtd_pessoa;
-//		this.fk_usuario = fk_usuario;
-//		this.fk_horario = fk_horario;
 	}
 
 	public Integer getId_reserva() {
@@ -122,29 +117,4 @@ public class Reserva {
 		this.qtd_pessoa = qtd_pessoa;
 	}
 
-	/*
-	public Integer getFk_usuario() {
-		return fk_usuario;
-	}
-
-	public void setFk_usuario(Integer fk_usuario) {
-		this.fk_usuario = fk_usuario;
-	}
-
-//	public Integer getFk_estabelecimento() {
-//		return fk_estabelecimento;
-//	}
-//
-//	public void setFk_estabelecimento(Integer fk_estabelecimento) {
-//		this.fk_estabelecimento = fk_estabelecimento;
-//	}
-
-	public Integer getFk_horario() {
-		return fk_horario;
-	}
-
-	public void setFk_horario(Integer fk_horario) {
-		this.fk_horario = fk_horario;
-	}
-	*/
 }
