@@ -8,7 +8,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -40,6 +42,19 @@ public class Usuario {
 		this.reservaUser = reservaUser;
 	}
 	
+	@OneToOne(mappedBy="usuarioPagamento")
+	@JsonIgnoreProperties("usuarioPagamento")
+	@JoinColumn(name = "fk_usuario")
+	private DadosPagamento dadosPagamento;
+	
+	public DadosPagamento getDadosPagamento() {
+		return dadosPagamento;
+	}
+	
+	public void setDadosPagamento(DadosPagamento dadosPagamento) {
+		this.dadosPagamento = dadosPagamento;
+	}
+	
 	public Usuario() {}
 
 	public Usuario(String nome, String cpf, Date dt_nasc, String email,
@@ -58,11 +73,11 @@ public class Usuario {
 		return id_usuario;
 	}
 	
-	public String getNome_usuario() {
+	public String getNome() {
 		return nome;
 	}
 
-	public void setNome_usuario(String nome) {
+	public void setNome(String nome) {
 		this.nome = nome;
 	}
 

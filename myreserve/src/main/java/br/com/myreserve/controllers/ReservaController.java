@@ -52,17 +52,16 @@ public class ReservaController {
 	}
 	
 	@PostMapping("/requisita")
-	public String requisitaReserva(@RequestParam("qtdPessoa") Integer qtdPessoas, @RequestParam("idUser") Integer idUser, 
-			@RequestParam("idEstab") Integer idEstab, @RequestParam("idHour") Integer idHour, @RequestBody Reserva reserva) throws Exception{
+	public String requisitaReserva(@RequestBody Reserva reserva) throws Exception{
 		
-		Usuario user = usuarioRepository.findById(idUser)
+		Usuario user = usuarioRepository.findById(reserva.getFk_usuario())
 				.orElseThrow(() -> new IllegalAccessException());
-		Estabelecimento estab = estabRepository.findById(idEstab)
+		Estabelecimento estab = estabRepository.findById(reserva.getFk_estabelecimento())
 				.orElseThrow(() -> new IllegalAccessException());
-		Horario hour = horarioRepository.findById(idHour)
+		Horario hour = horarioRepository.findById(reserva.getFk_horario())
 				.orElseThrow(() -> new IllegalAccessException());;
 		
-		if(RequisitaReservaService.addReserva(hour, qtdPessoas)) {
+		if(RequisitaReservaService.addReserva(hour, reserva.getQtd_pessoa())) {
 			reserva.setEstabReserva(estab);
 			reserva.setUsuario(user);
 			reserva.setHorario(hour);

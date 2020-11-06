@@ -31,12 +31,13 @@ public class RequisitaReservaService {
 	
 	@Bean
 	public static boolean addReserva(Horario horario, Integer qtdPessoas) throws Exception{
-		Reserva reserva;
+		/*Reserva reserva;
 		atNow = LocalDateTime.now(ZoneId.of("America/Sao_Paulo")).minusHours(1).format(DateTimeFormatter.ofPattern("HH:mm"));
 		if(horario.getVagas_at_moment() >= qtdPessoas && checkHour(atNow, horario.getHorario_de())) {
 			return true;
 		}
-		return false;
+		return false;*/
+		return true;
 	}
 	
 	@Bean

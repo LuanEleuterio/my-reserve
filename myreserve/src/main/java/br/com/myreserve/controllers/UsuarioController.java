@@ -40,7 +40,7 @@ public class UsuarioController {
 	public Usuario updateUser(@PathVariable int idUser, @RequestBody Usuario dadosUsuario) throws Exception{
 		Usuario userDB = usuarioRepository.findById(idUser)
 				.orElseThrow(() -> new IllegalAccessException());
-		if(dadosUsuario.getNome_usuario() != null) userDB.setNome_usuario(dadosUsuario.getNome_usuario());
+		if(dadosUsuario.getNome() != null) userDB.setNome(dadosUsuario.getNome());
 		if(dadosUsuario.getDt_nasc() != null) userDB.setDt_nasc(dadosUsuario.getDt_nasc());
 		if(dadosUsuario.getEmail() != null) userDB.setEmail(dadosUsuario.getEmail());
 		if(dadosUsuario.getTelefone() != null) userDB.setTelefone(dadosUsuario.getTelefone());

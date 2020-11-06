@@ -21,12 +21,15 @@ public class Reserva {
 	private Integer id_reserva;
 	private Double valor_reserva;
 	private Date data_reserva;
-	private Date hora_reserva;
+	private String hora_reserva;
 	private String status_reserva;
 	private Integer qtd_pessoa;
+	private Integer fk_estabelecimento;
+	private Integer fk_usuario;
+	private Integer fk_horario;
 	
 	@ManyToOne
-	@JoinColumn(name = "fk_estabelecimento")
+	@JoinColumn(name = "fk_estabelecimento", insertable=false, updatable=false)
 	@JsonIgnoreProperties("reserva")
 	private Estabelecimento estabReserva;
 	
@@ -39,7 +42,7 @@ public class Reserva {
 	}
 	
 	@ManyToOne
-	@JoinColumn(name = "fk_usuario")
+	@JoinColumn(name = "fk_usuario", insertable=false, updatable=false)
 	@JsonIgnoreProperties("reservaUser")
 	private Usuario usuario;
 	
@@ -52,7 +55,7 @@ public class Reserva {
 	}
 	
 	@OneToOne
-	@JoinColumn(name = "fk_id_horario")
+	@JoinColumn(name = "fk_horario", insertable=false, updatable=false)
 	private Horario horario;
 	
 	public Horario getHorario() {
@@ -65,12 +68,15 @@ public class Reserva {
 	
 	public Reserva() {}
 	
-	public Reserva(Double valor_reserva, Date data_reserva, Date hora_reserva, String status_reserva, Integer qtd_pessoa, Integer fk_usuario, Integer fk_horario) {
+	public Reserva(Double valor_reserva, Date data_reserva, String hora_reserva, String status_reserva, Integer qtd_pessoa, Integer fk_usuario, Integer fk_horario, Integer fk_estabelecimento) {
 		this.valor_reserva = valor_reserva;
 		this.data_reserva = data_reserva;
 		this.hora_reserva = hora_reserva;
 		this.status_reserva = status_reserva;
 		this.qtd_pessoa = qtd_pessoa;
+		this.fk_usuario = fk_usuario;
+		this.fk_estabelecimento = fk_estabelecimento;
+		this.fk_horario = fk_horario;
 	}
 
 	public Integer getId_reserva() {
@@ -93,11 +99,11 @@ public class Reserva {
 		this.data_reserva = data_reserva;
 	}
 
-	public Date getHora_reserva() {
+	public String getHora_reserva() {
 		return hora_reserva;
 	}
 
-	public void setHora_reserva(Date hora_reserva) {
+	public void setHora_reserva(String hora_reserva) {
 		this.hora_reserva = hora_reserva;
 	}
 
@@ -116,5 +122,31 @@ public class Reserva {
 	public void setQtd_pessoa(Integer qtd_pessoa) {
 		this.qtd_pessoa = qtd_pessoa;
 	}
+
+	public Integer getFk_estabelecimento() {
+		return fk_estabelecimento;
+	}
+
+	public void setFk_estabelecimento(Integer fk_estabelecimento) {
+		this.fk_estabelecimento = fk_estabelecimento;
+	}
+
+	public Integer getFk_usuario() {
+		return fk_usuario;
+	}
+
+	public void setFk_usuario(Integer fk_usuario) {
+		this.fk_usuario = fk_usuario;
+	}
+
+	public Integer getFk_horario() {
+		return fk_horario;
+	}
+
+	public void setFk_horario(Integer fk_horario) {
+		this.fk_horario = fk_horario;
+	}
+	
+	
 
 }

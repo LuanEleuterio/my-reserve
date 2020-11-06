@@ -19,28 +19,33 @@ public class DadosPagamento {
 	private String data_validade;
 	private String cvv;
 	private String cpf;
+	private Integer fk_usuario;
 	
 	@OneToOne
-	@JoinColumn(name = "fk_usuario")
-	@JsonIgnoreProperties("DadosPagementos")
-	private Usuario UsuarioPagamento;
+	@JoinColumn(name = "fk_usuario",  insertable=false, updatable=false)
+	@JsonIgnoreProperties("dadosPagamento")
+	private Usuario usuarioPagamento;
 	
 	public Usuario getUsuarioPagamento() {
-		return UsuarioPagamento;
+		return usuarioPagamento;
 	}
 
 	public void setUsuarioPagamento(Usuario usuarioPagamento) {
-		UsuarioPagamento = usuarioPagamento;
+		this.usuarioPagamento = usuarioPagamento;
 	}
 	
 	public DadosPagamento() {}
 
-	public int getId_pag() {
-		return id_pag;
+	public DadosPagamento(String numero_cartao, String data_validade, String cvv, String cpf, Integer fk_usuario) {
+		this.numero_cartao = numero_cartao;
+		this.data_validade = data_validade;
+		this.cvv = cvv;
+		this.cpf = cpf;
+		this.fk_usuario = fk_usuario;
 	}
 
-	public void setId_pag(int id_pag) {
-		this.id_pag = id_pag;
+	public int getId_pag() {
+		return id_pag;
 	}
 
 	public String getNumero_cartao() {
@@ -74,6 +79,16 @@ public class DadosPagamento {
 	public void setCpf(String cpf) {
 		this.cpf = cpf;
 	}
+
+	public Integer getFk_usuario() {
+		return fk_usuario;
+	}
+
+	public void setFk_usuario(Integer fk_usuario) {
+		this.fk_usuario = fk_usuario;
+	}
+	
+	
 
 
 }
