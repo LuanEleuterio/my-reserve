@@ -8,7 +8,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
@@ -32,11 +31,10 @@ public class Estabelecimento {
 	private Boolean estab_ativo;
 	private String descricao;
 	private Integer max_pessoas;
-	
 	private Integer fk_categoria;
 
 	@OneToOne
-	@JoinColumn(name = "fk_categoria",  insertable=false, updatable=false)
+	@JoinColumn(name = "fk_categoria", insertable=false, updatable=false)
 	private Categoria categoria;
 	
 	public Categoria getCategoria() {
@@ -47,21 +45,9 @@ public class Estabelecimento {
 		this.categoria = categoria;
 	}
 	
-	@OneToMany(mappedBy="estabHorario")
-	@JsonIgnoreProperties("estabHorario")
-	private Set<Horario> horario;
-	
-	public Set<Horario> getHorario() {
-		return horario;
-	}
-	
-	public void setHorario(Set<Horario> horario) {
-		this.horario = horario;
-	}
-	
-	@OneToOne(mappedBy="dadosEstab")
+	@OneToOne(mappedBy = "dadosEstab")
+	//@JoinColumn(name = "fk_estabelecimento", insertable=false, updatable=false)
 	@JsonIgnoreProperties("dadosEstab")
-	@JoinColumn(name = "fk_estabelecimento")
 	private DadosRecebimento dadosRecebimento;
 	
 	public DadosRecebimento getDadosRecebimento() {
@@ -70,6 +56,19 @@ public class Estabelecimento {
 	
 	public void setDadosRecebimento(DadosRecebimento dadosRecebimento) {
 		this.dadosRecebimento = dadosRecebimento;
+	}
+	
+	@OneToMany
+	//@JsonIgnoreProperties("estabHorario")
+	@JoinColumn(name = "fk_estabelecimento")
+	private Set<Horario> horario;
+	
+	public Set<Horario> getHorario() {
+		return horario;
+	}
+	
+	public void setHorario(Set<Horario> horario) {
+		this.horario = horario;
 	}
 		
 	@OneToMany(mappedBy="estabTelefone")
@@ -82,6 +81,32 @@ public class Estabelecimento {
 	
 	public void setTelefone(Set<Telefone> telefone) {
 		this.telefone = telefone;
+	}
+	
+	@OneToMany
+	@JoinColumn(name = "fk_estabelecimento")
+	private Set<Reserva> reservaUser;
+	
+	public Set<Reserva> getReserva() {
+		return reservaUser;
+	}
+	
+	public void setReserva(Set<Reserva> reservaUser) {
+		this.reservaUser = reservaUser;
+	}
+	
+	
+	@OneToOne(mappedBy = "dadosEndereco")
+	//@JoinColumn(name = "fk_estabelecimento", insertable=false, updatable=false)
+	@JsonIgnoreProperties("dadosEndereco")
+	private Endereco endereco;
+	
+	public Endereco getEndereco() {
+		return endereco;
+	}
+	
+	public void setEndereco(Endereco endereco) {
+		this.endereco = endereco;
 	}
 	
 	public Estabelecimento() {}

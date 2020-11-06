@@ -30,15 +30,15 @@ public class Usuario {
 	private String senha;
 	private Boolean user_ativo;
 	
-	@OneToMany(mappedBy="usuario")
-	@JsonIgnoreProperties("usuario")
+	@OneToMany
+	@JoinColumn(name = "fk_usuario", insertable=false, updatable=false)
 	private Set<Reserva> reservaUser;
 	
 	public Set<Reserva> getReserva() {
 		return reservaUser;
 	}
 	
-	public void setTelefone(Set<Reserva> reservaUser) {
+	public void setReserva(Set<Reserva> reservaUser) {
 		this.reservaUser = reservaUser;
 	}
 	

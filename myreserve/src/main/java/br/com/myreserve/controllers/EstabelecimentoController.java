@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.myreserve.entities.Categoria;
 import br.com.myreserve.entities.Estabelecimento;
 import br.com.myreserve.repositories.CategoriaRepository;
 import br.com.myreserve.repositories.EstabelecimentoRepository;
@@ -37,7 +36,6 @@ public class EstabelecimentoController {
 	
 	@PostMapping()
 	public void addEstabelecimento(@RequestBody Estabelecimento estabelecimento) {
-		//Categoria categoria = categoriaRepository.findById(estabelecimento.);	
 		estabelecimentoRepository.save(estabelecimento);
 	}
 	

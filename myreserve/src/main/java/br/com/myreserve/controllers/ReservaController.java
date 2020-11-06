@@ -62,8 +62,8 @@ public class ReservaController {
 				.orElseThrow(() -> new IllegalAccessException());;
 		
 		if(RequisitaReservaService.addReserva(hour, reserva.getQtd_pessoa())) {
-			reserva.setEstabReserva(estab);
-			reserva.setUsuario(user);
+			//reserva.setEstabReserva(estab);
+			//reserva.setUsuario(user);
 			reserva.setHorario(hour);
 			reservaRepository.save(reserva);
 			return "Reserva feita com sucesso!";

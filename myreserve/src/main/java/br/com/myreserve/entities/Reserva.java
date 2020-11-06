@@ -28,6 +28,7 @@ public class Reserva {
 	private Integer fk_usuario;
 	private Integer fk_horario;
 	
+	/*
 	@ManyToOne
 	@JoinColumn(name = "fk_estabelecimento", insertable=false, updatable=false)
 	@JsonIgnoreProperties("reserva")
@@ -44,15 +45,16 @@ public class Reserva {
 	@ManyToOne
 	@JoinColumn(name = "fk_usuario", insertable=false, updatable=false)
 	@JsonIgnoreProperties("reservaUser")
-	private Usuario usuario;
+	private Usuario usuarioReserva;
 	
 	public Usuario getUsuario() {
-		return usuario;
+		return usuarioReserva;
 	}
 	
-	public void setUsuario(Usuario usuario) {
-		this.usuario = usuario;
+	public void setUsuario(Usuario usuarioReserva) {
+		this.usuarioReserva = usuarioReserva;
 	}
+	*/
 	
 	@OneToOne
 	@JoinColumn(name = "fk_horario", insertable=false, updatable=false)

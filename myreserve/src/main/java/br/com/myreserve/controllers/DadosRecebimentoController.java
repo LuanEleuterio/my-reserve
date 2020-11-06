@@ -21,7 +21,7 @@ public class DadosRecebimentoController {
 	@Autowired
 	DadosRecebimentoRepository recebeRepository;
 	
-	@GetMapping("/{idEstab}")
+	@GetMapping("/{id}")
 	public Optional<DadosRecebimento> getDadosById(@PathVariable Integer id){
 		return recebeRepository.findById(id);
 	}

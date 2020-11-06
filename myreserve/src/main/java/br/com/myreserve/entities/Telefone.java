@@ -17,25 +17,20 @@ public class Telefone {
 	private Integer id_telefone;
 	private String ddd;
 	private String numero;
+	private Integer fk_estabelecimento;
 	
 	@ManyToOne
-	@JoinColumn(name = "fk_estabelecimento")
+	@JoinColumn(name = "fk_estabelecimento", insertable=false, updatable=false)
 	@JsonIgnoreProperties("telefone")
 	private Estabelecimento estabTelefone;
 	
-	public Estabelecimento getEstabTelefone() {
-		return estabTelefone;
-	}
-	
-	public void setEstabTelefone(Estabelecimento estabTelefone) {
-		this.estabTelefone = estabTelefone;
-	}
 	
 	public Telefone() {}
 
-	public Telefone(String ddd, String numero) {
+	public Telefone(String ddd, String numero, Integer fk_estabelecimento) {
 		this.ddd = ddd;
 		this.numero = numero;
+		this.fk_estabelecimento = fk_estabelecimento;
 	}
 	
 
@@ -58,5 +53,15 @@ public class Telefone {
 	public void setNumero(String numero) {
 		this.numero = numero;
 	}
+
+	public Integer getFk_estabelecimento() {
+		return fk_estabelecimento;
+	}
+
+	public void setFk_estabelecimento(Integer fk_estabelecimento) {
+		this.fk_estabelecimento = fk_estabelecimento;
+	}
+	
+	
 
 }

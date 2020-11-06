@@ -22,28 +22,31 @@ public class DadosRecebimento {
 	private String banco;
 	private String agencia;
 	private String conta;
-	
+	private Integer fk_estabelecimento;
 	
 	@OneToOne
-	@JoinColumn(name = "fk_estabelecimento")
+	@JoinColumn(name = "fk_estabelecimento", insertable=false, updatable=false)
+	@JsonIgnoreProperties("dadosRecebimento")
 	private Estabelecimento dadosEstab;
 	
+	/*
 	public Estabelecimento getEstabelecimento() {
 		return dadosEstab;
 	}
 
 	public void setEstabelecimento(Estabelecimento dadosEstab) {
 		this.dadosEstab = dadosEstab;
-	}
-	
+	}*/
+
 	public DadosRecebimento() {}
 
-	public DadosRecebimento(String nome_beneficiario, String cpf_cnpj, String banco, String agencia, String conta) {
+	public DadosRecebimento(String nome_beneficiario, String cpf_cnpj, String banco, String agencia, String conta, Integer fk_estabelecimento) {
 		this.nome_beneficiario = nome_beneficiario;
 		this.cpf_cnpj = cpf_cnpj;
 		this.banco = banco;
 		this.agencia = agencia;
 		this.conta = conta;
+		this.fk_estabelecimento = fk_estabelecimento;
 	}
 	
 	
@@ -90,8 +93,14 @@ public class DadosRecebimento {
 	public void setConta(String conta) {
 		this.conta = conta;
 	}
-	
-	
+
+	public Integer getFk_estabelecimento() {
+		return fk_estabelecimento;
+	}
+
+	public void setFk_estabelecimento(Integer fk_estabelecimento) {
+		this.fk_estabelecimento = fk_estabelecimento;
+	}
 	
 	
 }

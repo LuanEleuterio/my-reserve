@@ -59,7 +59,5 @@ public class Categoria {
 	public void setImg_categoria(String img_categoria) {
 		this.img_categoria = img_categoria;
 	}
-	
-	
 
 }

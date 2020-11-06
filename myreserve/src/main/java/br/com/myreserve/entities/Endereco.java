@@ -21,32 +21,24 @@ public class Endereco {
 	private String cep;
 	private String logradouro;
 	private String numero;
-//	private Integer fk_estabelecimento;
+	private Integer fk_estabelecimento;
 	
 	@OneToOne
-	@JoinColumn(name = "fk_estabelecimento")
+	@JoinColumn(name = "fk_estabelecimento", insertable=false, updatable=false)
 	@JsonIgnoreProperties("endereco")
-	private Estabelecimento fk_estabelecimento;
-	
-	public Estabelecimento getFk_estabelecimento() {
-		return fk_estabelecimento;
-	}
-
-	public void setEstabelecimento(Estabelecimento fk_estabelecimento) {
-		this.fk_estabelecimento = fk_estabelecimento;
-	}
+	private Estabelecimento dadosEndereco;
 	
 	public Endereco() {}
 
 	public Endereco(String estado, String cidade, String bairro, String cep,
-			String logradouro, String numero) {
+			String logradouro, String numero, Integer fk_estabelecimento) {
 		this.estado = estado;
 		this.cidade = cidade;
 		this.bairro = bairro;
 		this.cep = cep;
 		this.logradouro = logradouro;
 		this.numero = numero;
-//		this.fk_estabelecimento = fk_estabelecimento;
+		this.fk_estabelecimento = fk_estabelecimento;
 	}
 
 	public Integer getId_endereco() {
@@ -101,12 +93,12 @@ public class Endereco {
 		this.numero = numero;
 	}
 
-//	public Integer getFk_estabelecimento() {
-//		return fk_estabelecimento;
-//	}
-//
-//	public void setFk_estabelecimento(Integer fk_estabelecimento) {
-//		this.fk_estabelecimento = fk_estabelecimento;
-//	}
+	public Integer getFk_estabelecimento() {
+		return fk_estabelecimento;
+	}
+
+	public void setFk_estabelecimento(Integer fk_estabelecimento) {
+		this.fk_estabelecimento = fk_estabelecimento;
+	}
 	
 }
