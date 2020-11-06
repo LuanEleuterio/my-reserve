@@ -1,5 +1,8 @@
 package br.com.myreserve.controllers;
 
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,6 +38,9 @@ public class ReservaController {
 	@Autowired
 	HorarioRepository horarioRepository;
 	
+	@SuppressWarnings("unused")
+	private static String atNow;
+	
 	
 	@GetMapping()
 	public Iterable<Reserva> getReservas(){
@@ -54,6 +60,10 @@ public class ReservaController {
 	@PostMapping("/requisita")
 	public String requisitaReserva(@RequestBody Reserva reserva) throws Exception{
 		
+		atNow = LocalDateTime.now(ZoneId.of("America/Sao_Paulo")).minusHours(1).format(DateTimeFormatter.ofPattern("HH:mm:ss"));
+		
+		reserva.setHora_reserva(atNow);
+		
 		Usuario user = usuarioRepository.findById(reserva.getFk_usuario())
 				.orElseThrow(() -> new IllegalAccessException());
 		Estabelecimento estab = estabRepository.findById(reserva.getFk_estabelecimento())
@@ -61,9 +71,7 @@ public class ReservaController {
 		Horario hour = horarioRepository.findById(reserva.getFk_horario())
 				.orElseThrow(() -> new IllegalAccessException());;
 		
-		if(RequisitaReservaService.addReserva(hour, reserva.getQtd_pessoa())) {
-			//reserva.setEstabReserva(estab);
-			//reserva.setUsuario(user);
+		if(RequisitaReservaService.addReserva(hour, reserva.getQtd_pessoa(), atNow)) {
 			reserva.setHorario(hour);
 			reservaRepository.save(reserva);
 			return "Reserva feita com sucesso!";

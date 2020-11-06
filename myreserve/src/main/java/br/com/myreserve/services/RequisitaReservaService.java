@@ -23,32 +23,30 @@ import br.com.myreserve.repositories.UsuarioRepository;
 
 public class RequisitaReservaService {
 	
-	private static String atNow;
+	//private static String atNow;
 	private static String timeReserva;
 
 	
 	public final static SimpleDateFormat parser = new SimpleDateFormat("HH:mm");
 	
 	@Bean
-	public static boolean addReserva(Horario horario, Integer qtdPessoas) throws Exception{
-		/*Reserva reserva;
-		atNow = LocalDateTime.now(ZoneId.of("America/Sao_Paulo")).minusHours(1).format(DateTimeFormatter.ofPattern("HH:mm"));
+	public static boolean addReserva(Horario horario, Integer qtdPessoas, String atNow) throws Exception{
+		//atNow = LocalDateTime.now(ZoneId.of("America/Sao_Paulo")).minusHours(1).format(DateTimeFormatter.ofPattern("HH:mm"));
 		if(horario.getVagas_at_moment() >= qtdPessoas && checkHour(atNow, horario.getHorario_de())) {
 			return true;
 		}
-		return false;*/
-		return true;
+		return false;
 	}
 	
 	@Bean
 	 public static boolean checkHour(String timeAtNow, String timeReserva) throws java.text.ParseException{
-	        	timeReserva = parser.format(timeReserva);
+	        	//timeReserva = parser.format(timeReserva);
 	            Date present = parser.parse(timeAtNow);
 	            Date reserva = parser.parse(timeReserva);
 	            if (present.after(reserva)) {
-	                return true;
+	                return false;
 	            }else { 
-	            	return false;
+	            	return true;
 	            }
 	    }	
 }
