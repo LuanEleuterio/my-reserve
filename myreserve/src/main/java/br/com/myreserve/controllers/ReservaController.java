@@ -77,7 +77,7 @@ public class ReservaController {
 			
 			return "Reserva feita com sucesso!";
 		}else{
-			return "Não foi possível realizar a reserva";
+			return "Não foi possível realizar a reserva.";
 		}
 	}
 
