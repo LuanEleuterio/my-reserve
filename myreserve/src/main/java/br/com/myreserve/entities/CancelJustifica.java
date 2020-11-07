@@ -19,21 +19,24 @@ public class CancelJustifica {
 	private int id_cancel;
 	private String justificativa;
 	private Date hora_cancelamento;
-	
+	private Integer fk_reserva;
+		
 	@OneToOne
-	@JoinColumn(name = "fk_reserva")
+	@JoinColumn(name = "fk_reserva", insertable=false, updatable=false)
 	@JsonIgnoreProperties("CancelJustifica")
 	private Reserva reservaCancel;
 	
-	
 	public CancelJustifica() {}
 
+	public CancelJustifica(String justificativa, Date hora_cancelamento, Integer fk_reserva, Reserva reservaCancel) {
+		this.justificativa = justificativa;
+		this.hora_cancelamento = hora_cancelamento;
+		this.fk_reserva = fk_reserva;
+		this.reservaCancel = reservaCancel;
+	}
+	
 	public int getId_cancel() {
 		return id_cancel;
-	}
-
-	public void setId_cancel(int id_cancel) {
-		this.id_cancel = id_cancel;
 	}
 
 	public String getJustificativa() {
@@ -59,8 +62,13 @@ public class CancelJustifica {
 	public void setReservaCancel(Reserva reservaCancel) {
 		this.reservaCancel = reservaCancel;
 	}
-	
-	
-	
-	
+
+	public Integer getFk_reserva() {
+		return fk_reserva;
+	}
+
+	public void setFk_reserva(Integer fk_reserva) {
+		this.fk_reserva = fk_reserva;
+	}
+		
 }

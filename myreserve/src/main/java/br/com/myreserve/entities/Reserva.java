@@ -20,7 +20,7 @@ public class Reserva {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id_reserva;
 	private Double valor_reserva;
-	private Date data_reserva;
+	private String data_reserva;
 	private String hora_reserva;
 	private String status_reserva;
 	private Integer qtd_pessoa;
@@ -70,7 +70,7 @@ public class Reserva {
 	
 	public Reserva() {}
 	
-	public Reserva(Double valor_reserva, Date data_reserva, String hora_reserva, String status_reserva, Integer qtd_pessoa, Integer fk_usuario, Integer fk_horario, Integer fk_estabelecimento) {
+	public Reserva(Double valor_reserva, String data_reserva, String hora_reserva, String status_reserva, Integer qtd_pessoa, Integer fk_usuario, Integer fk_horario, Integer fk_estabelecimento) {
 		this.valor_reserva = valor_reserva;
 		this.data_reserva = data_reserva;
 		this.hora_reserva = hora_reserva;
@@ -93,11 +93,11 @@ public class Reserva {
 		this.valor_reserva = valor_reserva;
 	}
 
-	public Date getData_reserva() {
+	public String getData_reserva() {
 		return data_reserva;
 	}
 
-	public void setData_reserva(Date data_reserva) {
+	public void setData_reserva(String data_reserva) {
 		this.data_reserva = data_reserva;
 	}
 

@@ -38,9 +38,8 @@ public class ReservaController {
 	@Autowired
 	HorarioRepository horarioRepository;
 	
-	@SuppressWarnings("unused")
 	private static String atNow;
-	
+	private static String dateNow;
 	
 	@GetMapping()
 	public Iterable<Reserva> getReservas(){
@@ -61,19 +60,21 @@ public class ReservaController {
 	public String requisitaReserva(@RequestBody Reserva reserva) throws Exception{
 		
 		atNow = LocalDateTime.now(ZoneId.of("America/Sao_Paulo")).minusHours(1).format(DateTimeFormatter.ofPattern("HH:mm:ss"));
-		
+		dateNow = LocalDateTime.now(ZoneId.of("America/Sao_Paulo")).format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
 		reserva.setHora_reserva(atNow);
+		reserva.setData_reserva(dateNow);
 		
-		Usuario user = usuarioRepository.findById(reserva.getFk_usuario())
-				.orElseThrow(() -> new IllegalAccessException());
-		Estabelecimento estab = estabRepository.findById(reserva.getFk_estabelecimento())
-				.orElseThrow(() -> new IllegalAccessException());
 		Horario hour = horarioRepository.findById(reserva.getFk_horario())
 				.orElseThrow(() -> new IllegalAccessException());;
 		
-		if(RequisitaReservaService.addReserva(hour, reserva.getQtd_pessoa(), atNow)) {
+		if(RequisitaReservaService.checkInfoReserva(hour, reserva.getQtd_pessoa(), atNow)) {
 			reserva.setHorario(hour);
+			reserva.setStatus_reserva("Reservado");
 			reservaRepository.save(reserva);
+			
+			hour.setVagas_at_moment(hour.getVagas_at_moment() - reserva.getQtd_pessoa());
+			horarioRepository.save(hour);
+			
 			return "Reserva feita com sucesso!";
 		}else{
 			return "Não foi possível realizar a reserva";
