@@ -27,16 +27,10 @@ public class EstabelecimentoController {
 	@Autowired
 	CategoriaRepository categoriaRepository;
 	
-	/*
+	
 	@GetMapping()
 	public Iterable<Estabelecimento> getEstabelecimentos(Pageable pageable){
 		return estabelecimentoRepository.findAll(pageable);
-	}
-	*/
-	
-	@GetMapping()
-	public ResponseEntity<?> getEstabelecimentos(Pageable pageable){
-		return new ResponseEntity<>(estabelecimentoRepository.findAll(pageable), HttpStatus.OK);
 	}
 	
 	@GetMapping("/{id}")
