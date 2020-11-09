@@ -3,6 +3,9 @@ package br.com.myreserve.controllers;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -24,9 +27,16 @@ public class EstabelecimentoController {
 	@Autowired
 	CategoriaRepository categoriaRepository;
 	
+	/*
 	@GetMapping()
-	public Iterable<Estabelecimento> getEstabelecimentos(){
-		return estabelecimentoRepository.findAll();
+	public Iterable<Estabelecimento> getEstabelecimentos(Pageable pageable){
+		return estabelecimentoRepository.findAll(pageable);
+	}
+	*/
+	
+	@GetMapping()
+	public ResponseEntity<?> getEstabelecimentos(Pageable pageable){
+		return new ResponseEntity<>(estabelecimentoRepository.findAll(pageable), HttpStatus.OK);
 	}
 	
 	@GetMapping("/{id}")
