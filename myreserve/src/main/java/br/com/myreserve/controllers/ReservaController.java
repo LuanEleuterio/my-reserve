@@ -59,7 +59,7 @@ public class ReservaController {
 	@PostMapping("/requisita")
 	public String requisitaReserva(@RequestBody Reserva reserva) throws Exception{
 		
-		atNow = LocalDateTime.now(ZoneId.of("America/Sao_Paulo")).minusHours(1).format(DateTimeFormatter.ofPattern("HH:mm:ss"));
+		atNow = LocalDateTime.now(ZoneId.of("America/Sao_Paulo")).format(DateTimeFormatter.ofPattern("HH:mm:ss"));
 		dateNow = LocalDateTime.now(ZoneId.of("America/Sao_Paulo")).format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
 		reserva.setHora_reserva(atNow);
 		reserva.setData_reserva(dateNow);

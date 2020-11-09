@@ -15,9 +15,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.myreserve.entities.CancelJustifica;
+import br.com.myreserve.entities.Horario;
 import br.com.myreserve.entities.Reserva;
 import br.com.myreserve.repositories.CancelJustificaRepository;
+import br.com.myreserve.repositories.HorarioRepository;
 import br.com.myreserve.repositories.ReservaRepository;
+import br.com.myreserve.services.RequisitaReservaService;
 
 @RestController
 @RequestMapping("/cancel-justifica")
@@ -27,6 +30,8 @@ public class CancelJustificaController {
 	CancelJustificaRepository cancelJustificaRepository;
 	@Autowired
 	ReservaRepository reservaRepository;
+	@Autowired
+	HorarioRepository horarioRepository;
 	
 	private static String atNow;
 	private static String dateNow;
@@ -37,22 +42,33 @@ public class CancelJustificaController {
 	}
 	
 	@PostMapping()
-	public void addCancelamento(@RequestBody CancelJustifica cancelJustifica) throws Exception{
+	public String addCancelamento(@RequestBody CancelJustifica cancelJustifica) throws Exception{
+		
 		Reserva reserva = reservaRepository.findById(cancelJustifica.getFk_reserva())
 				.orElseThrow(() -> new IllegalAccessException());
-		atNow = LocalDateTime.now(ZoneId.of("America/Sao_Paulo")).minusHours(1).format(DateTimeFormatter.ofPattern("HH:mm:ss"));
+		Horario horario = horarioRepository.findById(reserva.getFk_horario())
+				.orElseThrow(() -> new IllegalAccessException());
+		atNow = LocalDateTime.now(ZoneId.of("America/Sao_Paulo")).format(DateTimeFormatter.ofPattern("HH:mm:ss"));
 		dateNow = LocalDateTime.now(ZoneId.of("America/Sao_Paulo")).format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
 		cancelJustifica.setHora_cancelamento(atNow);
 		cancelJustifica.setData_cancelamento(dateNow);
+		
 		
 		if(cancelJustifica.getJustificativa() == null) {
 			cancelJustifica.setJustificativa("Usuário cancelou a reserva!");
 		}
 		
-		cancelJustificaRepository.save(cancelJustifica);
+		if(!reserva.getStatus_reserva().equals("Cancelado") && RequisitaReservaService.checkHour(atNow, horario.getHorario_de())) {				
+			cancelJustificaRepository.save(cancelJustifica);
+			
+			reserva.setStatus_reserva("Cancelado");
+			reservaRepository.save(reserva);
 		
-		reserva.setStatus_reserva("Cancelado");
-		reservaRepository.save(reserva);
+			return "Reserva cancelada";
+		} else {
+			return "Não foi possível cancelar";
+		}
+		
 	}
 
 	

@@ -13,7 +13,7 @@ import javax.persistence.Table;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
-@Table(name = "cancel_justificativa")
+@Table(name = "cancel_justifica")
 public class CancelJustifica {
 	
 	@Id
