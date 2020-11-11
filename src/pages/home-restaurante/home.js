@@ -132,6 +132,7 @@ modalBtnSubmit.addEventListener("click",function(){
     }
     if(txtModalCancel.value != ""){
         alert("Cancelamento efetuado com sucesso!")
+        location.reload()
         
     }
 })
