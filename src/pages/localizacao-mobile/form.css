@@ -4,29 +4,34 @@
   align-items: center;
   justify-content: center;
   color: var(--texto);
+  height: 80vh;
 }
 
 fieldset {
-  height: 80vh;
-  margin-top: 85px;
+  /* height: 80vh; */
+  margin-top: 10px;
   max-width: 300px;
   border: none;
 }
-fieldset img {
+ img {
   width: 100%;
+  margin-top: 7.5em;
+  max-width: 300px;
+  height: 250px;
   border-radius: var(--border-radius);
-  margin-bottom: 20px;
+  /* margin-bottom: 10px; */
 }
 legend {
   width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 20px;
+  /* margin-bottom: 20px; */
 }
 
 legend h3{
   font-weight: bold;
+  margin-bottom: 5px;
 }
 
 legend h2 {

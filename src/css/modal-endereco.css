@@ -55,16 +55,24 @@
   color: var(--texto)!important;
   padding: 0 10px;
 }
+.endereco-container img{
+  width: 100%;
+  margin-top: 1em;
+  max-width: 300px;
+  height: 250px;
+  border-radius: var(--border-radius);
+  /* margin-bottom: 10px; */
+}
 #field-container {
   margin-top: 15px;
   max-width: 400px;
   border: none;
 }
-.img-maps {
+/* .img-maps {
   width: 100%;
   border-radius: var(--border-radius);
   margin-bottom: 20px;
-}
+} */
 .legend-loc {
   width: 100%;
   display: flex;
