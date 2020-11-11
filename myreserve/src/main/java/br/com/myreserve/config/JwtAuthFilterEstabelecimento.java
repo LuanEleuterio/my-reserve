@@ -17,11 +17,11 @@ import br.com.myreserve.services.EstabelecimentoService;
 import br.com.myreserve.services.JwtService;
 
 
-public class JwtAuthFilter extends OncePerRequestFilter{
+public class JwtAuthFilterEstabelecimento extends OncePerRequestFilter{
 	private JwtService jwtService;
 	private EstabelecimentoService estabelecimentoService;
 	
-	public JwtAuthFilter(JwtService jwtService, EstabelecimentoService estabelecimentoService) {
+	public JwtAuthFilterEstabelecimento(JwtService jwtService, EstabelecimentoService estabelecimentoService) {
 		this.jwtService = jwtService;
 		this.estabelecimentoService = estabelecimentoService;
 	}
