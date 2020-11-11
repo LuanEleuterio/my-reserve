@@ -87,7 +87,23 @@ function carregaClientes() {
 
 }
 
+function modalCancelReserva(){
+    const blockClientes = document.getElementsByClassName("clientes")
+    const modalCancel = document.getElementById("myModal-cancel");
+
+for (let i = 0; i < blockClientes.length; i++) {
+
+    (function (index) {
+        blockClientes[index].addEventListener("click", function () {
+        modalCancel.style.display = "flex"
+        console.log(i)
+      })
+    })(i)
+  }
+}
+
 window.addEventListener("load", carregaClientes)
+window.addEventListener("load", modalCancelReserva)
 
 configHourRedirect.addEventListener("click", () => {
     window.location.href = "../configuracao-horario/configuracao-horario.html"
