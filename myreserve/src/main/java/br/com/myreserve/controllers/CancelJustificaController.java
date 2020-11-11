@@ -63,6 +63,9 @@ public class CancelJustificaController {
 			
 			reserva.setStatus_reserva("Cancelado");
 			reservaRepository.save(reserva);
+			
+			horario.setVagas_at_moment(horario.getVagas_at_moment() + reserva.getQtd_pessoa());
+			horarioRepository.save(horario);
 		
 			return "Reserva cancelada";
 		} else {
