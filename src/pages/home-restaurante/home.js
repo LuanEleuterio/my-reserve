@@ -86,11 +86,11 @@ function carregaClientes() {
     });
 
 }
+const modalCancel = document.getElementById("myModal-cancel");
+const blockClientes = document.getElementsByClassName("clientes");
 
 function modalCancelReserva(){
-    const blockClientes = document.getElementsByClassName("clientes")
-    const modalCancel = document.getElementById("myModal-cancel");
-
+    
 for (let i = 0; i < blockClientes.length; i++) {
 
     (function (index) {
@@ -100,7 +100,15 @@ for (let i = 0; i < blockClientes.length; i++) {
       })
     })(i)
   }
+
 }
+
+modalCancel.addEventListener("click", function (e) {
+    if (e.target.style.display == "flex" || e.target.id == "btn-cross-modal") {
+      modalCancel.style.display = "none";
+    }
+  
+  })
 
 window.addEventListener("load", carregaClientes)
 window.addEventListener("load", modalCancelReserva)
