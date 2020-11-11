@@ -14,7 +14,14 @@ import javax.persistence.OneToOne;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.NoArgsConstructor;
+
 @Entity
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class Estabelecimento {
 	
 	@Id 
@@ -109,8 +116,6 @@ public class Estabelecimento {
 	public void setEndereco(Endereco endereco) {
 		this.endereco = endereco;
 	}
-	
-	public Estabelecimento() {}
 
 	public Estabelecimento(String nome, String email, String hora_funcionamento, String cnpj,
 			String senha, String img_estabelecimento, Boolean estab_ativo, String descricao, Integer max_pessoas, Integer fk_categoria) {

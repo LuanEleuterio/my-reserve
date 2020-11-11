@@ -3,6 +3,7 @@ package br.com.myreserve.controllers;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -21,6 +22,9 @@ public class UsuarioController {
 	@Autowired
 	UsuarioRepository usuarioRepository;
 	
+	@Autowired
+	private PasswordEncoder passwordEncoder;
+	
 	@GetMapping()
 	public Iterable<Usuario> getUsuario(){
 		return usuarioRepository.findAll();
@@ -33,6 +37,8 @@ public class UsuarioController {
 	
 	@PostMapping()
 	public void addUsuario(@RequestBody Usuario usuario) {
+		String senhaCriptografada = passwordEncoder.encode(usuario.getSenha());
+		usuario.setSenha(senhaCriptografada);
 		usuarioRepository.save(usuario);
 	}
 	
@@ -45,7 +51,7 @@ public class UsuarioController {
 		if(dadosUsuario.getEmail() != null) userDB.setEmail(dadosUsuario.getEmail());
 		if(dadosUsuario.getTelefone() != null) userDB.setTelefone(dadosUsuario.getTelefone());
 		if(dadosUsuario.getImg_perfil() != null) userDB.setImg_perfil(dadosUsuario.getImg_perfil());
-		if(dadosUsuario.getSenha() != null) userDB.setSenha(dadosUsuario.getSenha());
+		if(dadosUsuario.getSenha() != null) userDB.setSenha(passwordEncoder.encode(dadosUsuario.getSenha()));
 		
 		return usuarioRepository.save(userDB);
 		
