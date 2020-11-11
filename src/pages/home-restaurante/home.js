@@ -88,6 +88,8 @@ function carregaClientes() {
 }
 const modalCancel = document.getElementById("myModal-cancel");
 const blockClientes = document.getElementsByClassName("clientes");
+const modalBtnSubmit = document.getElementById("btnSubmitCancelar")
+const txtModalCancel = document.getElementById("txtModalCancel")
 
 function modalCancelReserva(){
     
@@ -96,6 +98,8 @@ for (let i = 0; i < blockClientes.length; i++) {
     (function (index) {
         blockClientes[index].addEventListener("click", function () {
         modalCancel.style.display = "flex"
+        modalBtnSubmit.disabled = true
+        modalBtnSubmit.style.background = "#CCC"
         console.log(i)
       })
     })(i)
@@ -106,9 +110,31 @@ for (let i = 0; i < blockClientes.length; i++) {
 modalCancel.addEventListener("click", function (e) {
     if (e.target.style.display == "flex" || e.target.id == "btn-cross-modal") {
       modalCancel.style.display = "none";
+      txtModalCancel.value = ""
     }
-  
   })
+
+
+txtModalCancel.addEventListener("input",function(){
+
+        modalBtnSubmit.disabled = false
+        modalBtnSubmit.style.background = "#4361EE"
+        if(txtModalCancel.value == ""){
+            modalBtnSubmit.disabled = true
+            modalBtnSubmit.style.background = "#CCC"
+        }
+
+})
+
+modalBtnSubmit.addEventListener("click",function(){
+    if(txtModalCancel.value == ""){
+        
+    }
+    if(txtModalCancel.value != ""){
+        alert("Cancelamento efetuado com sucesso!")
+        
+    }
+})
 
 window.addEventListener("load", carregaClientes)
 window.addEventListener("load", modalCancelReserva)
