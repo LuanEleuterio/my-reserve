@@ -69,7 +69,7 @@ public class EstabelecimentoController {
 												.build();
 			
 			estabelecimentoService.autenticar(estab);
-			String token = jwtService.gerarToken(estab);
+			String token = jwtService.gerarTokenEstabelecimento(estab);
 			return new TokenDTO(estab.getEmail(), token);
 		}catch(UsernameNotFoundException | SenhaInvalidaException e) {
 			throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, e.getMessage());

@@ -14,7 +14,14 @@ import javax.persistence.OneToOne;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.NoArgsConstructor;
+
 @Entity
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class Usuario {
 	
 	@Id 
@@ -54,8 +61,6 @@ public class Usuario {
 	public void setDadosPagamento(DadosPagamento dadosPagamento) {
 		this.dadosPagamento = dadosPagamento;
 	}
-	
-	public Usuario() {}
 
 	public Usuario(String nome, String cpf, Date dt_nasc, String email,
 			String telefone, String img_perfil, String senha, Boolean user_ativo) {
