@@ -344,8 +344,8 @@ a {
 }
 
 .modal-config{
-    width: 50vw;
-    height: 30em;
+    width: 60vw;
+    height: 32em;
     max-width: 693px;
     padding: 2em;
     box-sizing: border-box;
@@ -413,9 +413,13 @@ a {
     margin-left: 2.6em;;
 }
 
-#horario-de-modal, #horario-ate-modal{
+#horario-de-modal{
     width: 7em;
     margin-right: .5em;
+}
+#horario-ate-modal{
+    width: 7em;
+    margin-left: .5em;
 }
 
 .btn-modal{
