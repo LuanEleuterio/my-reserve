@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import br.com.myreserve.entities.Estabelecimento;
+import br.com.myreserve.entities.Logins;
 import br.com.myreserve.entities.Usuario;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.ExpiredJwtException;
@@ -40,7 +41,7 @@ public class JwtService {
 	}
 	
 	
-	public String gerarTokenUsuario(Usuario usuario) {
+	public String gerarToken(Logins login) {
 		long expString = Long.valueOf(expiracao);
 		LocalDateTime dataHoraExpiracao = LocalDateTime.now().plusMinutes(expString);
 		Instant instant = dataHoraExpiracao.atZone(ZoneId.systemDefault()).toInstant();
@@ -48,7 +49,7 @@ public class JwtService {
 		
 		return Jwts
 				.builder()
-				.setSubject(usuario.getEmail())
+				.setSubject(login.getEmail())
 				.setExpiration(data)
 				.signWith(SignatureAlgorithm.HS512, chaveAssinatura)
 				.compact();			

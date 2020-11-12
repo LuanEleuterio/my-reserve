@@ -19,11 +19,13 @@ import org.springframework.web.server.ResponseStatusException;
 import br.com.myreserve.dto.CredenciaisDTO;
 import br.com.myreserve.dto.TokenDTO;
 import br.com.myreserve.entities.Estabelecimento;
+import br.com.myreserve.entities.Logins;
 import br.com.myreserve.exceptions.SenhaInvalidaException;
 import br.com.myreserve.repositories.CategoriaRepository;
 import br.com.myreserve.repositories.EstabelecimentoRepository;
-import br.com.myreserve.services.EstabelecimentoService;
+import br.com.myreserve.repositories.LoginsRepository;
 import br.com.myreserve.services.JwtService;
+import br.com.myreserve.services.LoginsService;
 import lombok.RequiredArgsConstructor;
 
 @RestController
@@ -35,8 +37,10 @@ public class EstabelecimentoController {
 	EstabelecimentoRepository estabelecimentoRepository;
 	@Autowired
 	CategoriaRepository categoriaRepository;
+	@Autowired
+	LoginsRepository loginsRepository;
 	@Autowired 
-	EstabelecimentoService estabelecimentoService;
+	LoginsService loginsService;
 	@Autowired
 	JwtService jwtService;
 	
@@ -54,30 +58,38 @@ public class EstabelecimentoController {
 	}
 	
 	@PostMapping()
-	public Estabelecimento addEstabelecimento(@RequestBody Estabelecimento estabelecimento) {
+	public void addEstabelecimento(@RequestBody Estabelecimento estabelecimento) {
+		Logins login = new Logins();
+		
 		String senhaCriptografada = passwordEncoder.encode(estabelecimento.getSenha()); 
+		
 		estabelecimento.setSenha(senhaCriptografada);
-		return estabelecimentoRepository.save(estabelecimento);
+		estabelecimentoRepository.save(estabelecimento);
+		
+		login.setEmail(estabelecimento.getEmail());
+		login.setSenha(senhaCriptografada);
+		login.setIdEstabelecimento(estabelecimento.getId_estabelecimento());
+		loginsRepository.save(login);
 	}
 	
 	@PostMapping("/auth")
 	public TokenDTO autenticar(@RequestBody CredenciaisDTO credenciais) {
 		try {
-			Estabelecimento estab = Estabelecimento.builder()
+			Logins login= Logins.builder()
 												.email(credenciais.getLogin())
 												.senha(credenciais.getSenha())
 												.build();
 			
-			estabelecimentoService.autenticar(estab);
-			String token = jwtService.gerarTokenEstabelecimento(estab);
-			return new TokenDTO(estab.getEmail(), token);
+			loginsService.autenticar(login);
+			String token = jwtService.gerarToken(login);
+			return new TokenDTO(login.getEmail(), token);
 		}catch(UsernameNotFoundException | SenhaInvalidaException e) {
 			throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, e.getMessage());
 		}
 	}
 	
 	@PutMapping("/{idEstab}")
-	public Estabelecimento updateEstab(@PathVariable int idEstab, @RequestBody Estabelecimento dadosEstab) throws Exception{
+	public Estabelecimento updateEstab(@PathVariable Integer idEstab, @RequestBody Estabelecimento dadosEstab) throws Exception{
 		Estabelecimento estabDB = estabelecimentoRepository.findById(idEstab)
 				.orElseThrow(() -> new IllegalAccessException());
 		if(dadosEstab.getNome() != null) estabDB.setNome(dadosEstab.getNome());
@@ -86,7 +98,18 @@ public class EstabelecimentoController {
 		if(dadosEstab.getDescricao() != null) estabDB.setDescricao(dadosEstab.getDescricao());
 		if(dadosEstab.getMax_pessoas() != null) estabDB.setMax_pessoas(dadosEstab.getMax_pessoas());
 		if(dadosEstab.getFk_categoria() != null) estabDB.setFk_categoria(dadosEstab.getFk_categoria());
-		if(dadosEstab.getSenha() != null) estabDB.setSenha(passwordEncoder.encode(dadosEstab.getSenha()));
+		if(dadosEstab.getSenha() != null) {
+			String newPassword = passwordEncoder.encode(dadosEstab.getSenha());
+			
+			estabDB.setSenha(newPassword);
+			
+			Logins login = loginsRepository.findOneByIdEstabelecimento(idEstab)
+					.orElseThrow(() -> new IllegalAccessException());
+			
+			login.setSenha(newPassword);
+			
+			loginsRepository.save(login);
+		};
 		return estabelecimentoRepository.save(estabDB);
 	}
 	

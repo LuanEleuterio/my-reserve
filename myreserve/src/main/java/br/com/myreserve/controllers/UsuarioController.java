@@ -17,12 +17,13 @@ import org.springframework.web.server.ResponseStatusException;
 
 import br.com.myreserve.dto.CredenciaisDTO;
 import br.com.myreserve.dto.TokenDTO;
-import br.com.myreserve.entities.Estabelecimento;
+import br.com.myreserve.entities.Logins;
 import br.com.myreserve.entities.Usuario;
 import br.com.myreserve.exceptions.SenhaInvalidaException;
+import br.com.myreserve.repositories.LoginsRepository;
 import br.com.myreserve.repositories.UsuarioRepository;
 import br.com.myreserve.services.JwtService;
-import br.com.myreserve.services.UsuarioService;
+import br.com.myreserve.services.LoginsService;
 import lombok.RequiredArgsConstructor;
 
 @RestController
@@ -34,10 +35,13 @@ public class UsuarioController {
 	UsuarioRepository usuarioRepository;
 	
 	@Autowired 
-	UsuarioService usuarioService;
+	LoginsService loginsService;
 	
 	@Autowired
 	JwtService jwtService;
+	
+	@Autowired
+	LoginsRepository loginsRepository;
 	
 	@Autowired
 	private PasswordEncoder passwordEncoder;
@@ -54,22 +58,30 @@ public class UsuarioController {
 	
 	@PostMapping()
 	public void addUsuario(@RequestBody Usuario usuario) {
+		Logins login = new Logins();
+		
 		String senhaCriptografada = passwordEncoder.encode(usuario.getSenha());
+		
 		usuario.setSenha(senhaCriptografada);
 		usuarioRepository.save(usuario);
+		
+		login.setEmail(usuario.getEmail());
+		login.setSenha(senhaCriptografada);
+		login.setIdUsuario(usuario.getId_usuario());
+		loginsRepository.save(login);
 	}
 	
 	@PostMapping("/auth")
 	public TokenDTO autenticar(@RequestBody CredenciaisDTO credenciais) {
 		try {
-			Usuario usuario = Usuario.builder()
+			Logins login= Logins.builder()
 												.email(credenciais.getLogin())
 												.senha(credenciais.getSenha())
 												.build();
 			
-			usuarioService.autenticar(usuario);
-			String token = jwtService.gerarTokenUsuario(usuario);
-			return new TokenDTO(usuario.getEmail(), token);
+			loginsService.autenticar(login);
+			String token = jwtService.gerarToken(login);
+			return new TokenDTO(login.getEmail(), token);
 		}catch(UsernameNotFoundException | SenhaInvalidaException e) {
 			throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, e.getMessage());
 		}
@@ -84,7 +96,18 @@ public class UsuarioController {
 		if(dadosUsuario.getEmail() != null) userDB.setEmail(dadosUsuario.getEmail());
 		if(dadosUsuario.getTelefone() != null) userDB.setTelefone(dadosUsuario.getTelefone());
 		if(dadosUsuario.getImg_perfil() != null) userDB.setImg_perfil(dadosUsuario.getImg_perfil());
-		if(dadosUsuario.getSenha() != null) userDB.setSenha(passwordEncoder.encode(dadosUsuario.getSenha()));
+		if(dadosUsuario.getSenha() != null) { 
+			String newPassword = passwordEncoder.encode(dadosUsuario.getSenha());
+			
+			userDB.setSenha(newPassword);
+			
+			Logins login = loginsRepository.findOneByIdUsuario(idUser)
+					.orElseThrow(() -> new IllegalAccessException());
+			
+			login.setSenha(newPassword);
+			
+			loginsRepository.save(login);
+		}
 		
 		return usuarioRepository.save(userDB);
 		

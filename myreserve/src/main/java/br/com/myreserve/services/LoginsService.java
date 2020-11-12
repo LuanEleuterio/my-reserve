@@ -8,22 +8,22 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import br.com.myreserve.entities.Usuario;
+import br.com.myreserve.entities.Logins;
 import br.com.myreserve.exceptions.SenhaInvalidaException;
-import br.com.myreserve.repositories.UsuarioRepository;
+import br.com.myreserve.repositories.LoginsRepository;
 
 @Service
-public class UsuarioService implements UserDetailsService{
-
+public class LoginsService implements UserDetailsService{
+	
 	@Autowired
 	PasswordEncoder encoder;
 	
 	@Autowired
-	UsuarioRepository usuarioRepository;
+	LoginsRepository loginsRepository;
 	
-	public UserDetails autenticar(Usuario usuario) {
-		UserDetails user = loadUserByUsername(usuario.getEmail());
-		boolean senhaConferem = encoder.matches(usuario.getSenha(), user.getPassword());
+	public UserDetails autenticar(Logins login) {
+		UserDetails user = loadUserByUsername(login.getEmail());
+		boolean senhaConferem = encoder.matches(login.getSenha(), user.getPassword());
 		
 		if(senhaConferem) {
 			return user;
@@ -34,16 +34,17 @@ public class UsuarioService implements UserDetailsService{
 	
 	@Override
 	public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException{
-		Usuario usuario = usuarioRepository.findByEmail(email)
+		Logins login = loginsRepository.findByEmail(email)
 				.orElseThrow(() -> new UsernameNotFoundException("Email não encontrado!"));
 		
-		String[] roles = usuario.getUser_ativo() ? new String[] {"USUARIO"} : new String[] {"USUARIO"};
+		String[] roles = login.getAtivo() ? new String[] {"ESTABELECIMENTO"} : new String[] {"ESTABELECIMENTO"};
 		
 		return User
 				.builder()
-				.username(usuario.getEmail())
-				.password(usuario.getSenha())
+				.username(login.getEmail())
+				.password(login.getSenha())
 				.roles(roles)
 				.build();
 	}
+		
 }

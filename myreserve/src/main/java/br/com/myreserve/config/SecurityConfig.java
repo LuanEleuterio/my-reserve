@@ -9,9 +9,15 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.web.filter.OncePerRequestFilter;
+
+import br.com.myreserve.services.JwtService;
+import br.com.myreserve.services.LoginsService;
 
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter{
@@ -19,29 +25,49 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	@Autowired
 	DataSource dataSource;
 	
+	@Autowired
+	LoginsService loginsService;
+	
+	@Autowired
+	JwtService jwtService;
+	
 	
 	@Bean
 	public PasswordEncoder passwordEncoder() {
 		return new BCryptPasswordEncoder();
 	}
 	
+	@Bean
+	public OncePerRequestFilter jwtFilter() {
+		return new JwtAuthFilter(jwtService, loginsService);
+	}
+	
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-		auth.inMemoryAuthentication()
-		.withUser("admin")
-		.password("1234")
-		.roles("ADMIN");
+		auth
+		.userDetailsService(loginsService)
+		.passwordEncoder(passwordEncoder());
+		/*.and()
+		.userDetailsService(estabelecimentoService)
+		.passwordEncoder(passwordEncoder());*/
 	}
 	
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.csrf().disable()
 		.authorizeRequests()
-		.antMatchers(HttpMethod.POST, "/login").permitAll()
-		.antMatchers(HttpMethod.POST, "/categoria").permitAll()
-		.antMatchers().permitAll()
-		.anyRequest().permitAll();
-		
+			.antMatchers(HttpMethod.POST, "/usuario")
+				.permitAll()
+				.antMatchers(HttpMethod.POST, "/restaurante")
+				.permitAll()
+				.antMatchers(HttpMethod.POST, "/usuario/auth")
+				.permitAll()
+				.antMatchers(HttpMethod.POST, "/restaurante/auth")
+				.permitAll()
+			.anyRequest().authenticated()
+		.and()
+		.addFilterBefore(jwtFilter(), UsernamePasswordAuthenticationFilter.class);
+			//.addFilterBefore(jwtFilterEstab(), UsernamePasswordAuthenticationFilter.class);
 	}
 		
 

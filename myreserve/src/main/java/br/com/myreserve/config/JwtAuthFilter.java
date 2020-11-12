@@ -14,15 +14,15 @@ import org.springframework.security.web.authentication.WebAuthenticationDetailsS
 import org.springframework.web.filter.OncePerRequestFilter;
 
 import br.com.myreserve.services.JwtService;
-import br.com.myreserve.services.UsuarioService;
+import br.com.myreserve.services.LoginsService;
 
-public class JwtAuthFilterUsuario extends OncePerRequestFilter{
+public class JwtAuthFilter extends OncePerRequestFilter{
 		private JwtService jwtService;
-		private UsuarioService usuarioService;
+		private LoginsService loginsService;
 		
-		public JwtAuthFilterUsuario(JwtService jwtService, UsuarioService usuarioService) {
+		public JwtAuthFilter(JwtService jwtService, LoginsService loginsService) {
 			this.jwtService = jwtService;
-			this.usuarioService = usuarioService;
+			this.loginsService = loginsService;
 		}
 
 		@Override
@@ -33,11 +33,11 @@ public class JwtAuthFilterUsuario extends OncePerRequestFilter{
 			
 			if(authorization != null && authorization.startsWith("Bearer")) {
 				String token = authorization.split(" ")[1];
-				boolean isValid = jwtService.tokenValido(token);
+				boolean isValid =  jwtService.tokenValido(token);
 				
 				if(isValid) {
 					String loginUser = jwtService.obterLoginUsuario(token);
-					UserDetails usuario = usuarioService.loadUserByUsername(loginUser);
+					UserDetails usuario = loginsService.loadUserByUsername(loginUser);
 					UsernamePasswordAuthenticationToken user = new	
 							UsernamePasswordAuthenticationToken(usuario, null, usuario.getAuthorities());
 					
