@@ -20,19 +20,6 @@ public class Categoria {
 	private String tipo_categoria;
 	private String img_categoria;
 	
-	/*
-	@OneToMany(mappedBy="categoria")
-	@JsonIgnoreProperties("categoria")
-	private Set<Estabelecimento> estabs;
-	
-	public Set<Estabelecimento> getEstabs() {
-		return estabs;
-	}
-	
-	public void setEstabs(Set<Estabelecimento> estabs) {
-		this.estabs = estabs;
-	}
-	*/
 	public Categoria() {}
 
 	public Categoria(String tipo_categoria, String img_categoria) {

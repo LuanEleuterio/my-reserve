@@ -76,9 +76,9 @@ public class EstabelecimentoController {
 	public TokenDTO autenticar(@RequestBody CredenciaisDTO credenciais) {
 		try {
 			Logins login= Logins.builder()
-												.email(credenciais.getLogin())
-												.senha(credenciais.getSenha())
-												.build();
+								.email(credenciais.getLogin())
+								.senha(credenciais.getSenha())
+								.build();
 			
 			loginsService.autenticar(login);
 			String token = jwtService.gerarToken(login);

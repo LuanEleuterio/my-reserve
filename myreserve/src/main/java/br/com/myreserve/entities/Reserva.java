@@ -27,35 +27,7 @@ public class Reserva {
 	private Integer fk_estabelecimento;
 	private Integer fk_usuario;
 	private Integer fk_horario;
-	
-	/*
-	@ManyToOne
-	@JoinColumn(name = "fk_estabelecimento", insertable=false, updatable=false)
-	@JsonIgnoreProperties("reserva")
-	private Estabelecimento estabReserva;
-	
-	public Estabelecimento getEstabReserva() {
-		return estabReserva;
-	}
-	
-	public void setEstabReserva(Estabelecimento estabReserva) {
-		this.estabReserva = estabReserva;
-	}
-	
-	@ManyToOne
-	@JoinColumn(name = "fk_usuario", insertable=false, updatable=false)
-	@JsonIgnoreProperties("reservaUser")
-	private Usuario usuarioReserva;
-	
-	public Usuario getUsuario() {
-		return usuarioReserva;
-	}
-	
-	public void setUsuario(Usuario usuarioReserva) {
-		this.usuarioReserva = usuarioReserva;
-	}
-	*/
-	
+		
 	@OneToOne
 	@JoinColumn(name = "fk_horario", insertable=false, updatable=false)
 	private Horario horario;

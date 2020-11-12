@@ -11,7 +11,6 @@ import org.springframework.stereotype.Service;
 
 import br.com.myreserve.entities.Estabelecimento;
 import br.com.myreserve.entities.Logins;
-import br.com.myreserve.entities.Usuario;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.Jwts;

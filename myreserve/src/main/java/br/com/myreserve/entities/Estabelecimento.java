@@ -54,7 +54,6 @@ public class Estabelecimento {
 	}
 	
 	@OneToOne(mappedBy = "dadosEstab")
-	//@JoinColumn(name = "fk_estabelecimento", insertable=false, updatable=false)
 	@JsonIgnoreProperties("dadosEstab")
 	private DadosRecebimento dadosRecebimento;
 	
@@ -67,7 +66,6 @@ public class Estabelecimento {
 	}
 	
 	@OneToMany
-	//@JsonIgnoreProperties("estabHorario")
 	@JoinColumn(name = "fk_estabelecimento")
 	private Set<Horario> horario;
 	
@@ -103,9 +101,7 @@ public class Estabelecimento {
 		this.reservaUser = reservaUser;
 	}
 	
-	
 	@OneToOne(mappedBy = "dadosEndereco")
-	//@JoinColumn(name = "fk_estabelecimento", insertable=false, updatable=false)
 	@JsonIgnoreProperties("dadosEndereco")
 	private Endereco endereco;
 	

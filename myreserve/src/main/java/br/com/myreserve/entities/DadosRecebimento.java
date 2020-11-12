@@ -28,15 +28,6 @@ public class DadosRecebimento {
 	@JoinColumn(name = "fk_estabelecimento", insertable=false, updatable=false)
 	@JsonIgnoreProperties("dadosRecebimento")
 	private Estabelecimento dadosEstab;
-	
-	/*
-	public Estabelecimento getEstabelecimento() {
-		return dadosEstab;
-	}
-
-	public void setEstabelecimento(Estabelecimento dadosEstab) {
-		this.dadosEstab = dadosEstab;
-	}*/
 
 	public DadosRecebimento() {}
 

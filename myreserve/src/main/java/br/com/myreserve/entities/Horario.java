@@ -24,21 +24,7 @@ public class Horario {
 	private Integer total_vagas;
 	private Integer vagas_at_moment;
 	private Integer fk_estabelecimento;
-	
-	/*
-	@ManyToOne
-	@JoinColumn(name = "fk_estabelecimento", insertable=false, updatable=false)
-	@JsonIgnoreProperties("horario")
-	private Estabelecimento estabHorario;
-	
-	public Estabelecimento getEstabHorario() {
-		return estabHorario;
-	}
-	
-	public void setEstabHorario(Estabelecimento estabHorario) {
-		this.estabHorario = estabHorario;
-	}
-	*/
+
 	public Horario() {}
 	
 	public Horario(String horario_de, String horario_ate, Integer qtd_pessoa_vaga, Integer total_vagas,
