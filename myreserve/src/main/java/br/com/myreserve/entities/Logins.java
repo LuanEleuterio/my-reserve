@@ -31,6 +31,7 @@ public class Logins {
 	@Column(name = "fk_usuario")
 	private Integer idUsuario;
 	
-	private Boolean ativo;
+	@Builder.Default
+	private Boolean ativo = true;
 	
 }
