@@ -3,8 +3,6 @@ package br.com.myreserve.controllers;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -13,17 +11,11 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.server.ResponseStatusException;
 
-import br.com.myreserve.dto.CredenciaisDTO;
-import br.com.myreserve.dto.TokenDTO;
 import br.com.myreserve.entities.Logins;
 import br.com.myreserve.entities.Usuario;
-import br.com.myreserve.exceptions.SenhaInvalidaException;
 import br.com.myreserve.repositories.LoginsRepository;
 import br.com.myreserve.repositories.UsuarioRepository;
-import br.com.myreserve.services.JwtService;
-import br.com.myreserve.services.LoginsService;
 import lombok.RequiredArgsConstructor;
 
 @RestController
@@ -33,12 +25,6 @@ public class UsuarioController {
 
 	@Autowired
 	UsuarioRepository usuarioRepository;
-	
-	@Autowired 
-	LoginsService loginsService;
-	
-	@Autowired
-	JwtService jwtService;
 	
 	@Autowired
 	LoginsRepository loginsRepository;
@@ -69,22 +55,6 @@ public class UsuarioController {
 		login.setSenha(senhaCriptografada);
 		login.setIdUsuario(usuario.getId_usuario());
 		loginsRepository.save(login);
-	}
-	
-	@PostMapping("/auth")
-	public TokenDTO autenticar(@RequestBody CredenciaisDTO credenciais) {
-		try {
-			Logins login= Logins.builder()
-								.email(credenciais.getLogin())
-								.senha(credenciais.getSenha())
-								.build();
-			
-			loginsService.autenticar(login);
-			String token = jwtService.gerarToken(login);
-			return new TokenDTO(login.getEmail(), token);
-		}catch(UsernameNotFoundException | SenhaInvalidaException e) {
-			throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, e.getMessage());
-		}
 	}
 	
 	@PutMapping("/{idUser}")
