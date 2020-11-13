@@ -15,6 +15,7 @@ import br.com.myreserve.entities.Logins;
 import br.com.myreserve.exceptions.SenhaInvalidaException;
 import br.com.myreserve.services.JwtService;
 import br.com.myreserve.services.LoginsService;
+import br.com.myreserve.services.UserOrEstabService;
 import lombok.RequiredArgsConstructor;
 
 @RestController
@@ -28,8 +29,11 @@ public class LoginsController {
 	@Autowired
 	JwtService jwtService;
 	
+	@Autowired
+	UserOrEstabService userEstabService;
+	
 	@PostMapping("/auth")
-	public TokenDTO autenticar(@RequestBody CredenciaisDTO credenciais) {
+	public TokenDTO autenticar(@RequestBody CredenciaisDTO credenciais) throws Exception {
 		try {
 			Logins login= Logins.builder()
 								.email(credenciais.getLogin())
@@ -38,7 +42,10 @@ public class LoginsController {
 			
 			loginsService.autenticar(login);
 			String token = jwtService.gerarToken(login);
-			return new TokenDTO(login.getEmail(), token);
+			
+			String userOrEstab = userEstabService.verificaUserOrEstab(credenciais.getLogin());
+			
+			return new TokenDTO(login.getEmail(), token, userOrEstab);
 		}catch(UsernameNotFoundException | SenhaInvalidaException e) {
 			throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, e.getMessage());
 		}
