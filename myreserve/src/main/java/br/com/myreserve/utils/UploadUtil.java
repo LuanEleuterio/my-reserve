@@ -18,8 +18,10 @@ public class UploadUtil {
 		}
 		
 		try (InputStream inputStream = file.getInputStream()){
+			if(fileName.contains(".png") || fileName.contains(".jpg") || fileName.contains(".jpeg")) {
 			Path filePath = uploadPath.resolve(fileName);
 			Files.copy(inputStream, filePath, StandardCopyOption.REPLACE_EXISTING);
+			}else throw new IOException();
 		}catch (IOException e) {
 			throw new IOException("Nao foi possivel enviar o arquivo "+ fileName , e);
 		}
