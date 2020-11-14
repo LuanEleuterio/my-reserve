@@ -144,7 +144,42 @@ input[type="file"] {
   margin-bottom: 24px;
 }
 
+.info-hour{
+  display: flex;
+  flex-wrap: wrap;
+  width: 50vw;
+}
+
+.field-group-hora{
+  display: flex;
+  flex: 1;
+  align-items: baseline;
+}
+
+#hora-funcionamento{
+  width: 60vw;
+  max-width: 223px;
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+.field-horario{
+  display: flex;
+  flex:1;
+  flex-direction: row !important;
+  align-items: center;
+  width: 17vw;
+  max-width: 169px;
+}
+
+.horario-geral{
+  width: 30vw;
+  margin-left: 1em;
+  max-width: 135px;
+}
+
 #page-create-point form .field input[type="text"],
+#page-create-point form .field input[type="time"],
 #page-create-point form .field input[type="email"],
 #page-create-point form .field input[type="number"],
 #page-create-point form .field input[type="password"],
@@ -177,6 +212,24 @@ input[type="file"] {
 
 #page-create-point form .field-group input + input {
   margin-left: 24px;
+}
+
+.categoria-form{
+  display: flex;
+  align-items: center;
+}
+
+.categoria-form select{
+  flex: 1;
+  border-radius: var(--border-radius);
+  padding: 16px 24px;
+  background: var(--input);
+  border: var(--input);
+  margin-left: 2em;
+}
+
+.categoria-form select option{
+  width: 50px;
 }
 
 .pass-container {
@@ -223,9 +276,10 @@ input[type="file"] {
 }
 /* eye icon end */
 
-#submit {
+#submit-estab {
   margin: 30px auto;
-  width: 260px;
+  width: 40vw;
+  max-width: 260px;
   height: 56px;
   background: var(--principal);
   border-radius: 8px;
@@ -237,6 +291,6 @@ input[type="file"] {
   cursor: pointer;
 }
 
-#submit:hover {
+#submit-estab:hover {
   background: var(--destaque);
 }

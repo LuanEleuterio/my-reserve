@@ -11,6 +11,7 @@
   .pass-container input {
     width: 84%;
   }
+
 }
 
 @media (max-width: 425px) {
@@ -40,5 +41,12 @@
   .pass-container input {
     width: 74%;
   }
+
+  .horario-geral{
+    width: 50vw;
+    max-width: 200px !important;
+    margin-left: 1em;
+  }
+  
   
 }
