@@ -227,7 +227,7 @@ input[type="file"] {
 }
 /* eye icon end */
 
-#submit {
+#submit-user {
   margin: 30px auto;
   width: 260px;
   height: 56px;
@@ -241,6 +241,6 @@ input[type="file"] {
   cursor: pointer;
 }
 
-#submit:hover {
+#submit-user:hover {
   background: var(--destaque);
 }

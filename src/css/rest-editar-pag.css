@@ -101,7 +101,7 @@
 /* form end */
 
 /* submit button start */
-#submit {
+#pagamento-submit {
   margin-top: 20px;
   width: 100%;
   padding: 5px 10px;
@@ -113,7 +113,7 @@
   transition: background-color 0.2s;
   cursor: pointer;
 }
-#submit:hover {
+#pagamento-submit:hover {
   background: var(--destaque);
 }
 /* submit button end */

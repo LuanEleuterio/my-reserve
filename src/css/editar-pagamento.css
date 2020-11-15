@@ -126,7 +126,7 @@ form .field label {
 }
 
 /* submit button start */
-#submit {
+#submit, #submit-mod-pag, #btn-salvar-pag, #location-submit {
   margin-top: 20px;
   width: 100%;
   padding: 5px 10px;
@@ -138,7 +138,7 @@ form .field label {
   transition: background-color 0.2s;
   cursor: pointer;
 }
-#submit:hover {
+#submit:hover, #btn-salvar-pag:hover, #submit-mod-pag:hover, #location-submit:hover {
   background: var(--destaque);
 }
 /* submit button end */
