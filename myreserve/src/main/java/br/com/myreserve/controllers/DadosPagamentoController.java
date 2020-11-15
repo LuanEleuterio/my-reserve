@@ -3,6 +3,7 @@ package br.com.myreserve.controllers;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -21,16 +22,19 @@ public class DadosPagamentoController {
 	@Autowired
 	private DadosPagamentoRepository dadosPagamentoRepository;
 	
+	@CrossOrigin
 	@GetMapping("{id_pag}")
 	public Optional<DadosPagamento> getDadosPagamento(@PathVariable int id_pag){
 		return dadosPagamentoRepository.findById(id_pag);
 	}
 	
+	@CrossOrigin
 	@PostMapping()
 	public void addDadosPagamento(@RequestBody DadosPagamento dadosPagamento) {
 		dadosPagamentoRepository.save(dadosPagamento);
 	}
 	
+	@CrossOrigin
 	@PutMapping("/{id_pag}")
 	public DadosPagamento updateDadosPagamento(@RequestBody DadosPagamento dadosPagamento , @PathVariable int id_pag) throws Exception {
 		DadosPagamento dadosPagamentoDB = dadosPagamentoRepository.findById(id_pag)

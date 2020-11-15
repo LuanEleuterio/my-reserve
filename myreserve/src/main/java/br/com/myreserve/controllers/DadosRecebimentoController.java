@@ -3,6 +3,7 @@ package br.com.myreserve.controllers;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -21,16 +22,19 @@ public class DadosRecebimentoController {
 	@Autowired
 	DadosRecebimentoRepository recebeRepository;
 	
+	@CrossOrigin
 	@GetMapping("/{id}")
 	public Optional<DadosRecebimento> getDadosById(@PathVariable Integer id){
 		return recebeRepository.findById(id);
 	}
 	
+	@CrossOrigin
 	@PostMapping()
 	public void addDadosRecebe(@RequestBody DadosRecebimento dadosRecebimento) {
 		recebeRepository.save(dadosRecebimento);
 	}
 	
+	@CrossOrigin
 	@PutMapping("/{idEstab}")
 	public DadosRecebimento updateDadosRecebimento(@PathVariable Integer idEstab, @RequestBody DadosRecebimento dadosRecebimento) throws Exception{
 		DadosRecebimento dadosDB = recebeRepository.findById(idEstab)

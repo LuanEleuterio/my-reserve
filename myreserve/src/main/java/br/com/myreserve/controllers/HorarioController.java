@@ -3,6 +3,7 @@ package br.com.myreserve.controllers;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -22,21 +23,25 @@ public class HorarioController {
 	@Autowired
 	private HorarioRepository horarioRepository;
 	
+	@CrossOrigin
 	@GetMapping
 	public Iterable<Horario> getHorarios(){
 		return horarioRepository.findAll();
 	}
 	
+	@CrossOrigin
 	@GetMapping("/{id_horario}")
 	public Optional<Horario> getHorario(@PathVariable int id_horario){
 		return horarioRepository.findById(id_horario);
 	}
 	
+	@CrossOrigin
 	@PostMapping()
 	public void addHorario(@RequestBody Horario horario) {
 		horarioRepository.save(horario);
 	}
 	
+	@CrossOrigin
 	@PutMapping("/{id_horario}")
 	public Horario updateHorario(@RequestBody Horario horario, @PathVariable int id_horario) throws Exception{
 		Horario HorarioDB = horarioRepository.findById(id_horario)

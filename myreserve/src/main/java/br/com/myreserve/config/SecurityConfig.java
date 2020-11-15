@@ -58,9 +58,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 				.permitAll()
 				.antMatchers(HttpMethod.POST, "/login/auth")
 				.permitAll()
-			.anyRequest().authenticated()
-		.and()
-		.addFilterBefore(jwtFilter(), UsernamePasswordAuthenticationFilter.class);
+			.anyRequest().permitAll(); //authenticated()
+		//.and()
+		//.addFilterBefore(jwtFilter(), UsernamePasswordAuthenticationFilter.class);
 	}
 		
 

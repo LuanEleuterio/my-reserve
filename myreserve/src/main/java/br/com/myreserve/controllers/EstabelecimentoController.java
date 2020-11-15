@@ -5,6 +5,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -35,18 +36,21 @@ public class EstabelecimentoController {
 	@Autowired
 	private PasswordEncoder passwordEncoder;
 	
+	@CrossOrigin
 	@GetMapping()
 	public Iterable<Estabelecimento> getEstabelecimentos(Pageable pageable){
 		return estabelecimentoRepository.findAll(pageable);
 	}
 	
+	@CrossOrigin
 	@GetMapping("/{id}")
 	public Optional<Estabelecimento> getById(@PathVariable int id) {
 		return estabelecimentoRepository.findById(id);
 	}
 	
+	@CrossOrigin
 	@PostMapping()
-	public void addEstabelecimento(@RequestBody Estabelecimento estabelecimento) {
+	public Integer addEstabelecimento(@RequestBody Estabelecimento estabelecimento) {
 		Logins login = new Logins();
 		
 		String senhaCriptografada = passwordEncoder.encode(estabelecimento.getSenha()); 
@@ -58,8 +62,11 @@ public class EstabelecimentoController {
 		login.setSenha(senhaCriptografada);
 		login.setIdEstabelecimento(estabelecimento.getId_estabelecimento());
 		loginsRepository.save(login);
-	}
 		
+		return estabelecimento.getId_estabelecimento();
+	}
+	
+	@CrossOrigin
 	@PutMapping("/{idEstab}")
 	public Estabelecimento updateEstab(@PathVariable Integer idEstab, @RequestBody Estabelecimento dadosEstab) throws Exception{
 		Estabelecimento estabDB = estabelecimentoRepository.findById(idEstab)

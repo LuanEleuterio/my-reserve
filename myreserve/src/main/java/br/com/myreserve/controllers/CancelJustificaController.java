@@ -6,6 +6,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -36,11 +37,13 @@ public class CancelJustificaController {
 	private static String atNow;
 	private static String dateNow;
 	
+	@CrossOrigin
 	@GetMapping({"/{id_cancel}"})
 	public Optional<CancelJustifica> getCancelamento(@PathVariable int id_cancel){
 		return cancelJustificaRepository.findById(id_cancel);
 	}
 	
+	@CrossOrigin
 	@PostMapping()
 	public String addCancelamento(@RequestBody CancelJustifica cancelJustifica) throws Exception{
 		

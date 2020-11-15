@@ -6,6 +6,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -41,21 +42,25 @@ public class ReservaController {
 	private static String atNow;
 	private static String dateNow;
 	
+	@CrossOrigin
 	@GetMapping()
 	public Iterable<Reserva> getReservas(){
 		return reservaRepository.findAll();
 	}
 	
+	@CrossOrigin
 	@GetMapping("/{id}")
 	public Optional<Reserva> getReservasById(@PathVariable int id) {
 		return reservaRepository.findById(id);
 	}
 	
+	@CrossOrigin
 	@PostMapping()
 	public void addReserva(@RequestBody Reserva reserva) {
 		reservaRepository.save(reserva);
 	}
 	
+	@CrossOrigin
 	@PostMapping("/requisita")
 	public String requisitaReserva(@RequestBody Reserva reserva) throws Exception{
 		
@@ -81,6 +86,7 @@ public class ReservaController {
 		}
 	}
 
+	@CrossOrigin
 	@PutMapping("/{status}")
 	public Reserva updateStatus(@PathVariable Integer id_reserva, @RequestBody Reserva statusReserva) throws Exception{
 		Reserva reservaDB = reservaRepository.findById(id_reserva)

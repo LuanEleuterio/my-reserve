@@ -4,6 +4,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -32,16 +33,19 @@ public class UsuarioController {
 	@Autowired
 	private PasswordEncoder passwordEncoder;
 	
+	@CrossOrigin
 	@GetMapping()
 	public Iterable<Usuario> getUsuario(){
 		return usuarioRepository.findAll();
 	}
 	
+	@CrossOrigin
 	@GetMapping("/{id}")
 	public Optional<Usuario> getById(@PathVariable int id) {
 		return usuarioRepository.findById(id);
 	}
 	
+	@CrossOrigin
 	@PostMapping()
 	public void addUsuario(@RequestBody Usuario usuario) {
 		Logins login = new Logins();
@@ -57,6 +61,7 @@ public class UsuarioController {
 		loginsRepository.save(login);
 	}
 	
+	@CrossOrigin
 	@PutMapping("/{idUser}")
 	public Usuario updateUser(@PathVariable int idUser, @RequestBody Usuario dadosUsuario) throws Exception{
 		Usuario userDB = usuarioRepository.findById(idUser)
