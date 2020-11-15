@@ -6,18 +6,22 @@ const secondeTelefoneEmpresa = document.getElementById("telefone_dois")
 const categoriaEmpresa = document.getElementById("categoia")
 const horaDe = document.getElementById("hora_de")
 const horaAte = document.getElementById("hora_ate")
-
+const maxPessoas = document.getElementById("max-pessoas")
 const cepEmpresa = document.getElementById("cep")
 const cidadeEmpresa = document.getElementById("localidade")
 const ufEmpresa = document.getElementById("uf")
 const bairroEmpresa = document.getElementById("bairro")
 const logradouroEmpresa = document.getElementById("logradouro")
 const numeroEmpresa = document.getElementById("numero")
-
 const fieldSetDados = document.getElementById("fieldset-dados")
 const catPeople = document.querySelector(".group-categ-people")
+const passWord = document.getElementById("password")
+const description = document.getElementById("description")
 
 const btnSubmit = document.getElementById("submit-estab")
+
+$("#telefone_um, #telefone_dois").mask("(00) 00000-0000");
+$("#cnpj").mask("00.000.000/0000-00");
 
 function mostrar(e) {
   var tipo = e.parentNode.querySelector("[name='senha']");
@@ -106,27 +110,44 @@ window.addEventListener("load", (event) => {
 btnSubmit.addEventListener("click", (e) => {
   let optionCategoria = document.getElementById("categoria-option")
 
-  let nome = nomeEmpresa.value
-  let email = emailEmpresa.value
-  let cnpj = cnpjEmpresa.value
   let firstTel = firstTelefoneEmpresa.value
   let secondTel = secondeTelefoneEmpresa.value
-  let categoria = optionCategoria.value
-  let cep = cepEmpresa.value
-  let cidade = cidadeEmpresa.value
-  let bairro = bairroEmpresa.value
-  let logradouro = logradouroEmpresa.value
-  let numero = numeroEmpresa.value
+  let qtdPessoa = (maxPessoas.value == null) ? 1 : parseInt(maxPessoas.value)
   let horaStart = verificaAmOrPm(horaDe.value)
   let horaFinish = verificaAmOrPm(horaAte.value)
   let horaFunciona = `${horaStart} às ${horaFinish}`
 
-  console.log(horaFunciona)
+  console.log(firstTel.substr(1, 2))
 
   let bodyDados = {
-    nome: nome,
-    email: email,
+    nome: nomeEmpresa.value,
+    email: emailEmpresa.value,
+    cnpj: cnpjEmpresa.value,
+    senha: passWord.value,
+    descricao: description.value,
+    hora_funcionamento: horaFunciona,
+    max_pessoas: qtdPessoa,
+    img_estabelecimento: "../../teste/teste.jpeg",
+    fk_categoria: parseInt(optionCategoria.value)
+  }
 
+  console.log(bodyDados)
+  //let idEstab = cadastraEstab(bodyDados)
+
+  let bodyDadosEndereco = {
+    estado: ufEmpresa.value,
+    cep: cepEmpresa.value,
+    cidade: cidadeEmpresa.value,
+    bairro: bairroEmpresa.value,
+    logradouro: logradouroEmpresa.value,
+    numero: numeroEmpresa.value,
+    fk_estabelecimento: idEstab
+  }
+
+  //cadastraEnderecoEstab(bodyDadosEndereco)
+
+  let bodyDadosTelefone = {
+    ddd: firstTel.value.substr(1, 2)
   }
 })
 //-------------------------------------------------------------
@@ -138,4 +159,33 @@ function verificaAmOrPm(hora) {
     hora += "pm"
   }
   return hora
+}
+
+async function cadastraEstab(obj) {
+
+  const idEstab = await fetch("http://localhost:8080/restaurante", {
+    method: "POST",
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(obj)
+  })
+    .then(res => res.json())
+    .catch(err => console.log("Erro ao cadastrar", err))
+
+  return idEstab
+}
+
+function cadastraEnderecoEstab(obj) {
+
+  fetch("http://localhost:8080/endereco", {
+    method: "POST",
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(obj)
+  })
+    .catch(err => console.log("Erro ao cadastrar", err))
 }
