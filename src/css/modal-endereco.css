@@ -145,20 +145,21 @@
   margin-left: 6px;
 }
 
-#submit {
-  margin: 5px auto;
-  width: 70%;
-  height: 36px;
-  background: var(--principal);
-  border-radius: 8px;
-  color: var(--secundaria);
-  font-weight: bold;
-  font-size: 14px;
-  border: 0;
-  transition: background-color 0.2s;
-  cursor: pointer;
+#submit-location {
+    height: 2.1em;
+    font-size: medium;
+    font-weight: bolder;
+    color: var(--secundaria);
+    margin-top: 1.2em;
+    cursor: pointer;
+    width: 100%;
+    padding: 5px 10px;
+    background: var(--principal);
+    border-radius: 8px;
+    border: 0;
+    cursor: pointer;
 }
-#submit:hover {
+#submit-location:hover {
   background: var(--destaque);
 }
 

@@ -95,19 +95,20 @@ form .field-group .field + .field {
   margin-left: 6px;
 }
 
-#submit {
-  margin: 15px auto;
-  width: 70%;
-  height: 36px;
+#loc-mob-submit {
+  height: 2.1em;
+  font-size: medium;
+  font-weight: bolder;
+  color: var(--secundaria);
+  margin-top: 1.2em;
+  cursor: pointer;
+  width: 100%;
+  padding: 5px 10px;
   background: var(--principal);
   border-radius: 8px;
-  color: var(--secundaria);
-  font-weight: bold;
-  font-size: 14px;
   border: 0;
-  transition: background-color 0.2s;
   cursor: pointer;
 }
-#submit:hover {
+#loc-mob-submit:hover {
   background: var(--destaque);
 }
