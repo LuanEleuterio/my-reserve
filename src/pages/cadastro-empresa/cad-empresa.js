@@ -4,6 +4,8 @@ const cnpjEmpresa = document.getElementById("cnpj")
 const firstTelefoneEmpresa = document.getElementById("telefone_um")
 const secondeTelefoneEmpresa = document.getElementById("telefone_dois")
 const categoriaEmpresa = document.getElementById("categoia")
+const horaDe = document.getElementById("hora_de")
+const horaAte = document.getElementById("hora_ate")
 
 const cepEmpresa = document.getElementById("cep")
 const cidadeEmpresa = document.getElementById("localidade")
@@ -13,6 +15,7 @@ const logradouroEmpresa = document.getElementById("logradouro")
 const numeroEmpresa = document.getElementById("numero")
 
 const fieldSetDados = document.getElementById("fieldset-dados")
+const catPeople = document.querySelector(".group-categ-people")
 
 const btnSubmit = document.getElementById("submit-estab")
 
@@ -63,20 +66,16 @@ cep.addEventListener("blur", (e) => {
 })
 // localização por CEP - end
 
-//Busca categorias
-
-
+//Busca categorias na API
 window.addEventListener("load", (event) => {
   fetch("http://localhost:8080/categoria")
     .then(res => res.json())
     .then(categorias => {
       const fieldConteiner = document.createElement("div")
-      const categoriaForm = document.createElement("div")
       const categoriaLabel = document.createElement("label")
       const selectCategoria = document.createElement("select")
 
       fieldConteiner.setAttribute("class", "field")
-      categoriaForm.setAttribute("class", "categoria-form")
       categoriaLabel.setAttribute("for", "categoria")
       categoriaLabel.textContent = "Categoria:"
 
@@ -92,17 +91,18 @@ window.addEventListener("load", (event) => {
         selectCategoria.appendChild(options)
       })
 
-      categoriaForm.appendChild(categoriaLabel)
-      categoriaForm.appendChild(selectCategoria)
-      fieldConteiner.appendChild(categoriaForm)
+      fieldConteiner.appendChild(categoriaLabel)
+      fieldConteiner.appendChild(selectCategoria)
 
-      fieldSetDados.appendChild(fieldConteiner)
+      catPeople.appendChild(fieldConteiner)
+      //fieldSetDados.appendChild(fieldConteiner)
 
     })
     .catch(err => console.log(err))
 })
+//------------------------------------
 
-
+//Envio do cadastro do Estabelecimento p/ a API
 btnSubmit.addEventListener("click", (e) => {
   let optionCategoria = document.getElementById("categoria-option")
 
@@ -117,8 +117,11 @@ btnSubmit.addEventListener("click", (e) => {
   let bairro = bairroEmpresa.value
   let logradouro = logradouroEmpresa.value
   let numero = numeroEmpresa.value
+  let horaStart = verificaAmOrPm(horaDe.value)
+  let horaFinish = verificaAmOrPm(horaAte.value)
+  let horaFunciona = `${horaStart} às ${horaFinish}`
 
-  console.log(nome, email, cnpj, firstTel, secondTel, categoria)
+  console.log(horaFunciona)
 
   let bodyDados = {
     nome: nome,
@@ -126,3 +129,13 @@ btnSubmit.addEventListener("click", (e) => {
 
   }
 })
+//-------------------------------------------------------------
+
+function verificaAmOrPm(hora) {
+  if (hora.substr(0, 2) < 12) {
+    hora += "am"
+  } else {
+    hora += "pm"
+  }
+  return hora
+}

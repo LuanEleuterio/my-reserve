@@ -168,8 +168,7 @@ input[type="file"] {
   flex:1;
   flex-direction: row !important;
   align-items: center;
-  width: 17vw;
-  max-width: 169px;
+
 }
 
 .horario-geral{
@@ -178,6 +177,12 @@ input[type="file"] {
   max-width: 135px;
 }
 
+#max-pessoas{
+
+  text-align: center;
+}
+
+#page-create-point form .field select,
 #page-create-point form .field input[type="text"],
 #page-create-point form .field input[type="time"],
 #page-create-point form .field input[type="email"],
@@ -212,24 +217,6 @@ input[type="file"] {
 
 #page-create-point form .field-group input + input {
   margin-left: 24px;
-}
-
-.categoria-form{
-  display: flex;
-  align-items: center;
-}
-
-.categoria-form select{
-  flex: 1;
-  border-radius: var(--border-radius);
-  padding: 16px 24px;
-  background: var(--input);
-  border: var(--input);
-  margin-left: 2em;
-}
-
-.categoria-form select option{
-  width: 50px;
 }
 
 .pass-container {

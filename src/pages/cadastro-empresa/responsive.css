@@ -12,6 +12,7 @@
     width: 84%;
   }
 
+
 }
 
 @media (max-width: 425px) {
@@ -47,6 +48,6 @@
     max-width: 200px !important;
     margin-left: 1em;
   }
-  
+ 
   
 }
