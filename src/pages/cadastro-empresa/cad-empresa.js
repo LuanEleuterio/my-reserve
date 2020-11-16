@@ -173,6 +173,8 @@ btnSubmit.addEventListener("click", (e) => {
 
         if (secondTelefoneEmpresa.value != "" && px < 2) {
           px = 2
+        } else {
+          px = 3
         }
 
       } while (px <= 2)
