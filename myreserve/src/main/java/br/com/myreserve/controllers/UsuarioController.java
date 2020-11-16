@@ -53,6 +53,7 @@ public class UsuarioController {
 		String senhaCriptografada = passwordEncoder.encode(usuario.getSenha());
 		
 		usuario.setSenha(senhaCriptografada);
+		usuario.setUser_ativo(true);
 		usuarioRepository.save(usuario);
 		
 		login.setEmail(usuario.getEmail());

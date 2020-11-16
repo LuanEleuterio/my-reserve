@@ -30,7 +30,7 @@ public class Usuario {
 	@Column(name = "nome_usuario")
 	private String nome;
 	private String cpf;
-	private Date dt_nasc;
+	private String dt_nasc;
 	private String email;
 	private String telefone;
 	private String img_perfil;
@@ -62,7 +62,7 @@ public class Usuario {
 		this.dadosPagamento = dadosPagamento;
 	}
 
-	public Usuario(String nome, String cpf, Date dt_nasc, String email,
+	public Usuario(String nome, String cpf, String dt_nasc, String email,
 			String telefone, String img_perfil, String senha, Boolean user_ativo) {
 		this.nome = nome;
 		this.cpf = cpf;
@@ -94,11 +94,11 @@ public class Usuario {
 		this.cpf = cpf;
 	}
 
-	public Date getDt_nasc() {
+	public String getDt_nasc() {
 		return dt_nasc;
 	}
 
-	public void setDt_nasc(Date dt_nasc) {
+	public void setDt_nasc(String dt_nasc) {
 		this.dt_nasc = dt_nasc;
 	}
 
