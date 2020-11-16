@@ -125,11 +125,11 @@ btnSubmit.addEventListener("click", (e) => {
     descricao: description.value,
     hora_funcionamento: horaFunciona,
     max_pessoas: qtdPessoa,
-    img_estabelecimento: localStorage.getItem("myreserve-img-estab"),
+    img_estabelecimento: localStorage.getItem("myreserve-img-perfil"),
     fk_categoria: parseInt(optionCategoria.value)
   }
 
-  localStorage.removeItem("myreserve-img-estab")
+  localStorage.removeItem("myreserve-img-perfil")
 
   const insereEstab = new Promise((resolve, reject) => {
     resolve(cadastraEstab(bodyDados))

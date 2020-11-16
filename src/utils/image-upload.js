@@ -12,7 +12,7 @@ fileInput.addEventListener("change", (event) => {
     body: formData
   })
     .then(res => res.text())
-    .then(linkImg => localStorage.setItem("myreserve-img-estab", linkImg))
+    .then(linkImg => localStorage.setItem("myreserve-img-perfil", linkImg))
     .then(() => console.log("Enviado com sucesso!"))
     .catch(err => console.log("Erro ao enviar"))
 })
