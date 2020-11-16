@@ -18,6 +18,7 @@ import br.com.myreserve.entities.Estabelecimento;
 import br.com.myreserve.entities.Logins;
 import br.com.myreserve.repositories.CategoriaRepository;
 import br.com.myreserve.repositories.EstabelecimentoRepository;
+import br.com.myreserve.repositories.HorarioRepository;
 import br.com.myreserve.repositories.LoginsRepository;
 import lombok.RequiredArgsConstructor;
 
@@ -30,6 +31,8 @@ public class EstabelecimentoController {
 	EstabelecimentoRepository estabelecimentoRepository;
 	@Autowired
 	CategoriaRepository categoriaRepository;
+	@Autowired
+	HorarioRepository horarioRepository;
 	@Autowired
 	LoginsRepository loginsRepository;
 	
@@ -76,7 +79,10 @@ public class EstabelecimentoController {
 		if(dadosEstab.getHora_funcionamento() != null) estabDB.setHora_funcionamento(dadosEstab.getHora_funcionamento());
 		if(dadosEstab.getImg_estabelecimento() != null) estabDB.setImg_estabelecimento(dadosEstab.getImg_estabelecimento());
 		if(dadosEstab.getDescricao() != null) estabDB.setDescricao(dadosEstab.getDescricao());
-		if(dadosEstab.getMax_pessoas() != null) estabDB.setMax_pessoas(dadosEstab.getMax_pessoas());
+		if(dadosEstab.getMax_pessoas() != null) { 
+			estabDB.setMax_pessoas(dadosEstab.getMax_pessoas());
+			horarioRepository.updateQtdPessoaByFk(dadosEstab.getMax_pessoas(), idEstab);
+			}
 		if(dadosEstab.getFk_categoria() != null) estabDB.setFk_categoria(dadosEstab.getFk_categoria());
 		if(dadosEstab.getSenha() != null) {
 			String newPassword = passwordEncoder.encode(dadosEstab.getSenha());
