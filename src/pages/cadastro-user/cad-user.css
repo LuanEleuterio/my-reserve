@@ -146,6 +146,7 @@ input[type="file"] {
 
 #page-create-point form .field input[type=text],
 #page-create-point form .field input[type=email],
+#page-create-point form .field input[type=date],
 #page-create-point form .field input[type=password] {
   flex: 1;
   background: var(--input);

@@ -27,7 +27,7 @@
     <form>
       <h1>Cadastro do cliente</h1>
 
-      <label class="arquivo" for="arquivo">
+      <label class="arquivo" for="file-input">
         <div class="image">
           <div class="upload-border">
             <i class="fas fa-upload"></i>
@@ -35,7 +35,7 @@
           </div>
         </div>
       </label>
-      <input type="file" name="arquivo" id="file-input" accept="image/png, image/jpeg" multiple>
+      <input type="file" name="arquivo" id="file-input" accept="image/png, image/jpeg, image/jpg" multiple>
 
       <fieldset>
         <legend>
@@ -45,6 +45,11 @@
         <div class="field">
           <label for="name">Nome completo</label>
           <input type="text" name="name" id="name" required />
+        </div>
+
+        <div class="field">
+          <label for="dt_nasc">Data de Nascimento</label>
+          <input type="date" name="dt_nasc" id="dt_nasc" required />
         </div>
 
         <div class="field-group">
@@ -75,15 +80,17 @@
 
         </div>
 
-        <div class="field">
-          <input id="submit-user" type="submit" value="Cadastrar">
-        </div>
       </fieldset>
-
+    </form>
+    
+    <div class="field">
+      <input id="submit-user" type="submit" value="Cadastrar">
+    </div>
 
   </div>
-  </form>
 
+  <script src="../../utils/jquery.min.js"></script>
+  <script src="../../utils/jquery.mask.min.js"></script>
   <script type="text/javascript" src="cad-user.js"></script>
   <script type="text/javascript" src="../../utils/image-upload.js"></script>
   <script src="https://kit.fontawesome.com/37a6fc82c8.js" crossorigin="anonymous"></script>

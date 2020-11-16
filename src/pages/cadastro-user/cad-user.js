@@ -1,3 +1,48 @@
+const nomeUsuario = document.getElementById("name")
+const dtNasc = document.getElementById("dt_nasc")
+const cpfUsuario = document.getElementById("cpf")
+const wppUsuario = document.getElementById("whatsapp")
+const emailUsuario = document.getElementById("email")
+const password = document.getElementById("password")
+
+const btnSubmit = document.getElementById("submit-user")
+
+// $("#dt_nasc").mask("00/00/0000");
+$("#whatsapp").mask("(00) 00000-0000");
+$("#cpf").mask("000.000.000-00");
+
+btnSubmit.addEventListener("click", (e) => {
+
+  let bodyDados = {
+    nome: nomeUsuario.value,
+    dt_nasc: dtNasc.value,
+    email: emailUsuario.value,
+    telefone: wppUsuario.value,
+    cpf: cpfUsuario.value,
+    senha: password.value,
+    img_perfil: localStorage.getItem("myreserve-img-perfil")
+  }
+
+  localStorage.removeItem("myreserve-img-perfil")
+
+  cadastraUser(bodyDados)
+})
+
+function cadastraUser(obj) {
+
+  fetch("http://localhost:8080/usuario", {
+    method: "POST",
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(obj)
+  })
+    .then(res => console.log("Enviado com sucesso"))
+    .catch(err => console.log("Erro ao cadastrar", err))
+
+}
+
 // mostrar senha - inicio
 function mostrar(e) {
   var tipo = e.parentNode.querySelector("[name='senha']");
@@ -18,4 +63,3 @@ function mostrar(e) {
   }
 }
 // mostrar senha - fim
-
