@@ -56,6 +56,7 @@ public class EstabelecimentoController {
 		String senhaCriptografada = passwordEncoder.encode(estabelecimento.getSenha()); 
 		
 		estabelecimento.setSenha(senhaCriptografada);
+		estabelecimento.setEstab_ativo(true);
 		estabelecimentoRepository.save(estabelecimento);
 		
 		login.setEmail(estabelecimento.getEmail());
