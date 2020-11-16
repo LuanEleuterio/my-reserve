@@ -11,6 +11,8 @@ fileInput.addEventListener("change", (event) => {
     method: "POST",
     body: formData
   })
-  .then(() => console.log("Enviado com sucesso!"))
-  .catch(err => console.log("Erro ao enviar"))
+    .then(res => res.text())
+    .then(linkImg => localStorage.setItem("myreserve-img-estab", linkImg))
+    .then(() => console.log("Enviado com sucesso!"))
+    .catch(err => console.log("Erro ao enviar"))
 })

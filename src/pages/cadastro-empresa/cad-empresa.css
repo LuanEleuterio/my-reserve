@@ -62,6 +62,7 @@ body {
 input[type="file"] {
   display: none;
 }
+
 .image {
   width: 570px;
   height: 210px;
@@ -177,12 +178,21 @@ input[type="file"] {
   max-width: 135px;
 }
 
+#description{
+  resize: none;
+}
+
+.description-group{
+  margin-top: 1.2em;
+}
+
 #max-pessoas{
 
   text-align: center;
 }
 
 #page-create-point form .field select,
+#page-create-point form .field textarea,
 #page-create-point form .field input[type="text"],
 #page-create-point form .field input[type="time"],
 #page-create-point form .field input[type="email"],
