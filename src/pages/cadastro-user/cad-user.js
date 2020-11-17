@@ -13,6 +13,8 @@ $("#cpf").mask("000.000.000-00");
 
 btnSubmit.addEventListener("click", (e) => {
 
+  let exibeAlert = false
+
   let bodyDados = {
     nome: nomeUsuario.value,
     dt_nasc: dtNasc.value,
@@ -38,8 +40,14 @@ function cadastraUser(obj) {
     },
     body: JSON.stringify(obj)
   })
-    .then(res => console.log("Enviado com sucesso"))
-    .catch(err => console.log("Erro ao cadastrar", err))
+    .then((res) => {
+      console.log("Enviado com sucesso")
+      exibeAlert(true)
+    })
+    .catch(err => {
+      console.log("Erro ao cadastrar", err)
+      exibeAlert(false)
+    })
 
 }
 
@@ -63,3 +71,23 @@ function mostrar(e) {
   }
 }
 // mostrar senha - fim
+
+function exibeAlert(exibe) {
+  if (exibe) {
+    Swal.fire({
+      icon: 'success',
+      title: 'Deu tudo certo!',
+      text: "Seu cadastro foi realizado.",
+      showConfirmButton: false,
+      timer: 3500,
+    })
+  } else {
+    Swal.fire({
+      icon: 'error',
+      title: 'Opss... Ocorreu algum problema!',
+      text: "Não foi possível realizar seu cadastro, tente novamente.",
+      showConfirmButton: false,
+      timer: 4500,
+    })
+  }
+}
