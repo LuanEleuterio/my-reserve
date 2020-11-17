@@ -1,3 +1,4 @@
+
 const nomeEmpresa = document.getElementById("name")
 const emailEmpresa = document.getElementById("email")
 const cnpjEmpresa = document.getElementById("cnpj")
@@ -17,6 +18,7 @@ const fieldSetDados = document.getElementById("fieldset-dados")
 const catPeople = document.querySelector(".group-categ-people")
 const passWord = document.getElementById("password")
 const description = document.getElementById("description")
+var bodyDadosEndereco = {}
 
 const btnSubmit = document.getElementById("submit-estab")
 
@@ -72,6 +74,7 @@ cep.addEventListener("blur", (e) => {
 
 //Busca categorias na API
 window.addEventListener("load", (event) => {
+
   fetch("http://localhost:8080/categoria")
     .then(res => res.json())
     .then(categorias => {
@@ -108,6 +111,8 @@ window.addEventListener("load", (event) => {
 
 //Envio do cadastro do Estabelecimento p/ a API
 btnSubmit.addEventListener("click", (e) => {
+  e.preventDefault()
+
   let optionCategoria = document.getElementById("categoria-option")
 
   let dddTel
@@ -116,6 +121,7 @@ btnSubmit.addEventListener("click", (e) => {
   let horaStart = verificaAmOrPm(horaDe.value)
   let horaFinish = verificaAmOrPm(horaAte.value)
   let horaFunciona = `${horaStart} às ${horaFinish}`
+  let exibeAlert = false
 
   let bodyDados = {
     nome: nomeEmpresa.value,
@@ -135,53 +141,61 @@ btnSubmit.addEventListener("click", (e) => {
     resolve(cadastraEstab(bodyDados))
   })
 
+  const insereEnd = (obj) => new Promise((resolve, reject) => {
+    resolve(cadastraEnderecoEstab(obj))
+  })
+
   const insereEndEstab = async () => {
     try {
       const fkEstab = await insereEstab;
+      if (fkEstab.ok) {
+        const bodyDadosEndereco = {
+          estado: ufEmpresa.value,
+          cep: cepEmpresa.value,
+          cidade: cidadeEmpresa.value,
+          bairro: bairroEmpresa.value,
+          logradouro: logradouroEmpresa.value,
+          numero: numeroEmpresa.value,
+          fk_estabelecimento: fkEstab.idFk
+        }
 
-      let bodyDadosEndereco = {
-        estado: ufEmpresa.value,
-        cep: cepEmpresa.value,
-        cidade: cidadeEmpresa.value,
-        bairro: bairroEmpresa.value,
-        logradouro: logradouroEmpresa.value,
-        numero: numeroEmpresa.value,
-        fk_estabelecimento: fkEstab
+        const okEnd = await insereEnd(bodyDadosEndereco)
+        //cadastraEnderecoEstab(bodyDadosEndereco)
+
+        if (okEnd.ok) {
+          let px = 1;
+          do {
+            if (px === 1) {
+              dddTel = firstTelefoneEmpresa.value.substr(1, 2)
+              numeroTel = firstTelefoneEmpresa.value.substr(5)
+            } else {
+              dddTel = secondTelefoneEmpresa.value.substr(1, 2)
+              numeroTel = secondTelefoneEmpresa.value.substr(5)
+              px = 3
+            }
+
+            let bodyDadosTelefone = {
+              ddd: dddTel,
+              numero: numeroTel,
+              fk_estabelecimento: fkEstab.idFk
+            }
+
+            cadastraTelefoneEstab(bodyDadosTelefone)
+
+            if (secondTelefoneEmpresa.value != "" && px < 2) {
+              px = 2
+            } else {
+              px = 3
+            }
+
+          } while (px <= 2)
+        }
       }
-
-      cadastraEnderecoEstab(bodyDadosEndereco)
-
-      let px = 1;
-      do {
-        console.log("Valor px: " + px)
-        if (px === 1) {
-          dddTel = firstTelefoneEmpresa.value.substr(1, 2)
-          numeroTel = firstTelefoneEmpresa.value.substr(5)
-        } else {
-          dddTel = secondTelefoneEmpresa.value.substr(1, 2)
-          numeroTel = secondTelefoneEmpresa.value.substr(5)
-          px = 3
-        }
-
-        let bodyDadosTelefone = {
-          ddd: dddTel,
-          numero: numeroTel,
-          fk_estabelecimento: fkEstab
-        }
-
-        cadastraTelefoneEstab(bodyDadosTelefone)
-
-        if (secondTelefoneEmpresa.value != "" && px < 2) {
-          px = 2
-        } else {
-          px = 3
-        }
-
-      } while (px <= 2)
-
     }
+
     catch (err) {
       console.log(err)
+      exibeAlert(false)
     }
   }
 
@@ -208,16 +222,27 @@ function cadastraEstab(obj) {
     },
     body: JSON.stringify(obj)
   })
-    .then(res => res.json())
-    .then(id => { return id })
-    .catch(err => console.log("Erro ao cadastrar", err))
+    .then(res => {
+      if (!res.ok) {
+        throw Error(res.statusText)
+      } else {
+        return res.json()
+      }
+    })
+    .then(id => {
+      return { idFk: id, ok: true }
+    })
+    .catch(err => {
+      console.log("Erro ao cadastrar", err)
+      exibeAlert(false)
+      return { ok: false }
+    })
 
   return idEstab
 }
 
 function cadastraEnderecoEstab(obj) {
-
-  fetch("http://localhost:8080/endereco", {
+  const okEndereco = fetch("http://localhost:8080/endereco", {
     method: "POST",
     headers: {
       'Accept': 'application/json',
@@ -225,7 +250,21 @@ function cadastraEnderecoEstab(obj) {
     },
     body: JSON.stringify(obj)
   })
-    .catch(err => console.log("Erro ao cadastrar", err))
+    .then(res => {
+      if (!res.ok) {
+        throw Error(res.statusText)
+      } else {
+        return { ok: true, etapa: 2 }
+      }
+    })
+    .catch(err => {
+      console.log("Erro ao cadastrar", err)
+      exibeAlert(false)
+      desfazCadastro(obj.fkEstab, 2)
+      return { ok: false }
+    })
+
+  return okEndereco
 }
 
 function cadastraTelefoneEstab(obj) {
@@ -237,5 +276,47 @@ function cadastraTelefoneEstab(obj) {
     },
     body: JSON.stringify(obj)
   })
-    .catch(err => console.log("Erro ao cadastrar", err))
+    .then((res) => {
+      if (!res.ok) {
+        throw Error(res.statusText)
+      }
+      exibeAlert(true)
+    })
+    .catch(err => {
+      console.log("Erro ao cadastrar telefone", err)
+      exibeAlert(false)
+      desfazCadastro(obj.fk_estabelecimento, 3)
+    })
 }
+
+function exibeAlert(exibe) {
+  if (exibe) {
+    Swal.fire({
+      icon: 'success',
+      title: 'Deu tudo certo!',
+      text: "Seu cadastro foi realizado.",
+      showConfirmButton: false,
+      timer: 3500,
+    })
+  } else {
+    Swal.fire({
+      icon: 'error',
+      title: 'Opss... Ocorreu algum problema!',
+      text: "Não foi possível realizar seu cadastro, tente novamente.",
+      showConfirmButton: false,
+      timer: 4500,
+    })
+  }
+}
+
+function desfazCadastro(id, etapa) {
+  setTimeout(function () {
+    fetch(`http://localhost:8080/login/delete?idEstab=${id}&etapa=${etapa}`, {
+      method: "DELETE",
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      }
+    })
+  }, 1500);
+} 
