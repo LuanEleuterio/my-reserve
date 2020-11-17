@@ -60,13 +60,11 @@ public class HorarioController {
 		
 		horarioRepository.save(HorarioDB);
 		return HorarioDB;
-	}
+	}	
 	
-	
-	/*
 	@DeleteMapping("/{id_horario}")
 	public void deleteHorario(@PathVariable Integer id_horario) {
 		horarioRepository.deleteById(id_horario);
 	}
-	 */
+	
 }

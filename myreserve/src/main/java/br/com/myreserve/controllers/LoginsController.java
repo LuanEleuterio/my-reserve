@@ -1,9 +1,13 @@
 package br.com.myreserve.controllers;
 
+import javax.websocket.server.PathParam;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,6 +18,8 @@ import br.com.myreserve.dto.CredenciaisDTO;
 import br.com.myreserve.dto.TokenDTO;
 import br.com.myreserve.entities.Logins;
 import br.com.myreserve.exceptions.SenhaInvalidaException;
+import br.com.myreserve.repositories.LoginsRepository;
+import br.com.myreserve.services.DeletaRegistroEstabService;
 import br.com.myreserve.services.JwtService;
 import br.com.myreserve.services.LoginsService;
 import br.com.myreserve.services.UserOrEstabService;
@@ -33,6 +39,12 @@ public class LoginsController {
 	@Autowired
 	UserOrEstabService userEstabService;
 	
+	@Autowired
+	DeletaRegistroEstabService deletaRegService;
+	
+	@Autowired
+	LoginsRepository loginRepository;
+	
 	@CrossOrigin
 	@PostMapping("/auth")
 	public TokenDTO autenticar(@RequestBody CredenciaisDTO credenciais) throws Exception {
@@ -51,5 +63,11 @@ public class LoginsController {
 		}catch(UsernameNotFoundException | SenhaInvalidaException e) {
 			throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, e.getMessage());
 		}
+	}
+	
+	@CrossOrigin
+	@DeleteMapping("/delete")
+	public void deleteLogin(@PathParam("idEstab") Integer idEstab, @PathParam("etapa") Integer etapa) throws IllegalAccessException {
+		deletaRegService.deletaAllEstabelecimento(idEstab, etapa);
 	}
 }
