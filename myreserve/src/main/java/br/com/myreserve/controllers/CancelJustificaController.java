@@ -45,8 +45,8 @@ public class CancelJustificaController {
 	
 	@CrossOrigin
 	@PostMapping()
-	public String addCancelamento(@RequestBody CancelJustifica cancelJustifica) throws Exception{
-		
+	public Boolean addCancelamento(@RequestBody CancelJustifica cancelJustifica) throws Exception{
+		System.out.println(cancelJustifica.getFk_reserva());
 		Reserva reserva = reservaRepository.findById(cancelJustifica.getFk_reserva())
 				.orElseThrow(() -> new IllegalAccessException());
 		Horario horario = horarioRepository.findById(reserva.getFk_horario())
@@ -70,9 +70,9 @@ public class CancelJustificaController {
 			horario.setVagas_at_moment(horario.getVagas_at_moment() + reserva.getQtd_pessoa());
 			horarioRepository.save(horario);
 		
-			return "Reserva cancelada";
+			return true;
 		} else {
-			return "Não foi possível cancelar";
+			return false;
 		}
 		
 	}
