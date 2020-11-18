@@ -3,6 +3,7 @@ const categoriaMain = document.querySelector('.categorias-main')
 const filterRedirect = document.querySelector('.filter-mobile')
 const locationInput = document.querySelector(".location-input")
 const btnVerMais = document.querySelector("#btn-ver-mais")
+
 var numPageMax = 0
 var proxPage = 0
 
@@ -146,7 +147,6 @@ btnVerMais.addEventListener("click", () => {
     if (proxPage <= numPageMax) {
         carregaRestaurantes(proxPage)
     }
-
 })
 
 filterRedirect.addEventListener("click", () => {

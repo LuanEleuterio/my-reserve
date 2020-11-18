@@ -6,6 +6,16 @@ const btnEditar = document.getElementById("myBtn-editar");
 
 // Pega a tag que irá fechar o modal
 const spanEditar = document.getElementsByClassName("close-btn-editar")[0];
+const submitEditar = document.getElementById("submit-editar")
+
+const fotoPerfil = document.getElementById("name-editar")
+const cpfPerfil = document.getElementById("cpf-editar")
+const telefonePerfil = document.getElementById("whatsapp-editar")
+const namePerfil = document.getElementById("name-editar")
+const emailPerfil = document.getElementById("email-editar")
+const passwordPerfil = document.getElementById("password-editar")
+
+
 
 // Quando clicar, abre o modal 
 btnEditar.onclick = function () {
@@ -37,3 +47,79 @@ function mostrar(e) {
     }
 }
 // mostrar senha - fim
+
+btnEditar.addEventListener("click", () => {
+    fetch(`http://localhost:8080/usuario/byemail?email=${localStorage.getItem("myreserve-usr-email")}`)
+        .then(res => res.json())
+        .then(user => {
+            if (localStorage.getItem("myreserve-usr-identifier") == null) {
+                localStorage.setItem("myreserve-usr-identifier", user.id_usuario)
+            }
+            fotoPerfil.setAttribute("src", "../../" + user.img_perfil)
+            namePerfil.setAttribute("value", user.nome)
+            cpfPerfil.setAttribute("value", user.cpf)
+            telefonePerfil.setAttribute("value", user.telefone)
+            emailPerfil.setAttribute("value", user.email)
+        })
+})
+
+submitEditar.addEventListener("click", (e) => {
+    e.preventDefault()
+
+    let bodyDados
+
+    if (passwordPerfil.value == "") {
+        bodyDados = {
+            nome: namePerfil.value,
+            telefone: telefonePerfil.value,
+            email: emailPerfil.value
+        }
+    } else {
+        bodyDados = {
+            nome: namePerfil.value,
+            telefone: telefonePerfil.value,
+            email: emailPerfil.value,
+            senha: passwordPerfil.value
+        }
+    }
+
+    fetch(`http://localhost:8080/usuario/${localStorage.getItem("myreserve-usr-identifier")}`, {
+        method: "PUT",
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(bodyDados)
+    }).then(res => {
+        if (!res.ok) {
+            throw Error(res.statusText)
+        } else {
+            exibeAlert(true)
+            return res.json()
+        }
+    }).then(resp => console.log(resp))
+
+        .catch(err => {
+            console.log("error", err)
+            exibeAlert(true)
+        })
+})
+
+function exibeAlert(exibe) {
+    if (exibe) {
+        Swal.fire({
+            icon: 'success',
+            title: 'Dados alterados!',
+            showConfirmButton: false,
+            timer: 2500,
+        })
+    } else {
+        Swal.fire({
+            icon: 'error',
+            title: 'Opss... Ocorreu algum problema!',
+            text: "Não foi possível alterar seus dados, tente novamente.",
+            showConfirmButton: false,
+            timer: 5000,
+        })
+    }
+}
