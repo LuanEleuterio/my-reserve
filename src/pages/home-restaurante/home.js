@@ -1,10 +1,18 @@
 const containerClientes = document.querySelector('.conteudo-clientes')
 const configHourRedirect = document.querySelector("#config-hour-redirect")
+var id_justifica
+
+
 
 function carregaClientes() {
     const allClientes = listaClientes;
-
-    allClientes.forEach(values => {
+    fetch("http://localhost:8080/reserva")
+  .then( (res)=> res.json())
+  .then( (data)=> {
+    const reservas = data
+    console.log(reservas)
+ 
+    reservas.forEach(values => {
         clienteContainer = document.createElement("a");
         clientes = document.createElement("div");
 
@@ -32,29 +40,30 @@ function carregaClientes() {
 
         clienteContainer.setAttribute("class", "cliente-container");
         clientes.setAttribute("class", "clientes");
+        clientes.setAttribute("data-value", values.id_reserva);
 
         fotoCliente.setAttribute("class", "foto-cliente");
-        imgCliente.setAttribute("src", values.img_url);
+        imgCliente.setAttribute("src", "../../img/userPerfil.png");
 
         infoCliente.setAttribute("class", "info-cliente");
         nomeCliente.setAttribute("class", "nome-cliente infos");
-        nomeCliente.textContent = values.name;
+        nomeCliente.textContent = values.usuario.nome;
 
         dataInfo.setAttribute("class", "data infos");
         iconCalendar.setAttribute("class", "far fa-calendar-check col-1");
         dataText.setAttribute("class", "data")
-        dataText.textContent = values.date;
+        dataText.textContent = FormataStringData(values.data_reserva);
 
         hourInfo.setAttribute("class", "hourInfo infos")
         iconRelogio.setAttribute("class", "far fa-clock col-1");
         hourText.setAttribute("class", "horario")
-        hourText.textContent = '16:30';
+        hourText.textContent = values.hora_reserva.slice(-8,-3);
 
         containerIcons.setAttribute("class", "container-icons");
         numeroPessoas.setAttribute("class", "numero-pessoas");
         qtdPessoas.setAttribute("class", "quantidade-pessoa");
         iconPessoas.setAttribute("class", "fas fa-user-friends icon-pessoa");
-        qtdPessoas.textContent = values.totalPessoas;
+        qtdPessoas.textContent = values.qtd_pessoa;
 
         infoDeletar.setAttribute("class", "info-deletar");
         iconRemove.setAttribute("class", "fas fa-trash-alt icon-remove");
@@ -82,30 +91,41 @@ function carregaClientes() {
         infoDeletar.appendChild(iconRemove);
 
         containerClientes.appendChild(clienteContainer);
+      })
+
+      const blockClientes = document.getElementsByClassName("clientes");
+      for (let i = 0; i < blockClientes.length; i++) {
+
+        (function (index) {
+            blockClientes[index].addEventListener("click", function () {
+            modalCancel.style.display = "flex"
+            modalBtnSubmit.disabled = true
+            modalBtnSubmit.style.background = "#CCC"
+            console.log(blockClientes[index].attributes[1].value)
+
+
+           id_justifica = blockClientes[index].attributes[1].value
+
+
+            
+          })
+        })(i)
+      }
 
     });
-
+    
 }
+function FormataStringData(d) {
+  var dia  = d.split("-")[0];
+  var mes  = d.split("-")[1];
+  var ano  = d.split("-")[2];
+
+  return ano + '-' + ("0"+mes).slice(-2) + '-' + ("0"+dia).slice(-2);
+}
+
 const modalCancel = document.getElementById("myModal-cancel");
-const blockClientes = document.getElementsByClassName("clientes");
 const modalBtnSubmit = document.getElementById("btnSubmitCancelar")
 const txtModalCancel = document.getElementById("txtModalCancel")
-
-function modalCancelReserva(){
-    
-for (let i = 0; i < blockClientes.length; i++) {
-
-    (function (index) {
-        blockClientes[index].addEventListener("click", function () {
-        modalCancel.style.display = "flex"
-        modalBtnSubmit.disabled = true
-        modalBtnSubmit.style.background = "#CCC"
-        console.log(i)
-      })
-    })(i)
-  }
-
-}
 
 modalCancel.addEventListener("click", function (e) {
     if (e.target.style.display == "flex" || e.target.id == "btn-cross-modal") {
@@ -113,7 +133,6 @@ modalCancel.addEventListener("click", function (e) {
       txtModalCancel.value = ""
     }
   })
-
 
 txtModalCancel.addEventListener("input",function(){
 
@@ -123,7 +142,6 @@ txtModalCancel.addEventListener("input",function(){
             modalBtnSubmit.disabled = true
             modalBtnSubmit.style.background = "#CCC"
         }
-
 })
 
 modalBtnSubmit.addEventListener("click",function(){
@@ -131,14 +149,48 @@ modalBtnSubmit.addEventListener("click",function(){
         
     }
     if(txtModalCancel.value != ""){
-        alert("Cancelamento efetuado com sucesso!")
-        location.reload()
-        
+      const objteste = {
+        fk_reserva: parseInt(id_justifica),
+        justificativa: txtModalCancel.value
+      }
+      console.log(objteste)
+
+      fetch("http://localhost:8080/cancel-justifica",{
+        method: "POST",
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(objteste)
+      })
+      .then(res =>{console.log(res)
+        if(res.ok)exibeAlert(true)})
+       .catch(err=> console.log(err))
     }
 })
 
+function exibeAlert(exibe) {
+  if (exibe) {
+    Swal.fire({
+      icon: 'success',
+      title: 'Deu tudo certo!',
+      text: "Seu cadastro foi realizado.",
+      showConfirmButton: false,
+      timer: 3500,
+    })
+  } else {
+    Swal.fire({
+      icon: 'error',
+      title: 'Opss... Ocorreu algum problema!',
+      text: "Não foi possível realizar seu cadastro, tente novamente.",
+      showConfirmButton: false,
+      timer: 4500,
+    })
+  }
+}
+
+
 window.addEventListener("load", carregaClientes)
-window.addEventListener("load", modalCancelReserva)
 
 configHourRedirect.addEventListener("click", () => {
     window.location.href = "../configuracao-horario/configuracao-horario.html"
