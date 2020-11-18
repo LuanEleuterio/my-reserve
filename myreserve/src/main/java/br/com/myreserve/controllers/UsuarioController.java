@@ -2,6 +2,8 @@ package br.com.myreserve.controllers;
 
 import java.util.Optional;
 
+import javax.websocket.server.PathParam;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -46,6 +48,12 @@ public class UsuarioController {
 	}
 	
 	@CrossOrigin
+	@GetMapping("/byemail")
+	public Optional<Usuario> getByEmail(@PathParam("email") String email) {
+		return usuarioRepository.findByEmail(email);
+	}
+	
+	@CrossOrigin
 	@PostMapping()
 	public void addUsuario(@RequestBody Usuario usuario) {
 		Logins login = new Logins();
@@ -69,18 +77,26 @@ public class UsuarioController {
 				.orElseThrow(() -> new IllegalAccessException());
 		if(dadosUsuario.getNome() != null) userDB.setNome(dadosUsuario.getNome());
 		if(dadosUsuario.getDt_nasc() != null) userDB.setDt_nasc(dadosUsuario.getDt_nasc());
-		if(dadosUsuario.getEmail() != null) userDB.setEmail(dadosUsuario.getEmail());
 		if(dadosUsuario.getTelefone() != null) userDB.setTelefone(dadosUsuario.getTelefone());
 		if(dadosUsuario.getImg_perfil() != null) userDB.setImg_perfil(dadosUsuario.getImg_perfil());
-		if(dadosUsuario.getSenha() != null) { 
+		if(dadosUsuario.getEmail() != null) userDB.setEmail(dadosUsuario.getEmail());
+		if(dadosUsuario.getSenha() != null) {
 			String newPassword = passwordEncoder.encode(dadosUsuario.getSenha());
-			
 			userDB.setSenha(newPassword);
-			
+		};
+
+		if(dadosUsuario.getSenha() != null || dadosUsuario.getEmail() != null) {
 			Logins login = loginsRepository.findOneByIdUsuario(idUser)
 					.orElseThrow(() -> new IllegalAccessException());
 			
-			login.setSenha(newPassword);
+			if(dadosUsuario.getSenha() != null) {
+				String newPassword = passwordEncoder.encode(dadosUsuario.getSenha());
+				login.setSenha(newPassword);
+			}
+			
+			if(dadosUsuario.getEmail() != null) {
+				login.setEmail(dadosUsuario.getEmail());
+			}
 			
 			loginsRepository.save(login);
 		}
