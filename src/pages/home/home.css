@@ -259,6 +259,10 @@ header{
     display: none !important;
 }
 
+.tipo-categoria{
+    cursor: pointer;
+}
+
 .tipo-categoria p{
     display: flex;
     justify-content: center;

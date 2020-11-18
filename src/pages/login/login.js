@@ -26,7 +26,6 @@ submitLogin.addEventListener("click", () => {
 
     tentaLogin()
 
-    console.log(localStorage.getItem("myreserve-usr-token"))
 })
 
 function fazLogin(obj) {
@@ -42,6 +41,7 @@ function fazLogin(obj) {
         .then(res => res.json())
         .then(token => {
             localStorage.setItem("myreserve-usr-token", token.senha)
+            localStorage.setItem("myreserve-usr-l", "LOG")
             return token
         })
         .catch(err => console.log("Erro ao fazer login", err))

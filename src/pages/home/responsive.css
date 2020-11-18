@@ -11,8 +11,6 @@
        }
 
     .icon-header{
-        position: absolute;
-        right: 13.5em;
         font-size: 1.4em;
     }
 
@@ -31,6 +29,11 @@
         display: flex;
         align-items: center;
     }
+
+    #seu-endereco {
+        max-width: 24ch !important;
+    }
+
     /* Fim Header*/
 
     .conteudo{
@@ -42,7 +45,7 @@
     }
 
     .restaurante-container:last-child{
-        margin-bottom: 3.5em;
+        margin-bottom: 1em;
     }
 
     .restaurantes{
@@ -80,13 +83,17 @@
         display: flex;
         align-items: center;
     }
+
+    #seu-endereco {
+        max-width: 26ch !important;
+    }
     /*Fim Header*/
     .conteudo{
         display: flex;
     }
 
     .restaurante-container:last-child{
-        margin-bottom: 3.5em;
+        margin-bottom: 1em;
     }
 
     .conteudo-restaurantes{
@@ -171,7 +178,7 @@
     }
 
     .restaurante-container:last-child{
-        margin-bottom: 3.5em;
+        margin-bottom: 1em;
     }
     
     .conteudo-restaurantes{
@@ -191,6 +198,43 @@
 
     .info-restaurante{
         width: 20vw;
+    }
+}
+
+@media(min-width: 320px) and (max-width: 768px){
+
+    #seu-endereco {
+        position: relative;
+        left: .5em;
+        max-width: 35ch;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+    }
+
+    .icon-header {
+        top: .7em ;
+    }
+
+    .carrega-restaurante {
+        display: flex;
+        max-width: 1296px;
+        margin-bottom: 3.5em;
+    }
+
+    #btn-ver-mais{
+        width: 90vw;
+        max-width: 1296px;
+        height: 2em;
+        background-color: transparent;
+        border: solid var(--border) 1px;
+        border-radius: 4px;
+        color: var(--destaque);
+        font-size: medium;
+        font-family: var(--font);
+        font-weight: 400;
+        outline: none;
+        cursor: pointer;
     }
 }
 
@@ -324,6 +368,10 @@
     #seu-endereco{
         position: relative;
         left: .5em;
+        max-width: 30ch;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
     }
 
     .filter-mobile{
