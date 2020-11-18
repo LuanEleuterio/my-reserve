@@ -57,7 +57,7 @@ function carregaClientes() {
         hourInfo.setAttribute("class", "hourInfo infos")
         iconRelogio.setAttribute("class", "far fa-clock col-1");
         hourText.setAttribute("class", "horario")
-        hourText.textContent = values.hora_reserva.slice(-8,-3);
+        hourText.textContent = values.horario.horario_de.slice(-8,-3);
 
         containerIcons.setAttribute("class", "container-icons");
         numeroPessoas.setAttribute("class", "numero-pessoas");
