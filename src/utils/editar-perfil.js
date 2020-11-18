@@ -55,6 +55,7 @@ btnEditar.addEventListener("click", () => {
             if (localStorage.getItem("myreserve-usr-identifier") == null) {
                 localStorage.setItem("myreserve-usr-identifier", user.id_usuario)
             }
+            console.log(user)
             fotoPerfil.setAttribute("src", "../../" + user.img_perfil)
             namePerfil.setAttribute("value", user.nome)
             cpfPerfil.setAttribute("value", user.cpf)
@@ -97,12 +98,13 @@ submitEditar.addEventListener("click", (e) => {
             exibeAlert(true)
             return res.json()
         }
-    }).then(resp => console.log(resp))
-
-        .catch(err => {
-            console.log("error", err)
-            exibeAlert(true)
-        })
+    }).then(response => {
+        localStorage.setItem("myreserve-usr-email", response.email)
+        modalEditar.style.display = "none";
+    }).catch(err => {
+        console.log("error", err)
+        exibeAlert(true)
+    })
 })
 
 function exibeAlert(exibe) {
