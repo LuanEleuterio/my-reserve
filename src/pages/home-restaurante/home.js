@@ -5,7 +5,6 @@ var id_justifica
 
 
 function carregaClientes() {
-    const allClientes = listaClientes;
     fetch("http://localhost:8080/reserva")
   .then( (res)=> res.json())
   .then( (data)=> {
