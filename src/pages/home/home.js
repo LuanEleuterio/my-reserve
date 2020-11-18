@@ -111,7 +111,7 @@ window.addEventListener("load", (event) => {
                 imgCategoria.setAttribute("class", "img-categoria")
                 nameCategoria.setAttribute("class", "name-categoria")
 
-                imgCategoria.setAttribute("src", categoria.img_categoria)
+                imgCategoria.setAttribute("src", "../../file" + categoria.img_categoria)
                 nameCategoria.textContent = categoria.tipo_categoria
 
                 tipoCategoria.appendChild(imgCarrousel)
@@ -139,7 +139,6 @@ window.addEventListener("load", (event) => {
 //-
 
 window.addEventListener("load", carregaRestaurantes(0))
-//window.addEventListener("load", carregaCategorias)
 
 btnVerMais.addEventListener("click", () => {
     proxPage++
