@@ -46,7 +46,6 @@ public class CancelJustificaController {
 	@CrossOrigin
 	@PostMapping()
 	public Boolean addCancelamento(@RequestBody CancelJustifica cancelJustifica) throws Exception{
-		System.out.println(cancelJustifica.getFk_reserva());
 		Reserva reserva = reservaRepository.findById(cancelJustifica.getFk_reserva())
 				.orElseThrow(() -> new IllegalAccessException());
 		Horario horario = horarioRepository.findById(reserva.getFk_horario())
