@@ -37,8 +37,10 @@ public class Usuario {
 	private String senha;
 	private Boolean user_ativo;
 	
+	/*
 	@OneToMany
 	@JoinColumn(name = "fk_usuario", insertable=false, updatable=false)
+	@JsonIgnoreProperties("reservaUser")
 	private Set<Reserva> reservaUser;
 	
 	public Set<Reserva> getReserva() {
@@ -47,7 +49,7 @@ public class Usuario {
 	
 	public void setReserva(Set<Reserva> reservaUser) {
 		this.reservaUser = reservaUser;
-	}
+	}*/
 	
 	@OneToOne(mappedBy="usuarioPagamento")
 	@JsonIgnoreProperties("usuarioPagamento")

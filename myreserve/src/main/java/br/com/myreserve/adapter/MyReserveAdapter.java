@@ -15,7 +15,7 @@ public class MyReserveAdapter implements WebMvcConfigurer{
 	public void addArgumentResolvers(List<HandlerMethodArgumentResolver> resolvers) {
 		PageableHandlerMethodArgumentResolver phmar = new PageableHandlerMethodArgumentResolver();
 		
-		phmar.setFallbackPageable(PageRequest.of(0, 10));
+		phmar.setFallbackPageable(PageRequest.of(0, 12));
 		resolvers.add(phmar);
 	} 
 }
