@@ -30,10 +30,14 @@
         align-items: center;
     }
 
-    #seu-endereco {
-        max-width: 24ch !important;
+    #seu-endereco{
+        position: relative;
+        left: .5em;
+        max-width: 24ch;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
     }
-
     /* Fim Header*/
 
     .conteudo{
@@ -54,6 +58,26 @@
 
     .info-num-pessoas{
         width: 10vw;
+    }
+
+    .carrega-restaurante{
+        display:flex;
+        margin-bottom: 3.5em;
+    }
+
+    #btn-ver-mais {
+        width: 90vw;
+        max-width: 1296px;
+        height: 2em;
+        background-color: transparent;
+        border: solid var(--border) 1px;
+        border-radius: 4px;
+        color: var(--destaque);
+        font-size: medium;
+        font-family: var(--font);
+        font-weight: 400;
+        outline: none;
+        cursor: pointer;
     }
 }
 
@@ -82,10 +106,6 @@
     .filter-mobile{
         display: flex;
         align-items: center;
-    }
-
-    #seu-endereco {
-        max-width: 26ch !important;
     }
     /*Fim Header*/
     .conteudo{
@@ -146,6 +166,42 @@
     /*Fim footer*/
 }
 
+@media(min-width: 321px) and (max-width: 768px){
+
+    .icon-header{
+        top: 0.7em;
+    }
+
+    #seu-endereco{
+        position: relative;
+        left: .5em;
+        max-width: 35ch;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    .carrega-restaurante{
+        display:flex;
+        margin-bottom: 3.5em;
+    }
+
+    #btn-ver-mais {
+        width: 90vw;
+        max-width: 1296px;
+        height: 2em;
+        background-color: transparent;
+        border: solid var(--border) 1px;
+        border-radius: 4px;
+        color: var(--destaque);
+        font-size: medium;
+        font-family: var(--font);
+        font-weight: 400;
+        outline: none;
+        cursor: pointer;
+    }
+}
+
 @media (min-width:426px) and (max-width:768px){
     body{
         flex-direction: row;
@@ -198,43 +254,6 @@
 
     .info-restaurante{
         width: 20vw;
-    }
-}
-
-@media(min-width: 320px) and (max-width: 768px){
-
-    #seu-endereco {
-        position: relative;
-        left: .5em;
-        max-width: 35ch;
-        text-overflow: ellipsis;
-        overflow: hidden;
-        white-space: nowrap;
-    }
-
-    .icon-header {
-        top: .7em ;
-    }
-
-    .carrega-restaurante {
-        display: flex;
-        max-width: 1296px;
-        margin-bottom: 3.5em;
-    }
-
-    #btn-ver-mais{
-        width: 90vw;
-        max-width: 1296px;
-        height: 2em;
-        background-color: transparent;
-        border: solid var(--border) 1px;
-        border-radius: 4px;
-        color: var(--destaque);
-        font-size: medium;
-        font-family: var(--font);
-        font-weight: 400;
-        outline: none;
-        cursor: pointer;
     }
 }
 
@@ -368,9 +387,9 @@
     #seu-endereco{
         position: relative;
         left: .5em;
-        max-width: 30ch;
-        text-overflow: ellipsis;
+        max-width: 26ch;
         overflow: hidden;
+        text-overflow: ellipsis;
         white-space: nowrap;
     }
 
