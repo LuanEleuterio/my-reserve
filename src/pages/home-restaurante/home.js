@@ -163,9 +163,21 @@ modalBtnSubmit.addEventListener("click",function(){
         },
         body: JSON.stringify(objteste)
       })
-      .then(res =>{console.log(res)
-        if(res.ok)exibeAlert(true)})
-       .catch(err=> console.log(err))
+      .then(res =>{
+        if(!res.ok){
+          throw Error(res.statusText)
+        }else{
+          return res.json()
+        }
+      })
+      .then(okCancel => {
+          if(okCancel){
+          exibeAlert(true)
+        }else{
+          exibeAlert(false)
+        }
+      })
+      .catch(err=> exibeAlert(false))
     }
 })
 
@@ -173,18 +185,16 @@ function exibeAlert(exibe) {
   if (exibe) {
     Swal.fire({
       icon: 'success',
-      title: 'Deu tudo certo!',
-      text: "Seu cadastro foi realizado.",
+      title: 'A reserva foi cancelada.',
       showConfirmButton: false,
       timer: 3500,
     })
   } else {
     Swal.fire({
       icon: 'error',
-      title: 'Opss... Ocorreu algum problema!',
-      text: "Não foi possível realizar seu cadastro, tente novamente.",
+      title: 'Não foi possível cancelar essa reserva.',
       showConfirmButton: false,
-      timer: 4500,
+      timer: 2500,
     })
   }
 }
