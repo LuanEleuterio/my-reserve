@@ -1,13 +1,15 @@
 const containerClientes = document.querySelector('.conteudo-clientes')
 const configHourRedirect = document.querySelector("#config-hour-redirect")
+const pDataReserva = document.getElementById("pDataReserva")
+const pHoraReserva = document.getElementById("pHoraReserva")
 var id_justifica
 
 
 
 function carregaClientes() {
     fetch("http://localhost:8080/reserva")
-  .then( (res)=> res.json())
-  .then( (data)=> {
+    .then( (res)=> res.json())
+    .then( (data)=> {
     const reservas = data
     console.log(reservas)
  
@@ -101,16 +103,17 @@ function carregaClientes() {
             modalBtnSubmit.disabled = true
             modalBtnSubmit.style.background = "#CCC"
             console.log(blockClientes[index].attributes[1].value)
-
-
+              
            id_justifica = blockClientes[index].attributes[1].value
+              console.log(data[index])
 
-
+              pDataReserva.innerText = FormataStringData(data[index].data_reserva)
+             pHoraReserva.innerText = data[index].horario.horario_de.slice(-8,-3) +" às "+ data[index].horario.horario_ate.slice(-8,-3)
             
           })
         })(i)
       }
-
+    
     });
     
 }
