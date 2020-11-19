@@ -15,4 +15,6 @@ public class TokenDTO {
 	
 	@Transient
 	private String isUserOrEstab;
+	@Transient
+	private Integer id;
 }

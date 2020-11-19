@@ -59,7 +59,16 @@ public class LoginsController {
 			
 			String userOrEstab = userEstabService.verificaUserOrEstab(credenciais.getLogin());
 			
-			return new TokenDTO(login.getEmail(), token, userOrEstab);
+			Logins loginId = loginRepository.findByEmail(credenciais.getLogin())
+					.orElseThrow(() -> new IllegalAccessException());
+			
+			if(userOrEstab.equals("USER")) {
+				System.out.println(loginId.getIdUsuario());
+				return new TokenDTO(login.getEmail(), token, userOrEstab, loginId.getIdUsuario());
+			}else {
+				return new TokenDTO(login.getEmail(), token, userOrEstab, loginId.getIdEstabelecimento());
+			}
+
 		}catch(UsernameNotFoundException | SenhaInvalidaException e) {
 			throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, e.getMessage());
 		}
