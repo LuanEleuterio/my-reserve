@@ -534,7 +534,7 @@
         flex-wrap: wrap;
         margin-top: 1em;
         overflow: auto;
-        height: 80vh;
+        max-height: 80vh;
     }
 
     .button-horario{

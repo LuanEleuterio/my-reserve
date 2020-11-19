@@ -17,7 +17,7 @@
 
 </head>
 
-<body>
+<body onload="initTime();">
     <header class="header">
         <div class="conteiner-header">
             <div class="logo">
@@ -84,15 +84,15 @@
                 </div>
                 <div class="restaurante info-box">
                     <div class="details-restaurante">
-                        <p id='nome-restaurante'>Madero Personalite Inc. </p>
+                        <p id='nome-restaurante'></p>
 
                         <div class="tipo-categoria col-info">
                             <i class="fas fa-utensils col-icon-info"></i>
-                            <p class='col-paragrafo'>Árabe</p>
+                            <p id="categoria-restaurante" class='col-paragrafo'></p>
                         </div>
                         <div class="endereco col-info">
                             <i class="fas fa-map-marker-alt col-icon-info"></i>
-                            <p class='col-paragrafo'>Avenida Jucelino Kubitschek</p>
+                            <p id="endereco-restaurante" class='col-paragrafo'></p>
                         </div>
                         <div class="distancia col-info">
                             <i class="fas fa-route col-icon-info"></i>
@@ -102,18 +102,13 @@
                             <i class="far fa-clock col-icon-info"></i>
                             <span class='horario-funcionamento'>
                                 <p>Horário de funcionamento</p>
-                                <p id="hora-funcionamento">10:00am - 19:00pm</p>
+                                <p id="hora-funcionamento"></p>
                             </span>
                         </div>
                     </div>
                     <div class="description-rest">
-                        <p>Descrição</p>
-                        <p id='description'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sed animi ducimus,
-                            itaque quidem dicta aut nemo ea dolorum quibusdam cupiditate! Quam incidunt sed cumque illum
-                            asperiores veritatis totam at nisi!
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui dolore totam ipsa rerum est
-                            unde itaque ea a dolores rem, obcaecati pariatur tempora porro, possimus veritatis minima
-                            aliquam! Placeat, odio.</p>
+                        <p id="titulo-descricao">Descrição</p>
+                        <p id='description'></p>
                     </div>
 
                     <div class="ver-horario">
@@ -124,198 +119,11 @@
             <div class="info-horarios">
                 <div class="box-name-horario">
                     <p id='name-horario'>Horários para reserva</p>
-                    <p id='date-reserva'> 10/10/2020</p>
+                    <p id='date-reserva'></p>
                 </div>
 
-                <div class="conteiner-horario">
-                    <button id='btn-horario' class='button-horario'>
-                        <div class="box-horario">
-                            <div class="icon-horario col-horario">
-                                <i class="fas fa-clock icon-clock"></i>
-                            </div>
-                            <div class="horario-reserva col-horario">
-                                <p id='hour-reserva'>12:00 às 13:00</p>
-                            </div>
-
-                            <div class="vagas col-horario">
-                                <span>
-                                    <p>Vagas Disponivéis</p>
-                                    <p id='qtd-vagas'>12</p>
-                                </span>
-                            </div>
-                        </div>
-                    </button>
-                    <button id='btn-horario' class='button-horario'>
-                        <div class="box-horario">
-                            <div class="icon-horario col-horario">
-                                <i class="fas fa-clock icon-clock"></i>
-                            </div>
-                            <div class="horario-reserva col-horario">
-                                <p id='hour-reserva'>12:00 às 13:00</p>
-                            </div>
-
-                            <div class="vagas col-horario">
-                                <span>
-                                    <p>Vagas Disponivéis</p>
-                                    <p id='qtd-vagas'>12</p>
-                                </span>
-                            </div>
-                        </div>
-                    </button>
-                    <button id='btn-horario' class='button-horario'>
-                        <div class="box-horario">
-                            <div class="icon-horario col-horario">
-                                <i class="fas fa-clock icon-clock"></i>
-                            </div>
-                            <div class="horario-reserva col-horario">
-                                <p id='hour-reserva'>12:00 às 13:00</p>
-                            </div>
-
-                            <div class="vagas col-horario">
-                                <span>
-                                    <p>Vagas Disponivéis</p>
-                                    <p id='qtd-vagas'>12</p>
-                                </span>
-                            </div>
-                        </div>
-                    </button>
-                    <button id='btn-horario' class='button-horario'>
-                        <div class="box-horario">
-                            <div class="icon-horario col-horario">
-                                <i class="fas fa-clock icon-clock"></i>
-                            </div>
-                            <div class="horario-reserva col-horario">
-                                <p id='hour-reserva'>12:00 às 13:00</p>
-                            </div>
-
-                            <div class="vagas col-horario">
-                                <span>
-                                    <p>Vagas Disponivéis</p>
-                                    <p id='qtd-vagas'>12</p>
-                                </span>
-                            </div>
-                        </div>
-                    </button>
-                    <button id='btn-horario' class='button-horario'>
-                        <div class="box-horario">
-                            <div class="icon-horario col-horario">
-                                <i class="fas fa-clock icon-clock"></i>
-                            </div>
-                            <div class="horario-reserva col-horario">
-                                <p id='hour-reserva'>12:00 às 13:00</p>
-                            </div>
-
-                            <div class="vagas col-horario">
-                                <span>
-                                    <p>Vagas Disponivéis</p>
-                                    <p id='qtd-vagas'>12</p>
-                                </span>
-                            </div>
-                        </div>
-                    </button>
-                    <button id='btn-horario' class='button-horario'>
-                        <div class="box-horario">
-                            <div class="icon-horario col-horario">
-                                <i class="fas fa-clock icon-clock"></i>
-                            </div>
-                            <div class="horario-reserva col-horario">
-                                <p id='hour-reserva'>12:00 às 13:00</p>
-                            </div>
-
-                            <div class="vagas col-horario">
-                                <span>
-                                    <p>Vagas Disponivéis</p>
-                                    <p id='qtd-vagas'>12</p>
-                                </span>
-                            </div>
-                        </div>
-                    </button>
-                    <button id='btn-horario' class='button-horario'>
-                        <div class="box-horario">
-                            <div class="icon-horario col-horario">
-                                <i class="fas fa-clock icon-clock"></i>
-                            </div>
-                            <div class="horario-reserva col-horario">
-                                <p id='hour-reserva'>12:00 às 13:00</p>
-                            </div>
-
-                            <div class="vagas col-horario">
-                                <span>
-                                    <p>Vagas Disponivéis</p>
-                                    <p id='qtd-vagas'>12</p>
-                                </span>
-                            </div>
-                        </div>
-                    </button>
-                    <button id='btn-horario' class='button-horario'>
-                        <div class="box-horario">
-                            <div class="icon-horario col-horario">
-                                <i class="fas fa-clock icon-clock"></i>
-                            </div>
-                            <div class="horario-reserva col-horario">
-                                <p id='hour-reserva'>12:00 às 13:00</p>
-                            </div>
-
-                            <div class="vagas col-horario">
-                                <span>
-                                    <p>Vagas Disponivéis</p>
-                                    <p id='qtd-vagas'>12</p>
-                                </span>
-                            </div>
-                        </div>
-                    </button>
-                    <button id='btn-horario' class='button-horario'>
-                        <div class="box-horario">
-                            <div class="icon-horario col-horario">
-                                <i class="fas fa-clock icon-clock"></i>
-                            </div>
-                            <div class="horario-reserva col-horario">
-                                <p id='hour-reserva'>12:00 às 13:00</p>
-                            </div>
-
-                            <div class="vagas col-horario">
-                                <span>
-                                    <p>Vagas Disponivéis</p>
-                                    <p id='qtd-vagas'>12</p>
-                                </span>
-                            </div>
-                        </div>
-                    </button>
-                    <button id='btn-horario' class='button-horario'>
-                        <div class="box-horario">
-                            <div class="icon-horario col-horario">
-                                <i class="fas fa-clock icon-clock"></i>
-                            </div>
-                            <div class="horario-reserva col-horario">
-                                <p id='hour-reserva'>12:00 às 13:00</p>
-                            </div>
-
-                            <div class="vagas col-horario">
-                                <span>
-                                    <p>Vagas Disponivéis</p>
-                                    <p id='qtd-vagas'>12</p>
-                                </span>
-                            </div>
-                        </div>
-                    </button>
-                    <button id='btn-horario' class='button-horario'>
-                        <div class="box-horario">
-                            <div class="icon-horario col-horario">
-                                <i class="fas fa-clock icon-clock"></i>
-                            </div>
-                            <div class="horario-reserva col-horario">
-                                <p id='hour-reserva'>12:00 às 13:00</p>
-                            </div>
-
-                            <div class="vagas col-horario">
-                                <span>
-                                    <p>Vagas Disponivéis</p>
-                                    <p id='qtd-vagas'>12</p>
-                                </span>
-                            </div>
-                        </div>
-                    </button>
-                </div>
+                <div class="conteiner-horario"></div>
+                
             </div>
         </section>
     </main>
