@@ -49,12 +49,12 @@ function mostrar(e) {
 // mostrar senha - fim
 
 btnEditar.addEventListener("click", () => {
-    fetch(`http://localhost:8080/usuario/byemail?email=${localStorage.getItem("myreserve-usr-email")}`)
+    fetch(`http://localhost:8080/usuario/${localStorage.getItem("myreserve-usr-identifier")}`)
         .then(res => res.json())
         .then(user => {
-            if (localStorage.getItem("myreserve-usr-identifier") == null) {
-                localStorage.setItem("myreserve-usr-identifier", user.id_usuario)
-            }
+            /* if (localStorage.getItem("myreserve-usr-identifier") == null) {
+                 localStorage.setItem("myreserve-usr-identifier", user.id_usuario)
+             }*/
             fotoPerfil.setAttribute("src", "../../" + user.img_perfil)
             namePerfil.setAttribute("value", user.nome)
             cpfPerfil.setAttribute("value", user.cpf)

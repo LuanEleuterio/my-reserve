@@ -13,7 +13,6 @@ function openModalFilter() {
     modalFilter.addEventListener("click", (e) => {
         if (e.target.id == "button-fechar" || e.target.className == modalFilter.className) {
             modalFilter.classList.remove('mostrar')
-            console.log(valueRangePessoa)
             localStorage.setItem("myreserve-filter-people", valueRangePessoa.attributes[2].value)
             localStorage.setItem("myreserve-filter-distance", valueRangeDistancia.attributes[2].value)
         }

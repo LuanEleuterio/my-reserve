@@ -142,7 +142,6 @@ window.addEventListener("load", () => {
 //-
 
 function redirectInfoRest(dataValue) {
-    console.log("id " + dataValue)
     localStorage.setItem("myreserve-identifier-rest", dataValue)
     window.location.href = '../info-restaurante/info-restaurante.html'
 }
