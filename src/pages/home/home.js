@@ -6,14 +6,13 @@ const btnVerMais = document.querySelector("#btn-ver-mais")
 
 var numPageMax = 0
 var proxPage = 0
+var idIncrement = 0
 
 //Busca restaurantes na Api
 function carregaRestaurantes(numPage) {
-    console.log("numPage: " + numPage)
     fetch(`http://localhost:8080/restaurante?page=${numPage}`)
         .then(res => res.json())
         .then(restaurantes => {
-            console.log(restaurantes)
             numPageMax = restaurantes.totalPages
             restaurantes.content.forEach(restaurante => {
                 restaurenteContainer = document.createElement("a");
@@ -39,8 +38,9 @@ function carregaRestaurantes(numPage) {
                 iconPessoas = document.createElement("i");
 
                 restaurenteContainer.setAttribute("class", "restaurante-container");
+                restaurenteContainer.setAttribute("id", "rest-" + idIncrement)
                 restaurenteContainer.setAttribute("data-value", restaurante.id_estabelecimento)
-                restaurenteContainer.setAttribute("href", "../info-restaurante/info-restaurante.html")
+                //restaurenteContainer.setAttribute("href", "../info-restaurante/info-restaurante.html")
                 restaurantes.setAttribute("class", "restaurantes");
 
                 fotoRestaurante.setAttribute("class", "foto-restaurante");
@@ -86,15 +86,17 @@ function carregaRestaurantes(numPage) {
                 numeroPessoas.appendChild(iconPessoas);
 
                 conteinerRestaurantes.appendChild(restaurenteContainer);
+                const newEvent = document.getElementById(`rest-${idIncrement}`)
+                newEvent.addEventListener("click", () => { redirectInfoRest(newEvent.attributes[2].value) })
 
-
+                idIncrement++
             })
+
         }).catch(err => console.log(err))
 
 }
-
 //Busca categorias na API
-window.addEventListener("load", (event) => {
+window.addEventListener("load", () => {
 
     fetch("http://localhost:8080/categoria")
         .then(res => res.json())
@@ -139,11 +141,16 @@ window.addEventListener("load", (event) => {
 })
 //-
 
+function redirectInfoRest(dataValue) {
+    console.log("id " + dataValue)
+    localStorage.setItem("myreserve-identifier-rest", dataValue)
+    window.location.href = '../info-restaurante/info-restaurante.html'
+}
+
 window.addEventListener("load", carregaRestaurantes(0))
 
 btnVerMais.addEventListener("click", () => {
     proxPage++
-    console.log("proxPage: " + proxPage)
     if (proxPage <= numPageMax) {
         carregaRestaurantes(proxPage)
     }

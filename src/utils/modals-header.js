@@ -13,6 +13,9 @@ function openModalFilter() {
     modalFilter.addEventListener("click", (e) => {
         if (e.target.id == "button-fechar" || e.target.className == modalFilter.className) {
             modalFilter.classList.remove('mostrar')
+            console.log(valueRangePessoa)
+            localStorage.setItem("myreserve-filter-people", valueRangePessoa.attributes[2].value)
+            localStorage.setItem("myreserve-filter-distance", valueRangeDistancia.attributes[2].value)
         }
     })
 }
@@ -30,15 +33,27 @@ btnFilter.addEventListener("click", openModalFilter)
 
 
 window.addEventListener("load", () => {
-    valueRangePessoa.textContent = rangePessoa.value;
+    if (localStorage.getItem("myreserve-filter-people") != null) {
+        valueRangePessoa.textContent = localStorage.getItem("myreserve-filter-people");
+        rangePessoa.setAttribute("value", localStorage.getItem("myreserve-filter-people"))
+    } else {
+        valueRangePessoa.textContent = rangePessoa.value;
+    }
 })
 window.addEventListener("load", () => {
-    valueRangeDistancia.textContent = rangeDistancia.value + 'km';
+    if (localStorage.getItem("myreserve-filter-distance") != null) {
+        valueRangeDistancia.textContent = localStorage.getItem("myreserve-filter-distance") + 'km';
+        rangeDistancia.setAttribute("value", localStorage.getItem("myreserve-filter-distance"))
+    } else {
+        valueRangeDistancia.textContent = rangeDistancia.value + 'km';
+    }
 })
 
 rangePessoa.addEventListener('change', (e) => {
     valueRangePessoa.textContent = e.target.value;
+    valueRangePessoa.setAttribute("data-value", e.target.value)
 })
 rangeDistancia.addEventListener('change', (e) => {
     valueRangeDistancia.textContent = e.target.value + 'km';
+    valueRangeDistancia.setAttribute("data-value", e.target.value)
 })

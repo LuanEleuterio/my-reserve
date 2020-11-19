@@ -24,13 +24,15 @@ btnNotFound.addEventListener("click", openModalLocation)
 btnSubmitLoc.addEventListener("click", (e) => {
   e.preventDefault()
 
-  enderecoAtNow.textContent = `${logradouroLoc.value}, ${numeroLoc.value}`
-
+  enderecoAtNow.textContent = `${logradouroLoc.value}, ${numeroLoc.value} - ${cidadeLoc.value}`
+  localStorage.setItem("myreserve-usr-location", `${logradouroLoc.value}, ${numeroLoc.value} - ${cidadeLoc.value}`)
   modalNotFound.classList.remove('mostrar')
 })
 
 window.addEventListener("load", () => {
-  if (cepAtNow.value === "") {
+  if (localStorage.getItem("myreserve-usr-location") == null) {
     openModalLocation()
+  } else {
+    enderecoAtNow.textContent = localStorage.getItem("myreserve-usr-location")
   }
 })
