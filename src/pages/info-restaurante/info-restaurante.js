@@ -11,6 +11,23 @@ const enderecoRestaurante = document.getElementById("endereco-restaurante")
 const horarioFuncionamento = document.getElementById("hora-funcionamento")
 const descricaoRestaurante = document.getElementById("description")
 
+const blockHorario = document.getElementsByClassName("button-horario");
+
+const boxModalHorario = document.querySelector(".info-hour-modal")
+const horarioReserva = document.getElementById("hour-reserva-modal")
+const qtdVagasModal = document.getElementById("qtd-vagas-modal")
+
+const inputPessoas = document.querySelector(".qtdPessoas")
+const maxPessoas = document.getElementById("maxPessoas")
+
+const modalSubmitReserva = document.querySelector(".btn-confirmar")
+const spanValorReserva = document.getElementById("valor-reserva")
+
+var idHorario
+var valorReserva = spanValorReserva.attributes[1].value
+
+console.log(spanValorReserva.attributes[1].value)
+
 
 for (let i = 0; i < btn_horario.length; i++) {
 
@@ -57,12 +74,15 @@ function carregaDescricao() {
       enderecoRestaurante.textContent = descricao.endereco.logradouro + ", " + descricao.endereco.numero;
       horarioFuncionamento.textContent = descricao.hora_funcionamento;
       descricaoRestaurante.textContent = descricao.descricao;
+      maxPessoas.textContent = `Máximo ${descricao.max_pessoas}`
+      inputPessoas.setAttribute("max", descricao.max_pessoas)
+
 
       // Ordenando array
-      descricao.horario.sort(function (a, b) {
+      const jsonOrdenado = descricao.horario.sort(function (a, b) {
         return a.horario_de < b.horario_de ? -1 : a.horario_de > b.horario_de ? 1 : 0;
       })
-
+      console.log(descricao)
       descricao.horario.forEach(values => {
         botaoHorario = document.createElement("button");
 
@@ -81,6 +101,7 @@ function carregaDescricao() {
 
         botaoHorario.setAttribute("class", "button-horario");
         botaoHorario.setAttribute("id", "btn-horario");
+        botaoHorario.setAttribute("data-value", values.id_horario)
 
         caixaHorario.setAttribute("class", "box-horario");
 
@@ -92,9 +113,13 @@ function carregaDescricao() {
         paragrafoHora.textContent = `${values.horario_de.slice(-8, -3)} às ${values.horario_ate.slice(-8, -3)}`
 
         caixaVagas.setAttribute("class", "vagas col-horario");
-        tituloVaga.textContent = 'Vagas Disponivéis';
+        tituloVaga.textContent = 'Vagas Disponíveis';
         qtdVagas.setAttribute("id", "qtd-vagas");
         qtdVagas.textContent = `${values.vagas_at_moment}`
+        if(values.vagas_at_moment === 0){
+          tituloVaga.style.color = "var(--vermelho)"
+          qtdVagas.style.color = "var(--vermelho)"
+        }
 
         botaoHorario.appendChild(caixaHorario);
 
@@ -110,9 +135,97 @@ function carregaDescricao() {
         spanVagas.appendChild(qtdVagas);
 
         containerHorario.appendChild(botaoHorario);
+
+        // console.log(values.horario_de)
+
       })
-      // console.log(descricao)
-    })
+
+
+      for (let i = 0; i < blockHorario.length; i++) {
+
+        (function (index) {
+          blockHorario[index].addEventListener("click", function () {
+            modalHorario.style.display = "flex"
+            idHorario = jsonOrdenado[index].id_horario
+            console.log(jsonOrdenado[index])
+
+            console.log(blockHorario[index])
+
+            horarioReserva.textContent = `${jsonOrdenado[index].horario_de.slice(-8, -3)} às ${jsonOrdenado[index].horario_ate.slice(-8, -3)}`
+            qtdVagasModal.textContent = `${jsonOrdenado[index].vagas_at_moment}`
+
+
+          })
+
+        })(i)
+      }
+
+    });
+
 }
 
+modalHorario.addEventListener("click", function (e) {
+  if (e.target.id == "button-fechar") {
+    modalHorario.style.display = "none";
+  }
+})
+
 window.addEventListener("load", carregaDescricao)
+
+modalSubmitReserva.addEventListener("click", function () {
+
+  const objReserva = {
+    valor_reserva: parseFloat(valorReserva),
+    qtd_pessoa: parseInt(inputPessoas.value),
+    fk_usuario: parseInt(localStorage.getItem(`myreserve-usr-identifier`)),
+    fk_estabelecimento: parseInt(localStorage.getItem(`myreserve-identifier-rest`)),
+    fk_horario: idHorario
+  }
+
+  console.log(objReserva)
+
+  fetch("http://localhost:8080/reserva/requisita", {
+    method: "POST",
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(objReserva)
+  })
+    .then(res => {
+      if (!res.ok) {
+        throw Error(res.statusText)
+      } else {
+        return res.json()
+      }
+    })
+    .then(reserva => {
+      if(reserva){
+        exibeAlertReserva(true)
+        modalHorario.style.display = "none";
+      }else{
+        exibeAlertReserva(false)
+      }
+    })
+    .catch(err => {
+      exibeAlertReserva(false)
+      console.log(err)
+    })
+})
+function exibeAlertReserva(exibe) {
+  if (exibe) {
+    Swal.fire({
+      icon: 'success',
+      title: 'A reserva foi feita com sucesso.',
+      showConfirmButton: false,
+      timer: 3500,
+    })
+  } else {
+    Swal.fire({
+      icon: 'error',
+      title: 'Não foi possível fazer a reserva.',
+      showConfirmButton: false,
+      timer: 2500,
+    })
+  }
+}

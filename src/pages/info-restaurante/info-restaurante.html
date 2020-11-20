@@ -312,7 +312,7 @@
     <div id="modal-horario" class="modal-conteiner-filter">
         <div class="modalHorario">
             <button class="btn-fechar"><i id="button-fechar" class="fas fa-times"></i></button>
-            <h3>Horario da Reserva</h3>
+            <h3>Horário da Reserva</h3>
             <div class="hour-modal-conteudo">
                 <div class="info-hour-modal">
 
@@ -321,13 +321,13 @@
                             <i class="fas fa-clock icon-clock clock-modal"></i>
                         </div>
                         <div class="horario-reserva col-horario">
-                            <p id='hour-reserva-modal'>12:00 às 13:00</p>
+                            <p id='hour-reserva-modal'></p>
                         </div>
 
                         <div class="vagas col-horario">
                             <span>
-                                <p>Vagas Disponivéis</p>
-                                <p id='qtd-vagas-modal'>12</p>
+                                <p>Vagas Disponíveis</p>
+                                <p id='qtd-vagas-modal'></p>
                             </span>
                         </div>
                     </div>
@@ -338,16 +338,16 @@
                         </div>
                         <div class="block-layout">
                             <div class="box-quant">
-                                <span class="bold">2</span>
+                                <input type="number" class="qtdPessoas" min="1">
                             </div>
-                            <span class="font-azul bold">Máximo 4</span>
+                            <span class="font-azul bold" id="maxPessoas"></span>
                         </div>
                     </div>
 
                     <div class="divisor"></div>
                     <div class="info-pessoas preco">
                         <span class="bold">Taxa de reserva</span>
-                        <span class="font-azul bold">R$7,50</span>
+                        <span class="font-azul bold" data-value="7.50" id="valor-reserva">R$7,50</span>
                     </div>
                     <div class="divisor"></div>
                     <div class="info-pessoas pagamento">
@@ -372,12 +372,12 @@
                                     <div class="credito">
                                         <span class="bold">Crédito</span>
                                         <input type="radio" class="btn-radio" id="credito" value="credito"
-                                            name="credito">
+                                            name="cartao">
                                     </div>
                                     <div class="debito">
                                         <span class="bold">Débito</span>
                                         <input type="radio" class="btn-radio unq" id="debito" value="debito"
-                                            name="debito">
+                                            name="cartao">
                                     </div>
                                 </div>
                             </div>
@@ -447,6 +447,7 @@
     <script type="text/javascript" src="../../utils/not-found.js"></script>
     <script type="text/javascript" src="../../utils/geral.js"></script>
     <script type="text/javascript" src="../../utils/footer-redirect.js"></script>
+    <script src="../../utils/sweetalert2.all.js"></script>
 </body>
 
 </html>
