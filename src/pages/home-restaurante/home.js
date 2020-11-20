@@ -2,9 +2,14 @@ const containerClientes = document.querySelector('.conteudo-clientes')
 const configHourRedirect = document.querySelector("#config-hour-redirect")
 const pDataReserva = document.getElementById("pDataReserva")
 const pHoraReserva = document.getElementById("pHoraReserva")
+const btnModalEstab = document.getElementById("submit-salvar")
+const modalCategoria = document.getElementById("categoria-option")
+var opt = document.createElement('option');
 var id_justifica
+var dataDeHoje = new Date()
 
-
+console.log(dataDeHoje.getMonth())
+console.log(dataDeHoje.getMonth()+1)
 
 function carregaClientes() {
     fetch("http://localhost:8080/reserva")
@@ -12,8 +17,14 @@ function carregaClientes() {
     .then( (data)=> {
     const reservas = data
     console.log(reservas)
- 
-    reservas.forEach(values => {
+
+    const reservasDoDia = reservas.filter((obj) => {
+      return dataDeHoje.getDate() == obj.data_reserva.slice(-2,10) && dataDeHoje.getMonth()+1 == obj.data_reserva.slice(5,-3)
+    }) 
+
+    reservasDoDia.forEach(values => {
+        
+        
         clienteContainer = document.createElement("a");
         clientes = document.createElement("div");
 
@@ -92,8 +103,9 @@ function carregaClientes() {
         infoDeletar.appendChild(iconRemove);
 
         containerClientes.appendChild(clienteContainer);
-      })
 
+      })
+    
       const blockClientes = document.getElementsByClassName("clientes");
       for (let i = 0; i < blockClientes.length; i++) {
 
@@ -200,6 +212,83 @@ function exibeAlert(exibe) {
     })
   }
 }
+
+
+fetch("http://localhost:8080/categoria")
+      .then( (res)=> res.json())
+      .then((data) =>{
+        const categoriaRestaurante = data
+
+        categoriaRestaurante.forEach(tipos =>{
+          opt = document.createElement('option');
+          opt.value = tipos.id_categoria
+          opt.innerHTML = tipos.tipo_categoria;
+          opt.setAttribute("data-values",tipos.id_categoria)
+          modalCategoria.appendChild(opt)
+          console.log(opt)
+
+
+        })
+        
+      })
+
+      fetch(`http://localhost:8080/restaurante/${localStorage.getItem('myreserve-usr-identifier')}`)
+      .then((res)=> res.json())
+      .then((data) => {
+        console.log(data)
+       
+        document.getElementById("categoria-option").value = data.categoria.id_categoria
+
+        document.getElementById("name").value = data.nome
+        document.getElementById("cnpj").value = data.cnpj
+        document.getElementById("email").value = data.email
+
+        document.getElementById("horarioDe").value = data.hora_funcionamento.slice(0,5)
+        document.getElementById("horarioAte").value = data.hora_funcionamento.slice(-5)
+
+
+      })
+
+btnModalEstab.addEventListener("click",()=>{
+  event.preventDefault()
+  let objEstab = {}
+
+  if(document.getElementById("password").value == ""){
+    console.log("senha vazia")
+  objEstab = {
+    fk_categoria:  document.getElementById("categoria-option").value,
+    nome: document.getElementById("name").value,
+    cnpj: document.getElementById("cnpj").value,
+    email: document.getElementById("email").value,
+    hora_funcionamento: document.getElementById("horarioDe").value +" às "+ document.getElementById("horarioAte").value,
+    descricao: document.getElementById("story").value
+    }
+  }
+  if(document.getElementById("password").value != ""){
+    console.log("senha preenchida")
+    objEstab = {
+      fk_categoria:  document.getElementById("categoria-option").value,
+      nome: document.getElementById("name").value,
+      cnpj: document.getElementById("cnpj").value,
+      email: document.getElementById("email").value,
+      senha: document.getElementById("password").value,
+      hora_funcionamento: document.getElementById("horarioDe").value +" às "+ document.getElementById("horarioAte").value,
+      descricao: document.getElementById("story").value
+      }
+  }
+ 
+  console.log(objEstab)
+  
+  fetch(`http://localhost:8080/restaurante/${localStorage.getItem('myreserve-usr-identifier')}`,{
+    method: "PUT",
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(objEstab)
+  })
+  
+})
 
 
 window.addEventListener("load", carregaClientes)
