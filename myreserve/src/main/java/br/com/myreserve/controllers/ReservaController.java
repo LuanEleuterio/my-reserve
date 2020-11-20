@@ -68,7 +68,7 @@ public class ReservaController {
 	
 	@CrossOrigin
 	@PostMapping("/requisita")
-	public String requisitaReserva(@RequestBody Reserva reserva) throws Exception{
+	public Boolean requisitaReserva(@RequestBody Reserva reserva) throws Exception{
 		
 		atNow = LocalDateTime.now(ZoneId.of("America/Sao_Paulo")).format(DateTimeFormatter.ofPattern("HH:mm:ss"));
 		dateNow = LocalDateTime.now(ZoneId.of("America/Sao_Paulo")).format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
@@ -86,9 +86,9 @@ public class ReservaController {
 			hour.setVagas_at_moment(hour.getVagas_at_moment() - reserva.getQtd_pessoa());
 			horarioRepository.save(hour);
 			
-			return "Reserva feita com sucesso!";
+			return true;
 		}else{
-			return "Não foi possível realizar a reserva.";
+			return false;
 		}
 	}
 
