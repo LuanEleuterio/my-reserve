@@ -84,19 +84,28 @@ public class EstabelecimentoController {
 			estabDB.setMax_pessoas(dadosEstab.getMax_pessoas());
 			horarioRepository.updateQtdPessoaByFk(dadosEstab.getMax_pessoas(), idEstab);
 			}
-		if(dadosEstab.getFk_categoria() != null) estabDB.setFk_categoria(dadosEstab.getFk_categoria());
+		if(dadosEstab.getEmail() != null) estabDB.setEmail(dadosEstab.getEmail());
 		if(dadosEstab.getSenha() != null) {
 			String newPassword = passwordEncoder.encode(dadosEstab.getSenha());
-			
 			estabDB.setSenha(newPassword);
-			
+		};
+
+		if(dadosEstab.getSenha() != null || dadosEstab.getEmail() != null) {
 			Logins login = loginsRepository.findOneByIdEstabelecimento(idEstab)
 					.orElseThrow(() -> new IllegalAccessException());
 			
-			login.setSenha(newPassword);
+			if(dadosEstab.getSenha() != null) {
+				String newPassword = passwordEncoder.encode(dadosEstab.getSenha());
+				login.setSenha(newPassword);
+			}
+			
+			if(dadosEstab.getEmail() != null) {
+				login.setEmail(dadosEstab.getEmail());
+			}
 			
 			loginsRepository.save(login);
-		};
+		}
+		
 		return estabelecimentoRepository.save(estabDB);
 	}
 }
