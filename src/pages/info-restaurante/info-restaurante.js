@@ -32,31 +32,36 @@ btnVerHorarios.addEventListener("click", () => {
   window.location.href = '../info-horarios/info-horarios.html'
 })
 
-function mostrarData(){
-    // Obtém a data
-    var data = new Date();
+function mostrarData() {
+  // Obtém a data
+  var data = new Date();
 
-    var localdate = data.getDate() + `/` + (data.getMonth()+1) + `/` + data.getFullYear();
-    document.getElementById("date-reserva").innerHTML = localdate;
+  var localdate = data.getDate() + `/` + (data.getMonth() + 1) + `/` + data.getFullYear();
+  document.getElementById("date-reserva").innerHTML = localdate;
 }
-function initTime(){
+function initTime() {
   setInterval(mostrarData, 1000);
 }
 
 function carregaDescricao() {
-  
-  fetch(`http://localhost:8080/restaurante/6`)
+
+  fetch(`http://localhost:8080/restaurante/${localStorage.getItem("myreserve-identifier-rest")}`)
     .then(res => res.json())
     .then(descricao => {
 
       console.log(descricao)
-      console.log(imageRestaurante)
+      // console.log(imageRestaurante)
       imageRestaurante.style.backgroundImage = `url('../../${descricao.img_estabelecimento}')`;
       nomeRestaurante.textContent = descricao.nome;
       categoriaRestaurante.textContent = descricao.categoria.tipo_categoria;
       enderecoRestaurante.textContent = descricao.endereco.logradouro + ", " + descricao.endereco.numero;
       horarioFuncionamento.textContent = descricao.hora_funcionamento;
       descricaoRestaurante.textContent = descricao.descricao;
+
+      // Ordenando array
+      descricao.horario.sort(function (a, b) {
+        return a.horario_de < b.horario_de ? -1 : a.horario_de > b.horario_de ? 1 : 0;
+      })
 
       descricao.horario.forEach(values => {
         botaoHorario = document.createElement("button");
@@ -84,7 +89,7 @@ function carregaDescricao() {
 
         divHorario.setAttribute("class", "horario-reserva col-horario");
         paragrafoHora.setAttribute("id", "hour-reserva");
-        paragrafoHora.textContent = `${values.horario_de.slice(-8,-3)} às ${values.horario_ate.slice(-8,-3)}`
+        paragrafoHora.textContent = `${values.horario_de.slice(-8, -3)} às ${values.horario_ate.slice(-8, -3)}`
 
         caixaVagas.setAttribute("class", "vagas col-horario");
         tituloVaga.textContent = 'Vagas Disponivéis';
