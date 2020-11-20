@@ -891,6 +891,7 @@
     
     .block-layout{
         display: flex;
+        align-items: center;
         width: 16vw;
     }
     .btn-confirmar{

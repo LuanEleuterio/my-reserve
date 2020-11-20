@@ -366,6 +366,15 @@ header{
 .info-horarios{
     display: none;
 }
+.box-quant input[type="number"] {
+    border: none;
+}
+.qtdPessoas {
+    background: none;
+    width: 3em;
+    height: 2em;
+    padding: 2px 0 2px 15px;
+}
 /*Fim Horiarios p/ reserva */
 
 /*Inicio footer*/
