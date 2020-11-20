@@ -8,15 +8,13 @@ var opt = document.createElement('option');
 var id_justifica
 var dataDeHoje = new Date()
 
-console.log(dataDeHoje.getMonth())
-console.log(dataDeHoje.getMonth()+1)
 
 function carregaClientes() {
     fetch("http://localhost:8080/reserva")
     .then( (res)=> res.json())
     .then( (data)=> {
     const reservas = data
-    console.log(reservas)
+
 
     const reservasDoDia = reservas.filter((obj) => {
       return dataDeHoje.getDate() == obj.data_reserva.slice(-2,10) && dataDeHoje.getMonth()+1 == obj.data_reserva.slice(5,-3)
@@ -114,10 +112,10 @@ function carregaClientes() {
             modalCancel.style.display = "flex"
             modalBtnSubmit.disabled = true
             modalBtnSubmit.style.background = "#CCC"
-            console.log(blockClientes[index].attributes[1].value)
+ 
               
            id_justifica = blockClientes[index].attributes[1].value
-              console.log(data[index])
+
 
               pDataReserva.innerText = FormataStringData(data[index].data_reserva)
              pHoraReserva.innerText = data[index].horario.horario_de.slice(-8,-3) +" às "+ data[index].horario.horario_ate.slice(-8,-3)
@@ -167,7 +165,7 @@ modalBtnSubmit.addEventListener("click",function(){
         fk_reserva: parseInt(id_justifica),
         justificativa: txtModalCancel.value
       }
-      console.log(objteste)
+
 
       fetch("http://localhost:8080/cancel-justifica",{
         method: "POST",
@@ -225,7 +223,7 @@ fetch("http://localhost:8080/categoria")
           opt.innerHTML = tipos.tipo_categoria;
           opt.setAttribute("data-values",tipos.id_categoria)
           modalCategoria.appendChild(opt)
-          console.log(opt)
+
 
 
         })
@@ -235,7 +233,7 @@ fetch("http://localhost:8080/categoria")
       fetch(`http://localhost:8080/restaurante/${localStorage.getItem('myreserve-usr-identifier')}`)
       .then((res)=> res.json())
       .then((data) => {
-        console.log(data)
+
        
         document.getElementById("categoria-option").value = data.categoria.id_categoria
 
@@ -254,7 +252,7 @@ btnModalEstab.addEventListener("click",()=>{
   let objEstab = {}
 
   if(document.getElementById("password").value == ""){
-    console.log("senha vazia")
+ 
   objEstab = {
     fk_categoria:  document.getElementById("categoria-option").value,
     nome: document.getElementById("name").value,
@@ -265,7 +263,7 @@ btnModalEstab.addEventListener("click",()=>{
     }
   }
   if(document.getElementById("password").value != ""){
-    console.log("senha preenchida")
+ 
     objEstab = {
       fk_categoria:  document.getElementById("categoria-option").value,
       nome: document.getElementById("name").value,
@@ -277,7 +275,6 @@ btnModalEstab.addEventListener("click",()=>{
       }
   }
  
-  console.log(objEstab)
   
   fetch(`http://localhost:8080/restaurante/${localStorage.getItem('myreserve-usr-identifier')}`,{
     method: "PUT",
