@@ -5,6 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -25,11 +26,6 @@ public class Reserva {
 	private Integer fk_horario;
 		
 	@OneToOne
-	@JoinColumn(name = "fk_horario", insertable=false, updatable=false)
-	private Horario horario;
-	
-	
-	@OneToOne
 	@JoinColumn(name = "fk_usuario", insertable=false, updatable=false)
 	@JsonIgnoreProperties("usuarioReserva")
 	private Usuario usuarioReserva;
@@ -41,6 +37,23 @@ public class Reserva {
 	public void setUsuario(Usuario usuarioReserva) {
 		this.usuarioReserva = usuarioReserva;
 	}
+	
+	@OneToOne
+	@JoinColumn(name = "fk_estabelecimento", insertable=false, updatable=false)
+	@JsonIgnoreProperties(value = "reservaUser", allowGetters=false)
+	private Estabelecimento estabReserva;
+	
+	public String getEstab() {
+		return estabReserva.getNome();
+	}
+	
+	public void setEstab(Estabelecimento estab) {
+		this.estabReserva = estab;
+	}
+	
+	@OneToOne
+	@JoinColumn(name = "fk_horario", insertable=false, updatable=false)
+	private Horario horario;
 	
 	public Horario getHorario() {
 		return horario;

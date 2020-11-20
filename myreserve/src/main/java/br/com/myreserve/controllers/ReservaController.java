@@ -50,8 +50,14 @@ public class ReservaController {
 	
 	@CrossOrigin
 	@GetMapping("/{id}")
-	public Optional<Reserva> getReservasById(@PathVariable int id) {
+	public Optional<Reserva> getReservasById(@PathVariable Integer id) {
 		return reservaRepository.findById(id);
+	}
+	
+	@CrossOrigin
+	@GetMapping("/byUser/{id}")
+	public Iterable<Reserva> getAllByUser(@PathVariable Integer id){
+		return reservaRepository.findAllByUser(id);
 	}
 	
 	@CrossOrigin

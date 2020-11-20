@@ -89,8 +89,9 @@ public class Estabelecimento {
 		this.telefone = telefone;
 	}
 	
-	@OneToMany
-	@JoinColumn(name = "fk_estabelecimento")
+	@OneToMany(mappedBy ="estabReserva")
+	//@JoinColumn(name = "fk_estabelecimento")
+	@JsonIgnoreProperties("estabReserva")
 	private Set<Reserva> reservaUser;
 	
 	public Set<Reserva> getReserva() {
