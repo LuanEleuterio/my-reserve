@@ -57,28 +57,41 @@ function initTime() {
   setInterval(mostrarData, 1000);
 }
 
-function carregaDescricao() {
-
+function carregaDescricao(option = true) {
+  //option serve para quando eu fazer uma reserva, ele recarregar somento os horários
   fetch(`http://localhost:8080/restaurante/${localStorage.getItem("myreserve-identifier-rest")}`)
     .then(res => res.json())
     .then(descricao => {
 
-      imageRestaurante.style.backgroundImage = `url('../../../myreserve/${descricao.img_estabelecimento}')`;
-      nomeRestaurante.textContent = descricao.nome;
-      categoriaRestaurante.textContent = descricao.categoria.tipo_categoria;
-      enderecoRestaurante.textContent = descricao.endereco.logradouro + ", " + descricao.endereco.numero;
-      horarioFuncionamento.textContent = descricao.hora_funcionamento;
-      descricaoRestaurante.textContent = descricao.descricao;
-      maxPessoas.textContent = `Máximo ${descricao.max_pessoas}`
-      inputPessoas.setAttribute("max", descricao.max_pessoas)
-
+      if (option) {
+        imageRestaurante.style.backgroundImage = `url('../../../myreserve/${descricao.img_estabelecimento}')`;
+        nomeRestaurante.textContent = descricao.nome;
+        categoriaRestaurante.textContent = descricao.categoria.tipo_categoria;
+        enderecoRestaurante.textContent = descricao.endereco.logradouro + ", " + descricao.endereco.numero;
+        horarioFuncionamento.textContent = descricao.hora_funcionamento;
+        descricaoRestaurante.textContent = descricao.descricao;
+        maxPessoas.textContent = `Máximo ${descricao.max_pessoas}`
+        inputPessoas.setAttribute("max", descricao.max_pessoas)
+      }
 
       // Ordenando array
       const jsonOrdenado = descricao.horario.sort(function (a, b) {
         return a.horario_de < b.horario_de ? -1 : a.horario_de > b.horario_de ? 1 : 0;
       })
 
-      descricao.horario.forEach(values => {
+      const onlyHourAtivo = jsonOrdenado.filter((obj) => {
+        return obj.ativo == true
+      })
+
+      var btnsHours = document.querySelectorAll(".button-horario")
+
+      for (let i = 0; i < btnsHours.length; i++) {
+        if (btnsHours[i].parentNode) {
+          btnsHours[i].parentNode.removeChild(btnsHours[i])
+        }
+      }
+
+      onlyHourAtivo.forEach(values => {
         botaoHorario = document.createElement("button");
 
         caixaHorario = document.createElement("div");
@@ -128,21 +141,18 @@ function carregaDescricao() {
         caixaVagas.appendChild(spanVagas);
         spanVagas.appendChild(tituloVaga);
         spanVagas.appendChild(qtdVagas);
-
         containerHorario.appendChild(botaoHorario);
-
       })
-
 
       for (let i = 0; i < blockHorario.length; i++) {
 
         (function (index) {
           blockHorario[index].addEventListener("click", function () {
             modalHorario.style.display = "flex"
-            idHorario = jsonOrdenado[index].id_horario
+            idHorario = onlyHourAtivo[index].id_horario
 
-            horarioReserva.textContent = `${jsonOrdenado[index].horario_de.slice(-8, -3)} às ${jsonOrdenado[index].horario_ate.slice(-8, -3)}`
-            qtdVagasModal.textContent = `${jsonOrdenado[index].vagas_at_moment}`
+            horarioReserva.textContent = `${onlyHourAtivo[index].horario_de.slice(-8, -3)} às ${onlyHourAtivo[index].horario_ate.slice(-8, -3)}`
+            qtdVagasModal.textContent = `${onlyHourAtivo[index].vagas_at_moment}`
 
           })
 
@@ -189,6 +199,7 @@ modalSubmitReserva.addEventListener("click", function () {
     .then(reserva => {
       if (reserva) {
         exibeAlertReserva(true)
+        carregaDescricao(false)
         modalHorario.style.display = "none";
       } else {
         exibeAlertReserva(false)
@@ -199,6 +210,7 @@ modalSubmitReserva.addEventListener("click", function () {
       console.log(err)
     })
 })
+
 function exibeAlertReserva(exibe) {
   if (exibe) {
     Swal.fire({

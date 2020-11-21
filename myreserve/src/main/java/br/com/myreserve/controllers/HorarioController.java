@@ -15,7 +15,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.myreserve.entities.Horario;
+import br.com.myreserve.entities.Reserva;
 import br.com.myreserve.repositories.HorarioRepository;
+import br.com.myreserve.repositories.ReservaRepository;
 
 @RestController
 @RequestMapping("/horario")
@@ -23,6 +25,9 @@ public class HorarioController {
 	
 	@Autowired
 	private HorarioRepository horarioRepository;
+	
+	@Autowired 
+	private ReservaRepository reservaRepository;
 	
 	@CrossOrigin
 	@GetMapping
@@ -45,6 +50,7 @@ public class HorarioController {
 	@CrossOrigin
 	@PostMapping()
 	public void addHorario(@RequestBody Horario horario) {
+		horario.setAtivo(true);
 		horario.setVagas_at_moment(horario.getTotal_vagas());
 		horarioRepository.save(horario);
 	}
@@ -71,8 +77,17 @@ public class HorarioController {
 	
 	@CrossOrigin
 	@DeleteMapping("/{id_horario}")
-	public void deleteHorario(@PathVariable Integer id_horario) {
-		horarioRepository.deleteById(id_horario);
+	public void deleteHorario(@PathVariable Integer id_horario) throws IllegalAccessException {
+		Reserva reserva = reservaRepository.selectByFkHorario(id_horario);
+		
+		if(reserva != null) {
+			Horario hour = horarioRepository.findById(id_horario)
+					.orElseThrow(() -> new IllegalAccessException());
+			hour.setAtivo(false);
+			horarioRepository.save(hour);
+		}else {	
+			horarioRepository.deleteById(id_horario);
+		}
 	}
 	
 }

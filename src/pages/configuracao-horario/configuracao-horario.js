@@ -23,6 +23,12 @@ function carregaHorarios() {
                 return a.horario_de < b.horario_de ? -1 : a.horario_de > b.horario_de ? 1 : 0;
             })
 
+            console.log(hourOrdenado)
+
+            const onlyHourAtivo = hourOrdenado.filter((obj) => {
+                return obj.ativo == true
+            })
+
             var buttonsHours = document.querySelectorAll(".button-horario")
 
             for (let i = 0; i < buttonsHours.length; i++) {
@@ -31,7 +37,7 @@ function carregaHorarios() {
                 }
             }
 
-            hourOrdenado.forEach(horario => {
+            onlyHourAtivo.forEach(horario => {
                 buttonHorario = document.createElement("button");
 
                 boxHorario = document.createElement("div");

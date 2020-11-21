@@ -23,23 +23,32 @@ public class Horario {
 	private Integer qtd_pessoa_vaga;
 	private Integer total_vagas;
 	private Integer vagas_at_moment;
+	private Boolean ativo;
 	private Integer fk_estabelecimento;
 
 	public Horario() {}
 	
 	public Horario(String horario_de, String horario_ate, Integer qtd_pessoa_vaga, Integer total_vagas,
-			Integer vagas_at_moment, Estabelecimento estabHorario, Integer fk_estabelecimento) {
+			Integer vagas_at_moment, Estabelecimento estabHorario, Boolean ativo, Integer fk_estabelecimento) {
 		this.horario_de = horario_de;
 		this.horario_ate = horario_ate;
 		this.qtd_pessoa_vaga = qtd_pessoa_vaga;
 		this.total_vagas = total_vagas;
 		this.vagas_at_moment = vagas_at_moment;
+		this.ativo = ativo;
 		this.fk_estabelecimento = fk_estabelecimento;
 	}
 
-	
 	public Integer getId_horario() {
 		return id_horario;
+	}
+
+	public Boolean getAtivo() {
+		return ativo;
+	}
+
+	public void setAtivo(Boolean ativo) {
+		this.ativo = ativo;
 	}
 
 	public String getHorario_de() {
