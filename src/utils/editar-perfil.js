@@ -55,7 +55,7 @@ btnEditar.addEventListener("click", () => {
             /* if (localStorage.getItem("myreserve-usr-identifier") == null) {
                  localStorage.setItem("myreserve-usr-identifier", user.id_usuario)
              }*/
-            fotoPerfil.setAttribute("src", "../../" + user.img_perfil)
+            fotoPerfil.setAttribute("src", "../../../myreserve/" + user.img_perfil)
             namePerfil.setAttribute("value", user.nome)
             cpfPerfil.setAttribute("value", user.cpf)
             telefonePerfil.setAttribute("value", user.telefone)

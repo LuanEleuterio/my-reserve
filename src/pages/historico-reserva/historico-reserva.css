@@ -294,7 +294,7 @@ header{
 }
 
 .carrega-reserva{
-    display:none;
+    display:none !important;
     max-width: 1296px;
 }
 
@@ -352,6 +352,11 @@ footer{
     display: flex;
     flex-wrap: wrap;
     position: absolute !important;
+}
+
+
+.mostrar .modal-conteudo {
+    animation: modal-animation .3s;
 }
 
 .snNomeRestaurante{

@@ -24,9 +24,7 @@ submitLogin.addEventListener("click", (e) => {
             console.log(err)
         }
     }
-
     tentaLogin()
-
 })
 
 function fazLogin(obj) {
@@ -39,17 +37,27 @@ function fazLogin(obj) {
         },
         body: JSON.stringify(obj)
     })
-        .then(res => res.json())
+        .then(res => {
+            if (!res.ok) {
+                throw Error(res.statusText)
+            } else {
+                return res.json()
+            }
+
+        })
         .then(token => {
             console.log(token)
             localStorage.setItem("myreserve-usr-token", token.senha)
             localStorage.setItem("myreserve-usr-email", token.login)
             localStorage.setItem("myreserve-usr-identifier", token.id)
             localStorage.setItem("myreserve-usr-l", "LOG")
-
             return token
+            //exibeAlert(true)
         })
-        .catch(err => console.log("Erro ao fazer login", err))
+        .catch(err => {
+            exibeAlert(false)
+            console.log("Erro ao fazer login", err)
+        })
 
     return dadosLogin
 }
@@ -59,5 +67,25 @@ function redirectToUserOrEstab(typeUsr) {
         window.location.href = '../home/home.html'
     } else if (typeUsr === "ESTAB") {
         window.location.href = '../home-restaurante/home-restaurante.html'
+    }
+}
+
+function exibeAlert(exibe) {
+    if (exibe) {
+        Swal.fire({
+            icon: 'success',
+            title: 'Deu tudo certo!',
+            text: "Seu cadastro foi realizado.",
+            showConfirmButton: false,
+            timer: 3500,
+        })
+    } else {
+        Swal.fire({
+            icon: 'error',
+            title: 'Opss... Ocorreu algum problema!',
+            text: "Dados de login incorretos, tente novamente",
+            showConfirmButton: false,
+            timer: 4500,
+        })
     }
 }

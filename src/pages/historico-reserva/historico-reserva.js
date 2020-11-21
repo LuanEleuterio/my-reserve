@@ -79,15 +79,11 @@ function carregaReservas() {
 
                 (function (index) {
                     btnModalCancelar[index].addEventListener("click", function () {
-                        if (window.innerWidth > 768) {
-                            modalCancelar.classList.add("mostrar")
-                            snNomeRestaurante.innerText = onlyReservaAtivas[index].estab
-                            pDataReserva.innerText = FormataStringData(onlyReservaAtivas[index].data_reserva)
-                            phourReserva.innerText = onlyReservaAtivas[index].horario.horario_de.slice(-8, -3) + " às " + onlyReservaAtivas[index].horario.horario_ate.slice(-8, -3)
-                            idReserva = onlyReservaAtivas[index].id_reserva
-                        } else {
-                            window.location.href = '../confirma-cancelamento/confirmarCancelamento.html'
-                        }
+                        modalCancelar.classList.add("mostrar")
+                        snNomeRestaurante.innerText = onlyReservaAtivas[index].estab
+                        pDataReserva.innerText = FormataStringData(onlyReservaAtivas[index].data_reserva)
+                        phourReserva.innerText = onlyReservaAtivas[index].horario.horario_de.slice(-8, -3) + " às " + onlyReservaAtivas[index].horario.horario_ate.slice(-8, -3)
+                        idReserva = onlyReservaAtivas[index].id_reserva
                     })
                 })(i)
             }
@@ -100,21 +96,18 @@ function modalCancelar() {
 
     /*Inicio modal cancelar*/
 
-    const btnModalCancelar = document.getElementsByClassName("btn-cancelar")
+    //const btnModalCancelar = document.getElementsByClassName("btn-cancelar")
     const modalCancelar = document.getElementById("modal-cancelar")
 
+    /*
     for (let i = 0; i < btnModalCancelar.length; i++) {
-
+    
         (function (index) {
             btnModalCancelar[index].addEventListener("click", function () {
-                if (window.innerWidth > 768) {
-                    modalCancelar.classList.add("mostrar")
-                } else {
-                    window.location.href = '../confirma-cancelamento/confirmarCancelamento.html'
-                }
+                modalCancelar.classList.add("mostrar")
             })
         })(i)
-    }
+    }*/
 
     modalCancelar.addEventListener("click", function (e) {
 
@@ -148,12 +141,58 @@ function FormataStringData(d) {
 }
 
 btnConfirmaCancel.addEventListener("click", () => {
-    console.log(idReserva)
+    const bodyCancel = {
+        fk_reserva: idReserva
+    }
+
+    fetch("http://localhost:8080/cancel-justifica", {
+        method: "POST",
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(bodyCancel)
+    }).then(res => {
+        if (!res.ok) {
+            throw Error(res.statusText)
+        } else {
+            return res.json()
+        }
+    }).then(cancel => {
+        if (cancel) {
+            exibeAlertCancel(true)
+            //modalCancelar.classList.remove("mostrar")
+        } else {
+            exibeAlertCancel(false)
+        }
+    }).catch(err => {
+        exibeAlertCancel(false)
+        console.log(err)
+    })
 })
 
 window.addEventListener("load", carregaReservas)
 window.addEventListener("load", modalVisitar)
 window.addEventListener("load", modalCancelar)
+
+
+function exibeAlertCancel(exibe) {
+    if (exibe) {
+        Swal.fire({
+            icon: 'success',
+            title: 'Reserva cancelada!',
+            showConfirmButton: false,
+            timer: 3500,
+        })
+    } else {
+        Swal.fire({
+            icon: 'error',
+            title: 'Opss... não foi possível cancelar a reserva!',
+            showConfirmButton: false,
+            timer: 4500,
+        })
+    }
+}
 
 
 

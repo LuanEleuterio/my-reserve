@@ -40,11 +40,10 @@ function carregaRestaurantes(numPage) {
                 restaurenteContainer.setAttribute("class", "restaurante-container");
                 restaurenteContainer.setAttribute("id", "rest-" + idIncrement)
                 restaurenteContainer.setAttribute("data-value", restaurante.id_estabelecimento)
-                //restaurenteContainer.setAttribute("href", "../info-restaurante/info-restaurante.html")
                 restaurantes.setAttribute("class", "restaurantes");
 
                 fotoRestaurante.setAttribute("class", "foto-restaurante");
-                imgRestaurante.setAttribute("src", "../../../" + restaurante.img_estabelecimento);
+                imgRestaurante.setAttribute("src", "../../../myreserve/" + restaurante.img_estabelecimento);
 
                 infoRestaurante.setAttribute("class", "info-restaurante");
                 nomeRestaurante.setAttribute("class", "nome-restaurante infos");
@@ -114,7 +113,7 @@ window.addEventListener("load", () => {
                 imgCategoria.setAttribute("class", "img-categoria")
                 nameCategoria.setAttribute("class", "name-categoria")
 
-                imgCategoria.setAttribute("src", "../../file" + categoria.img_categoria)
+                imgCategoria.setAttribute("src", "../../../myreserve/" + categoria.img_categoria)
                 nameCategoria.textContent = categoria.tipo_categoria
 
                 tipoCategoria.appendChild(imgCarrousel)

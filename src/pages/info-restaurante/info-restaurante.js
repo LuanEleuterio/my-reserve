@@ -26,9 +26,6 @@ const spanValorReserva = document.getElementById("valor-reserva")
 var idHorario
 var valorReserva = spanValorReserva.attributes[1].value
 
-console.log(spanValorReserva.attributes[1].value)
-
-
 for (let i = 0; i < btn_horario.length; i++) {
 
   (function (index) {
@@ -66,9 +63,7 @@ function carregaDescricao() {
     .then(res => res.json())
     .then(descricao => {
 
-      console.log(descricao)
-      // console.log(imageRestaurante)
-      imageRestaurante.style.backgroundImage = `url('../../${descricao.img_estabelecimento}')`;
+      imageRestaurante.style.backgroundImage = `url('../../../myreserve/${descricao.img_estabelecimento}')`;
       nomeRestaurante.textContent = descricao.nome;
       categoriaRestaurante.textContent = descricao.categoria.tipo_categoria;
       enderecoRestaurante.textContent = descricao.endereco.logradouro + ", " + descricao.endereco.numero;
@@ -82,7 +77,7 @@ function carregaDescricao() {
       const jsonOrdenado = descricao.horario.sort(function (a, b) {
         return a.horario_de < b.horario_de ? -1 : a.horario_de > b.horario_de ? 1 : 0;
       })
-      console.log(descricao)
+
       descricao.horario.forEach(values => {
         botaoHorario = document.createElement("button");
 
@@ -116,7 +111,7 @@ function carregaDescricao() {
         tituloVaga.textContent = 'Vagas Disponíveis';
         qtdVagas.setAttribute("id", "qtd-vagas");
         qtdVagas.textContent = `${values.vagas_at_moment}`
-        if(values.vagas_at_moment === 0){
+        if (values.vagas_at_moment === 0) {
           tituloVaga.style.color = "var(--vermelho)"
           qtdVagas.style.color = "var(--vermelho)"
         }
@@ -136,8 +131,6 @@ function carregaDescricao() {
 
         containerHorario.appendChild(botaoHorario);
 
-        // console.log(values.horario_de)
-
       })
 
 
@@ -147,13 +140,9 @@ function carregaDescricao() {
           blockHorario[index].addEventListener("click", function () {
             modalHorario.style.display = "flex"
             idHorario = jsonOrdenado[index].id_horario
-            console.log(jsonOrdenado[index])
-
-            console.log(blockHorario[index])
 
             horarioReserva.textContent = `${jsonOrdenado[index].horario_de.slice(-8, -3)} às ${jsonOrdenado[index].horario_ate.slice(-8, -3)}`
             qtdVagasModal.textContent = `${jsonOrdenado[index].vagas_at_moment}`
-
 
           })
 
@@ -182,8 +171,6 @@ modalSubmitReserva.addEventListener("click", function () {
     fk_horario: idHorario
   }
 
-  console.log(objReserva)
-
   fetch("http://localhost:8080/reserva/requisita", {
     method: "POST",
     headers: {
@@ -200,10 +187,10 @@ modalSubmitReserva.addEventListener("click", function () {
       }
     })
     .then(reserva => {
-      if(reserva){
+      if (reserva) {
         exibeAlertReserva(true)
         modalHorario.style.display = "none";
-      }else{
+      } else {
         exibeAlertReserva(false)
       }
     })
