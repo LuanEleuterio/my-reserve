@@ -223,17 +223,25 @@ header{
     max-width: 380px;
 }
 
-.foto-restaurante{
+.date-reserve{
     position: relative;
     display:flex;
     align-content: center;
     margin-right: .3em;
 }
 
-.foto-restaurante img{
-    width: 5em;
-    height: 4em;
-    border-radius: var(--border-radius);
+.data-reserva{
+    display: flex;
+    align-items: center;
+    border-right: 1px solid var(--border); 
+    height: 4em; 
+
+}
+
+.data-info{
+    color: var(--preto);
+    font-weight: bold;
+    padding-right: .3em;
 }
 
 .info-restaurante{
@@ -348,7 +356,7 @@ footer{
 
 .snNomeRestaurante{
     color: #322153d7;
-    font-size: medium;
+    font-size: large;
     padding-right: 2%;
     font-weight: 500;
 }

@@ -37,7 +37,6 @@
   animation: modal-animation .5s;
 }
 
-
 @media(min-width: 768px) and (max-width: 1023px){
   .conteudo-modal-lcl {
       margin: 0 auto;

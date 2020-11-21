@@ -24,6 +24,15 @@
 
 @media (min-width:769px)  {
 
+    #seu-endereco {
+        position: relative;
+        left: .5em;
+        max-width: 26ch;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
     .modal-conteiner-filter{
         display: none;
         justify-content: center;

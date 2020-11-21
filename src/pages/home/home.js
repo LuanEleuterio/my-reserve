@@ -44,7 +44,7 @@ function carregaRestaurantes(numPage) {
                 restaurantes.setAttribute("class", "restaurantes");
 
                 fotoRestaurante.setAttribute("class", "foto-restaurante");
-                imgRestaurante.setAttribute("src", "../../" + restaurante.img_estabelecimento);
+                imgRestaurante.setAttribute("src", "../../../" + restaurante.img_estabelecimento);
 
                 infoRestaurante.setAttribute("class", "info-restaurante");
                 nomeRestaurante.setAttribute("class", "nome-restaurante infos");
@@ -142,6 +142,7 @@ window.addEventListener("load", () => {
 //-
 
 function redirectInfoRest(dataValue) {
+
     localStorage.setItem("myreserve-identifier-rest", dataValue)
     window.location.href = '../info-restaurante/info-restaurante.html'
 }
