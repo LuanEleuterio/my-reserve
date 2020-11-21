@@ -7,6 +7,8 @@ if (voltaHomeRestaurante != null) {
     })
 }
 
-btnVoltaRest.addEventListener("click", () => {
-    window.location.href = "javascript:history.back()"
-})
+if (btnVoltaRest != null) {
+    btnVoltaRest.addEventListener("click", () => {
+        window.location.href = "javascript:history.back()"
+    })
+}

@@ -323,7 +323,7 @@ a {
     top: .4em;
 }
 
-#hour-reserva{
+.hour-reserva{
     color: var(--texto);
     font-size: large;
     font-weight: bolder;

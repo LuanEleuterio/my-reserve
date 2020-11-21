@@ -14,4 +14,7 @@ public interface HorarioRepository extends CrudRepository<Horario, Integer>{
 	@Modifying
 	@Query("update Horario h set h.qtd_pessoa_vaga = :qtdPessoa where h.fk_estabelecimento = :fkEstab")
 	void updateQtdPessoaByFk(@Param("qtdPessoa") Integer qtdPessoa, @Param("fkEstab") Integer idEstab);
+	
+	@Query("select h from Horario h where h.fk_estabelecimento = :fkEstab")
+	Iterable<Horario> selectAllByFk(@Param("fkEstab") Integer idEstab);
 }

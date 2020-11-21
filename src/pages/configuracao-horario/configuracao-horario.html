@@ -61,19 +61,21 @@
 
                                     <div class="field-hour">
                                         <label for="total-vagas-horario">Total de vagas por horário</label>
-                                        <input type="number" name="total-vagas-horario" id="total-vagas-horario" required/>
+                                        <input type="number" name="total-vagas-horario" id="total-vagas-horario"
+                                            required />
                                     </div>
 
                                     <div class="field-hour">
                                         <label for="total-pessoa-reserva">Total de pessoas por reserva</label>
-                                        <input type="number" name="total-pessoa-reserva" id="total-pessoa-reserva" required/>
+                                        <input type="number" name="total-pessoa-reserva" id="total-pessoa-reserva"
+                                            readonly />
                                     </div>
                                     <div class="field-hour">
                                         <label>Horário</label>
                                         <div class="select-horario">
-                                            <input type="time" name="horario-de" id="horario-de" required/>
+                                            <input type="time" name="horario-de" id="horario-de" required />
                                             <span>Até:</span>
-                                            <input type="time" name="horario-ate" id="horario-ate" required/>
+                                            <input type="time" name="horario-ate" id="horario-ate" required />
                                         </div>
                                     </div>
 
@@ -93,42 +95,6 @@
                 </div>
 
                 <div class="conteiner-horario">
-                    <button class='button-horario'>
-                        <div class="box-horario-info">
-                            <div class="icon-horario col-horario">
-                                <i class="fas fa-clock icon-clock"></i>
-                            </div>
-                            <div class="horario-reserva col-horario">
-                                <p id='hour-reserva'>12:00 às 13:00</p>
-                            </div>
-
-                            <i class="fas fa-cog icon-edit"></i>
-                        </div>
-                    </button>
-                    <button class='button-horario'>
-                        <div class="box-horario-info">
-                            <div class="icon-horario col-horario">
-                                <i class="fas fa-clock icon-clock"></i>
-                            </div>
-                            <div class="horario-reserva col-horario">
-                                <p id='hour-reserva'>14:00 às 15:00</p>
-                            </div>
-
-                            <i class="fas fa-cog icon-edit"></i>
-                        </div>
-                    </button>
-                    <button class='button-horario'>
-                        <div class="box-horario-info">
-                            <div class="icon-horario col-horario">
-                                <i class="fas fa-clock icon-clock"></i>
-                            </div>
-                            <div class="horario-reserva col-horario">
-                                <p id='hour-reserva'>16:00 às 17:00</p>
-                            </div>
-
-                            <i class="fas fa-cog icon-edit"></i>
-                        </div>
-                    </button>
                 </div>
             </div>
         </section>
@@ -162,7 +128,7 @@
                                     <div class="field-hour modal-field">
                                         <label for="total-pessoa-reserva-modal">Total de pessoas por reserva</label>
                                         <input type="number" name="total-pessoa-reserva-modal"
-                                            id="total-pessoa-reserva-modal" required />
+                                            id="total-pessoa-reserva-modal" readonly />
                                     </div>
                                     <div class="field-hour modal-field">
                                         <label>Horário</label>
@@ -174,8 +140,8 @@
                                     </div>
 
                                     <div class="field-hour modal-field btn-modal">
-                                        <input id="submit-modal" type="submit" value="Confirmar horário">
-                                        <button id="cancel-btn-modal">Cancelar horário</button>
+                                        <input id="submit-modal" type="submit" value="Confirmar alterações">
+                                        <button id="cancel-btn-modal">Excluir horário</button>
                                     </div>
                                 </div>
                             </fieldset>
@@ -362,6 +328,7 @@
     <script type="text/javascript" src="../../utils/rest-editar-dados.js"></script>
     <script type="text/javascript" src="../../utils/modal-perfil-rest.js"></script>
     <script type="text/javascript" src="../../utils/geral-rest.js"></script>
+    <script type="text/javascript" src="../../utils/sweetalert2.all.js"></script>
 </body>
 
 </html>

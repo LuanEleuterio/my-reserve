@@ -37,31 +37,39 @@ public class HorarioController {
 	}
 	
 	@CrossOrigin
+	@GetMapping("/byEstab/{idEstab}")
+	public Iterable<Horario> getByEstabelecimento(@PathVariable Integer idEstab){
+		return horarioRepository.selectAllByFk(idEstab);
+	}
+	
+	@CrossOrigin
 	@PostMapping()
 	public void addHorario(@RequestBody Horario horario) {
+		horario.setVagas_at_moment(horario.getTotal_vagas());
 		horarioRepository.save(horario);
 	}
 	
 	@CrossOrigin
 	@PutMapping("/altera")
-	public Horario updateHorario(@RequestParam("idHour") Integer idHour, @RequestParam("fkEstab") Integer fkEstab, @RequestBody Horario horario) throws Exception{
-		Horario HorarioDB = horarioRepository.findById(idHour)
+	public Horario updateHorario(@RequestParam("idHour") Integer idHour, @RequestBody Horario horario) throws Exception{
+		Horario horarioDB = horarioRepository.findById(idHour)
 				.orElseThrow(() -> new IllegalAccessException());
 		
-		if(horario.getHorario_de() != null) horario.setHorario_de(horario.getHorario_de());
+		if(horario.getHorario_de() != null) horarioDB.setHorario_de(horario.getHorario_de());
 		
-		if(horario.getHorario_ate() != null) horario.setHorario_ate(horario.getHorario_ate());
+		if(horario.getHorario_ate() != null) horarioDB.setHorario_ate(horario.getHorario_ate());
 		
-		if(horario.getQtd_pessoa_vaga() != null) horario.setQtd_pessoa_vaga(horario.getQtd_pessoa_vaga());
+		if(horario.getQtd_pessoa_vaga() != null) horarioDB.setQtd_pessoa_vaga(horario.getQtd_pessoa_vaga());
 			
-		if(horario.getTotal_vagas() != null) horario.setTotal_vagas(horario.getTotal_vagas());
+		if(horario.getTotal_vagas() != null) horarioDB.setTotal_vagas(horario.getTotal_vagas());
 		
-		if(horario.getVagas_at_moment() != null) horario.setVagas_at_moment(horario.getVagas_at_moment());
+		if(horario.getVagas_at_moment() != null) horarioDB.setVagas_at_moment(horario.getVagas_at_moment());
 		
-		horarioRepository.save(HorarioDB);
-		return HorarioDB;
+		horarioRepository.save(horarioDB);
+		return horarioDB;
 	}	
 	
+	@CrossOrigin
 	@DeleteMapping("/{id_horario}")
 	public void deleteHorario(@PathVariable Integer id_horario) {
 		horarioRepository.deleteById(id_horario);

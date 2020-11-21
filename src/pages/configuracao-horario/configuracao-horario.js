@@ -1,8 +1,100 @@
 const modalConfigHour = document.querySelector(".modal-config-hour")
 const btnHorario = document.querySelectorAll(".button-horario")
 const modalHourReserva = document.querySelector("#hour-reserva-modal")
+const maxPessoas = document.getElementById("total-pessoa-reserva")
+const totalVagas = document.getElementById("total-vagas-horario")
+const horarioDe = document.getElementById("horario-de")
+const horarioAte = document.getElementById("horario-ate")
+const maxPessoasModal = document.getElementById("total-pessoa-reserva-modal")
+const totalVagasModal = document.getElementById("total-vagas-horario-modal")
+const horaDeModal = document.getElementById("horario-de-modal")
+const horaAteModal = document.getElementById("horario-ate-modal")
+const submitHorario = document.getElementById("submit-horario")
+const submitModal = document.getElementById("submit-modal")
+const btnCancelHour = document.getElementById("cancel-btn-modal")
+const conteinerHorario = document.querySelector(".conteiner-horario")
+var idHour
 
+function carregaHorarios() {
+    fetch(`http://localhost:8080/horario/byEstab/${localStorage.getItem("myreserve-usr-identifier")}`)
+        .then(res => res.json())
+        .then(horarios => {
+            const hourOrdenado = horarios.sort(function (a, b) {
+                return a.horario_de < b.horario_de ? -1 : a.horario_de > b.horario_de ? 1 : 0;
+            })
 
+            var buttonsHours = document.querySelectorAll(".button-horario")
+
+            for (let i = 0; i < buttonsHours.length; i++) {
+                if (buttonsHours[i].parentNode) {
+                    buttonsHours[i].parentNode.removeChild(buttonsHours[i])
+                }
+            }
+
+            hourOrdenado.forEach(horario => {
+                buttonHorario = document.createElement("button");
+
+                boxHorario = document.createElement("div");
+
+                divIcone = document.createElement("div")
+                iconeRelogio = document.createElement("i");
+
+                divHorario = document.createElement("div");
+                horaDeAte = document.createElement("p");
+
+                iconEdit = document.createElement("i")
+
+                buttonHorario.setAttribute("class", "button-horario")
+                buttonHorario.setAttribute("data-value", horario.id_horario)
+                boxHorario.setAttribute("class", "box-horario-info")
+                divIcone.setAttribute("class", "icon-horario col-horario")
+                iconeRelogio.setAttribute("class", "fas fa-clock icon-clock");
+                iconEdit.setAttribute("class", "fas fa-cog icon-edit")
+                divHorario.setAttribute("class", "horario-reserva col-horario")
+                horaDeAte.setAttribute("class", "hour-reserva")
+
+                horaDeAte.innerText = `${horario.horario_de.slice(-8, -3)} às ${horario.horario_ate.slice(-8, -3)}`
+
+                divIcone.appendChild(iconeRelogio)
+                divHorario.appendChild(horaDeAte)
+
+                boxHorario.appendChild(divIcone)
+                boxHorario.appendChild(divHorario)
+                boxHorario.appendChild(iconEdit)
+
+                buttonHorario.appendChild(boxHorario)
+
+                conteinerHorario.appendChild(buttonHorario)
+
+            })
+
+            const blockHorario = document.querySelectorAll(".button-horario")
+            console.log(blockHorario)
+            for (let i = 0; i < blockHorario.length; i++) {
+
+                (function (index) {
+                    blockHorario[index].addEventListener("click", function () {
+                        modalConfigHour.classList.add('mostrar')
+                        modalHourReserva.innerText = blockHorario[index].innerText;
+                        idHour = parseInt(blockHorario[index].attributes[1].value)
+                        totalVagasModal.setAttribute("value", hourOrdenado[index].total_vagas)
+                        maxPessoasModal.setAttribute("value", localStorage.getItem("myreserve-estab-max-people"))
+                        horaDeModal.setAttribute("value", hourOrdenado[index].horario_de.slice(-8, -3))
+                        horaAteModal.setAttribute("value", hourOrdenado[index].horario_ate.slice(-8, -3))
+                        modalConfigHour.addEventListener("click", (e) => {
+                            if (e.target.id == "button-fechar" || e.target.className == modalConfigHour.className) {
+                                modalConfigHour.classList.remove('mostrar')
+                            }
+                        })
+                        //horarioReserva.textContent = `${jsonOrdenado[index].horario_de.slice(-8, -3)} às ${jsonOrdenado[index].horario_ate.slice(-8, -3)}`
+                        //qtdVagasModal.textContent = `${jsonOrdenado[index].vagas_at_moment}`
+
+                    })
+
+                })(i)
+            }
+        })
+}
 function openModalConfig(event) {
     modalConfigHour.classList.add('mostrar')
     modalHourReserva.innerText = event.target.innerText;
@@ -13,9 +105,123 @@ function openModalConfig(event) {
     })
 }
 
-
 for (let i = 0; i < btnHorario.length; i++) {
     btnHorario[i].addEventListener("click", (event) => {
         openModalConfig(event)
     })
 }
+
+submitHorario.addEventListener("click", (e) => {
+    e.preventDefault()
+
+    const bodyDados = {
+        total_vagas: parseInt(totalVagas.value),
+        qtd_pessoa_vaga: parseInt(maxPessoas.value),
+        horario_de: horarioDe.value,
+        horario_ate: horarioAte.value,
+        fk_estabelecimento: parseInt(localStorage.getItem("myreserve-usr-identifier"))
+    }
+
+    fetch("http://localhost:8080/horario", {
+        method: "POST",
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(bodyDados)
+    }).then(res => {
+        if (!res.ok) {
+            throw Error(res.statusText)
+        } else {
+            exibeAlertConfig(true, "Horario cadastrado!")
+            carregaHorarios()
+        }
+    }).catch(err => {
+        console.log(err)
+        exibeAlertConfig(false, "Não foi possível cadastrar o horário.")
+    })
+})
+
+submitModal.addEventListener("click", (e) => {
+    e.preventDefault()
+
+    const bodyDados = {
+        total_vagas: parseInt(totalVagasModal.value),
+        qtd_pessoa_vaga: parseInt(maxPessoas.value),
+        horario_de: horaDeModal.value,
+        horario_ate: horaAteModal.value,
+        //fk_estabelecimento: parseInt(localStorage.getItem("myreserve-usr-identifier"))
+    }
+
+    fetch(`http://localhost:8080/horario/altera?idHour=${idHour}`, {
+        method: "PUT",
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(bodyDados)
+    }).then(res => {
+        console.log(res.json())
+        if (!res.ok) {
+            throw Error(res.statusText)
+        } else {
+            exibeAlertConfig(true, "Horário alterado!")
+            carregaHorarios()
+        }
+    }).catch(err => {
+        console.log(err)
+        exibeAlertConfig(false, "Não foi possível altrar o horário.")
+    })
+})
+
+btnCancelHour.addEventListener("click", (e) => {
+    e.preventDefault()
+
+    fetch(`http://localhost:8080/horario/${idHour}`, {
+        method: "DELETE",
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        }
+    }).then(res => {
+        if (!res.ok) {
+            throw Error(res.statusText)
+        } else {
+            exibeAlertConfig(true, "Horário excluído!")
+            carregaHorarios()
+        }
+    }).catch(err => {
+        console.log(err)
+        exibeAlertConfig(false, "Não foi possível excluir o horário")
+    })
+})
+
+window.addEventListener("load", () => {
+    fetch(`http://localhost:8080/restaurante/${localStorage.getItem("myreserve-usr-identifier")}`)
+        .then(res => res.json())
+        .then(estab => {
+            localStorage.setItem("myreserve-estab-max-people", estab.max_pessoas)
+            maxPessoas.setAttribute("value", estab.max_pessoas)
+            carregaHorarios()
+        })
+        .catch(err => console.log("Ocorreu algum problema", err))
+})
+
+function exibeAlertConfig(exibe, msg) {
+    if (exibe) {
+        Swal.fire({
+            icon: 'success',
+            title: `${msg}`,
+            showConfirmButton: false,
+            timer: 1500,
+        })
+    } else {
+        Swal.fire({
+            icon: 'error',
+            title: `${msg}`,
+            showConfirmButton: false,
+            timer: 3000,
+        })
+    }
+}
+
