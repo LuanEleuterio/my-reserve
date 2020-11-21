@@ -7,9 +7,6 @@
   form .field-group {
     flex-direction: column;
   }
-  form fieldset label img {
-    width: 270px;
-  }
 }
 
 @media (min-width: 376px) {

@@ -159,11 +159,6 @@
         width: 90vw !important;
     }
 
-    .foto-restaurante img{
-        width: 5em !important;
-        height: 4em !important;
-    }
-
     .info-restaurante{
         width: 25vw !important;
     }
@@ -222,12 +217,6 @@
 
     .reservas{
         width: 45vw;
-    }
-
-    .foto-restaurante img{
-        width: 10vw;
-        min-width: 4em;
-        height: 4em;
     }
 
     .info-restaurante{
@@ -461,12 +450,6 @@
         width: 28vw;
         height: 6em;
         margin: 1vh .8em 2vh .9em;
-    }
-
-    .foto-restaurante img{
-        width: 10vw;
-        min-width: 3em;
-        max-width: 5em;
     }
 
     .info-restaurante{

@@ -71,10 +71,10 @@
                 <p>Controlar Reservas</p>
             </div>
             <div class="conteudo-clientes" id="myBtn-cancel"></div>
-            </div>
-            <div class="carrega-cliente">
+           <!-- <div class="carrega-cliente"> 
                 <button id="btn-ver-mais">Mostrar mais reservas</button>
             </div>
+            -->
         </section>
     </main>
     <footer>
@@ -122,10 +122,10 @@
                                 <div class="categoria">
                                     <h5>Categoria:</h5>
                                     <select name="categoria" id="categoria-option">
-                                        <option value="nothing"></option>
-                                        <option value="arabe">Árabe</option>
-                                        <option value="mexicana">Mexicana</option>
-                                        <option value="mineira">Mineira</option>
+                                         <option value="nothing"></option> 
+                                    <!-- <option value="arabe">Árabe</option> -->
+                                    <!-- <option value="mexicana">Mexicana</option> -->
+                                    <!-- <option value="mineira">Mineira</option> -->
                                     </select>
                                 </div>
                             </div>
@@ -133,21 +133,23 @@
 
                         <div class="field">
                             <label for="name">Nome do Estabelecimento</label>
-                            <input type="text" name="name" id="name" />
+                            <input type="text" name="name" id="name" required />
                         </div>
 
                         <div class="field">
                             <label for="cnpj">CNPJ</label>
-                            <input type="text" name="cnpj" id="cnpj" placeholder="00.000.000/0000-00" />
+                            <input type="text" name="cnpj" id="cnpj" placeholder="00.000.000/0000-00" maxlength="18"
+                                required />
                         </div>
                         <div class="field">
                             <label for="telefone">Telefone</label>
-                            <input type="text" name="telefone" id="telefone" placeholder="(xx) xxxxx-xxxx" />
+                            <input type="text" name="telefone" id="telefone" placeholder="(xx) xxxxx-xxxx"
+                                maxlength="15" required />
                         </div>
 
                         <div class="field">
                             <label for="email">E-mail</label>
-                            <input type="email" name="email" id="email" placeholder="email@exemplo.com" />
+                            <input type="email" name="email" id="email" placeholder="email@exemplo.com" required />
                         </div>
 
                         <label id="label-senha" for="password">Senha</label>
@@ -160,9 +162,9 @@
                         <div class="field">
                             <label>Funcionamento</label>
                             <div class="horario">
-                                <input type="time" name="horario-de" class="horario-select">
+                                <input type="time" id="horarioDe" name="horario-de" class="horario-select" required>
                                 <span>até</span>
-                                <input type="time" name="horario-ate" class="horario-select">
+                                <input type="time" id="horarioAte" name="horario-ate" class="horario-select" required>
 
                             </div>
                         </div>
@@ -177,11 +179,11 @@
                         </div>
                         <div class="field">
                             <label>Descrição</label>
-                            <textarea id="story" name="story" rows="3" cols="50"></textarea>
+                            <textarea id="story" name="story" rows="3" cols="50" maxlength="1000" required></textarea>
                         </div>
 
                         <div class="field">
-                            <input id="submit" type="submit" value="Salvar alterações">
+                            <input id="submit-salvar" type="submit" value="Salvar alterações">
                         </div>
                     </fieldset>
 
@@ -207,38 +209,38 @@
 
                         <div class="field">
                             <label for="nome">Nome do Beneficiário</label>
-                            <input type="text" name="nome" id="nome" />
+                            <input type="text" name="nome" id="nome" required />
                         </div>
 
                         <div class="field">
                             <label for="identidade">CPF/CNPJ</label>
-                            <input type="text" name="identidade" id="identidade" />
+                            <input type="text" name="identidade" id="identidade" maxlength="18" required />
                         </div>
 
                         <div class="field-group">
                             <div class="field">
                                 <label for="banco">Banco</label>
-                                <input type="text" name="banco" id="banco" />
+                                <input type="text" name="banco" id="banco" required />
                             </div>
                             <div class="field">
                                 <label for="agencia">Agência</label>
-                                <input type="text" name="agencia" id="agencia" />
+                                <input type="text" name="agencia" id="agencia" required />
                             </div>
                         </div>
 
                         <div class="field-group">
                             <div class="field">
                                 <label for="tipo-conta">Tipo de conta</label>
-                                <input type="text" name="tipo-conta" id="tipo-conta" />
+                                <input type="text" name="tipo-conta" id="tipo-conta" required />
                             </div>
                             <div class="field">
                                 <label for="nr-conta">Número da conta</label>
-                                <input type="text" name="nr-conta" id="nr-conta" />
+                                <input type="text" name="nr-conta" id="nr-conta" required />
                             </div>
                         </div>
 
                         <div class="field">
-                            <input id="submit" type="submit" value="Salvar alterações">
+                            <input id="pagamento-submit" type="submit" value="Salvar alterações">
                         </div>
                     </fieldset>
 
@@ -251,25 +253,25 @@
     <div id="myModal-cancel" class="modal">
         <div class="model-container modal-cancel-rest">
             <div class="modal-content cancel-hour">
-                <span class="close-btn btn-cancel">&times;</span>
+                <span id="btn-cross-modal" class="close-btn btn-cancel">&times;</span>
 
                 <div class="modal-conteudo" id="cancelar-conteudo">
                     <h4>Cancelamento da Reserva</h4>
                     <div class="info-hour-date">
                         <div class="hour">
                             <i class="fas fa-clock"></i>
-                            <p>11:00 às 12:00</p>
+                            <p id="pHoraReserva"></p>
                         </div>
                         <div class="date">
-                            <p>13/09/2020</p>
+                            <p id="pDataReserva"></p>
                         </div>
                     </div>
                     <div class="justify">
                         <h4>Justificativa</h4>
-                        <textarea name="justify" id="" cols="84" rows="8"></textarea>
+                        <textarea name="justify" id="txtModalCancel" cols="84" rows="8" required></textarea>
                     </div>
 
-                    <input id="submit" type="submit" value="Confirmar">
+                    <input id="btnSubmitCancelar" type="submit" value="Confirmar">
 
                 </div>
             </div>
@@ -302,15 +304,14 @@
     </div>
 
     <script src="https://kit.fontawesome.com/37a6fc82c8.js" crossorigin="anonymous"></script>
-    <script type="text/javascript" src='allClientes.js'></script>
     <script type="text/javascript" src="home.js"></script>
     <script type="text/javascript" src="../../utils/rest-editar-pag.js"></script>
     <script type="text/javascript" src="../../utils/rest-editar-dados.js"></script>
-    <script type="text/javascript" src="rest-cancelar-reserva.js"></script>
+    <!-- <script type="" src="rest-cancelar-reserva.js"></script> -->
     <script type="text/javascript" src="../../utils/modal-perfil-rest.js"></script>
     <script type="text/javascript" src="../../utils/geral-rest.js"></script>
     <script type="text/javascript" src="../../utils/footer-redirect-rest.js"></script>
-
+    <script src="../../utils/sweetalert2.all.js"></script>
 </body>
 
 </html>

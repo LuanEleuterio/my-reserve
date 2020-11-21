@@ -19,6 +19,10 @@
 }
 /* Modal background end */
 
+.modal-loc.mostrar{
+  display: flex;
+}
+
 /* modal start */
 .model-container-lcl {
   display: flex;
@@ -55,16 +59,24 @@
   color: var(--texto)!important;
   padding: 0 10px;
 }
+.endereco-container img{
+  width: 100%;
+  margin-top: 1em;
+  max-width: 300px;
+  height: 250px;
+  border-radius: var(--border-radius);
+  /* margin-bottom: 10px; */
+}
 #field-container {
   margin-top: 15px;
   max-width: 400px;
   border: none;
 }
-.img-maps {
+/* .img-maps {
   width: 100%;
   border-radius: var(--border-radius);
   margin-bottom: 20px;
-}
+} */
 .legend-loc {
   width: 100%;
   display: flex;
@@ -94,17 +106,24 @@
   flex-direction: column;
   margin-bottom: 12px;
 }
+#field-container .form-loc {
+  padding: 0;
+  max-width: 400px;
+  width: 100%;
+}
+
 #cep {
-  width: 9em;
+  width: 10em;
 }
 #localidade {
-  width: 200px;
+  margin-right: 6px;
+  width: 250px;
 }
 #logradouro {
-  width: 200px;
+  width: 250px;
 }
 #numero {
-  width: 9em;
+  width: 10em;
 }
 .form-loc .container-input input[type="text"],
 .form-loc .container-input input[type="email"],
@@ -130,20 +149,21 @@
   margin-left: 6px;
 }
 
-#submit {
-  margin: 5px auto;
-  width: 70%;
-  height: 36px;
-  background: var(--principal);
-  border-radius: 8px;
-  color: var(--secundaria);
-  font-weight: bold;
-  font-size: 14px;
-  border: 0;
-  transition: background-color 0.2s;
-  cursor: pointer;
+#submit-location {
+    height: 2.1em;
+    font-size: medium;
+    font-weight: bolder;
+    color: var(--secundaria);
+    margin-top: 1.2em;
+    cursor: pointer;
+    width: 100%;
+    padding: 5px 10px;
+    background: var(--principal);
+    border-radius: 8px;
+    border: 0;
+    cursor: pointer;
 }
-#submit:hover {
+#submit-location:hover {
   background: var(--destaque);
 }
 
@@ -160,13 +180,23 @@
   animation: modal-animation .5s;
 }
 
-@media(min-width: 1px) and (max-width: 768px){
-  .modal-loc{
-    display: none !important;
-  }
+@media(min-width: 315px) and (max-width: 768px){
   .modal-content-lcl{
-    display: none !important;
+    width: 90vw;
+    max-width: 390px;
+    display: flex !important;
+    background-color: var(--secundaria);
+    border-radius: 8px;
   }
+  .endereco-container img {
+    display: none;
+  }
+  #field-container form .group {
+    display: block;
+  }
+  .form-loc .group .container-input + .container-input {
+    margin-left: 0px;
+}
 }
 
 @media(min-width: 769px) and (max-width: 1200px){

@@ -83,7 +83,7 @@
                     </div>
                     <div class="block-layout">
                         <div class="box-quant">
-                            <input type="number" id='ipt-qtd-pessoa' />
+                            <input type="number" id='ipt-qtd-pessoa' min="0" max="4" required />
                         </div>
                         <div>
                             <span class="font-azul bold">Máximo 4</span>
@@ -120,11 +120,11 @@
 
                         <div class="credito">
                             <span class="bold">Crédito</span>
-                            <input type="radio" class="btn-radio" id="credito" value="credito" name="credito">
+                            <input type="radio" class="btn-radio" id="credito" value="credito" name="metodo_pagamento">
                         </div>
                         <div class="debito">
                             <span class="bold">Débito</span>
-                            <input type="radio" class="btn-radio unq" id="debito" value="debito" name="debito">
+                            <input type="radio" class="btn-radio unq" id="debito" value="debito" name="metodo_pagamento">
                         </div>
 
                     </div>

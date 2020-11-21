@@ -1,4 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+/* font-icons */
+@font-face {
+    font-family: "Glyphicons Halflings";
+    src: url(../../fonts/glyphicons-halflings-regular.eot);
+    src: url(../../fonts/glyphicons-halflings-regular.eot?#iefix) format("embedded-opentype"),
+      url(../../fonts/glyphicons-halflings-regular.woff2) format("woff2"),
+      url(../../fonts/glyphicons-halflings-regular.woff) format("woff"),
+      url(../../fonts/glyphicons-halflings-regular.ttf) format("truetype"),
+      url(../../fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular) format("svg");
+  }
 body{
     display: flex;
     width: 100vw;
@@ -249,6 +259,10 @@ header{
     display: none !important;
 }
 
+.tipo-categoria{
+    cursor: pointer;
+}
+
 .tipo-categoria p{
     display: flex;
     justify-content: center;
@@ -314,4 +328,22 @@ footer{
 }
 /*Fim footer*/
 
-
+/* eye icon start */
+.glyphicon {
+    position: relative;
+    top: 1px;
+    display: inline-block;
+    font-family: "Glyphicons Halflings";
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1;
+    border: none;
+    outline: none;
+  }
+  .glyphicon-eye-open:before {
+    content: "\e105";
+  }
+  .glyphicon-eye-close:before {
+    content: "\e106";
+  }
+  /* eye icon end */

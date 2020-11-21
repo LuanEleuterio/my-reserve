@@ -94,6 +94,29 @@
     .cancel-hour{
         width: 90vw !important;
     }
+    .carrega-cliente {
+        display: flex;
+        margin: 0 auto;
+        margin-bottom: 2em;
+        width: 90%;
+        max-width: 1296px;
+    }
+    #btn-ver-mais {
+        max-width: 1296px;
+        width: 100vw;
+        height: 2em;
+        background-color: transparent;
+        border: solid var(--border) 1px;
+        border-radius: 4px;
+        color: var(--destaque);
+        font-size: medium;
+        font-family: var(--font);
+        font-weight: 400;
+        outline: none;
+        cursor: pointer;
+    }
+
+    
     
 }
 
@@ -204,6 +227,27 @@
     .cancel-hour{
         width: 65vw !important;
     }
+    .carrega-cliente {
+        display: flex;
+        margin: 0 auto;
+        margin-bottom: 2em;
+        width: 92%;
+        max-width: 1296px;
+    }
+    #btn-ver-mais {
+        max-width: 1296px;
+        width: 100vw;
+        height: 2em;
+        background-color: transparent;
+        border: solid var(--border) 1px;
+        border-radius: 4px;
+        color: var(--destaque);
+        font-size: medium;
+        font-family: var(--font);
+        font-weight: 400;
+        outline: none;
+        cursor: pointer;
+    }
 }
 
 @media (min-width: 769px) and (max-width: 920px) {
@@ -237,6 +281,7 @@
     .col-1 {
         margin-right: 0.2em;
     }
+    
 }
 
 @media(min-width:769px){

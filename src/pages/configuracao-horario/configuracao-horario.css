@@ -221,15 +221,18 @@ a {
     margin-right: .5em;
 }
 
-#submit{
-    width: 40vw;
-    max-width: 455px;
-    height: 2.5em;
+#submit-horario, #submit-mod-perfil, #submit-mod-pagamento{
+    height: 2.1em;
     font-size: medium;
     font-weight: bolder;
     color: var(--secundaria);
-    background-color: var(--destaque);
     margin-top: 1.2em;
+    cursor: pointer;
+    width: 100%;
+    padding: 5px 10px;
+    background: var(--principal);
+    border-radius: 8px;
+    border: 0;
     cursor: pointer;
 }
 
@@ -344,8 +347,8 @@ a {
 }
 
 .modal-config{
-    width: 50vw;
-    height: 30em;
+    width: 60vw;
+    height: 32em;
     max-width: 693px;
     padding: 2em;
     box-sizing: border-box;
@@ -413,9 +416,13 @@ a {
     margin-left: 2.6em;;
 }
 
-#horario-de-modal, #horario-ate-modal{
+#horario-de-modal{
     width: 7em;
     margin-right: .5em;
+}
+#horario-ate-modal{
+    width: 7em;
+    margin-left: .5em;
 }
 
 .btn-modal{

@@ -1,33 +1,31 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
-body{
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap");
+body {
     display: flex;
-    width: 100vw;
-    background-color: #F8F9FA;
+    background-color: #f8f9fa;
     justify-content: center;
-    
 }
 
-p{
+p {
     font-family: var(--font);
 }
 
-a{
+a {
     text-decoration: none;
 }
 
-h3{
+h3 {
     font-family: var(--font);
     color: var(--texto);
 }
 
 /* Inicio Header*/
-header{
+header {
     position: fixed;
     z-index: 5;
 }
 
-.header{
-    width: 100vw !important;
+.header {
+    width: 100% !important;
     height: 3em;
     display: flex;
     background-color: var(--secundaria);
@@ -36,67 +34,67 @@ header{
     box-shadow: 0px 1px 3px 0px var(--destaque);
 }
 
-.conteiner-header{
-    width: 100vw;
+.conteiner-header {
+    width: 100%;
     max-width: 1440px !important;
     display: flex;
     justify-content: space-evenly;
 }
 
-.name-page{
-    width: 100vw;
+.name-page {
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.busca-header{
+.busca-header {
     display: flex;
     position: relative;
 }
 
-.name-box ::-webkit-input-placeholder{
+.name-box ::-webkit-input-placeholder {
     color: var(--destaque);
-    font-size: large;
+    font-size: medium;
     font-family: var(--font);
     font-weight: 400;
 }
 
 .name-box input[type="text"] {
-    color : var(--destaque); 
-    font-size: large;
+    color: var(--destaque);
+    font-size: medium;
     font-family: var(--font);
     font-weight: 400;
 }
 
-#icon-search{
+#icon-search {
     position: absolute;
     color: var(--destaque);
-    font-size: 1.5em;
-    top: 0.3em;
-    left: 0.4em;
+    font-size: 1.2em;
+    top: 0.4em;
+    left: 0.5em;
 }
 
-#icon-filter{
+#icon-filter {
     color: var(--preto);
     font-size: 1.5em;
     top: 0.4em;
     left: 0.4em;
 }
 
-#search-bar{
+#search-bar {
     border-radius: var(--border-radius);
     border-color: var(--principal);
     background-color: var(--input);
     padding-left: 2.5em;
-    width: 72vw;
-    height: 2.1em;
+    width: 230px;
+    height: 35px;
     border-style: none;
     outline: none;
     max-width: 531px;
 }
 
-#btn-arrow-header{
+#btn-arrow-header {
     border: none;
     background: transparent;
     outline: none;
@@ -104,36 +102,36 @@ header{
     left: 1em;
 }
 
-.arrow-header{
+.arrow-header {
     color: var(--preto);
     font-size: 1.3em;
 }
 /* Fim Header*/
 
-.content{
+.content {
     max-width: 1440px !important;
     position: relative;
-    width: 100vw;
+    width: 100%;
     display: flex;
     justify-content: center;
     margin-top: 3.5em;
 }
 
-.conteudo{
+.conteudo {
     display: flex;
     flex-wrap: wrap;
     align-content: center;
     justify-content: center;
 }
 
-.conteudo-restaurantes{
+.conteudo-restaurantes {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     margin: 0 auto;
 }
 
-.restaurantes{
+.restaurantes {
     width: 90vw;
     max-width: 290px;
     display: flex;
@@ -145,24 +143,24 @@ header{
     max-width: 402px;
 }
 
-.foto-restaurante{
+.foto-restaurante {
     position: relative;
-    display:flex;
+    display: flex;
     align-content: center;
 }
 
-.foto-restaurante img{
+.foto-restaurante img {
     width: 5em;
     height: 4em;
     border-radius: var(--border-radius);
 }
 
-.info-restaurante{
+.info-restaurante {
     width: 40vw;
     max-width: 216px;
 }
 
-.info-restaurante p{
+.info-restaurante p {
     color: var(--texto);
 }
 
@@ -173,36 +171,36 @@ header{
     overflow: hidden;
 }
 
-.restaurante-container{
-    cursor:pointer;
+.restaurante-container {
+    cursor: pointer;
     margin-bottom: 2vh;
 }
 
-.restaurante-container:last-child{
+.restaurante-container:last-child {
     margin-bottom: 3.5em;
 }
 
-.infos{
+.infos {
     margin-top: 0.2em;
     margin-bottom: 0.2em;
 }
 
-.col-1{
+.col-1 {
     margin-right: 0.5em;
     color: var(--texto);
 }
 
-.distance{
+.distance {
     display: flex;
 }
 
-.info-num-pessoas{
+.info-num-pessoas {
     align-self: flex-start;
     margin-top: 0.4em;
     margin-right: 0.2em;
 }
 
-.numero-pessoas{
+.numero-pessoas {
     display: flex;
     color: var(--principal);
     align-items: baseline;
@@ -210,15 +208,15 @@ header{
 
 .quantidade-pessoa {
     font-weight: bolder;
-    margin-right: .1em;
+    margin-right: 0.1em;
 }
 
-.categoria{
+.categoria {
     display: flex;
     align-items: center;
 }
 
-.categorias-main{
+.categorias-main {
     display: flex;
     width: 90vw;
     max-width: 413px;
@@ -227,18 +225,18 @@ header{
     margin-bottom: 3em;
 }
 
-.nomenclatura-categoria{
+.nomenclatura-categoria {
     width: 84vw;
 }
 
-#ident-categoria{
+#ident-categoria {
     color: var(--destaque);
     font-size: large;
     font-weight: bolder;
     margin-bottom: 0.5em;
 }
 
-.tipo-categoria{
+.tipo-categoria {
     display: flex !important;
     flex-wrap: wrap;
     width: 42vw;
@@ -247,47 +245,47 @@ header{
     outline: none;
 }
 
-.tipo-categoria p{
+.tipo-categoria p {
     display: flex;
-    color: var(--texto);    
+    color: var(--texto);
     justify-content: center;
-    width: 100vw;
+    width: 100%;
 }
 
-.img-categoria{
+.img-categoria {
     width: 7em;
     height: 4.5em;
     border-radius: var(--border-radius);
 }
 
-.name-categoria{
-    width: 100vw;
+.name-categoria {
+    width: 100%;
     display: flex;
     justify-content: center;
-    margin-top: .2em;
-    margin-bottom: .2em;
+    margin-top: 0.2em;
+    margin-bottom: 0.2em;
     color: var(--texto);
     font-weight: bolder;
 }
- 
+
 /*Inicio footer*/
-footer{
+footer {
     position: fixed;
     bottom: 0;
 }
 
-.menu-option{
+.menu-option {
     align-content: center;
     flex-wrap: wrap;
 }
 
-.menu-option p{
+.menu-option p {
     margin: 0 auto;
     font-size: smaller;
     color: var(--preto);
 }
 
-.menu-bar{
+.menu-bar {
     width: 100vw;
     height: 3em;
     background-color: var(--secundaria);
@@ -301,13 +299,13 @@ footer{
 .menu-bar p {
     color: var(--preto);
 }
-    
-.icon-footer{
+
+.icon-footer {
     display: flex;
     justify-content: center;
 }
 
-.itens-footer{
+.itens-footer {
     display: flex;
     justify-content: center;
     color: var(--preto);

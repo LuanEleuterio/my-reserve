@@ -25,7 +25,7 @@ body {
 }
 
 #page-create-point header {
-  margin-top: 48px;
+  /* margin-top: 48px; */
 
   display: flex;
   justify-content: space-between;
@@ -62,6 +62,7 @@ body {
 input[type="file"] {
   display: none;
 }
+
 .image {
   width: 570px;
   height: 210px;
@@ -92,7 +93,7 @@ input[type="file"] {
 }
 
 #page-create-point form {
-  margin: 80px auto;
+  margin: 40px auto;
   padding: 64px;
   max-width: 730px;
   background: var(--secundaria);
@@ -144,7 +145,56 @@ input[type="file"] {
   margin-bottom: 24px;
 }
 
+.info-hour{
+  display: flex;
+  flex-wrap: wrap;
+  width: 50vw;
+}
+
+.field-group-hora{
+  display: flex;
+  flex: 1;
+  align-items: baseline;
+}
+
+#hora-funcionamento{
+  width: 60vw;
+  max-width: 223px;
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+.field-horario{
+  display: flex;
+  flex:1;
+  flex-direction: row !important;
+  align-items: center;
+
+}
+
+.horario-geral{
+  width: 30vw;
+  margin-left: 1em;
+  max-width: 135px;
+}
+
+#description{
+  resize: none;
+}
+
+.description-group{
+  margin-top: 1.2em;
+}
+
+#max-pessoas{
+
+  text-align: center;
+}
+
+#page-create-point form .field select,
+#page-create-point form .field textarea,
 #page-create-point form .field input[type="text"],
+#page-create-point form .field input[type="time"],
 #page-create-point form .field input[type="email"],
 #page-create-point form .field input[type="number"],
 #page-create-point form .field input[type="password"],
@@ -223,9 +273,10 @@ input[type="file"] {
 }
 /* eye icon end */
 
-#submit {
+#submit-estab {
   margin: 30px auto;
-  width: 260px;
+  width: 40vw;
+  max-width: 260px;
   height: 56px;
   background: var(--principal);
   border-radius: 8px;
@@ -237,6 +288,6 @@ input[type="file"] {
   cursor: pointer;
 }
 
-#submit:hover {
+#submit-estab:hover {
   background: var(--destaque);
 }

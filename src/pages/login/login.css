@@ -15,7 +15,7 @@ body {
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
-    height: 600px;
+    height: 570px;
 }
 
 .logo {
@@ -78,6 +78,19 @@ input {
     border: none;
     outline: none;
     background: none;
+}
+
+#submit-login{
+    margin: 0 auto;
+    padding: 8px 16px;
+    border-radius: var(--border-radius);
+    background: var(--principal);
+    color: var(--secundaria);
+    text-transform: uppercase;
+    letter-spacing: .09em;
+    border: none;
+    outline: none;
+    cursor: pointer;
 }
 
 .password,

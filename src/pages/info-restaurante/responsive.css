@@ -534,7 +534,7 @@
         flex-wrap: wrap;
         margin-top: 1em;
         overflow: auto;
-        height: 80vh;
+        max-height: 80vh;
     }
 
     .button-horario{
@@ -851,7 +851,6 @@
     .btn-radio{
         color: #4788ff;
         fill: #4788ff;
-        margin-left: 15% ;
     }
 
     .bold{
@@ -878,19 +877,21 @@
     .cartao .font-azul{
         margin-left: .5em;
     }
-    .debito{
+    .cartoes {
+        height: 45px;
         display: flex;
-        padding: 1% 0 0 0;
+        flex-direction: column;
+        justify-content: space-between;
     }
-    .credito{
+    .debito, .credito{
+        width: 100px;
         display: flex;
-        padding: 1% 0 0 0;
+        justify-content: space-between;
     }
-    .unq{
-        margin-left: 16.4%;
-    }
+    
     .block-layout{
         display: flex;
+        align-items: center;
         width: 16vw;
     }
     .btn-confirmar{
@@ -901,7 +902,7 @@
         background-color: #4788ff;
         border-radius: 8px;
         width: 41vw;
-        height: 2.5em;
+        height: 2em;
         border: none;
         outline: none;
         max-width: 558px;

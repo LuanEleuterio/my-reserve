@@ -80,7 +80,6 @@
 }
 .modal-perfil-fieldset {
   width: 100%;
-  display: flex;
   align-items: center;
   margin-bottom: 10px;
   border: none;
@@ -205,7 +204,7 @@ textarea{
 /* eye icon end */
 
 /* submit button start */
-#submit {
+#submit-salvar {
   margin-top: 10px;
   width: 100%;
   padding: 5px 10px;
@@ -217,7 +216,7 @@ textarea{
   transition: background-color 0.2s;
   cursor: pointer;
 }
-#submit:hover {
+#submit-salvar:hover {
   background: var(--destaque);
 }
 /* submit button end */

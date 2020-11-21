@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
 body{
     display: flex;
-    width: 100vw;
+    /* width: 100vw; */
     background-color: #F8F9FA;
     justify-content: center;
     overflow-x: hidden;
@@ -27,7 +27,7 @@ header{
 }
 
 .header{
-    width: 100vw !important;
+    width: 100% !important;
     height: 3em;
     display: flex;
     justify-content: inherit;
@@ -38,7 +38,7 @@ header{
 }
 
 .conteiner-header{
-    width: 100vw;
+    width: 100%;
     max-width: 1440px !important;
     display: flex;
     justify-content: space-evenly;
@@ -93,7 +93,7 @@ header{
 }
 
 .name-page{
-    width: 100vw;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -200,6 +200,10 @@ header{
     padding-bottom: 2%;
     margin-bottom: .5em;
 }
+.tipoRestaurante, .enderecoRestaurante {
+    display: flex;
+    align-items: center;
+}
 .tipoRestaurante{
     color: #322153;
     padding-bottom: 2%;
@@ -207,12 +211,16 @@ header{
 .enderecoRestaurante{
     color: #322153;
 }
+.tipoRestaurante span, .enderecoRestaurante span {
+    margin-left: 1em;
+}
 
 .alerta{
     text-align: left;
     width: 90vw;
     color:#D62839;
     max-width: 768px;
+    font-size: 14px;
 }
 
 

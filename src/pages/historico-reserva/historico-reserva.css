@@ -1,4 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+@font-face {
+    font-family: "Glyphicons Halflings";
+    src: url(../../fonts/glyphicons-halflings-regular.eot);
+    src: url(../../fonts/glyphicons-halflings-regular.eot?#iefix) format("embedded-opentype"),
+      url(../../fonts/glyphicons-halflings-regular.woff2) format("woff2"),
+      url(../../fonts/glyphicons-halflings-regular.woff) format("woff"),
+      url(../../fonts/glyphicons-halflings-regular.ttf) format("truetype"),
+      url(../../fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular) format("svg");
+  }
 body{
     display: flex;
     width: 100vw;
@@ -214,16 +223,25 @@ header{
     max-width: 380px;
 }
 
-.foto-restaurante{
+.date-reserve{
     position: relative;
     display:flex;
     align-content: center;
+    margin-right: .3em;
 }
 
-.foto-restaurante img{
-    width: 5em;
-    height: 4em;
-    border-radius: var(--border-radius);
+.data-reserva{
+    display: flex;
+    align-items: center;
+    border-right: 1px solid var(--border); 
+    height: 4em; 
+
+}
+
+.data-info{
+    color: var(--preto);
+    font-weight: bold;
+    padding-right: .3em;
 }
 
 .info-restaurante{
@@ -250,6 +268,7 @@ header{
 .btns-option{
     width: 10vw;
     max-width: 133px;
+    margin-right: 3px;
 }
 
 .col-btn{
@@ -337,7 +356,7 @@ footer{
 
 .snNomeRestaurante{
     color: #322153d7;
-    font-size: medium;
+    font-size: large;
     padding-right: 2%;
     font-weight: 500;
 }
@@ -435,4 +454,19 @@ footer{
 
 .lineRestaurante{
     display: flex;
+}
+
+#submit-pagamento, #submit-endereco {
+    height: 2.1em;
+    font-size: medium;
+    font-weight: bolder;
+    color: var(--secundaria);
+    margin-top: 1.2em;
+    cursor: pointer;
+    width: 100%;
+    padding: 5px 10px;
+    background: var(--principal);
+    border-radius: 8px;
+    border: 0;
+    cursor: pointer;
 }

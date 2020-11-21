@@ -35,11 +35,6 @@ function carregaCategorias() {
         categoriaMain.appendChild(tipoCategoria)
 
     })
-
-
-
-
-
 }
 
 function openModalFilter() {

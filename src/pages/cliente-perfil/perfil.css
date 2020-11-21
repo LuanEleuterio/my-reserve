@@ -9,6 +9,10 @@
         url(../../fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular) format("svg");
 }
 
+body {
+    color: var(--texto);
+}
+
 *:focus {
     outline: 0;
 }

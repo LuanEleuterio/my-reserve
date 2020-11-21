@@ -69,6 +69,21 @@
 #submit:hover {
   background: var(--destaque);
 }
+#btnSubmitCancelar {
+  margin-top: 5px;
+  width: 100%;
+  padding: 5px 10px;
+  background: var(--principal);
+  border-radius: 8px;
+  color: var(--secundaria);
+  font-size: 16px;
+  border: 0;
+  transition: background-color 0.2s;
+  cursor: pointer;
+}
+#btnSubmitCancelar:hover {
+  background: var(--destaque);
+}
 /* submit button end */
 
 .modal-conteudo {
