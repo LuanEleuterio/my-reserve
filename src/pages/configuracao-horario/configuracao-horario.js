@@ -13,6 +13,8 @@ const submitHorario = document.getElementById("submit-horario")
 const submitModal = document.getElementById("submit-modal")
 const btnCancelHour = document.getElementById("cancel-btn-modal")
 const conteinerHorario = document.querySelector(".conteiner-horario")
+const btnModalEstab = document.getElementById("submit-mod-perfil")
+const modalCategoria = document.getElementById("categoria-option")
 var idHour
 
 function carregaHorarios() {
@@ -231,3 +233,78 @@ function exibeAlertConfig(exibe, msg) {
     }
 }
 
+
+fetch("http://localhost:8080/categoria")
+      .then( (res)=> res.json())
+      .then((data) =>{
+        const categoriaRestaurante = data
+
+        categoriaRestaurante.forEach(tipos =>{
+          opt = document.createElement('option');
+          opt.value = tipos.id_categoria
+          opt.innerHTML = tipos.tipo_categoria;
+          opt.setAttribute("data-values",tipos.id_categoria)
+          modalCategoria.appendChild(opt)
+
+
+
+        })
+        
+      })
+      fetch(`http://localhost:8080/restaurante/${localStorage.getItem('myreserve-usr-identifier')}`)
+      .then((res)=> res.json())
+      .then((data) => {
+
+       
+        document.getElementById("categoria-option").value = data.categoria.id_categoria
+
+        document.getElementById("name").value = data.nome
+        document.getElementById("cnpj").value = data.cnpj
+        document.getElementById("email").value = data.email
+
+        document.getElementById("horarioDe").value = data.hora_funcionamento.slice(0,5)
+        document.getElementById("horarioAte").value = data.hora_funcionamento.slice(-5)
+
+
+      })
+
+
+btnModalEstab.addEventListener("click",()=>{
+    event.preventDefault()
+    let objEstab = {}
+  
+    if(document.getElementById("password").value == ""){
+   
+    objEstab = {
+      fk_categoria:  document.getElementById("categoria-option").value,
+      nome: document.getElementById("name").value,
+      cnpj: document.getElementById("cnpj").value,
+      email: document.getElementById("email").value,
+      hora_funcionamento: document.getElementById("horarioDe").value +" às "+ document.getElementById("horarioAte").value,
+      descricao: document.getElementById("story").value
+      }
+    }
+    if(document.getElementById("password").value != ""){
+   
+      objEstab = {
+        fk_categoria:  document.getElementById("categoria-option").value,
+        nome: document.getElementById("name").value,
+        cnpj: document.getElementById("cnpj").value,
+        email: document.getElementById("email").value,
+        senha: document.getElementById("password").value,
+        hora_funcionamento: document.getElementById("horarioDe").value +" às "+ document.getElementById("horarioAte").value,
+        descricao: document.getElementById("story").value
+        }
+    }
+   
+    
+    fetch(`http://localhost:8080/restaurante/${localStorage.getItem('myreserve-usr-identifier')}`,{
+      method: "PUT",
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(objEstab)
+    })
+    
+  })
