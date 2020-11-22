@@ -9,12 +9,9 @@ if (btnReserva != null) {
 }
 
 if (btnVolta != null) {
-    setTimeout(() => {
-        btnVolta.addEventListener("click", () => {
-            window.location.href = "javascript:history.back()"
-        })
-    }, 50);
-
+    btnVolta.addEventListener("click", () => {
+        window.location.href = "javascript:history.back()"
+    })
 }
 
 if (voltaHomeLogo != null) {

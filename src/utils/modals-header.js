@@ -6,7 +6,6 @@ const rangePessoa = document.querySelector('#range-pessoa')
 const rangeDistancia = document.querySelector('#range-distancia')
 const valueRangePessoa = document.querySelector('#value-range-pessoas')
 const valueRangeDistancia = document.querySelector('#value-range-distancia')
-const btnArrowBack = document.querySelector("#btn-arrow-header")
 
 function openModalFilter() {
     modalFilter.classList.add('mostrar')
@@ -28,19 +27,9 @@ function openModalPerfil() {
     })
 }
 
-if (btnPerfil != null) {
-    btnPerfil.addEventListener("click", openModalPerfil)
-}
-if (btnFilter != null) {
-    btnFilter.addEventListener("click", openModalFilter)
-}
+btnPerfil.addEventListener("click", openModalPerfil)
+btnFilter.addEventListener("click", openModalFilter)
 
-if (btnArrowBack != null) {
-    btnArrowBack.addEventListener("click", () => {
-        localStorage.setItem("myreserve-filter-people", valueRangePessoa.attributes[2].value)
-        localStorage.setItem("myreserve-filter-distance", valueRangeDistancia.attributes[2].value)
-    })
-}
 
 window.addEventListener("load", () => {
     if (localStorage.getItem("myreserve-filter-people") != null) {
