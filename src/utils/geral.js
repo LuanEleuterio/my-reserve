@@ -8,9 +8,11 @@ if (btnReserva != null) {
     })
 }
 
-btnVolta.addEventListener("click", () => {
-    window.location.href = "javascript:history.back()"
-})
+if (btnVolta != null) {
+    btnVolta.addEventListener("click", () => {
+        window.location.href = "javascript:history.back()"
+    })
+}
 
 if (voltaHomeLogo != null) {
     voltaHomeLogo.addEventListener("click", () => {

@@ -53,6 +53,7 @@ function mostrarData() {
   var localdate = data.getDate() + `/` + (data.getMonth() + 1) + `/` + data.getFullYear();
   document.getElementById("date-reserva").innerHTML = localdate;
 }
+
 function initTime() {
   setInterval(mostrarData, 1000);
 }

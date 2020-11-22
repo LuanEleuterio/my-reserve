@@ -37,7 +37,7 @@ public class HorarioController {
 	
 	@CrossOrigin
 	@GetMapping("/{id_horario}")
-	public Optional<Horario> getHorario(@PathVariable int id_horario){
+	public Optional<Horario> getHorario(@PathVariable Integer id_horario){
 		return horarioRepository.findById(id_horario);
 	}
 	
