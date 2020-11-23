@@ -107,7 +107,10 @@ form .field {
     flex-direction: column;
     margin-bottom: 15px;
 }
+form .field select,
+form .field textarea,
 form .field input[type="text"],
+form .field input[type="time"],
 form .field input[type="email"],
 form .field input[type="password"],
 .pass-container {

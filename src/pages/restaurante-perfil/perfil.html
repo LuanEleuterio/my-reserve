@@ -31,11 +31,20 @@
         <form method="POST">
             <fieldset>
                 <label for="anexo-foto" class="image-profile">
-                    <img src="../../img/bar-1846137_1920.jpg" alt="">
+                    <img id="foto-restaurante" alt="">
                     <img src="../../icons/4124810-camera-photographic-equipment-photographic-object-photography-picture_113912.svg"
                         alt="" class="svg">
                 </label>
                 <input type="file" id="anexo-foto">
+
+                <div class="categoria field">
+                    <label for="categoria">Categoria:</label>
+                    <select name="categoria" id="categoria-option">
+                        <!-- <option value="arabe">Árabe</option> -->
+                        <!-- <option value="mexicana">Mexicana</option> -->
+                        <!-- <option value="mineira">Mineira</option> -->
+                    </select>
+                </div>
 
                 <div class="field">
                     <label for="name">Nome do Estabelecimento</label>
@@ -45,11 +54,12 @@
                     <label for="email">E-mail</label>
                     <input type="email" name="email" id="email" placeholder="email@exemplo.com" required />
                 </div>
+                <!--
                 <div class="field">
                     <label for="endereco">Endereço</label>
                     <input type="text" name="endereco" id="endereco" required />
                 </div>
-
+                -->
                 <div class="field">
                     <label for="cnpj">CNPJ</label>
                     <input type="text" name="cnpj" id="cnpj" placeholder="xx.xxx.xxx/xxxx-xx" maxlength="18" required />
@@ -57,6 +67,21 @@
                 <div class="field">
                     <label for="telefone">Telefone</label>
                     <input type="text" name="telefone" id="telefone" placeholder="(xx) xxxxx-xxxx" required />
+                </div>
+
+                <div class="field">
+                    <label>Funcionamento</label>
+                    <div class="horario">
+                        <input type="time" id="horarioDe" name="horario-de" class="horario-select" required>
+                        <span>até</span>
+                        <input type="time" id="horarioAte" name="horario-ate" class="horario-select" required>
+
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label>Descrição</label>
+                    <textarea id="story" name="story" rows="3" cols="50" maxlength="1000" required></textarea>
                 </div>
 
                 <label id="label-senha" for="password">Senha</label>
@@ -73,38 +98,38 @@
 
                 <div class="field">
                     <label for="nome">Nome do Beneficiário</label>
-                    <input type="text" name="nome" id="nome" required />
+                    <input type="text" name="nome" id="nome" readonly />
                 </div>
 
                 <div class="field">
                     <label for="identidade">CPF/CNPJ</label>
-                    <input type="text" name="identidade" id="identidade" maxlength="18" required />
+                    <input type="text" name="identidade" id="identidade" maxlength="18" readonly />
                 </div>
 
                 <div class="field-group">
                     <div class="field">
                         <label for="banco">Banco</label>
-                        <input type="text" name="banco" id="banco" required />
+                        <input type="text" name="banco" id="banco" readonly />
                     </div>
                     <div class="field">
                         <label for="agencia">Agência</label>
-                        <input type="text" name="agencia" id="agencia" required />
+                        <input type="text" name="agencia" id="agencia" readonly />
                     </div>
                 </div>
 
                 <div class="field-group">
                     <div class="field">
                         <label for="tipo-conta">Tipo de conta</label>
-                        <input type="text" name="tipo-conta" id="tipo-conta" required />
+                        <input type="text" name="tipo-conta" id="tipo-conta" readonly />
                     </div>
                     <div class="field">
                         <label for="nr-conta">Número da conta</label>
-                        <input type="text" name="nr-conta" id="nr-conta" required />
+                        <input type="text" name="nr-conta" id="nr-conta" readonly />
                     </div>
                 </div>
             </fieldset>
 
-            <input class="botao btn-blue" type="submit" value="Salvar alteracoes">
+            <input id="submit-salvar" class="botao btn-blue" type="submit" value="Salvar alteracoes">
             <input class="botao btn-red" type="button" value="Desconectar">
 
         </form>
@@ -152,6 +177,7 @@
     <script type="text/javascript" src="senha.js"></script>
     <script type="text/javascript" src="../../utils/geral-rest.js"></script>
     <script type="text/javascript" src="../../utils/footer-redirect-rest.js"></script>
+    <script type="text/javascript" src="../../utils/sweetalert2.all.js"></script>
 </body>
 
 </html>
