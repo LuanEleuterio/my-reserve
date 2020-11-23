@@ -29,7 +29,7 @@
     <main>
 
         <form method="POST">
-            <fieldset>
+            <fieldset id="fieldSet">
                 <label for="anexo-foto" class="image-profile">
                     <img id="foto-restaurante" alt="">
                     <img src="../../icons/4124810-camera-photographic-equipment-photographic-object-photography-picture_113912.svg"
@@ -64,11 +64,12 @@
                     <label for="cnpj">CNPJ</label>
                     <input type="text" name="cnpj" id="cnpj" placeholder="xx.xxx.xxx/xxxx-xx" maxlength="18" required />
                 </div>
+                <!--
                 <div class="field">
                     <label for="telefone">Telefone</label>
                     <input type="text" name="telefone" id="telefone" placeholder="(xx) xxxxx-xxxx" required />
                 </div>
-
+                -->
                 <div class="field">
                     <label>Funcionamento</label>
                     <div class="horario">
@@ -91,7 +92,8 @@
                         onclick="mostrar(this)"></button>
                 </div>
 
-
+            </fieldset>
+            <fieldset id="fieldSetPagamento">
                 <div class="dados">
                     <h2>Dados de Pagamento</h2>
                 </div>

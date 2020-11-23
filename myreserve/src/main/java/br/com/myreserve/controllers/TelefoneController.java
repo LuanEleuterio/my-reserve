@@ -42,9 +42,9 @@ public class TelefoneController {
 	}
 	
 	@CrossOrigin
-	@PutMapping("/{idEstab}")
-	public Telefone updateTelefone(@PathVariable Integer idEstab, @RequestBody Telefone dadosTelefone) throws Exception{
-		Telefone telefoneDB = telefoneRepository.findById(idEstab)
+	@PutMapping("/{idTelefone}")
+	public Telefone updateTelefone(@PathVariable Integer idTelefone, @RequestBody Telefone dadosTelefone) throws Exception{
+		Telefone telefoneDB = telefoneRepository.findById(idTelefone)
 				.orElseThrow(() -> new IllegalAccessException());
 		
 		if(dadosTelefone.getDdd() != null) telefoneDB.setDdd(dadosTelefone.getDdd());

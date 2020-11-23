@@ -145,6 +145,7 @@ form .dados {
     align-items: center;
     height: 27px;
     margin-top: 4px;
+    margin-bottom: 1em;
 }
 #label-senha {
     font-size: 14px;

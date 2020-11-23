@@ -1,5 +1,6 @@
 const modalCategoria = document.getElementById("categoria-option")
 const btnModalEstab = document.getElementById("submit-salvar")
+const fieldSet = document.getElementById("fieldSet")
 
 // mostrar senha - inicio
 function mostrar(e) {
@@ -41,7 +42,6 @@ function carregaDados() {
   fetch(`http://localhost:8080/restaurante/${localStorage.getItem('myreserve-usr-identifier')}`)
     .then((res) => res.json())
     .then((data) => {
-
       document.getElementById("foto-restaurante").setAttribute("src", "../../../myreserve/" + data.img_estabelecimento)
       document.getElementById("categoria-option").value = data.categoria.id_categoria
 
@@ -52,10 +52,35 @@ function carregaDados() {
       document.getElementById("horarioDe").value = data.hora_funcionamento.slice(0, 5)
       document.getElementById("horarioAte").value = data.hora_funcionamento.slice(-5)
 
+      const telefoneOrderById = data.telefone.sort(function (a, b) {
+        return a.id_telefone < b.id_telefone ? -1 : a.id_telefone > b.id_telefone ? 1 : 0;
+      })
 
+      let nTel = 0
+      telefoneOrderById.forEach((telefone) => {
+        nTel++
+        divField = document.createElement("div")
+        labelTelefone = document.createElement("label")
+        inputTelefone = document.createElement("input")
+
+        divField.setAttribute("class", "field")
+        labelTelefone.setAttribute("for", "telefone-" + nTel)
+        labelTelefone.innerText = "Telefone " + nTel;
+
+        inputTelefone.setAttribute("id", "telefone-" + nTel)
+        inputTelefone.setAttribute("type", "text")
+        inputTelefone.setAttribute("name", "telefone-" + nTel)
+        inputTelefone.setAttribute("placeholder", "(xx) xxxxx-xxxx")
+        inputTelefone.setAttribute("data-value", telefone.id_telefone)
+        inputTelefone.setAttribute("value", `${telefone.ddd}${telefone.numero}`)
+
+        divField.appendChild(labelTelefone)
+        divField.appendChild(inputTelefone)
+
+        fieldSet.appendChild(divField)
+      })
     })
 }
-
 
 btnModalEstab.addEventListener("click", (event) => {
   event.preventDefault()
@@ -96,6 +121,7 @@ btnModalEstab.addEventListener("click", (event) => {
     if (!res.ok) {
       throw Error(res.statusText)
     } else {
+      montaObjTelefone()
       exibeAlertMobileRest(true)
       return res.json()
     }
@@ -104,6 +130,61 @@ btnModalEstab.addEventListener("click", (event) => {
     console.log(err)
   })
 })
+
+function montaObjTelefone() {
+  const telefoneOne = document.getElementById("telefone-1")
+  const telefoneSecond = document.getElementById("telefone-2")
+
+  let px = 1;
+  do {
+    if (px === 1) {
+      dddTel = telefoneOne.value.substr(0, 2)
+      numeroTel = telefoneOne.value.substr(2)
+      idTel = parseInt(telefoneOne.attributes[4].value)
+    } else {
+      dddTel = telefoneSecond.value.substr(0, 2)
+      numeroTel = telefoneSecond.value.substr(2)
+      idTel = parseInt(telefoneSecond.attributes[4].value)
+      px = 3
+    }
+
+    let bodyDadosTelefone = {
+      ddd: dddTel,
+      numero: numeroTel,
+    }
+
+    console.log(bodyDadosTelefone)
+    console.log(idTel)
+
+    cadastraTelefone(bodyDadosTelefone, idTel)
+
+    if (telefoneSecond != null && telefoneSecond.value != "" && px < 2) {
+      px = 2
+    } else {
+      px = 3
+    }
+
+  } while (px <= 2)
+}
+
+function cadastraTelefone(obj, idTel) {
+  fetch(`http://localhost:8080/telefone/${idTel}`, {
+    method: "PUT",
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(obj)
+  })
+    .then((res) => {
+      if (!res.ok) {
+        throw Error(res.statusText)
+      }
+    })
+    .catch(err => {
+      console.log("Erro ao cadastrar telefone", err)
+    })
+}
 
 window.addEventListener("load", carregaDados)
 
