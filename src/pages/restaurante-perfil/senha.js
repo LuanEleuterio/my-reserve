@@ -80,6 +80,7 @@ function carregaDados() {
         fieldSet.appendChild(divField)
       })
     })
+    
 }
 
 btnModalEstab.addEventListener("click", (event) => {
