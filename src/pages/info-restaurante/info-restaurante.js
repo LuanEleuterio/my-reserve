@@ -84,7 +84,7 @@ function carregaDescricao(option = true) {
         return obj.ativo == true
       })
 
-      var btnsHours = document.querySelectorAll(".button-horario")
+      let btnsHours = document.querySelectorAll(".button-horario")
 
       for (let i = 0; i < btnsHours.length; i++) {
         if (btnsHours[i].parentNode) {

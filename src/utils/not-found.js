@@ -11,6 +11,12 @@ const btnSubmitLoc = document.getElementById("submit-location")
 
 function openModalLocation() {
   modalNotFound.classList.add('mostrar')
+
+  cepAtNow.value = localStorage.getItem("myreserve-usr-cep")
+  numeroLoc.value = localStorage.getItem("myreserve-usr-numero")
+  logradouroLoc.value = localStorage.getItem("myreserve-usr-logradouro")
+  cidadeLoc.value = localStorage.getItem("myreserve-usr-cidade")
+
   let anyLocVazio = (cepAtNow.value == "" && logradouroLoc.value == "" && cidadeLoc.value == "" && numeroLoc.value == "") ? false : true
   modalNotFound.addEventListener("click", (e) => {
     if ((e.target.className == "close-btnn-lcl" || e.target.className == modalNotFound.className) && anyLocVazio) {
@@ -24,9 +30,18 @@ btnNotFound.addEventListener("click", openModalLocation)
 btnSubmitLoc.addEventListener("click", (e) => {
   e.preventDefault()
 
-  enderecoAtNow.textContent = `${logradouroLoc.value}, ${numeroLoc.value} - ${cidadeLoc.value}`
-  localStorage.setItem("myreserve-usr-location", `${logradouroLoc.value}, ${numeroLoc.value} - ${cidadeLoc.value}`)
-  modalNotFound.classList.remove('mostrar')
+  let anyLocVazio = (logradouroLoc.value == "" && cidadeLoc.value == "" && numeroLoc.value == "") ? false : true
+
+  if (anyLocVazio) {
+    enderecoAtNow.textContent = `${logradouroLoc.value}, ${numeroLoc.value} - ${cidadeLoc.value}`
+    localStorage.setItem("myreserve-usr-location", `${logradouroLoc.value}, ${numeroLoc.value} - ${cidadeLoc.value}`)
+    localStorage.setItem("myreserve-usr-location", `${logradouroLoc.value}, ${numeroLoc.value} - ${cidadeLoc.value}`)
+    localStorage.setItem("myreserve-usr-cidade", cidadeLoc.value)
+    localStorage.setItem("myreserve-usr-logradouro", logradouroLoc.value)
+    localStorage.setItem("myreserve-usr-numero", numeroLoc.value)
+    localStorage.setItem("myreserve-usr-cep", cepAtNow.value)
+    modalNotFound.classList.remove('mostrar')
+  }
 })
 
 window.addEventListener("load", () => {

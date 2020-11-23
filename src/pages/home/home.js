@@ -1,20 +1,54 @@
 const conteinerRestaurantes = document.querySelector('.conteudo-restaurantes')
 const categoriaMain = document.querySelector('.categorias-main')
 const filterRedirect = document.querySelector('.filter-mobile')
-const locationInput = document.querySelector(".location-input")
 const btnVerMais = document.querySelector("#btn-ver-mais")
+
+const modalNotFound = document.getElementById("myModal-not-found");
+const modalLocation = document.querySelector(".model-conteiner-lcl");
+const btnNotFound = document.getElementById("myBtn-loc");
+const cepAtNow = document.getElementById("cep")
+const logradouroLoc = document.getElementById("logradouro")
+const cidadeLoc = document.getElementById("localidade")
+const numeroLoc = document.getElementById("numero")
+const enderecoAtNow = document.getElementById("seu-endereco")
+const btnSubmitLoc = document.getElementById("submit-location")
+
+const modalFilter = document.querySelector('.modal-conteiner-filter')
+const modalPerfil = document.querySelector('.modal-conteiner-perfil')
+const btnFilter = document.querySelector('.btn-filter')
+const btnPerfil = document.querySelector('#btn-perfil')
+const rangePessoa = document.querySelector('#range-pessoa')
+const rangeDistancia = document.querySelector('#range-distancia')
+const valueRangePessoa = document.querySelector('#value-range-pessoas')
+const valueRangeDistancia = document.querySelector('#value-range-distancia')
+const btnArrowBack = document.querySelector("#btn-arrow-header")
 
 var numPageMax = 0
 var proxPage = 0
 var idIncrement = 0
 
 //Busca restaurantes na Api
-function carregaRestaurantes(numPage) {
+function carregaRestaurantes(numPage, deleteElements) {
     fetch(`http://localhost:8080/restaurante?page=${numPage}`)
         .then(res => res.json())
         .then(restaurantes => {
             numPageMax = restaurantes.totalPages
-            restaurantes.content.forEach(restaurante => {
+
+            if (deleteElements) {
+                let restaurantesConteiners = document.querySelectorAll(".restaurante-container")
+
+                for (let i = 0; i < restaurantesConteiners.length; i++) {
+                    if (restaurantesConteiners[i].parentNode) {
+                        restaurantesConteiners[i].parentNode.removeChild(restaurantesConteiners[i])
+                    }
+                }
+            }
+
+            const filterRestaurantes = restaurantes.content.filter((obj) => {
+                return obj.max_pessoas <= localStorage.getItem("myreserve-filter-people")
+            })
+
+            filterRestaurantes.forEach(restaurante => {
                 restaurenteContainer = document.createElement("a");
                 restaurantes = document.createElement("div");
 
@@ -146,8 +180,6 @@ function redirectInfoRest(dataValue) {
     window.location.href = '../info-restaurante/info-restaurante.html'
 }
 
-window.addEventListener("load", carregaRestaurantes(0))
-
 btnVerMais.addEventListener("click", () => {
     proxPage++
     if (proxPage <= numPageMax) {
@@ -159,8 +191,115 @@ filterRedirect.addEventListener("click", () => {
     window.location.href = '../filtro-mobile/filtro-mobile.html'
 })
 
-locationInput.addEventListener("click", () => {
-    if (window.innerWidth < 769) {
-        // window.location.href = '../localizacao-mobile/localizacao.html'
+function openModalLocation() {
+    modalNotFound.classList.add('mostrar')
+
+    cepAtNow.value = localStorage.getItem("myreserve-usr-cep")
+    numeroLoc.value = localStorage.getItem("myreserve-usr-numero")
+    logradouroLoc.value = localStorage.getItem("myreserve-usr-logradouro")
+    cidadeLoc.value = localStorage.getItem("myreserve-usr-cidade")
+
+    let anyLocVazio = (cepAtNow.value == "" && logradouroLoc.value == "" && cidadeLoc.value == "" && numeroLoc.value == "") ? false : true
+
+    modalNotFound.addEventListener("click", (e) => {
+        if ((e.target.className == "close-btnn-lcl" || e.target.className == modalNotFound.className) && anyLocVazio) {
+            modalNotFound.classList.remove('mostrar')
+        }
+    })
+}
+
+btnNotFound.addEventListener("click", openModalLocation)
+
+btnSubmitLoc.addEventListener("click", (e) => {
+    e.preventDefault()
+
+    let anyLocVazio = (logradouroLoc.value == "" && cidadeLoc.value == "" && numeroLoc.value == "") ? false : true
+
+    if (anyLocVazio) {
+        enderecoAtNow.textContent = `${logradouroLoc.value}, ${numeroLoc.value} - ${cidadeLoc.value}`
+        localStorage.setItem("myreserve-usr-location", `${logradouroLoc.value}, ${numeroLoc.value} - ${cidadeLoc.value}`)
+        localStorage.setItem("myreserve-usr-cidade", cidadeLoc.value)
+        localStorage.setItem("myreserve-usr-logradouro", logradouroLoc.value)
+        localStorage.setItem("myreserve-usr-numero", numeroLoc.value)
+        localStorage.setItem("myreserve-usr-cep", cepAtNow.value)
+        modalNotFound.classList.remove('mostrar')
+        carregaRestaurantes(0)
     }
 })
+
+window.addEventListener("load", () => {
+    if (localStorage.getItem("myreserve-usr-location") == null) {
+        openModalLocation()
+    } else {
+        enderecoAtNow.textContent = localStorage.getItem("myreserve-usr-location")
+        carregaRestaurantes(0)
+    }
+})
+
+function openModalFilter() {
+    modalFilter.classList.add('mostrar')
+
+    modalFilter.addEventListener("click", (e) => {
+        if (e.target.id == "button-fechar" || e.target.className == modalFilter.className) {
+            modalFilter.classList.remove('mostrar')
+            if (valueRangePessoa.attributes[2] !== undefined) {
+                localStorage.setItem("myreserve-filter-people", valueRangePessoa.attributes[2].value)
+            }
+            if (valueRangeDistancia.attributes[2] !== undefined) {
+                localStorage.setItem("myreserve-filter-distance", valueRangeDistancia.attributes[2].value)
+            }
+
+            carregaRestaurantes(0, true)
+        }
+    })
+}
+
+function openModalPerfil() {
+    modalPerfil.classList.add('mostrar');
+
+    modalPerfil.addEventListener("click", (e) => {
+        modalPerfil.classList.remove('mostrar')
+    })
+}
+
+if (btnPerfil != null) {
+    btnPerfil.addEventListener("click", openModalPerfil)
+}
+if (btnFilter != null) {
+    btnFilter.addEventListener("click", openModalFilter)
+}
+
+if (btnArrowBack != null) {
+    btnArrowBack.addEventListener("click", () => {
+        localStorage.setItem("myreserve-filter-people", valueRangePessoa.attributes[2].value)
+        localStorage.setItem("myreserve-filter-distance", valueRangeDistancia.attributes[2].value)
+    })
+}
+
+window.addEventListener("load", () => {
+    if (localStorage.getItem("myreserve-filter-people") != null) {
+        valueRangePessoa.textContent = localStorage.getItem("myreserve-filter-people");
+        rangePessoa.setAttribute("value", localStorage.getItem("myreserve-filter-people"))
+    } else {
+        valueRangePessoa.textContent = rangePessoa.value;
+    }
+})
+window.addEventListener("load", () => {
+    if (localStorage.getItem("myreserve-filter-distance") != null) {
+        valueRangeDistancia.textContent = localStorage.getItem("myreserve-filter-distance") + 'km';
+        rangeDistancia.setAttribute("value", localStorage.getItem("myreserve-filter-distance"))
+    } else {
+        valueRangeDistancia.textContent = rangeDistancia.value + 'km';
+    }
+})
+
+rangePessoa.addEventListener('change', (e) => {
+    valueRangePessoa.textContent = e.target.value;
+    valueRangePessoa.setAttribute("data-value", e.target.value)
+})
+rangeDistancia.addEventListener('change', (e) => {
+    valueRangeDistancia.textContent = e.target.value + 'km';
+    valueRangeDistancia.setAttribute("data-value", e.target.value)
+})
+
+//window.addEventListener("load", carregaRestaurantes(0))
