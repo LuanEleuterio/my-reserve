@@ -234,6 +234,7 @@ header {
     font-size: large;
     font-weight: bolder;
     margin-bottom: 0.5em;
+    padding-left: 15px;
 }
 
 .tipo-categoria {
@@ -266,6 +267,7 @@ header {
     margin-bottom: 0.2em;
     color: var(--texto);
     font-weight: bolder;
+    font-size: .9em;
 }
 
 /*Inicio footer*/
