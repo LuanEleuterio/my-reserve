@@ -47,7 +47,7 @@
     }
 }
 
-@media (min-width:321px) and (max-width:425px) {
+@media (min-width:320px) and (max-width:425px) {
     .menu{
         display: none;
     }
@@ -62,6 +62,9 @@
 
     .team, .why{
         margin-top: 1em;
+    }
+    .information {
+        max-width: 200px;
     }
 }
 
@@ -129,7 +132,10 @@
     .why {
         background: none;
     }
-    /* .team {
-        margin-bottom: 100px;
-    } */
+    .login-my{
+        padding-left: 10px;
+    }
+    .info-my {
+        padding: 0 10px;
+    }
 }
