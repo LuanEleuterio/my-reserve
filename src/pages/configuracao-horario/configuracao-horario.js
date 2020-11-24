@@ -15,6 +15,7 @@ const btnCancelHour = document.getElementById("cancel-btn-modal")
 const conteinerHorario = document.querySelector(".conteiner-horario")
 const btnModalEstab = document.getElementById("submit-mod-perfil")
 const modalCategoria = document.getElementById("categoria-option")
+const fieldSet = document.getElementById("fieldSet-ModalPerfil")
 var idHour
 
 function carregaHorarios() {
@@ -215,24 +216,6 @@ window.addEventListener("load", () => {
         .catch(err => console.log("Ocorreu algum problema", err))
 })
 
-function exibeAlertConfig(exibe, msg) {
-    if (exibe) {
-        Swal.fire({
-            icon: 'success',
-            title: `${msg}`,
-            showConfirmButton: false,
-            timer: 1500,
-        })
-    } else {
-        Swal.fire({
-            icon: 'error',
-            title: `${msg}`,
-            showConfirmButton: false,
-            timer: 3000,
-        })
-    }
-}
-
 
 fetch("http://localhost:8080/categoria")
       .then( (res)=> res.json())
@@ -252,20 +235,52 @@ fetch("http://localhost:8080/categoria")
         
       })
       fetch(`http://localhost:8080/restaurante/${localStorage.getItem('myreserve-usr-identifier')}`)
-      .then((res)=> res.json())
+      .then((res) => res.json())
       .then((data) => {
-
-       
+    
+        console.log(data)
         document.getElementById("categoria-option").value = data.categoria.id_categoria
-
+    
         document.getElementById("name").value = data.nome
         document.getElementById("cnpj").value = data.cnpj
         document.getElementById("email").value = data.email
-
-        document.getElementById("horarioDe").value = data.hora_funcionamento.slice(0,5)
+    
+        document.getElementById("horarioDe").value = data.hora_funcionamento.slice(0, 5)
         document.getElementById("horarioAte").value = data.hora_funcionamento.slice(-5)
-
-
+    
+        document.getElementById("story").value = data.descricao
+    
+        const telefoneOrderById = data.telefone.sort(function (a, b) {
+          return a.id_telefone < b.id_telefone ? -1 : a.id_telefone > b.id_telefone ? 1 : 0;
+        })
+        console.log(telefoneOrderById)
+    
+    
+        
+        let nTel = 0
+        telefoneOrderById.forEach((telefone) => {
+          nTel++
+          modalBlock = document.getElementsByClassName("modal-content")
+          divField = document.createElement("div")
+          labelTelefone = document.createElement("label")
+          inputTelefone = document.createElement("input")
+    
+          divField.setAttribute("class", "field")
+          labelTelefone.setAttribute("for", "telefone-" + nTel)
+          labelTelefone.innerText = "Telefone " + nTel;
+    
+          inputTelefone.setAttribute("id", "telefone-" + nTel)
+          inputTelefone.setAttribute("type", "text")
+          inputTelefone.setAttribute("name", "telefone-" + nTel)
+          inputTelefone.setAttribute("placeholder", "(xx) xxxxx-xxxx")
+          inputTelefone.setAttribute("data-value", telefone.id_telefone)
+          inputTelefone.setAttribute("value", `${telefone.ddd}${telefone.numero}`)
+    
+          divField.appendChild(labelTelefone)
+          divField.appendChild(inputTelefone)
+    
+          fieldSet.appendChild(divField)
+        })
       })
 
 
@@ -298,13 +313,97 @@ btnModalEstab.addEventListener("click",()=>{
     }
    
     
-    fetch(`http://localhost:8080/restaurante/${localStorage.getItem('myreserve-usr-identifier')}`,{
+    fetch(`http://localhost:8080/restaurante/${localStorage.getItem('myreserve-usr-identifier')}`, {
+        method: "PUT",
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(objEstab)
+      }).then(res => {
+        if (!res.ok) {
+          throw Error(res.statusText)
+        } else {
+          montaObjTelefone()
+          exibeAlertConfig(true, "Informacoes salvas.")
+          return res.json()
+        }
+      }).catch(err => {
+        exibeAlertConfig(false,"Nao foi possivel alterar.")
+        console.log(err)
+      })
+    
+  })
+
+  function montaObjTelefone() {
+    const telefoneOne = document.getElementById("telefone-1")
+    const telefoneSecond = document.getElementById("telefone-2")
+  
+    let px = 1;
+    do {
+      if (px === 1) {
+        dddTel = telefoneOne.value.substr(0, 2)
+        numeroTel = telefoneOne.value.substr(2)
+        idTel = parseInt(telefoneOne.attributes[4].value)
+      } else {
+        dddTel = telefoneSecond.value.substr(0, 2)
+        numeroTel = telefoneSecond.value.substr(2)
+        idTel = parseInt(telefoneSecond.attributes[4].value)
+        px = 3
+      }
+  
+      let bodyDadosTelefone = {
+        ddd: dddTel,
+        numero: numeroTel,
+      }
+  
+      console.log(bodyDadosTelefone)
+      console.log(idTel)
+  
+      cadastraTelefone(bodyDadosTelefone, idTel)
+  
+      if (telefoneSecond != null && telefoneSecond.value != "" && px < 2) {
+        px = 2
+      } else {
+        px = 3
+      }
+  
+    } while (px <= 2)
+  }
+  
+  function cadastraTelefone(obj, idTel) {
+    fetch(`http://localhost:8080/telefone/${idTel}`, {
       method: "PUT",
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify(objEstab)
+      body: JSON.stringify(obj)
     })
-    
-  })
+      .then((res) => {
+        if (!res.ok) {
+          throw Error(res.statusText)
+        }
+      })
+      .catch(err => {
+        console.log("Erro ao cadastrar telefone", err)
+      })
+  }
+  
+  function exibeAlertConfig(exibe, msg) {
+    if (exibe) {
+        Swal.fire({
+            icon: 'success',
+            title: `${msg}`,
+            showConfirmButton: false,
+            timer: 1500,
+        })
+    } else {
+        Swal.fire({
+            icon: 'error',
+            title: `${msg}`,
+            showConfirmButton: false,
+            timer: 3000,
+        })
+    }
+}
