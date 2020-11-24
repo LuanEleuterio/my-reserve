@@ -23,6 +23,8 @@ const valueRangePessoa = document.querySelector('#value-range-pessoas')
 const valueRangeDistancia = document.querySelector('#value-range-distancia')
 const btnArrowBack = document.querySelector("#btn-arrow-header")
 
+//const matrix = new google.maps.DistanceMatrixService();
+
 var numPageMax = 0
 var proxPage = 0
 var idIncrement = 0
@@ -301,5 +303,60 @@ rangeDistancia.addEventListener('change', (e) => {
     valueRangeDistancia.textContent = e.target.value + 'km';
     valueRangeDistancia.setAttribute("data-value", e.target.value)
 })
+
+/*
+function m() {
+
+    var x = `${localStorage.getItem("myreserve-usr-cidade")}, ${localStorage.getItem("myreserve-usr-location")} - ${localStorage.getItem("myreserve-usr-numero")}`
+    var y = `São Paulo, Av. Guarapiranga - 540`
+
+    console.log(x)
+    console.log(y)
+    var url = "https://maps.googleapis.com/maps/api/distancematrix/json?origins=" + x + "&destinations=" + y + "&key=AIzaSyAXryRx7L4QD0RfF7UC4Fk3iN6lmN2bPVM";
+
+    fetch(url)
+        .then(res => res.json())
+        .then(response => console.log(response))
+        .catch(err => console.log(err))
+    //window.location = url; // this will go to the above url and display the JSON output file on the browser. I dont want that to be shown. just some processing and should display only the distance form that file on a textfield!
+
+}*/
+
+function getDistance() {
+    let service = new google.maps.DistanceMatrixService();
+
+    let userLocation = `${localStorage.getItem("myreserve-usr-cidade")}, ${localStorage.getItem("myreserve-usr-location")} - ${localStorage.getItem("myreserve-usr-numero")}`
+    let estabelecimentoLocation = `São Paulo, Av. Guarapiranga - 540`
+    service.getDistanceMatrix(
+        {
+            origins: [userLocation],
+            destinations: [estabelecimentoLocation],
+            travelMode: google.maps.TravelMode.DRIVING,
+            unitSystem: google.maps.UnitSystem.METRIC
+        }, verDistance);
+
+}
+
+function verDistance(response, status) {
+    console.log(status)
+    console.log(response)
+    console.log(response.rows[0].elements[0].distance.text)
+}
+
+function loadScript() {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "https://maps.googleapis.com/maps/api/js?key=&libraries=geometry&language=ptbr"
+    document.body.appendChild(script);
+}
+
+window.addEventListener("load", () => {
+    loadScript()
+    setTimeout(() => {
+        getDistance()
+    }, 1000);
+})
+
+
 
 //window.addEventListener("load", carregaRestaurantes(0))
