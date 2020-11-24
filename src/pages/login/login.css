@@ -81,8 +81,9 @@ input {
 }
 
 #submit-login{
+    width: 100%;
     margin: 0 auto;
-    padding: 8px 16px;
+    padding: 12px 16px;
     border-radius: var(--border-radius);
     background: var(--principal);
     color: var(--secundaria);
