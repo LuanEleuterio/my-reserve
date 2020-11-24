@@ -312,7 +312,7 @@ function m() {
 
     console.log(x)
     console.log(y)
-    var url = "https://maps.googleapis.com/maps/api/distancematrix/json?origins=" + x + "&destinations=" + y + "&key=AIzaSyAXryRx7L4QD0RfF7UC4Fk3iN6lmN2bPVM";
+    var url = "https://maps.googleapis.com/maps/api/distancematrix/json?origins=" + x + "&destinations=" + y + "&key=";
 
     fetch(url)
         .then(res => res.json())
