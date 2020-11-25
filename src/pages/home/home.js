@@ -23,8 +23,6 @@ const valueRangePessoa = document.querySelector('#value-range-pessoas')
 const valueRangeDistancia = document.querySelector('#value-range-distancia')
 const btnArrowBack = document.querySelector("#btn-arrow-header")
 
-//const matrix = new google.maps.DistanceMatrixService();
-
 var numPageMax = 0
 var proxPage = 0
 var idIncrement = 0
@@ -33,12 +31,11 @@ var idIncrement = 0
 function carregaRestaurantes(numPage, deleteElements) {
     fetch(`http://localhost:8080/restaurante?page=${numPage}`)
         .then(res => res.json())
-        .then(restaurantes => {
+        .then(async (restaurantes) => {
             numPageMax = restaurantes.totalPages
 
             if (deleteElements) {
                 let restaurantesConteiners = document.querySelectorAll(".restaurante-container")
-
                 for (let i = 0; i < restaurantesConteiners.length; i++) {
                     if (restaurantesConteiners[i].parentNode) {
                         restaurantesConteiners[i].parentNode.removeChild(restaurantesConteiners[i])
@@ -46,90 +43,133 @@ function carregaRestaurantes(numPage, deleteElements) {
                 }
             }
 
-            const filterRestaurantes = restaurantes.content.filter((obj) => {
+            const filterRestaurante = restaurantes.content.filter((obj) => {
                 return obj.max_pessoas <= localStorage.getItem("myreserve-filter-people")
             })
 
-            filterRestaurantes.forEach(restaurante => {
-                restaurenteContainer = document.createElement("a");
-                restaurantes = document.createElement("div");
+            async function filterForEach() {
+                filterRestaurante.forEach(async (obj) => {
+                    try {
+                        let enderecoRest = `${obj.endereco.cidade}, ${obj.endereco.logradouro} - ${obj.endereco.numero}`
+                        //let userKmFilter = parseInt(localStorage.getItem("myreserve-filter-distance"))
+                        let distance
+                        let estabKm
 
-                fotoRestaurante = document.createElement("div");
-                imgRestaurante = document.createElement("img");
+                        async function getKm() {
+                            let getDistance = async (start, end) => {
+                                let d = await calculaDistance(enderecoRest)
+                                return d.distance.value
+                            };
+                            const d = await getDistance()
+                            return d
+                        }
 
-                infoRestaurante = document.createElement("div");
-                nomeRestaurante = document.createElement("p");
+                        //distance = await getKm()
 
-                categoriaInfo = document.createElement("div");
-                iconCategoria = document.createElement("i");
-                nomeCategoria = document.createElement("p");
+                        estabKm = distance / 1000
 
-                distanceInfo = document.createElement("div");
-                iconDistance = document.createElement("i");
-                distancia = document.createElement("p");
+                        obj.kilometers = parseFloat(estabKm.toFixed(2))
+                    } catch (err) { console.log(err) }
+                })
+            }
 
-                infoNumeroPessoas = document.createElement("div");
-                numeroPessoas = document.createElement("div");
-                qtdPessoas = document.createElement("p");
-                iconPessoas = document.createElement("i");
+            await filterForEach()
 
-                restaurenteContainer.setAttribute("class", "restaurante-container");
-                restaurenteContainer.setAttribute("id", "rest-" + idIncrement)
-                restaurenteContainer.setAttribute("data-value", restaurante.id_estabelecimento)
-                restaurantes.setAttribute("class", "restaurantes");
+            console.log("linha 74: ", filterRestaurante)
 
-                fotoRestaurante.setAttribute("class", "foto-restaurante");
-                imgRestaurante.setAttribute("src", "../../../myreserve/" + restaurante.img_estabelecimento);
+            setTimeout(() => {
+                const restaurantesFiltered = filterRestaurante.filter((obj) => {
+                    return obj.kilometers <= parseInt(localStorage.getItem("myreserve-filter-distance"))
+                })
 
-                infoRestaurante.setAttribute("class", "info-restaurante");
-                nomeRestaurante.setAttribute("class", "nome-restaurante infos");
-                nomeRestaurante.textContent = restaurante.nome;
+                console.log("filtered", restaurantesFiltered)
 
-                categoriaInfo.setAttribute("class", "categoria infos");
-                iconCategoria.setAttribute("class", "fas fa-utensils col-1");
-                nomeCategoria.setAttribute("class", "categoria")
-                nomeCategoria.textContent = restaurante.categoria.tipo_categoria;
+                restaurantesFiltered.forEach(restaurante => {
+                    restaurenteContainer = document.createElement("a");
+                    restaurantes = document.createElement("div");
 
-                distanceInfo.setAttribute("class", "distance infos")
-                iconDistance.setAttribute("class", "fas fa-route col-1");
-                distancia.setAttribute("class", "distancia")
-                distancia.textContent = '2km';
+                    fotoRestaurante = document.createElement("div");
+                    imgRestaurante = document.createElement("img");
 
-                infoNumeroPessoas.setAttribute("class", "info-num-pessoas");
-                numeroPessoas.setAttribute("class", "numero-pessoas");
-                qtdPessoas.setAttribute("class", "quantidade-pessoa");
-                iconPessoas.setAttribute("class", "fas fa-user-friends icon-pessoa");
-                qtdPessoas.textContent = restaurante.max_pessoas;
+                    infoRestaurante = document.createElement("div");
+                    nomeRestaurante = document.createElement("p");
 
-                restaurenteContainer.appendChild(restaurantes);
-                restaurantes.appendChild(fotoRestaurante);
-                fotoRestaurante.appendChild(imgRestaurante);
+                    categoriaInfo = document.createElement("div");
+                    iconCategoria = document.createElement("i");
+                    nomeCategoria = document.createElement("p");
 
-                restaurantes.appendChild(infoRestaurante);
-                infoRestaurante.appendChild(nomeRestaurante);
-                infoRestaurante.appendChild(categoriaInfo);
-                categoriaInfo.appendChild(iconCategoria);
-                categoriaInfo.appendChild(nomeCategoria);
+                    distanceInfo = document.createElement("div");
+                    iconDistance = document.createElement("i");
+                    distancia = document.createElement("p");
 
-                infoRestaurante.appendChild(distanceInfo);
-                distanceInfo.appendChild(iconDistance);
-                distanceInfo.appendChild(distancia);
+                    infoNumeroPessoas = document.createElement("div");
+                    numeroPessoas = document.createElement("div");
+                    qtdPessoas = document.createElement("p");
+                    iconPessoas = document.createElement("i");
 
-                restaurantes.appendChild(infoNumeroPessoas);
-                infoNumeroPessoas.appendChild(numeroPessoas);
-                numeroPessoas.appendChild(qtdPessoas);
-                numeroPessoas.appendChild(iconPessoas);
+                    restaurenteContainer.setAttribute("class", "restaurante-container");
+                    restaurenteContainer.setAttribute("id", "rest-" + idIncrement)
+                    restaurenteContainer.setAttribute("data-value", restaurante.id_estabelecimento)
+                    restaurantes.setAttribute("class", "restaurantes");
 
-                conteinerRestaurantes.appendChild(restaurenteContainer);
-                const newEvent = document.getElementById(`rest-${idIncrement}`)
-                newEvent.addEventListener("click", () => { redirectInfoRest(newEvent.attributes[2].value) })
+                    fotoRestaurante.setAttribute("class", "foto-restaurante");
+                    imgRestaurante.setAttribute("src", "../../../myreserve/" + restaurante.img_estabelecimento);
 
-                idIncrement++
-            })
+                    infoRestaurante.setAttribute("class", "info-restaurante");
+                    nomeRestaurante.setAttribute("class", "nome-restaurante infos");
+                    nomeRestaurante.textContent = restaurante.nome;
+
+                    categoriaInfo.setAttribute("class", "categoria infos");
+                    iconCategoria.setAttribute("class", "fas fa-utensils col-1");
+                    nomeCategoria.setAttribute("class", "categoria")
+                    nomeCategoria.textContent = restaurante.categoria.tipo_categoria;
+
+                    distanceInfo.setAttribute("class", "distance infos")
+                    iconDistance.setAttribute("class", "fas fa-route col-1");
+                    distancia.setAttribute("class", "distancia")
+                    if (restaurante.kilometers < 1) {
+                        distancia.textContent = `<1km`
+                    } else {
+                        distancia.textContent = `${restaurante.kilometers}km`
+                    }
+                    infoNumeroPessoas.setAttribute("class", "info-num-pessoas");
+                    numeroPessoas.setAttribute("class", "numero-pessoas");
+                    qtdPessoas.setAttribute("class", "quantidade-pessoa");
+                    iconPessoas.setAttribute("class", "fas fa-user-friends icon-pessoa");
+                    qtdPessoas.textContent = restaurante.max_pessoas;
+
+                    restaurenteContainer.appendChild(restaurantes);
+                    restaurantes.appendChild(fotoRestaurante);
+                    fotoRestaurante.appendChild(imgRestaurante);
+
+                    restaurantes.appendChild(infoRestaurante);
+                    infoRestaurante.appendChild(nomeRestaurante);
+                    infoRestaurante.appendChild(categoriaInfo);
+                    categoriaInfo.appendChild(iconCategoria);
+                    categoriaInfo.appendChild(nomeCategoria);
+
+                    infoRestaurante.appendChild(distanceInfo);
+                    distanceInfo.appendChild(iconDistance);
+                    distanceInfo.appendChild(distancia);
+
+                    restaurantes.appendChild(infoNumeroPessoas);
+                    infoNumeroPessoas.appendChild(numeroPessoas);
+                    numeroPessoas.appendChild(qtdPessoas);
+                    numeroPessoas.appendChild(iconPessoas);
+
+                    conteinerRestaurantes.appendChild(restaurenteContainer);
+                    const newEvent = document.getElementById(`rest-${idIncrement}`)
+                    newEvent.addEventListener("click", () => { redirectInfoRest(newEvent.attributes[2].value) })
+
+                    idIncrement++
+                    console.log(restaurante.kilometers)
+                })
+            }, 800);
 
         }).catch(err => console.log(err))
 
 }
+
 //Busca categorias na API
 window.addEventListener("load", () => {
 
@@ -176,12 +216,6 @@ window.addEventListener("load", () => {
 })
 //-
 
-function redirectInfoRest(dataValue) {
-
-    localStorage.setItem("myreserve-identifier-rest", dataValue)
-    window.location.href = '../info-restaurante/info-restaurante.html'
-}
-
 btnVerMais.addEventListener("click", () => {
     proxPage++
     if (proxPage <= numPageMax) {
@@ -225,36 +259,21 @@ btnSubmitLoc.addEventListener("click", (e) => {
         localStorage.setItem("myreserve-usr-numero", numeroLoc.value)
         localStorage.setItem("myreserve-usr-cep", cepAtNow.value)
         modalNotFound.classList.remove('mostrar')
-        carregaRestaurantes(0)
+        carregaRestaurantes(0, true)
     }
 })
 
 window.addEventListener("load", () => {
-    if (localStorage.getItem("myreserve-usr-location") == null) {
-        openModalLocation()
-    } else {
-        enderecoAtNow.textContent = localStorage.getItem("myreserve-usr-location")
-        carregaRestaurantes(0)
-    }
-})
-
-function openModalFilter() {
-    modalFilter.classList.add('mostrar')
-
-    modalFilter.addEventListener("click", (e) => {
-        if (e.target.id == "button-fechar" || e.target.className == modalFilter.className) {
-            modalFilter.classList.remove('mostrar')
-            if (valueRangePessoa.attributes[2] !== undefined) {
-                localStorage.setItem("myreserve-filter-people", valueRangePessoa.attributes[2].value)
-            }
-            if (valueRangeDistancia.attributes[2] !== undefined) {
-                localStorage.setItem("myreserve-filter-distance", valueRangeDistancia.attributes[2].value)
-            }
-
-            carregaRestaurantes(0, true)
+    setTimeout(() => {
+        if (localStorage.getItem("myreserve-usr-location") == null) {
+            openModalLocation()
+        } else {
+            enderecoAtNow.textContent = localStorage.getItem("myreserve-usr-location")
+            carregaRestaurantes(0)
         }
-    })
-}
+    }, 1000);
+
+})
 
 function openModalPerfil() {
     modalPerfil.classList.add('mostrar');
@@ -268,8 +287,27 @@ if (btnPerfil != null) {
     btnPerfil.addEventListener("click", openModalPerfil)
 }
 if (btnFilter != null) {
-    btnFilter.addEventListener("click", openModalFilter)
+    btnFilter.addEventListener("click", () => {
+        modalFilter.classList.add('mostrar')
+    })
 }
+
+//Event Listener Modal Filter
+window.addEventListener("load", () => {
+    modalFilter.addEventListener("click", (e) => {
+        if (e.target.id == "button-fechar" || e.target.className == modalFilter.className) {
+            modalFilter.classList.remove('mostrar')
+            if (valueRangePessoa.attributes[2] !== undefined) {
+                localStorage.setItem("myreserve-filter-people", valueRangePessoa.attributes[2].value)
+            }
+            if (valueRangeDistancia.attributes[2] !== undefined) {
+                localStorage.setItem("myreserve-filter-distance", valueRangeDistancia.attributes[2].value)
+            }
+            console.log()
+            carregaRestaurantes(0, true)
+        }
+    })
+})
 
 if (btnArrowBack != null) {
     btnArrowBack.addEventListener("click", () => {
@@ -304,43 +342,38 @@ rangeDistancia.addEventListener('change', (e) => {
     valueRangeDistancia.setAttribute("data-value", e.target.value)
 })
 
-/*
-function m() {
+async function calculaDistance(estabLocation) {
+    let usrLocation = `${localStorage.getItem("myreserve-usr-cidade")}, ${localStorage.getItem("myreserve-usr-location")} - ${localStorage.getItem("myreserve-usr-numero")}`
+    let distance
+    const getDistanceMatrix = (service, data) => new Promise((resolve, reject) => {
+        service.getDistanceMatrix(data, (response, status) => {
+            if (status === 'OK') {
+                resolve(response)
+            } else {
+                reject(response);
+            }
+        })
+    });
 
-    var x = `${localStorage.getItem("myreserve-usr-cidade")}, ${localStorage.getItem("myreserve-usr-location")} - ${localStorage.getItem("myreserve-usr-numero")}`
-    var y = `São Paulo, Av. Guarapiranga - 540`
+    getDistance = async (start, end) => {
+        const origin = usrLocation
+        const final = estabLocation
+        const service = new google.maps.DistanceMatrixService();
+        const result = await getDistanceMatrix(
+            service,
+            {
+                origins: [origin],
+                destinations: [final],
+                travelMode: 'DRIVING'
+            }
+        )
+        return {
+            distance: result.rows[0].elements[0].distance
+        };
+    };
+    distance = await getDistance()
 
-    console.log(x)
-    console.log(y)
-    var url = "https://maps.googleapis.com/maps/api/distancematrix/json?origins=" + x + "&destinations=" + y + "&key=";
-
-    fetch(url)
-        .then(res => res.json())
-        .then(response => console.log(response))
-        .catch(err => console.log(err))
-    //window.location = url; // this will go to the above url and display the JSON output file on the browser. I dont want that to be shown. just some processing and should display only the distance form that file on a textfield!
-
-}*/
-
-function getDistance() {
-    let service = new google.maps.DistanceMatrixService();
-
-    let userLocation = `${localStorage.getItem("myreserve-usr-cidade")}, ${localStorage.getItem("myreserve-usr-location")} - ${localStorage.getItem("myreserve-usr-numero")}`
-    let estabelecimentoLocation = `São Paulo, Av. Guarapiranga - 540`
-    service.getDistanceMatrix(
-        {
-            origins: [userLocation],
-            destinations: [estabelecimentoLocation],
-            travelMode: google.maps.TravelMode.DRIVING,
-            unitSystem: google.maps.UnitSystem.METRIC
-        }, verDistance);
-
-}
-
-function verDistance(response, status) {
-    console.log(status)
-    console.log(response)
-    console.log(response.rows[0].elements[0].distance.text)
+    return distance
 }
 
 function loadScript() {
@@ -350,13 +383,14 @@ function loadScript() {
     document.body.appendChild(script);
 }
 
+function redirectInfoRest(dataValue) {
+
+    localStorage.setItem("myreserve-identifier-rest", dataValue)
+    window.location.href = '../info-restaurante/info-restaurante.html'
+}
+
 window.addEventListener("load", () => {
     loadScript()
-    setTimeout(() => {
-        getDistance()
-    }, 1000);
 })
-
-
 
 //window.addEventListener("load", carregaRestaurantes(0))
