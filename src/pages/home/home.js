@@ -195,7 +195,7 @@ window.addEventListener("load", () => {
                 imgCategoria.setAttribute("class", "img-categoria")
                 nameCategoria.setAttribute("class", "name-categoria")
 
-                imgCategoria.setAttribute("src", "../../../myreserve/" + categoria.img_categoria)
+                imgCategoria.setAttribute("src", categoria.img_categoria)
                 nameCategoria.textContent = categoria.tipo_categoria
 
                 tipoCategoria.appendChild(imgCarrousel)

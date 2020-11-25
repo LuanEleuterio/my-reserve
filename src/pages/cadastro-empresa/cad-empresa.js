@@ -280,8 +280,10 @@ function cadastraTelefoneEstab(obj) {
     .then((res) => {
       if (!res.ok) {
         throw Error(res.statusText)
+      } else {
+        exibeAlert(true)
+
       }
-      exibeAlert(true)
     })
     .catch(err => {
       console.log("Erro ao cadastrar telefone", err)
@@ -320,4 +322,8 @@ function desfazCadastro(id, etapa) {
       }
     })
   }, 1500);
-} 
+}
+
+function redirectToLogin() {
+  window.location.href = '../login/login.html'
+}

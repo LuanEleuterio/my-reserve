@@ -484,7 +484,7 @@
     button.slick-prev{
         font-size: 0px;
         border: none;
-        width: 10vw;
+        width: 35vw;
         max-width: 44px;
         background-color: transparent;
         background-image: url('../../icons/arrow-circle-left-solid.svg');
@@ -499,7 +499,7 @@
     button.slick-next{
         font-size: 0px;
         border: none;
-        width: 10vw;
+        width: 35vw;
         max-width: 44px;
         background-color: transparent;
         background-image: url('../../icons/arrow-circle-right-solid.svg');
