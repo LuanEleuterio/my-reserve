@@ -11,7 +11,12 @@ var dataDeHoje = new Date()
 
 
 function carregaClientes() {
-  fetch("http://localhost:8080/reserva")
+  fetch("http://localhost:8080/reserva", {
+    method: "GET",
+    headers: {
+      'Authorization': `Bearer ${localStorage.getItem("myreserve-usr-token")}`
+    }
+  })
     .then((res) => res.json())
     .then((data) => {
       const reservas = data
@@ -172,7 +177,8 @@ modalBtnSubmit.addEventListener("click", function () {
       method: "POST",
       headers: {
         'Accept': 'application/json',
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${localStorage.getItem("myreserve-usr-token")}`
       },
       body: JSON.stringify(objteste)
     })
@@ -195,7 +201,12 @@ modalBtnSubmit.addEventListener("click", function () {
 })
 
 
-fetch("http://localhost:8080/categoria")
+fetch("http://localhost:8080/categoria", {
+  method: "GET",
+  headers: {
+    'Authorization': `Bearer ${localStorage.getItem("myreserve-usr-token")}`
+  }
+})
   .then((res) => res.json())
   .then((data) => {
     const categoriaRestaurante = data
@@ -213,7 +224,12 @@ fetch("http://localhost:8080/categoria")
 
   })
 
-fetch(`http://localhost:8080/restaurante/${localStorage.getItem('myreserve-usr-identifier')}`)
+fetch(`http://localhost:8080/restaurante/${localStorage.getItem('myreserve-usr-identifier')}`, {
+  method: "GET",
+  headers: {
+    'Authorization': `Bearer ${localStorage.getItem("myreserve-usr-token")}`
+  }
+})
   .then((res) => res.json())
   .then((data) => {
 
@@ -235,7 +251,7 @@ fetch(`http://localhost:8080/restaurante/${localStorage.getItem('myreserve-usr-i
     console.log(telefoneOrderById)
 
 
-    
+
     let nTel = 0
     telefoneOrderById.forEach((telefone) => {
       nTel++
@@ -296,7 +312,8 @@ btnModalEstab.addEventListener("click", (event) => {
     method: "PUT",
     headers: {
       'Accept': 'application/json',
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${localStorage.getItem("myreserve-usr-token")}`
     },
     body: JSON.stringify(objEstab)
   }).then(res => {
@@ -308,7 +325,7 @@ btnModalEstab.addEventListener("click", (event) => {
       return res.json()
     }
   }).catch(err => {
-    exibeAlert(false,"Nao foi possivel alterar.")
+    exibeAlert(false, "Nao foi possivel alterar.")
     console.log(err)
   })
 })
@@ -356,7 +373,8 @@ function cadastraTelefone(obj, idTel) {
     method: "PUT",
     headers: {
       'Accept': 'application/json',
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${localStorage.getItem("myreserve-usr-token")}`
     },
     body: JSON.stringify(obj)
   })
@@ -370,7 +388,7 @@ function cadastraTelefone(obj, idTel) {
     })
 }
 
-function exibeAlert(exibe,texto) {
+function exibeAlert(exibe, texto) {
   if (exibe) {
     Swal.fire({
       icon: 'success',

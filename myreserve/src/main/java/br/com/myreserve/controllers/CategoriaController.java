@@ -13,9 +13,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.myreserve.entities.Categoria;
-import br.com.myreserve.entities.Telefone;
 import br.com.myreserve.repositories.CategoriaRepository;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/categoria")
 public class CategoriaController {
@@ -23,7 +23,6 @@ public class CategoriaController {
 	@Autowired
 	CategoriaRepository categoriaRepository;
 	
-	@CrossOrigin
 	@GetMapping()
 	public Iterable<Categoria> getCategorias(){
 		return categoriaRepository.findAll();
@@ -39,7 +38,6 @@ public class CategoriaController {
 		categoriaRepository.save(categoria);
 	}
 	
-	@CrossOrigin
 	@PutMapping("/{idCategoria}")
 	public Categoria updateCategoria(@PathVariable Integer idCategoria, @RequestBody Categoria dadosCategoria) throws Exception{
 		Categoria categoriaDB = categoriaRepository.findById(idCategoria)

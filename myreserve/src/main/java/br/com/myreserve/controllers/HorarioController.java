@@ -19,6 +19,7 @@ import br.com.myreserve.entities.Reserva;
 import br.com.myreserve.repositories.HorarioRepository;
 import br.com.myreserve.repositories.ReservaRepository;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/horario")
 public class HorarioController {
@@ -29,25 +30,21 @@ public class HorarioController {
 	@Autowired 
 	private ReservaRepository reservaRepository;
 	
-	@CrossOrigin
 	@GetMapping
 	public Iterable<Horario> getHorarios(){
 		return horarioRepository.findAll();
 	}
 	
-	@CrossOrigin
 	@GetMapping("/{id_horario}")
 	public Optional<Horario> getHorario(@PathVariable Integer id_horario){
 		return horarioRepository.findById(id_horario);
 	}
 	
-	@CrossOrigin
 	@GetMapping("/byEstab/{idEstab}")
 	public Iterable<Horario> getByEstabelecimento(@PathVariable Integer idEstab){
 		return horarioRepository.selectAllByFk(idEstab);
 	}
 	
-	@CrossOrigin
 	@PostMapping()
 	public void addHorario(@RequestBody Horario horario) {
 		horario.setAtivo(true);
@@ -55,7 +52,6 @@ public class HorarioController {
 		horarioRepository.save(horario);
 	}
 	
-	@CrossOrigin
 	@PutMapping("/altera")
 	public Horario updateHorario(@RequestParam("idHour") Integer idHour, @RequestBody Horario horario) throws Exception{
 		Horario horarioDB = horarioRepository.findById(idHour)
@@ -75,7 +71,6 @@ public class HorarioController {
 		return horarioDB;
 	}	
 	
-	@CrossOrigin
 	@DeleteMapping("/{id_horario}")
 	public void deleteHorario(@PathVariable Integer id_horario) throws IllegalAccessException {
 		Reserva reserva = reservaRepository.selectByFkHorario(id_horario);

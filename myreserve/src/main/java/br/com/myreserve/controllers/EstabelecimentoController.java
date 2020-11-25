@@ -23,6 +23,7 @@ import br.com.myreserve.repositories.HorarioRepository;
 import br.com.myreserve.repositories.LoginsRepository;
 import lombok.RequiredArgsConstructor;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/restaurante")
 @RequiredArgsConstructor
@@ -40,19 +41,16 @@ public class EstabelecimentoController {
 	@Autowired
 	private PasswordEncoder passwordEncoder;
 	
-	@CrossOrigin
 	@GetMapping()
 	public Iterable<Estabelecimento> getEstabelecimentos(Pageable pageable){
 		return estabelecimentoRepository.findAll(pageable);
 	}
 	
-	@CrossOrigin
 	@GetMapping("/{id}")
 	public Optional<Estabelecimento> getById(@PathVariable int id) {
 		return estabelecimentoRepository.findById(id);
 	}
 	
-	@CrossOrigin
 	@PostMapping()
 	public Integer addEstabelecimento(@RequestBody Estabelecimento estabelecimento) {
 		Logins login = new Logins();
@@ -71,7 +69,6 @@ public class EstabelecimentoController {
 		return estabelecimento.getId_estabelecimento();
 	}
 	
-	@CrossOrigin
 	@PutMapping("/{idEstab}")
 	public Estabelecimento updateEstab(@PathVariable Integer idEstab, @RequestBody Estabelecimento dadosEstab) throws Exception{
 		Estabelecimento estabDB = estabelecimentoRepository.findById(idEstab)

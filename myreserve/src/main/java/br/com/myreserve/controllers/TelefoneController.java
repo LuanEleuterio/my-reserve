@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import br.com.myreserve.entities.Telefone;
 import br.com.myreserve.repositories.TelefoneRepository;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/telefone")
 public class TelefoneController {
@@ -23,25 +24,21 @@ public class TelefoneController {
 	@Autowired
 	TelefoneRepository telefoneRepository;
 	
-	@CrossOrigin
 	@GetMapping()
 	public Iterable<Telefone> getTelefones(){
 		return telefoneRepository.findAll();
 	}
 	
-	@CrossOrigin
 	@GetMapping("/{id}")
 	public Optional<Telefone> getTelefoneById(@PathVariable Integer id){
 		return telefoneRepository.findById(id);
 	}
 	
-	@CrossOrigin
 	@PostMapping()
 	public void addTelefone(@RequestBody Telefone telefone) {
 		telefoneRepository.save(telefone);
 	}
 	
-	@CrossOrigin
 	@PutMapping("/{idTelefone}")
 	public Telefone updateTelefone(@PathVariable Integer idTelefone, @RequestBody Telefone dadosTelefone) throws Exception{
 		Telefone telefoneDB = telefoneRepository.findById(idTelefone)

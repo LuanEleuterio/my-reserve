@@ -60,7 +60,12 @@ function initTime() {
 
 function carregaDescricao(option = true) {
   //option serve para quando eu fazer uma reserva, ele recarregar somento os horários
-  fetch(`http://localhost:8080/restaurante/${localStorage.getItem("myreserve-identifier-rest")}`)
+  fetch(`http://localhost:8080/restaurante/${localStorage.getItem("myreserve-identifier-rest")}`, {
+    method: "GET",
+    headers: {
+      'Authorization': `Bearer ${localStorage.getItem("myreserve-usr-token")}`
+    }
+  })
     .then(res => res.json())
     .then(descricao => {
 
@@ -186,7 +191,8 @@ modalSubmitReserva.addEventListener("click", function () {
     method: "POST",
     headers: {
       'Accept': 'application/json',
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${localStorage.getItem("myreserve-usr-token")}`
     },
     body: JSON.stringify(objReserva)
   })

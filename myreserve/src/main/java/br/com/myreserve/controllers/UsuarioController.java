@@ -21,6 +21,7 @@ import br.com.myreserve.repositories.LoginsRepository;
 import br.com.myreserve.repositories.UsuarioRepository;
 import lombok.RequiredArgsConstructor;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/usuario")
 @RequiredArgsConstructor
@@ -35,25 +36,21 @@ public class UsuarioController {
 	@Autowired
 	private PasswordEncoder passwordEncoder;
 	
-	@CrossOrigin
 	@GetMapping()
 	public Iterable<Usuario> getUsuario(){
 		return usuarioRepository.findAll();
 	}
 	
-	@CrossOrigin
 	@GetMapping("/{id}")
 	public Optional<Usuario> getById(@PathVariable int id) {
 		return usuarioRepository.findById(id);
 	}
 	
-	@CrossOrigin
 	@GetMapping("/byemail")
 	public Optional<Usuario> getByEmail(@PathParam("email") String email) {
 		return usuarioRepository.findByEmail(email);
 	}
 	
-	@CrossOrigin
 	@PostMapping()
 	public void addUsuario(@RequestBody Usuario usuario) {
 		Logins login = new Logins();
@@ -70,7 +67,6 @@ public class UsuarioController {
 		loginsRepository.save(login);
 	}
 	
-	@CrossOrigin
 	@PutMapping("/{idUser}")
 	public Usuario updateUser(@PathVariable int idUser, @RequestBody Usuario dadosUsuario) throws Exception{
 		Usuario userDB = usuarioRepository.findById(idUser)

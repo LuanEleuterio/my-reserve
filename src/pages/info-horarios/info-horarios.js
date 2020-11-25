@@ -4,7 +4,12 @@ const containerHorario = document.querySelector(".conteiner-horario")
 
 function carregaHorariosMobile() {
 
-    fetch(`http://localhost:8080/restaurante/${localStorage.getItem("myreserve-identifier-rest")}`)
+    fetch(`http://localhost:8080/restaurante/${localStorage.getItem("myreserve-identifier-rest")}`, {
+        method: "GET",
+        headers: {
+            'Authorization': `Bearer ${localStorage.getItem("myreserve-usr-token")}`
+        }
+    })
         .then(res => res.json())
         .then(descricao => {
 

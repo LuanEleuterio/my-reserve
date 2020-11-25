@@ -4,7 +4,12 @@ const qtdVagas = document.getElementById("qtd-vagas")
 const qtdPessoa = document.getElementById("ipt-qtd-pessoa")
 function carregaHorariosMobile() {
 
-    fetch(`http://localhost:8080/horario/${localStorage.getItem("myreserve-hour-identifier")}`)
+    fetch(`http://localhost:8080/horario/${localStorage.getItem("myreserve-hour-identifier")}`, {
+        method: "GET",
+        headers: {
+            'Authorization': `Bearer ${localStorage.getItem("myreserve-usr-token")}`
+        }
+    })
         .then(res => res.json())
         .then(horario => {
             hourReserva.innerText = `${horario.horario_de.slice(-8, -3)} às ${horario.horario_ate.slice(-8, -3)}`
@@ -26,7 +31,8 @@ btnConfirmar.addEventListener("click", () => {
         method: "POST",
         headers: {
             'Accept': 'application/json',
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${localStorage.getItem("myreserve-usr-token")}`
         },
         body: JSON.stringify(bodyDados)
     }).then(res => {

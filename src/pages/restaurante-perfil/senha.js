@@ -24,7 +24,12 @@ function mostrar(e) {
 // mostrar senha - fim
 
 function carregaDados() {
-  fetch("http://localhost:8080/categoria")
+  fetch("http://localhost:8080/categoria", {
+    method: "GET",
+    headers: {
+      'Authorization': `Bearer ${localStorage.getItem("myreserve-usr-token")}`
+    }
+  })
     .then((res) => res.json())
     .then((data) => {
       const categoriaRestaurante = data
@@ -39,7 +44,12 @@ function carregaDados() {
 
     })
 
-  fetch(`http://localhost:8080/restaurante/${localStorage.getItem('myreserve-usr-identifier')}`)
+  fetch(`http://localhost:8080/restaurante/${localStorage.getItem('myreserve-usr-identifier')}`, {
+    method: "GET",
+    headers: {
+      'Authorization': `Bearer ${localStorage.getItem("myreserve-usr-token")}`
+    }
+  })
     .then((res) => res.json())
     .then((data) => {
       document.getElementById("foto-restaurante").setAttribute("src", "../../../myreserve/" + data.img_estabelecimento)
@@ -80,7 +90,7 @@ function carregaDados() {
         fieldSet.appendChild(divField)
       })
     })
-    
+
 }
 
 btnModalEstab.addEventListener("click", (event) => {
@@ -115,7 +125,8 @@ btnModalEstab.addEventListener("click", (event) => {
     method: "PUT",
     headers: {
       'Accept': 'application/json',
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${localStorage.getItem("myreserve-usr-token")}`
     },
     body: JSON.stringify(objEstab)
   }).then(res => {
@@ -173,7 +184,8 @@ function cadastraTelefone(obj, idTel) {
     method: "PUT",
     headers: {
       'Accept': 'application/json',
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${localStorage.getItem("myreserve-usr-token")}`
     },
     body: JSON.stringify(obj)
   })

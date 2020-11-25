@@ -99,7 +99,12 @@ if (submitEditar != null) {
 }
 
 function carregaDados() {
-    fetch(`http://localhost:8080/usuario/${localStorage.getItem("myreserve-usr-identifier")}`)
+    fetch(`http://localhost:8080/usuario/${localStorage.getItem("myreserve-usr-identifier")}`, {
+        method: "GET",
+        headers: {
+            'Authorization': `Bearer ${localStorage.getItem("myreserve-usr-token")}`
+        }
+    })
         .then(res => res.json())
         .then(user => {
             /* if (localStorage.getItem("myreserve-usr-identifier") == null) {

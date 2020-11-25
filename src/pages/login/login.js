@@ -51,6 +51,7 @@ function fazLogin(obj) {
             localStorage.setItem("myreserve-usr-email", token.login)
             localStorage.setItem("myreserve-usr-identifier", token.id)
             localStorage.setItem("myreserve-usr-l", "LOG")
+            localStorage.setItem("myreserve-usr-type", token.isUserOrEstab)
             return token
             //exibeAlert(true)
         })
@@ -63,11 +64,13 @@ function fazLogin(obj) {
 }
 
 function redirectToUserOrEstab(typeUsr) {
+
     if (typeUsr === "USER") {
         window.location.href = '../home/home.html'
     } else if (typeUsr === "ESTAB") {
         window.location.href = '../home-restaurante/home-restaurante.html'
     }
+
 }
 
 function exibeAlert(exibe) {
@@ -89,3 +92,16 @@ function exibeAlert(exibe) {
         })
     }
 }
+
+window.addEventListener("load", () => {
+    let userLogged = localStorage.getItem("myreserve-usr-l")
+    let userToken = localStorage.getItem("myreserve-usr-token")
+    let userType = localStorage.getItem("myreserve-usr-type")
+    if ((userLogged != "" || userLogged != null) && (userToken != "" || userToken != null)) {
+        if (userType === "USER") {
+            window.location.href = '../home/home.html'
+        } else if (userType === "ESTAB") {
+            window.location.href = '../home-restaurante/home-restaurante.html'
+        }
+    }
+})

@@ -19,7 +19,12 @@ const fieldSet = document.getElementById("fieldSet-ModalPerfil")
 var idHour
 
 function carregaHorarios() {
-  fetch(`http://localhost:8080/horario/byEstab/${localStorage.getItem("myreserve-usr-identifier")}`)
+  fetch(`http://localhost:8080/horario/byEstab/${localStorage.getItem("myreserve-usr-identifier")}`, {
+    method: "GET",
+    headers: {
+      'Authorization': `Bearer ${localStorage.getItem("myreserve-usr-token")}`
+    }
+  })
     .then(res => res.json())
     .then(horarios => {
       const hourOrdenado = horarios.sort(function (a, b) {
@@ -131,7 +136,8 @@ submitHorario.addEventListener("click", (e) => {
     method: "POST",
     headers: {
       'Accept': 'application/json',
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${localStorage.getItem("myreserve-usr-token")}`
     },
     body: JSON.stringify(bodyDados)
   }).then(res => {
@@ -162,7 +168,8 @@ submitModal.addEventListener("click", (e) => {
     method: "PUT",
     headers: {
       'Accept': 'application/json',
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${localStorage.getItem("myreserve-usr-token")}`
     },
     body: JSON.stringify(bodyDados)
   }).then(res => {
@@ -186,7 +193,8 @@ btnCancelHour.addEventListener("click", (e) => {
     method: "DELETE",
     headers: {
       'Accept': 'application/json',
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${localStorage.getItem("myreserve-usr-token")}`
     }
   }).then(res => {
     if (!res.ok) {
@@ -202,7 +210,12 @@ btnCancelHour.addEventListener("click", (e) => {
 })
 
 window.addEventListener("load", () => {
-  fetch(`http://localhost:8080/restaurante/${localStorage.getItem("myreserve-usr-identifier")}`)
+  fetch(`http://localhost:8080/restaurante/${localStorage.getItem("myreserve-usr-identifier")}`, {
+    method: "GET",
+    headers: {
+      'Authorization': `Bearer ${localStorage.getItem("myreserve-usr-token")}`
+    }
+  })
     .then(res => res.json())
     .then(estab => {
       localStorage.setItem("myreserve-estab-max-people", estab.max_pessoas)
@@ -213,7 +226,12 @@ window.addEventListener("load", () => {
 })
 
 
-fetch("http://localhost:8080/categoria")
+fetch("http://localhost:8080/categoria", {
+  method: "GET",
+  headers: {
+    'Authorization': `Bearer ${localStorage.getItem("myreserve-usr-token")}`
+  }
+})
   .then((res) => res.json())
   .then((data) => {
     const categoriaRestaurante = data
@@ -230,7 +248,12 @@ fetch("http://localhost:8080/categoria")
     })
 
   })
-fetch(`http://localhost:8080/restaurante/${localStorage.getItem('myreserve-usr-identifier')}`)
+fetch(`http://localhost:8080/restaurante/${localStorage.getItem('myreserve-usr-identifier')}`, {
+  method: "GET",
+  headers: {
+    'Authorization': `Bearer ${localStorage.getItem("myreserve-usr-token")}`
+  }
+})
   .then((res) => res.json())
   .then((data) => {
 
@@ -309,7 +332,8 @@ btnModalEstab.addEventListener("click", () => {
     method: "PUT",
     headers: {
       'Accept': 'application/json',
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${localStorage.getItem("myreserve-usr-token")}`
     },
     body: JSON.stringify(objEstab)
   }).then(res => {
@@ -365,7 +389,8 @@ function cadastraTelefone(obj, idTel) {
     method: "PUT",
     headers: {
       'Accept': 'application/json',
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${localStorage.getItem("myreserve-usr-token")}`
     },
     body: JSON.stringify(obj)
   })

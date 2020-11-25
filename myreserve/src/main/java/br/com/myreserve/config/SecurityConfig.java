@@ -1,5 +1,7 @@
 package br.com.myreserve.config;
 
+import java.util.Arrays;
+
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -50,7 +52,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		http.csrf().disable()
+		http.cors().and()
+		.csrf().disable()
 		.authorizeRequests()
 			.antMatchers(HttpMethod.POST, "/usuario")
 				.permitAll()
@@ -58,9 +61,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 				.permitAll()
 				.antMatchers(HttpMethod.POST, "/login/auth")
 				.permitAll()
-			.anyRequest().permitAll(); //authenticated()
-		//.and()
-		//.addFilterBefore(jwtFilter(), UsernamePasswordAuthenticationFilter.class);
+				.antMatchers(HttpMethod.DELETE, "/login/delete")
+				.permitAll()
+				.antMatchers(HttpMethod.POST, "/upload")
+				.permitAll()
+			.anyRequest().authenticated()
+			.and()	
+		.addFilterBefore(jwtFilter(), UsernamePasswordAuthenticationFilter.class);
 	}
 		
 

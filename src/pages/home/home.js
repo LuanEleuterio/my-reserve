@@ -29,7 +29,12 @@ var idIncrement = 0
 
 //Busca restaurantes na Api
 function carregaRestaurantes(numPage, deleteElements) {
-    fetch(`http://localhost:8080/restaurante?page=${numPage}`)
+    fetch(`http://localhost:8080/restaurante?page=${numPage}`, {
+        method: "GET",
+        headers: {
+            'Authorization': `Bearer ${localStorage.getItem("myreserve-usr-token")}`
+        }
+    })
         .then(res => res.json())
         .then(async (restaurantes) => {
             numPageMax = restaurantes.totalPages
@@ -74,13 +79,13 @@ function carregaRestaurantes(numPage, deleteElements) {
 
             await filterForEach()
 
-            console.log("linha 74: ", filterRestaurante)
+            //console.log("linha 74: ", filterRestaurante)
 
             const restaurantesFiltered = filterRestaurante.filter((obj) => {
                 return obj.kilometers <= parseInt(localStorage.getItem("myreserve-filter-distance"))
             })
 
-            console.log("filtered", restaurantesFiltered)
+            //console.log("filtered", restaurantesFiltered)
 
             restaurantesFiltered.forEach(restaurante => {
                 restaurenteContainer = document.createElement("a");
@@ -169,10 +174,15 @@ function carregaRestaurantes(numPage, deleteElements) {
 //Busca categorias na API
 window.addEventListener("load", () => {
 
-    fetch("http://localhost:8080/categoria")
+    fetch("http://localhost:8080/categoria", {
+        method: 'GET',
+        headers: {
+            'Authorization': `Bearer ${localStorage.getItem("myreserve-usr-token")}`
+        }
+    })
         .then(res => res.json())
         .then(categorias => {
-
+            console.log(categorias)
             categorias.forEach(categoria => {
                 tipoCategoria = document.createElement("a");
                 imgCarrousel = document.createElement("figure");
