@@ -48,124 +48,120 @@ function carregaRestaurantes(numPage, deleteElements) {
             })
 
             async function filterForEach() {
-                filterRestaurante.forEach(async (obj) => {
-                    try {
-                        let enderecoRest = `${obj.endereco.cidade}, ${obj.endereco.logradouro} - ${obj.endereco.numero}`
-                        //let userKmFilter = parseInt(localStorage.getItem("myreserve-filter-distance"))
-                        let distance
-                        let estabKm
 
-                        async function getKm() {
-                            let getDistance = async (start, end) => {
-                                let d = await calculaDistance(enderecoRest)
-                                return d.distance.value
-                            };
-                            const d = await getDistance()
-                            return d
-                        }
+                for await (rest of filterRestaurante) {
+                    let enderecoRest = `${rest.endereco.cidade}, ${rest.endereco.logradouro} - ${rest.endereco.numero}`
+                    //let userKmFilter = parseInt(localStorage.getItem("myreserve-filter-distance"))
+                    let distance
+                    let estabKm
 
-                        //distance = await getKm()
+                    async function getKm() {
+                        let getDistance = async (start, end) => {
+                            let d = await calculaDistance(enderecoRest)
+                            return d.distance.value
+                        };
+                        const d = await getDistance()
+                        return d
+                    }
 
-                        estabKm = distance / 1000
+                    distance = await getKm()
 
-                        obj.kilometers = parseFloat(estabKm.toFixed(2))
-                    } catch (err) { console.log(err) }
-                })
+                    estabKm = distance / 1000
+
+                    rest.kilometers = parseFloat(estabKm.toFixed(2))
+                }
             }
 
             await filterForEach()
 
             console.log("linha 74: ", filterRestaurante)
 
-            setTimeout(() => {
-                const restaurantesFiltered = filterRestaurante.filter((obj) => {
-                    return obj.kilometers <= parseInt(localStorage.getItem("myreserve-filter-distance"))
-                })
+            const restaurantesFiltered = filterRestaurante.filter((obj) => {
+                return obj.kilometers <= parseInt(localStorage.getItem("myreserve-filter-distance"))
+            })
 
-                console.log("filtered", restaurantesFiltered)
+            console.log("filtered", restaurantesFiltered)
 
-                restaurantesFiltered.forEach(restaurante => {
-                    restaurenteContainer = document.createElement("a");
-                    restaurantes = document.createElement("div");
+            restaurantesFiltered.forEach(restaurante => {
+                restaurenteContainer = document.createElement("a");
+                restaurantes = document.createElement("div");
 
-                    fotoRestaurante = document.createElement("div");
-                    imgRestaurante = document.createElement("img");
+                fotoRestaurante = document.createElement("div");
+                imgRestaurante = document.createElement("img");
 
-                    infoRestaurante = document.createElement("div");
-                    nomeRestaurante = document.createElement("p");
+                infoRestaurante = document.createElement("div");
+                nomeRestaurante = document.createElement("p");
 
-                    categoriaInfo = document.createElement("div");
-                    iconCategoria = document.createElement("i");
-                    nomeCategoria = document.createElement("p");
+                categoriaInfo = document.createElement("div");
+                iconCategoria = document.createElement("i");
+                nomeCategoria = document.createElement("p");
 
-                    distanceInfo = document.createElement("div");
-                    iconDistance = document.createElement("i");
-                    distancia = document.createElement("p");
+                distanceInfo = document.createElement("div");
+                iconDistance = document.createElement("i");
+                distancia = document.createElement("p");
 
-                    infoNumeroPessoas = document.createElement("div");
-                    numeroPessoas = document.createElement("div");
-                    qtdPessoas = document.createElement("p");
-                    iconPessoas = document.createElement("i");
+                infoNumeroPessoas = document.createElement("div");
+                numeroPessoas = document.createElement("div");
+                qtdPessoas = document.createElement("p");
+                iconPessoas = document.createElement("i");
 
-                    restaurenteContainer.setAttribute("class", "restaurante-container");
-                    restaurenteContainer.setAttribute("id", "rest-" + idIncrement)
-                    restaurenteContainer.setAttribute("data-value", restaurante.id_estabelecimento)
-                    restaurantes.setAttribute("class", "restaurantes");
+                restaurenteContainer.setAttribute("class", "restaurante-container");
+                restaurenteContainer.setAttribute("id", "rest-" + idIncrement)
+                restaurenteContainer.setAttribute("data-value", restaurante.id_estabelecimento)
+                restaurantes.setAttribute("class", "restaurantes");
 
-                    fotoRestaurante.setAttribute("class", "foto-restaurante");
-                    imgRestaurante.setAttribute("src", "../../../myreserve/" + restaurante.img_estabelecimento);
+                fotoRestaurante.setAttribute("class", "foto-restaurante");
+                imgRestaurante.setAttribute("src", "../../../myreserve/" + restaurante.img_estabelecimento);
 
-                    infoRestaurante.setAttribute("class", "info-restaurante");
-                    nomeRestaurante.setAttribute("class", "nome-restaurante infos");
-                    nomeRestaurante.textContent = restaurante.nome;
+                infoRestaurante.setAttribute("class", "info-restaurante");
+                nomeRestaurante.setAttribute("class", "nome-restaurante infos");
+                nomeRestaurante.textContent = restaurante.nome;
 
-                    categoriaInfo.setAttribute("class", "categoria infos");
-                    iconCategoria.setAttribute("class", "fas fa-utensils col-1");
-                    nomeCategoria.setAttribute("class", "categoria")
-                    nomeCategoria.textContent = restaurante.categoria.tipo_categoria;
+                categoriaInfo.setAttribute("class", "categoria infos");
+                iconCategoria.setAttribute("class", "fas fa-utensils col-1");
+                nomeCategoria.setAttribute("class", "categoria")
+                nomeCategoria.textContent = restaurante.categoria.tipo_categoria;
 
-                    distanceInfo.setAttribute("class", "distance infos")
-                    iconDistance.setAttribute("class", "fas fa-route col-1");
-                    distancia.setAttribute("class", "distancia")
-                    if (restaurante.kilometers < 1) {
-                        distancia.textContent = `<1km`
-                    } else {
-                        distancia.textContent = `${restaurante.kilometers}km`
-                    }
-                    infoNumeroPessoas.setAttribute("class", "info-num-pessoas");
-                    numeroPessoas.setAttribute("class", "numero-pessoas");
-                    qtdPessoas.setAttribute("class", "quantidade-pessoa");
-                    iconPessoas.setAttribute("class", "fas fa-user-friends icon-pessoa");
-                    qtdPessoas.textContent = restaurante.max_pessoas;
+                distanceInfo.setAttribute("class", "distance infos")
+                iconDistance.setAttribute("class", "fas fa-route col-1");
+                distancia.setAttribute("class", "distancia")
+                if (restaurante.kilometers < 1) {
+                    distancia.textContent = `<1km`
+                } else {
+                    distancia.textContent = `${restaurante.kilometers}km`
+                }
+                infoNumeroPessoas.setAttribute("class", "info-num-pessoas");
+                numeroPessoas.setAttribute("class", "numero-pessoas");
+                qtdPessoas.setAttribute("class", "quantidade-pessoa");
+                iconPessoas.setAttribute("class", "fas fa-user-friends icon-pessoa");
+                qtdPessoas.textContent = restaurante.max_pessoas;
 
-                    restaurenteContainer.appendChild(restaurantes);
-                    restaurantes.appendChild(fotoRestaurante);
-                    fotoRestaurante.appendChild(imgRestaurante);
+                restaurenteContainer.appendChild(restaurantes);
+                restaurantes.appendChild(fotoRestaurante);
+                fotoRestaurante.appendChild(imgRestaurante);
 
-                    restaurantes.appendChild(infoRestaurante);
-                    infoRestaurante.appendChild(nomeRestaurante);
-                    infoRestaurante.appendChild(categoriaInfo);
-                    categoriaInfo.appendChild(iconCategoria);
-                    categoriaInfo.appendChild(nomeCategoria);
+                restaurantes.appendChild(infoRestaurante);
+                infoRestaurante.appendChild(nomeRestaurante);
+                infoRestaurante.appendChild(categoriaInfo);
+                categoriaInfo.appendChild(iconCategoria);
+                categoriaInfo.appendChild(nomeCategoria);
 
-                    infoRestaurante.appendChild(distanceInfo);
-                    distanceInfo.appendChild(iconDistance);
-                    distanceInfo.appendChild(distancia);
+                infoRestaurante.appendChild(distanceInfo);
+                distanceInfo.appendChild(iconDistance);
+                distanceInfo.appendChild(distancia);
 
-                    restaurantes.appendChild(infoNumeroPessoas);
-                    infoNumeroPessoas.appendChild(numeroPessoas);
-                    numeroPessoas.appendChild(qtdPessoas);
-                    numeroPessoas.appendChild(iconPessoas);
+                restaurantes.appendChild(infoNumeroPessoas);
+                infoNumeroPessoas.appendChild(numeroPessoas);
+                numeroPessoas.appendChild(qtdPessoas);
+                numeroPessoas.appendChild(iconPessoas);
 
-                    conteinerRestaurantes.appendChild(restaurenteContainer);
-                    const newEvent = document.getElementById(`rest-${idIncrement}`)
-                    newEvent.addEventListener("click", () => { redirectInfoRest(newEvent.attributes[2].value) })
+                conteinerRestaurantes.appendChild(restaurenteContainer);
+                const newEvent = document.getElementById(`rest-${idIncrement}`)
+                newEvent.addEventListener("click", () => { redirectInfoRest(newEvent.attributes[2].value) })
 
-                    idIncrement++
-                    console.log(restaurante.kilometers)
-                })
-            }, 800);
-
+                idIncrement++
+                console.log(restaurante.kilometers)
+            })
         }).catch(err => console.log(err))
 
 }
