@@ -81,7 +81,6 @@ function carregaHorarios() {
       })
 
       const blockHorario = document.querySelectorAll(".button-horario")
-      console.log(blockHorario)
       for (let i = 0; i < blockHorario.length; i++) {
 
         (function (index) {
@@ -89,8 +88,6 @@ function carregaHorarios() {
             modalConfigHour.classList.add('mostrar')
             modalHourReserva.innerText = blockHorario[index].innerText;
             idHour = parseInt(blockHorario[index].attributes[1].value)
-            console.log(onlyHourAtivo[index].total_vagas)
-            console.log(onlyHourAtivo[index])
             totalVagasModal.setAttribute("value", onlyHourAtivo[index].total_vagas)
             maxPessoasModal.setAttribute("value", localStorage.getItem("myreserve-estab-max-people"))
             horaDeModal.setAttribute("value", onlyHourAtivo[index].horario_de.slice(-8, -3))
@@ -242,9 +239,6 @@ fetch("http://localhost:8080/categoria", {
       opt.innerHTML = tipos.tipo_categoria;
       opt.setAttribute("data-values", tipos.id_categoria)
       modalCategoria.appendChild(opt)
-
-
-
     })
 
   })
@@ -259,12 +253,14 @@ fetch(`http://localhost:8080/restaurante/${localStorage.getItem('myreserve-usr-i
 
     document.getElementById("categoria-option").value = data.categoria.id_categoria
 
+    document.getElementById("foto-perfil").value = data.img_estabelecimento
     document.getElementById("name").value = data.nome
     document.getElementById("cnpj").value = data.cnpj
     document.getElementById("email").value = data.email
 
     document.getElementById("horarioDe").value = data.hora_funcionamento.slice(0, 5)
     document.getElementById("horarioAte").value = data.hora_funcionamento.slice(-5)
+    document.getElementById("qtdPessoa").value = data.max_pessoas
 
     document.getElementById("story").value = data.descricao
 
@@ -310,6 +306,7 @@ btnModalEstab.addEventListener("click", () => {
       nome: document.getElementById("name").value,
       cnpj: document.getElementById("cnpj").value,
       email: document.getElementById("email").value,
+      max_pessoas: document.getElementById("qtdPessoa").value,
       hora_funcionamento: document.getElementById("horarioDe").value + " às " + document.getElementById("horarioAte").value,
       descricao: document.getElementById("story").value
     }
@@ -321,6 +318,7 @@ btnModalEstab.addEventListener("click", () => {
       nome: document.getElementById("name").value,
       cnpj: document.getElementById("cnpj").value,
       email: document.getElementById("email").value,
+      max_pessoas: document.getElementById("qtdPessoa").value,
       senha: document.getElementById("password").value,
       hora_funcionamento: document.getElementById("horarioDe").value + " às " + document.getElementById("horarioAte").value,
       descricao: document.getElementById("story").value

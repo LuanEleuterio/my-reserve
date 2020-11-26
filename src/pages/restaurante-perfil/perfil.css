@@ -109,6 +109,7 @@ form .field {
 }
 form .field select,
 form .field textarea,
+form .field input[type="number"],
 form .field input[type="text"],
 form .field input[type="time"],
 form .field input[type="email"],
@@ -135,6 +136,11 @@ form .dados {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+#qtdPessoa{
+    width: 60px;
+    text-align: center;
 }
 
 /* form end */

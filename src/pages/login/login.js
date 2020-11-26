@@ -1,6 +1,8 @@
 const user = document.getElementById("email-login")
 const passwordUser = document.getElementById("password-login")
 const submitLogin = document.getElementById("submit-login")
+const fazerCadUser = document.querySelector("#sign-up-cliente")
+const fazerCadEstab = document.querySelector("#sign-up-estab")
 
 submitLogin.addEventListener("click", (e) => {
     e.preventDefault()
@@ -105,3 +107,33 @@ window.addEventListener("load", () => {
         }
     }
 })
+
+var modalForm = document.querySelector('.modal-type-form')
+var noHaveAccount = document.querySelector("#no-have-account")
+
+
+function openModalTypeForm() {
+    modalForm.classList.add('mostrar')
+
+    modalForm.addEventListener("click", (e) => {
+        if (e.target.className == modalForm.className) {
+            modalForm.classList.remove('mostrar')
+        }
+    })
+}
+
+if (noHaveAccount != null) {
+    noHaveAccount.addEventListener("click", openModalTypeForm)
+}
+
+if (fazerCadUser != null) {
+    fazerCadUser.addEventListener("click", () => {
+        window.location.href = '../cadastro-user/cad-user.html'
+    })
+}
+
+if (fazerCadEstab != null) {
+    fazerCadEstab.addEventListener("click", () => {
+        window.location.href = '../cadastro-empresa/cad-empresa.html'
+    })
+}

@@ -44,7 +44,6 @@ function carregaRestaurantes(numPage, deleteElements, url = null) {
     }).then(res => res.json())
         .then(async (restaurantes) => {
             numPageMax = restaurantes.totalPages
-
             if (deleteElements) {
                 let restaurantesConteiners = document.querySelectorAll(".restaurante-container")
                 for (let i = 0; i < restaurantesConteiners.length; i++) {
@@ -68,7 +67,6 @@ function carregaRestaurantes(numPage, deleteElements, url = null) {
                 const filterRestaurante = arrRests.filter((obj) => {
                     return obj.max_pessoas <= localStorage.getItem("myreserve-filter-people")
                 })
-
                 async function filterForEach() {
 
                     for await (rest of filterRestaurante) {
@@ -94,13 +92,13 @@ function carregaRestaurantes(numPage, deleteElements, url = null) {
                     }
                 }
 
-                //await filterForEach()
+                await filterForEach()
 
                 const restaurantesFiltered = filterRestaurante.filter((obj) => {
                     return obj.kilometers <= parseInt(localStorage.getItem("myreserve-filter-distance"))
                 })
 
-                filterRestaurante.forEach(restaurante => {
+                restaurantesFiltered.forEach(restaurante => {
                     restaurenteContainer = document.createElement("a");
                     restaurantes = document.createElement("div");
 
@@ -309,9 +307,7 @@ function buscaPorCategoria(dataValue) {
 
 function buscaPorNome() {
     let url
-    console.log(searchBar.value === "")
     searchBar.addEventListener("keyup", (e) => {
-        console.log(e)
         if (e.key === "Enter" && searchBar.value != "") {
             url = `http://localhost:8080/restaurante/byNome?nome=${searchBar.value}`
             carregaRestaurantes(0, true, url)
@@ -413,7 +409,6 @@ window.addEventListener("load", () => {
             if (valueRangeDistancia.attributes[2] !== undefined) {
                 localStorage.setItem("myreserve-filter-distance", valueRangeDistancia.attributes[2].value)
             }
-            console.log()
             carregaRestaurantes(0, true)
         }
     })
@@ -432,6 +427,7 @@ window.addEventListener("load", () => {
         rangePessoa.setAttribute("value", localStorage.getItem("myreserve-filter-people"))
     } else {
         valueRangePessoa.textContent = rangePessoa.value;
+        localStorage.setItem("myreserve-filter-people", rangePessoa.value)
     }
 })
 window.addEventListener("load", () => {
@@ -440,6 +436,7 @@ window.addEventListener("load", () => {
         rangeDistancia.setAttribute("value", localStorage.getItem("myreserve-filter-distance"))
     } else {
         valueRangeDistancia.textContent = rangeDistancia.value + 'km';
+        localStorage.setItem("myreserve-filter-distance", rangeDistancia.value)
     }
 })
 

@@ -116,7 +116,7 @@
 
                     <fieldset class='modal-perfil-fieldset' id="fieldSet-modalPerfil">
                         <legend>
-                            <img src="../../img/foto4.jpg" alt="">
+                            <img id="foto-perfil" alt="">
                             <div class="dados">
                                 <h4>Dados do Estabelecimento</h4>
                                 <div class="categoria">
@@ -153,11 +153,10 @@
                             <input type="email" name="email" id="email" placeholder="email@exemplo.com" required />
                         </div>
 
-                        <label id="label-senha" for="password">Senha</label>
-                        <div class="pass-container">
-                            <input type="password" name="senha" id="password" required />
-                            <button type="button" id="eye" class="glyphicon glyphicon-eye-close"
-                                onclick="mostrar(this)"></button>
+
+                        <div class="field">
+                            <label for="qtdPessoa">Quantidade máxima de pessoas por reserva</label>
+                            <input type="number" name="qtdPessoa" id="qtdPessoa" required />
                         </div>
 
                         <div class="field">
@@ -169,12 +168,20 @@
 
                             </div>
                         </div>
+
                         <div class="field">
                             <label>Descrição</label>
                             <textarea id="story" name="story" rows="3" cols="50" maxlength="1000" required></textarea>
                         </div>
 
-                      
+
+                        <label id="label-senha" for="password">Senha</label>
+                        <div class="pass-container">
+                            <input type="password" name="senha" id="password" required />
+                            <button type="button" id="eye" class="glyphicon glyphicon-eye-close"
+                                onclick="mostrar(this)"></button>
+                        </div>
+
                     </fieldset>
                     <div class="field">
                         <input id="submit-salvar" type="submit" value="Salvar alterações">
@@ -305,6 +312,7 @@
     <script type="text/javascript" src="../../utils/geral-rest.js"></script>
     <script type="text/javascript" src="../../utils/footer-redirect-rest.js"></script>
     <script src="../../utils/sweetalert2.all.js"></script>
+    <script src="../../utils/logout.js"></script>
 </body>
 
 </html>

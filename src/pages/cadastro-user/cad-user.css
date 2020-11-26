@@ -54,6 +54,7 @@ body {
   display: flex;
   align-items: center;
   margin-right: 15px;
+  cursor: pointer;
 }
 #page-create-point header a span {
   margin-left: 15px;

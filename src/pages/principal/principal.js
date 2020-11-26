@@ -17,23 +17,34 @@ function openModalTypeForm() {
     })
 }
 
-btnSign.addEventListener("click", openModalTypeForm)
+if (btnSign != null) {
+    btnSign.addEventListener("click", openModalTypeForm)
+}
 
-noHaveAccount.addEventListener("click", openModalTypeForm)
+if (noHaveAccount != null) {
+    noHaveAccount.addEventListener("click", openModalTypeForm)
+}
 
+if (fazerLogin != null) {
+    fazerLogin.addEventListener("click", () => {
+        window.location.href = './src/pages/login/login.html'
+    })
+}
 
-fazerLogin.addEventListener("click", () => {
-    window.location.href = './src/pages/login/login.html'
-})
+if (fazerLoginBtn != null) {
+    fazerLoginBtn.addEventListener("click", () => {
+        window.location.href = './src/pages/login/login.html'
+    })
+}
 
-fazerLoginBtn.addEventListener("click", () => {
-    window.location.href = './src/pages/login/login.html'
-})
+if (fazerCadUser != null) {
+    fazerCadUser.addEventListener("click", () => {
+        window.location.href = './src/pages/cadastro-user/cad-user.html'
+    })
+}
 
-fazerCadUser.addEventListener("click", () => {
-    window.location.href = './src/pages/cadastro-user/cad-user.html'
-})
-
-fazerCadEstab.addEventListener("click", () => {
-    window.location.href = './src/pages/cadastro-empresa/cad-empresa.html'
-})
+if (fazerCadEstab != null) {
+    fazerCadEstab.addEventListener("click", () => {
+        window.location.href = './src/pages/cadastro-empresa/cad-empresa.html'
+    })
+}

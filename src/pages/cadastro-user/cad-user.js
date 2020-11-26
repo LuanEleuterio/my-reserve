@@ -4,6 +4,7 @@ const cpfUsuario = document.getElementById("cpf")
 const wppUsuario = document.getElementById("whatsapp")
 const emailUsuario = document.getElementById("email")
 const password = document.getElementById("password")
+const btnArrowBack = document.getElementById("btn-arrow-header")
 
 const btnSubmit = document.getElementById("submit-user")
 
@@ -92,3 +93,7 @@ function exibeAlert(exibe) {
     })
   }
 }
+
+btnArrowBack.addEventListener("click", () => {
+  window.location.href = "../../../index.html"
+})

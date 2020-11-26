@@ -52,6 +52,7 @@ window.addEventListener("load", () => {
         rangePessoa.setAttribute("value", localStorage.getItem("myreserve-filter-people"))
     } else {
         valueRangePessoa.textContent = rangePessoa.value;
+        localStorage.setItem("myreserve-filter-people", rangePessoa.value)
     }
 })
 window.addEventListener("load", () => {
@@ -60,9 +61,9 @@ window.addEventListener("load", () => {
         rangeDistancia.setAttribute("value", localStorage.getItem("myreserve-filter-distance"))
     } else {
         valueRangeDistancia.textContent = rangeDistancia.value + 'km';
+        localStorage.setItem("myreserve-filter-distance", rangeDistancia.value)
     }
 })
-
 rangePessoa.addEventListener('change', (e) => {
     valueRangePessoa.textContent = e.target.value;
     valueRangePessoa.setAttribute("data-value", e.target.value)

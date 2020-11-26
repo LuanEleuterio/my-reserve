@@ -59,6 +59,7 @@ function carregaDados() {
       document.getElementById("cnpj").value = data.cnpj
       document.getElementById("email").value = data.email
       document.getElementById("story").value = data.descricao
+      document.getElementById("qtdPessoa").value = data.max_pessoas
       document.getElementById("horarioDe").value = data.hora_funcionamento.slice(0, 5)
       document.getElementById("horarioAte").value = data.hora_funcionamento.slice(-5)
 
@@ -104,6 +105,7 @@ btnModalEstab.addEventListener("click", (event) => {
       nome: document.getElementById("name").value,
       cnpj: document.getElementById("cnpj").value,
       email: document.getElementById("email").value,
+      max_pessoas: document.getElementById("qtdPessoa").value,
       hora_funcionamento: document.getElementById("horarioDe").value + " às " + document.getElementById("horarioAte").value,
       descricao: document.getElementById("story").value
     }
@@ -116,6 +118,7 @@ btnModalEstab.addEventListener("click", (event) => {
       cnpj: document.getElementById("cnpj").value,
       email: document.getElementById("email").value,
       senha: document.getElementById("password").value,
+      max_pessoas: document.getElementById("qtdPessoa").value,
       hora_funcionamento: document.getElementById("horarioDe").value + " às " + document.getElementById("horarioAte").value,
       descricao: document.getElementById("story").value
     }
