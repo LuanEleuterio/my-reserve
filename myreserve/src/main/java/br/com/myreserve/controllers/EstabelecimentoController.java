@@ -2,6 +2,8 @@ package br.com.myreserve.controllers;
 
 import java.util.Optional;
 
+import javax.websocket.server.PathParam;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -50,6 +52,17 @@ public class EstabelecimentoController {
 	public Optional<Estabelecimento> getById(@PathVariable int id) {
 		return estabelecimentoRepository.findById(id);
 	}
+	
+	@GetMapping("/categoria/{idCat}")
+	public Iterable<Estabelecimento> getByCategoria(@PathVariable Integer idCat){
+		return estabelecimentoRepository.findByCategoria(idCat);
+	}
+	
+	@GetMapping("/byNome")
+	public Iterable<Estabelecimento> getByNome(@PathParam("nome") String nome){
+		return estabelecimentoRepository.findByNomeContaining(nome);
+	}
+	
 	
 	@PostMapping()
 	public Integer addEstabelecimento(@RequestBody Estabelecimento estabelecimento) {
