@@ -2,6 +2,7 @@
 <section name="Workbench">
 	<section name="MavenProjectImportWizardPage">
 		<list key="rootDirectory">
+			<item value="C:\my-reserve\myreserve"/>
 			<item value="C:\wamp64\www\my-reserve\myreserve"/>
 		</list>
 		<list key="projectNameTemplate">
