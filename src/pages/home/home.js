@@ -483,22 +483,11 @@ async function calculaDistance(estabLocation) {
     return distance
 }
 
-function loadScript() {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    script.src = "https://maps.googleapis.com/maps/api/js?key=&libraries=geometry&language=ptbr"
-    document.body.appendChild(script);
-}
-
 function redirectInfoRest(dataValue) {
     localStorage.setItem("myreserve-identifier-rest", dataValue)
     window.location.href = '../info-restaurante/info-restaurante.html'
 }
 
 window.addEventListener("load", buscaPorNome)
-
-window.addEventListener("load", () => {
-    loadScript()
-})
 
 //window.addEventListener("load", carregaRestaurantes(0))
