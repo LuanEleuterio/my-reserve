@@ -1,0 +1,166 @@
+@import url("../../theme/colors.css");
+
+/* font-icons */
+@font-face {
+  font-family: "Glyphicons Halflings";
+  src: url(../../fonts/glyphicons-halflings-regular.eot);
+  src: url(../../fonts/glyphicons-halflings-regular.eot?#iefix) format("embedded-opentype"),
+    url(../../fonts/glyphicons-halflings-regular.woff2) format("woff2"),
+    url(../../fonts/glyphicons-halflings-regular.woff) format("woff"),
+    url(../../fonts/glyphicons-halflings-regular.ttf) format("truetype"),
+    url(../../fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular) format("svg");
+}
+
+*:focus {
+  outline: 0;
+}
+
+/* Modal background start */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 7; /* Sit on top */
+  padding-top: 4vh; /*Location of the box*/
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.7); /* Black w/ opacity */
+}
+/* Modal background end */
+
+/* modal start */
+.model-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.modal-content {
+  background-color: var(--secundaria);
+  margin: auto;
+  padding: 0 10px 10px 40px;
+  width: 45%;
+  height: 30%;
+  border-radius: 8px;
+}
+/* modal end */
+
+/* close button start */
+.close-btn-pag {
+  padding: 5px;
+  color: var(--principal);
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+.close-btn-pag:hover,
+.close-btn-pag:focus {
+  color: var(--destaque);
+  text-decoration: none;
+  cursor: pointer;
+}
+/* close button end */
+
+/* form start */
+form {
+  margin: 0 auto;
+  padding: 5px 10px;
+  max-width: 350px;
+  border-radius: 8px;
+
+  display: flex;
+  flex-direction: column;
+}
+form fieldset {
+  margin-top: 32px;
+  min-inline-size: auto;
+  border: 0;
+}
+form legend {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 40px;
+  border: none;
+}
+
+form legend span {
+  font-size: 14px;
+  font-weight: normal;
+  color: var(--texto);
+}
+form .field {
+  flex: 1;
+
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+form .field input[type="text"],
+.pass-container {
+  flex: 1;
+  background: var(--input);
+  border-radius: 8px;
+  border: 0;
+  padding: 5px 10px;
+  font-size: 14px;
+  color: var(--preto);
+}
+form .field input::placeholder {
+  color: var(--border);
+  font-size: 14px;
+}
+form .field label {
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+/* form end */
+
+.fa-lock {
+  color: var(--border);
+  margin-left: .5rem;
+  font-size: 12px;
+}
+
+/* submit button start */
+#submit, #submit-mod-pag, #btn-salvar-pag, #location-submit {
+  margin-top: 20px;
+  width: 100%;
+  padding: 5px 10px;
+  background: var(--principal);
+  border-radius: 8px;
+  color: var(--secundaria);
+  font-size: 16px;
+  border: 0;
+  transition: background-color 0.2s;
+  cursor: pointer;
+}
+#submit:hover, #btn-salvar-pag:hover, #submit-mod-pag:hover, #location-submit:hover {
+  background: var(--destaque);
+}
+/* submit button end */
+
+
+@media (max-width:320px) {
+    #myModal-pagamento, .modal-container, .modal-content{
+        display: none;
+        background: none;
+    }
+}
+
+@media (min-width:321px) and (max-width:425px) {
+    #myModal-pagamento, .modal-container, .modal-content{
+        display: none;
+        background: none;
+    }
+}
+
+@media (min-width:426px) and (max-width:768px){
+    #myModal-pagamento, .modal-container, .modal-content{
+        display: none;
+        background: none;
+    }
+}

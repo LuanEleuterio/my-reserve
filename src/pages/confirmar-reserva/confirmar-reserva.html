@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Confirmar Reserva</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='confirmar-reserva.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='responsive.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='./../../theme/colors.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='./../../theme/default.css'>
+
+</head>
+
+<body>
+    <header class="header">
+        <div class="conteiner-header">
+            <div class="logo">
+                <a href="">
+                    <img src="../../icons/knife-fork-black.svg" alt="">
+                    <p>myReserve</p>
+                </a>
+            </div>
+            <div class="name-page">
+                <button id='btn-arrow-header'>
+                    <i class="fas fa-arrow-left arrow-header"></i>
+                </button>
+                <p>Confirmação de Reserva</p>
+            </div>
+            <div class="header-option">
+                <button id='btn-reserva' class='btn-header-option'>
+                    <div class="menu-option reserva">
+                        <div class="icon-footer">
+                            <i class="fas fa-chair itens-header"></i>
+                        </div>
+                        <p>Reservas</p>
+                    </div>
+                </button>
+                <button id='btn-perfil' class='btn-header-option'>
+                    <div class="menu-option perfil">
+                        <div class="icon-footer">
+                            <i class="fas fa-user itens-header"></i>
+                        </div>
+                        <p>Perfil</p>
+                    </div>
+                </button>
+            </div>
+        </div>
+    </header>
+    <main class="content">
+        <section class="conteudo">
+            <div class="info-horarios">
+                <div class="box-name-horario">
+                    <p id='name-horario'>Horário da Reserva</p>
+                </div>
+
+                <div class="conteiner-horario">
+                    <button id='btn-horario' class='button-horario'>
+                        <div class="box-horario">
+                            <div class="icon-horario col-horario">
+                                <i class="fas fa-clock icon-clock"></i>
+                            </div>
+                            <div class="horario-reserva col-horario">
+                                <p id='hour-reserva'></p>
+                            </div>
+
+                            <div class="vagas col-horario">
+                                <span>
+                                    <p>Vagas Disponivéis</p>
+                                    <p id='qtd-vagas'>12</p>
+                                </span>
+                            </div>
+                        </div>
+                    </button>
+
+                </div>
+                <div class="br-section"></div>
+
+                <div class="info-pessoas qtd-pessoas">
+                    <div class="info-block">
+                        <span class="bold">Quantidade de pessoas para reserva</span>
+                    </div>
+                    <div class="block-layout">
+                        <div class="box-quant">
+                            <input type="number" id='ipt-qtd-pessoa' min="0" max="4" required />
+                        </div>
+                        <div>
+                            <span class="font-azul bold">Máximo 4</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="br-section"></div>
+
+                <div class="info-pessoas preco">
+                    <div>
+                        <span class="bold">Taxa de reserva</span>
+                    </div>
+                    <div>
+                        <span class="font-azul bold">R$7,50</span>
+                    </div>
+                </div>
+                <div class="br-section"></div>
+                <div class="info-pessoas method-pagamento">
+                    <div>
+                        <span class="bold">Método de Pagamento</span>
+                        <svg width="20" height="18" viewBox="0 0 20 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M18 0.357143H2C0.89 0.357143 0.01 1.31071 0.01 2.5L0 15.3571C0 16.5464 0.89 17.5 2 17.5H18C19.11 17.5 20 16.5464 20 15.3571V2.5C20 1.31071 19.11 0.357143 18 0.357143ZM18 15.3574H2V8.92878H18V15.3574ZM2 4.64307H18V2.50021H2V4.64307Z"
+                                fill="#322153" fill-opacity="0.6" />
+                        </svg>
+
+                    </div>
+                    <div class="info-pagamento">
+
+                        <div class="cartao">
+                            <span class="bold opaco">MASTERCARD ****0745</span>
+                            <span class="font-azul">Trocar</span>
+                        </div>
+
+                        <div class="credito">
+                            <span class="bold">Crédito</span>
+                            <input type="radio" class="btn-radio" id="credito" value="credito" name="metodo_pagamento">
+                        </div>
+                        <div class="debito">
+                            <span class="bold">Débito</span>
+                            <input type="radio" class="btn-radio unq" id="debito" value="debito"
+                                name="metodo_pagamento">
+                        </div>
+
+                    </div>
+
+                </div>
+                <div><button class="btn-confirmar">Confirmar</button></div>
+
+            </div>
+        </section>
+
+
+    </main>
+
+    <footer>
+        <section class="menu-bar">
+            <a id="footer-home">
+                <div class="menu-option home">
+                    <div class="icon-footer">
+                        <i class="fas fa-home itens-footer"></i>
+                    </div>
+                    <p>Inicio</p>
+                </div>
+            </a>
+            <a id="footer-search">
+                <div class="menu-option busca">
+                    <div class="icon-footer">
+                        <i class="fas fa-search itens-footer"></i>
+                    </div>
+                    <p>Buscar</p>
+                </div>
+            </a>
+            <a id="footer-reserva">
+                <div class="menu-option reserva">
+                    <div class="icon-footer">
+                        <i class="fas fa-chair itens-footer"></i>
+                    </div>
+                    <p>Reservas</p>
+                </div>
+            </a>
+            <a id="footer-perfil">
+                <div class="menu-option perfil">
+                    <div class="icon-footer">
+                        <i class="fas fa-user itens-footer"></i>
+                    </div>
+                    <p>Perfil</p>
+                </div>
+            </a>
+        </section>
+    </footer>
+
+    <script src="https://kit.fontawesome.com/37a6fc82c8.js" crossorigin="anonymous"></script>
+    <!--<script type="text/javascript" src='../info-horarios/info-horarios.js'></script> -->
+    <script type="text/javascript" src='../confirmar-reserva/confirmar-reserva.js'></script>
+    <script type="text/javascript" src="../../utils/footer-redirect.js"></script>
+    <script type="text/javascript" src="../../utils/geral.js"></script>
+    <script type="text/javascript" src="../../utils/sweetalert2.all.js"></script>
+</body>
+
+</html>

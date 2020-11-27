@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../theme/colors.css">
+    <link rel="stylesheet" href="../../theme/default.css">
+    <link rel="stylesheet" href="perfil.css">
+    <link rel="stylesheet" href="responsive.css">
+    <title>Perfil</title>
+</head>
+
+<body>
+    <header>
+        <div class="conteudo-header">
+            <div class="voltar">
+                <a id='btn-arrow-header'>
+                    <i class="fas fa-arrow-left"></i>
+                </a>
+            </div>
+
+            <div class="titulo">
+                <span>Perfil</span>
+            </div>
+        </div>
+    </header>
+
+    <main>
+
+        <form method="POST">
+            <fieldset>
+                <label for="anexo-foto" class="image-profile">
+                    <img id="foto-perfil" alt="">
+                    <img src="../../img/4124810-camera-photographic-equipment-photographic-object-photography-picture_113912.svg"
+                        alt="" class="svg">
+                </label>
+                <input type="file" id="anexo-foto">
+
+                <div class="field">
+                    <label for="name">Nome completo</label>
+                    <input type="text" name="name" id="name-editar" required />
+                </div>
+                <!--
+                <div class="field">
+                    <label for="sobrenome">Sobrenome</label>
+                    <input type="text" name="sobrenome" id="sobrenome" required />
+                </div>
+                <div class="field">
+                    <label for="dt-nasc">Data de Nascimento</label>
+                    <input type="text" name="dt-nasc" id="dt-nasc" placeholder="dd/mm/aaaa" maxlength="10" required />
+                </div>-->
+
+                <div class="field">
+                    <label for="cpf">CPF</label>
+                    <input type="text" name="cpf" id="cpf-editar" placeholder="xxx.xxx.xxx-xx" maxlength="14"
+                        required />
+                </div>
+                <div class="field">
+                    <label for="telefone">Telefone</label>
+                    <input type="text" name="telefone" id="whatsapp-editar" maxlength="15" placeholder="(xx) xxxxx-xxxx"
+                        required />
+                </div>
+                <div class="field">
+                    <label for="email">E-mail</label>
+                    <input type="email" name="email" id="email-editar" placeholder="email@exemplo.com" required />
+                </div>
+
+                <label id="label-senha" for="password">Senha</label>
+                <div class="pass-container">
+                    <input type="password" name="senha" id="password-editar" required />
+                    <button type="button" id="eye" class="glyphicon glyphicon-eye-close"
+                        onclick="mostrar(this)"></button>
+                </div>
+
+
+                <div class="dados">
+                    <h2>Dados de Pagamento</h2>
+                </div>
+
+                <div class="field">
+                    <label for="nro-cartao">Número do cartão<i class="fas fa-lock"></i></label>
+                    <input type="text" name="nro-cartao" id="nro-cartao" maxlength="16" readonly />
+                </div>
+
+                <div class="field">
+                    <label for="validade">Validade</label>
+                    <input type="text" name="validade" id="validade" maxlength="5" readonly />
+                </div>
+                <div class="field">
+                    <label for="cvv">CVV</label>
+                    <input type="text" name="cvv" id="cvv" maxlength="4" readonly />
+                </div>
+
+                <div class="field">
+                    <label for="nome">Nome do titular</label>
+                    <input type="text" name="nome" id="nome" readonly />
+                </div>
+                <div class="field">
+                    <label for="identidade">CPF/CNPJ do titular</label>
+                    <input type="text" name="identidade" id="identidade" maxlength="18" readonly />
+                </div>
+            </fieldset>
+
+            <input class="botao btn-blue" id="submit-editar" type="submit" value="Salvar alterações">
+            <input class="botao btn-red logout-modal" id="btn-desconect" type="button" value="Desconectar">
+
+        </form>
+
+    </main>
+
+    <footer>
+        <section class="menu-bar">
+            <a id="footer-home">
+                <div class="menu-option home">
+                    <div class="icon-footer">
+                        <i class="fas fa-home itens-footer"></i>
+                    </div>
+                    <p>Inicio</p>
+                </div>
+            </a>
+            <a id="footer-search">
+                <div class="menu-option busca">
+                    <div class="icon-footer">
+                        <i class="fas fa-search itens-footer"></i>
+                    </div>
+                    <p>Buscar</p>
+                </div>
+            </a>
+            <a id="footer-reserva">
+                <div class="menu-option reserva">
+                    <div class="icon-footer">
+                        <i class="fas fa-chair itens-footer"></i>
+                    </div>
+                    <p>Reservas</p>
+                </div>
+            </a>
+            <a id="footer-perfil">
+                <div class="menu-option perfil">
+                    <div class="icon-footer">
+                        <i class="fas fa-user itens-footer"></i>
+                    </div>
+                    <p>Perfil</p>
+                </div>
+            </a>
+        </section>
+    </footer>
+
+    <script src="https://kit.fontawesome.com/37a6fc82c8.js" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="senha.js"></script>
+    <script type="text/javascript" src="../../utils/footer-redirect.js"></script>
+    <script type="text/javascript" src="../../utils/geral.js"></script>
+    <script type="text/javascript" src="../../utils/editar-perfil.js"></script>
+    <script type="text/javascript" src="../../utils/sweetalert2.all.js"></script>
+    <script src="../../utils/logout.js"></script>
+</body>
+
+</html>

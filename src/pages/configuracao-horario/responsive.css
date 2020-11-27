@@ -1,0 +1,177 @@
+@media (max-width: 767px) {
+    body {
+        display: none;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 920px) {
+    .logo img {
+        width: 1.7em !important;
+        height: 2em !important;
+    }
+
+    .logo p {
+        font-size: large !important;
+    }
+
+    #search-bar {
+        width: 35vw !important;
+        /* height: 1.9em !important; */
+    }
+
+    .icon-clock {
+        font-size: 1.5em;
+    }
+
+    #hour-reserva {
+        font-size: medium;
+    }
+
+    .icon-edit{
+        font-size: 1.1em;
+    }
+}
+
+@media (min-width: 768px) {
+    body {
+        flex-wrap: wrap;
+    }
+
+    header {
+        position: fixed;
+        top: 0;
+        z-index: 5;
+        width: 100%;
+        padding: 4px;
+        background-color: var(--secundaria);
+        box-shadow: 0px 1px 3px 0px var(--destaque);
+        color: var(--preto);
+    }
+
+    .header-container {
+        width: 100vw;
+        max-width: 1300px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-left: 15px;
+    }
+
+    .logo,
+    .logo a {
+        display: flex;
+        align-items: center;
+    }
+
+    .logo p {
+        color: var(--preto);
+        font-weight: bolder;
+        font-size: large;
+        margin-left: 0.4em;
+    }
+
+    .logo img {
+        color: var(--preto);
+        background-color: transparent;
+        width: 2em;
+        height: 2.5em;
+    }
+
+    .icone-perfil {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        font-size: 1.4em;
+        color: var(--preto);
+        margin-right: 60px;
+    }
+
+    .busca-header {
+        position: relative;
+        display: flex;
+        align-items: center;
+    }
+
+    .name-box {
+        display: flex;
+        align-items: center;
+    }
+
+    .name-box ::-webkit-input-placeholder {
+        color: var(--destaque);
+        font-size: large;
+        font-family: var(--font);
+        font-weight: 400;
+    }
+
+    .name-box input[type="text"] {
+        color: var(--destaque);
+        font-size: large;
+        font-family: var(--font);
+        font-weight: 400;
+    }
+
+    #icon-search {
+        position: absolute;
+        color: var(--destaque);
+        font-size: 1.5em;
+        top: 0.3em;
+        left: 0.4em;
+    }
+
+    #search-bar {
+        border-radius: var(--border-radius);
+        border-color: var(--principal);
+        background-color: var(--input);
+        padding-left: 2.5em;
+        width: 40vw;
+        height: 2.1em;
+        border-style: none;
+        outline: none;
+        max-width: 531px;
+    }
+
+    .content {
+        margin-top: 3em;
+        justify-content: center;
+    }
+
+    .conteudo {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100vw;
+    }
+
+    .modal-conteudo {
+        width: 50vw;
+        max-width: 512px;
+        padding: 2vw;
+        box-sizing: border-box;
+        background: var(--secundaria);
+        border-radius: var(--border-radius);
+        position: relative;
+    }
+
+    .fa-times {
+        color: var(--destaque);
+        font-size: large;
+    }
+
+    .model-container {
+        animation: modal-animation 0.5s;
+    }
+
+    @keyframes modal-animation {
+        from {
+            opacity: 0;
+            transform: translate3d(0, -200px, 0);
+        }
+
+        to {
+            opacity: 1;
+            transform: translate3d(0, 0, 0);
+        }
+    }
+}

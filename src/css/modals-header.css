@@ -1,0 +1,223 @@
+.modal-conteiner-filter{
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    background: var(--preto);
+    z-index: 10;
+    display: none;
+}
+
+.modal-conteiner-perfil{
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    background: transparent;
+    z-index: 10;
+    display: none;
+    max-width: 1440px;
+}
+
+.modal-perfil{
+    display:none;
+    max-width: 205px;
+}
+
+@media (min-width:769px)  {
+
+    #seu-endereco {
+        position: relative;
+        left: .5em;
+        max-width: 26ch;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+    .modal-conteiner-filter{
+        display: none;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .modal-conteiner-filter.mostrar{
+        display: flex;
+    }
+
+    .modal-conteudo{
+        width: 50vw;
+        max-width: 512px;
+        padding: 2vw;
+        box-sizing: border-box;
+        background: var(--secundaria);
+        border-radius: var(--border-radius);
+        position: relative;
+    }
+
+    .btn-fechar{
+        position: absolute;
+        background-color: transparent;
+        border: transparent;
+        outline: none;
+        top: 0.5em;
+        right: 1em;
+        cursor: pointer;
+    }
+
+    .fa-times{
+        color: var(--destaque);
+        font-size: large;
+    }
+
+    .mostrar .modal-conteudo{
+        animation: modal-animation .3s;
+    }
+
+    .modal-conteudo h3{
+        display: flex;
+        justify-content: center;
+        font-weight: bolder;
+    }
+
+    .slider-range-filter{
+        width: 100%;
+        -webkit-appearance: none;
+        width: 100%;
+        background: var(--input);
+        outline: none;
+        opacity: 0.7;
+        -webkit-transition: .2s;
+        transition: opacity .2s;
+        border-radius: var(--border-radius);
+    }
+
+    .slider-range-filter::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 1.1em;
+        height: 1em;
+        background: var(--destaque);
+        border-radius: 100%;
+        cursor: pointer;
+    }
+
+    .filtro-nomenclatura{
+        color: var(--texto);
+    }
+
+    .value-range-filter{
+        display: flex;
+        justify-content: center;
+        color: var(--destaque);
+        font-size: large;
+        font-weight: bolder;
+    }
+
+    .modal-conteiner-perfil{
+        display: none;
+    }
+
+    .modal-conteiner-perfil.mostrar{
+        display: flex;
+    }
+    
+    .modal-perfil{
+        position: absolute;
+        display: flex;
+        flex-wrap: wrap;
+        width: 13vw;
+        height: 13em;
+
+        background: var(--secundaria);
+        border-radius: var(--border-radius);
+        border: var(--preto);
+        box-shadow: 0 1px 3px 1px var(--preto);
+        z-index: 10;
+        top: 2.8em;
+        right: 3vw;
+    }
+
+    .mostrar .modal-perfil{
+        animation: modal-animation-perfil .3s;
+    }
+
+    .btn-modal-perfil{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        width: 100%;
+        border: none;
+        background: transparent;
+        outline: none;
+        cursor: pointer;
+    }
+
+    .btn-modal-perfil:hover .box-modal-perfil i{
+        color: var(--destaque);
+    }
+
+    .btn-modal-perfil:hover .box-modal-perfil p{
+        color: var(--destaque);
+    }
+
+    .box-modal-perfil{
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        position: relative;
+        width: 90%;
+    }
+
+    .box-modal-perfil i{
+        display: flex;
+        justify-content: flex-start;
+
+        box-sizing: border-box;
+        font-size: 1.8vw;
+        color: var(--texto);
+        margin-left: .5em;
+        width: 3vw;
+        max-width: 45px;
+    }
+
+    .box-modal-perfil p{
+        display: flex;
+        justify-content: flex-start;
+        font-size: 1.3vw;
+        font-weight: bolder;
+        color: var(--texto);
+    }
+
+
+    @keyframes modal-animation {
+        from{
+            opacity: 0;
+            transform: translate3d(0, -80px, 0);
+        }
+
+        to{
+            opacity: 1;
+            transform: translate3d(0, 0, 0);
+        }
+    }
+
+    @keyframes modal-animation-perfil {
+        from{
+            opacity: 0;
+        }
+        to{
+            opacity: 1;
+        }
+    }
+}
+
+@media (min-width:1390px) {
+
+    .box-modal-perfil i{
+        font-size: 1.4em;
+    }
+
+    .box-modal-perfil p{
+        font-size: 1.3em;
+    }
+}

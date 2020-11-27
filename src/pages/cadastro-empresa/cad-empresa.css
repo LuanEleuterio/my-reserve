@@ -1,0 +1,294 @@
+@import url("../../theme/colors.css");
+
+/* font-icons */
+@font-face {
+  font-family: "Glyphicons Halflings";
+  src: url(../../fonts/glyphicons-halflings-regular.eot);
+  src: url(../../fonts/glyphicons-halflings-regular.eot?#iefix) format("embedded-opentype"),
+    url(../../fonts/glyphicons-halflings-regular.woff2) format("woff2"),
+    url(../../fonts/glyphicons-halflings-regular.woff) format("woff"),
+    url(../../fonts/glyphicons-halflings-regular.ttf) format("truetype"),
+    url(../../fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular) format("svg");
+}
+
+body {
+  background-image: linear-gradient(var(--input), var(--secundaria));
+}
+
+#page-create-point {
+  width: 100%;
+  max-width: 1000px;
+
+  margin: 0 auto;
+  padding: 30px;
+  outline: none;
+}
+
+#page-create-point header {
+  /* margin-top: 48px; */
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+#page-create-point header .logo {
+  display: flex;
+  align-items: center;
+  margin-left: 15px;
+  color: var(--preto);
+}
+#page-create-point header .logo p{
+  margin: 0;
+}
+#page-create-point header img {
+  width: 35px;
+  height: 40px;
+  margin-right: .3rem;
+}
+
+#page-create-point header a {
+  color: var(--preto);
+  font-weight: bold;
+  text-decoration: none;
+
+  display: flex;
+  align-items: center;
+  margin-right: 15px;
+  cursor: pointer;
+}
+#page-create-point header a span {
+  margin-left: 15px;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+.image {
+  width: 570px;
+  height: 210px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px dashed var(--destaque);
+  border-radius: 8px;
+  margin: 15px;
+}
+
+.arquivo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 240px;
+  background-color: var(--input);
+  color: var(--texto);
+  text-align: center;
+  margin-top: 10px;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.fa-upload {
+  margin: 15px 0;
+}
+
+#page-create-point form {
+  margin: 40px auto;
+  padding: 64px;
+  max-width: 730px;
+  background: var(--secundaria);
+  border-radius: 8px;
+  box-shadow: 1px 0px 6px var(--preto);
+
+  display: flex;
+  flex-direction: column;
+}
+
+#page-create-point form h1 {
+  font-size: 36px;
+}
+
+#page-create-point form fieldset {
+  margin-top: 64px;
+  min-inline-size: auto;
+  border: 0;
+}
+
+#page-create-point form legend {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+#page-create-point form legend h2 {
+  font-size: 24px;
+}
+
+#page-create-point form legend span {
+  font-size: 14px;
+  font-weight: normal;
+  color: var(--texto);
+}
+
+#page-create-point form .field-group {
+  flex: 1;
+  display: flex;
+}
+
+#page-create-point form .field {
+  flex: 1;
+
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 24px;
+}
+
+.info-hour{
+  display: flex;
+  flex-wrap: wrap;
+  width: 50vw;
+}
+
+.field-group-hora{
+  display: flex;
+  flex: 1;
+  align-items: baseline;
+}
+
+#hora-funcionamento{
+  width: 60vw;
+  max-width: 223px;
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+.field-horario{
+  display: flex;
+  flex:1;
+  flex-direction: row !important;
+  align-items: center;
+
+}
+
+.horario-geral{
+  width: 30vw;
+  margin-left: 1em;
+  max-width: 135px;
+}
+
+#description{
+  resize: none;
+}
+
+.description-group{
+  margin-top: 1.2em;
+}
+
+#max-pessoas{
+
+  text-align: center;
+}
+
+#page-create-point form .field select,
+#page-create-point form .field textarea,
+#page-create-point form .field input[type="text"],
+#page-create-point form .field input[type="time"],
+#page-create-point form .field input[type="email"],
+#page-create-point form .field input[type="number"],
+#page-create-point form .field input[type="password"],
+.pass-container {
+  flex: 1;
+  background: var(--input);
+  border-radius: 8px;
+  border: 0;
+  padding: 16px 24px;
+  font-size: 16px;
+  color: var(--preto);
+}
+
+#page-create-point form .field input::placeholder {
+  color: var(--border);
+}
+
+#page-create-point form .field label {
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+#page-create-point form .field :disabled {
+  cursor: not-allowed;
+}
+
+#page-create-point form .field-group .field + .field {
+  margin-left: 24px;
+}
+
+#page-create-point form .field-group input + input {
+  margin-left: 24px;
+}
+
+.pass-container {
+  flex-direction: row;
+  margin-top: 8px;
+}
+.pass-container input {
+  border: none;
+  background: none;
+  width: 90%;
+}
+
+#eye {
+  padding: 1px;
+  font-size: 15px;
+}
+
+.pass-container button {
+  display: inline-block;
+  color: var(--preto);
+}
+
+*:focus {
+  outline: 0 !important;
+}
+
+/* eye icon start */
+.glyphicon {
+  position: relative;
+  top: 1px;
+  display: inline-block;
+  font-family: "Glyphicons Halflings";
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1;
+  border: none;
+  outline: none;
+}
+.glyphicon-eye-open:before {
+  content: "\e105";
+}
+.glyphicon-eye-close:before {
+  content: "\e106";
+}
+/* eye icon end */
+
+#submit-estab {
+  margin: 30px auto;
+  width: 40vw;
+  max-width: 260px;
+  height: 56px;
+  background: var(--principal);
+  border-radius: 8px;
+  color: var(--secundaria);
+  font-weight: bold;
+  font-size: 16px;
+  border: 0;
+  transition: background-color 0.2s;
+  cursor: pointer;
+}
+
+#submit-estab:hover {
+  background: var(--destaque);
+}

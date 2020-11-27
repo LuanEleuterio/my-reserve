@@ -1,0 +1,202 @@
+*:focus {
+  outline: 0;
+}
+
+/* Modal background start */
+.modal-loc {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 7; /* Sit on top */
+  padding-top: 4vh; /*Location of the box*/
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.7); /* Black w/ opacity */
+}
+/* Modal background end */
+
+/* close button start */
+.close-btn, .close-btnn {
+  padding: 5px;
+  color: var(--principal);
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+.close-btn:hover, .close-btnn:hover,
+.close-btn:focus, .close-btnn:focus {
+  color: var(--destaque);
+  text-decoration: none;
+  cursor: pointer;
+}
+/* close button end */
+.modal-content{
+  animation: modal-animation .5s;
+}
+
+@media(min-width: 768px) and (max-width: 1023px){
+  .conteudo-modal-lcl {
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      max-width: 350px;
+    }
+    section img {
+      width: 300px;
+      height: 230px;
+    }
+    section h3 {
+      font-weight: bold;
+    }
+    
+    .buscar-endereco {
+      width: 310px;
+      margin: 15px 0;
+      display: flex;
+      align-items: center;
+      border: 1px solid var(--border);
+      border-radius: var(--border-radius);
+      padding: 10px;
+    }
+    
+    .buscar-endereco input[type="text"] {
+      color: var(--destaque);
+      font-size: small;
+      font-family: var(--font);
+      font-weight: 400;
+      border: none;
+      background: none;
+      width: 30vw;
+      max-width: 381px;
+    }
+    #icone-search {
+      position: relative;
+      color: var(--destaque);
+      font-size: 1.2em;
+      margin: 0 0.7em 0 0.3em;
+    }
+    
+    #barra-pesquisa::-webkit-input-placeholder {
+      color: var(--destaque);
+      font-size: small;
+      font-family: var(--font);
+      font-weight: 400;
+    }
+    
+    .localizacao-atual {
+      width: 310px;
+      margin: 15px 0 20px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border: 1px solid var(--border);
+      border-radius: var(--border-radius);
+      padding: 15px;
+    }
+    #icon-location {
+      color: var(--preto);
+    }
+    .localizacao-atual p {
+      font-size: .7em;
+    }
+    
+    h3 {
+      font-family: var(--font);
+      color: var(--texto);
+    }
+    
+    .not-found{
+      color: red;
+      margin: 10px 0;
+    }
+    
+  }
+
+  
+@media(min-width: 1024px){
+  /* Main start */
+.conteudo-modal-lcl {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 450px;
+}
+section img {
+  width: 300px;
+  height: 230px;
+}
+section h3 {
+  font-weight: bold;
+}
+
+.buscar-endereco {
+  width: 450px;
+  margin: 15px 0;
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--border);
+  border-radius: var(--border-radius);
+  padding: 10px;
+}
+
+.buscar-endereco input[type="text"] {
+  color: var(--destaque);
+  font-size: small;
+  font-family: var(--font);
+  font-weight: 400;
+  border: none;
+  background: none;
+  width: 30vw;
+  max-width: 381px;
+
+}
+#icone-search {
+  position: relative;
+  color: var(--destaque);
+  font-size: 1.2em;
+  margin: 0 0.7em 0 0.3em;
+}
+
+#barra-pesquisa::-webkit-input-placeholder {
+  color: var(--destaque);
+  font-size: small;
+  font-family: var(--font);
+  font-weight: 400;
+}
+
+.localizacao-atual {
+  width: 450px;
+  margin: 15px 0 20px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid var(--border);
+  border-radius: var(--border-radius);
+  padding: 15px;
+}
+#icon-location {
+  color: var(--preto);
+}
+.localizacao-atual p {
+  font-size: .8em;
+}
+
+h3 {
+  font-family: var(--font);
+  color: var(--texto);
+}
+
+.not-found{
+  color: red;
+  margin: 10px 0;
+}
+
+/* Main end */
+}

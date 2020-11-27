@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Reserve</title>
+  <link rel="stylesheet" href="../../theme/default.css">
+  <link rel="stylesheet" href="cad-empresa.css">
+  <link rel="stylesheet" href="responsive.css">
+
+</head>
+
+<body>
+  <div id="page-create-point">
+    <header>
+      <div class="logo">
+        <img src="../../img/knife-fork.svg" alt="MyReserve" />
+        <p>myReserve</p>
+      </div>
+
+      <a id="btn-arrow-header">
+        <i class="fas fa-arrow-left"></i>
+        <span>Voltar</span>
+      </a>
+    </header>
+
+    <form>
+      <h1>Cadastro do restaurante</h1>
+
+      <label class="arquivo" for="file-input">
+        <div class="image">
+          <div class="upload-border">
+            <i class="fas fa-upload"></i>
+            <p>Imagem do estabelecimento</p>
+          </div>
+        </div>
+      </label>
+      <input type="file" name="arquivo" id="file-input" accept="image/png, image/jpeg, image/jpg">
+
+      <fieldset id="fieldset-dados">
+        <legend>
+          <h2>Dados</h2>
+        </legend>
+
+        <div class="field">
+          <label for="name">Nome do estabelecimento</label>
+          <input type="text" name="name" id="name" required />
+        </div>
+
+        <div class="field-group">
+          <div class="field">
+            <label for="email">E-mail</label>
+            <input type="email" name="email" id="email" placeholder="email@exemplo.com" required />
+          </div>
+
+          <div class="field">
+            <label for="cnpj">CNPJ</label>
+            <input type="text" name="cnpj" id="cnpj" placeholder="00.000.000/0000-00" maxlength="18" required />
+          </div>
+        </div>
+
+        <div class="field-group">
+          <div class="field">
+            <label for="telefone_um">Telefone 1</label>
+            <input type="text" name="telefone_um" id="telefone_um" placeholder="(00) 00000-0000" required />
+          </div>
+
+          <div class="field">
+            <label for="telefone_dois">Telefone 2</label>
+            <input type="text" name="telefone_dois" id="telefone_dois" placeholder="(00) 00000-0000" />
+          </div>
+        </div>
+
+        <div class="field-group field-group-hora">
+          <div>
+            <p id="hora-funcionamento">Horário de funcionamento</p>
+          </div>
+          <div class="info-hour">
+            <div class="field field-horario">
+              <label for="hora_de">De:</label>
+              <input type="time" name="hora_de" id="hora_de" class="horario-geral" required />
+            </div>
+
+            <div class="field field-horario">
+              <label for="hora_ate">Até:</label>
+              <input type="time" name=hora_ate" id="hora_ate" class="horario-geral" required />
+            </div>
+          </div>
+        </div>
+
+        <div class="field-group group-categ-people">
+          <div class="field">
+            <label for="max_pessoas">Quantidade máxima de pessoas por reserva</label>
+            <input type="number" name="max_pessoas" id="max-pessoas" required />
+          </div>
+        </div>
+
+      </fieldset>
+
+      <fieldset>
+        <legend>
+          <h2>Endereço</h2>
+          <!-- <span>Selecione o endereço no mapa</span> -->
+        </legend>
+
+        <!-- <Map center={inicialPosition} zoom={15} onClick={handleMapClick}>
+          <TileLayer attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
+          <Marker position={selectedPosition} />
+        </Map> -->
+
+
+        <div class="field-group">
+          <div class="field">
+            <label for="cep">CEP</label>
+            <input type="text" name="cep" maxlength="9" id="cep" placeholder="00000-000" required />
+          </div>
+
+          <div class="field">
+            <label for="localidade">Cidade</label>
+            <input type="text" name="localidade" id="localidade" required />
+          </div>
+        </div>
+
+        <div class="field-group">
+          <div class="field">
+            <label for="uf">UF</label>
+            <input type="text" name="uf" id="uf" maxlength="2" required />
+          </div>
+
+          <div class="field">
+            <label for="bairro">Bairro</label>
+            <input type="text" name="bairro" id="bairro" required />
+          </div>
+        </div>
+
+        <div class="field-group">
+          <div class="field">
+            <label for="logradouro">Logradouro</label>
+            <input type="text" name="logradouro" id="logradouro" required />
+          </div>
+
+          <div class="field">
+            <label for="numero">Número</label>
+            <input type="number" name="numero" id="numero" required />
+          </div>
+        </div>
+
+        <label id="label-senha" for="password">Senha</label>
+        <div class="pass-container">
+          <input type="password" name="senha" id="password" required />
+          <button type="button" id="eye" class="glyphicon glyphicon-eye-close" onclick="mostrar(this)"></button>
+        </div>
+
+        <div class="field-group description-group">
+          <div class="field">
+            <label for="description">Descrição</label>
+            <textarea id="description" name="description" rows="3" cols="50" maxlength="1000" required></textarea>
+          </div>
+        </div>
+
+        <div class="field">
+          <button id="submit-estab">Cadastrar</button>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.0/axios.min.js"
+    integrity="sha512-DZqqY3PiOvTP9HkjIWgjO6ouCbq+dxqWoJZ/Q+zPYNHmlnI2dQnbJ5bxAHpAMw+LXRm4D72EIRXzvcHQtE8/VQ=="
+    crossorigin="anonymous"></script>
+  <script src="../../utils/jquery.min.js"></script>
+  <script src="../../utils/jquery.mask.min.js"></script>
+  <script src="cad-empresa.js"></script>
+  <script type="text/javascript" src="../../utils/image-upload.js"></script>
+  <script src="https://kit.fontawesome.com/37a6fc82c8.js" crossorigin="anonymous"></script>
+  <script src="../../utils/sweetalert2.all.js"></script>
+  <script type="text/javascript" src="../../utils/geral.js"></script>
+</body>
+
+</html>
