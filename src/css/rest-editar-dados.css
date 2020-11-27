@@ -105,6 +105,7 @@ form .dados {
   flex-direction: column;
   margin-bottom: 5px;
 }
+.form-perfil .field input[type="number"],
 .form-perfil .field input[type="text"],
 .form-perfil .field input[type="email"],
 .form-perfil .field input[type="password"],
@@ -124,6 +125,11 @@ form .dados {
 .form-perfil .field label {
   font-size: 14px;
   margin-bottom: 2px;
+}
+
+#qtdPessoa{
+  text-align: center;
+  width: 50px;
 }
 
 .horario {

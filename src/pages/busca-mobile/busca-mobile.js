@@ -1,90 +1,148 @@
 const conteinerRestaurantes = document.querySelector('.conteudo-restaurantes')
 const categoriaMain = document.querySelector('.categorias-main')
 
+const searchBar = document.getElementById("search-bar")
+const iconSearch = document.getElementById("icon-search")
 
-function carregaRestaurantes() {
+var idIncrement = 0
 
-    fetch(`http://localhost:8080/restaurante/${localStorage.getItem("myreserve-identifier-rest")}`, {
+function carregaRestaurantes(deleteElements, url = null) {
+
+    fetch(url, {
         method: "GET",
         headers: {
             'Authorization': `Bearer ${localStorage.getItem("myreserve-usr-token")}`
         }
-    })
-        .then(res => res.json())
-        .then(restaurante => {
-            // const allRestaurantes = listaRestaurantes;
+    }).then(res => res.json())
+        .then(async (restaurantes) => {
+            numPageMax = restaurantes.totalPages
+            if (deleteElements) {
+                let restaurantesConteiners = document.querySelectorAll(".restaurante-container")
+                for (let i = 0; i < restaurantesConteiners.length; i++) {
+                    if (restaurantesConteiners[i].parentNode) {
+                        restaurantesConteiners[i].parentNode.removeChild(restaurantesConteiners[i])
+                    }
+                }
+            }
 
-            // restaurante.forEach(values => {
-            restaurenteContainer = document.createElement("a");
-            restaurantes = document.createElement("div");
+            let haveItens = Object.entries(restaurantes).length
+            let arrRests = restaurantes
 
-            fotoRestaurante = document.createElement("div");
-            imgRestaurante = document.createElement("img");
+            if (haveItens > 0) {
+                const filterRestaurante = arrRests.filter((obj) => {
+                    return obj.max_pessoas <= localStorage.getItem("myreserve-filter-people")
+                })
+                async function filterForEach() {
 
-            infoRestaurante = document.createElement("div");
-            nomeRestaurante = document.createElement("p");
+                    for await (rest of filterRestaurante) {
+                        let enderecoRest = `${rest.endereco.cidade}, ${rest.endereco.logradouro} - ${rest.endereco.numero}`
+                        let distance
+                        let estabKm
 
-            categoriaInfo = document.createElement("div");
-            iconCategoria = document.createElement("i");
-            nomeCategoria = document.createElement("p");
+                        async function getKm() {
+                            let getDistance = async (start, end) => {
+                                let d = await calculaDistance(enderecoRest)
+                                return d.distance.value
+                            };
+                            const d = await getDistance()
+                            return d
+                        }
 
-            distanceInfo = document.createElement("div");
-            iconDistance = document.createElement("i");
-            distancia = document.createElement("p");
+                        distance = await getKm()
 
-            infoNumeroPessoas = document.createElement("div");
-            numeroPessoas = document.createElement("div");
-            qtdPessoas = document.createElement("p");
-            iconPessoas = document.createElement("i");
+                        estabKm = distance / 1000
 
-            restaurenteContainer.setAttribute("class", "restaurante-container");
-            restaurantes.setAttribute("class", "restaurantes");
+                        rest.kilometers = parseFloat(estabKm.toFixed(2))
+                    }
+                }
 
-            fotoRestaurante.setAttribute("class", "foto-restaurante");
-            imgRestaurante.setAttribute("src", `../../img/${restaurante.img_estabelecimento}`);
+                await filterForEach()
 
-            infoRestaurante.setAttribute("class", "info-restaurante");
-            nomeRestaurante.setAttribute("class", "nome-restaurante infos");
-            nomeRestaurante.textContent = restaurante.nome;
+                const restaurantesFiltered = filterRestaurante.filter((obj) => {
+                    return obj.kilometers <= parseInt(localStorage.getItem("myreserve-filter-distance"))
+                })
 
-            categoriaInfo.setAttribute("class", "categoria infos");
-            iconCategoria.setAttribute("class", "fas fa-utensils col-1");
-            nomeCategoria.setAttribute("class", "categoria")
-            nomeCategoria.textContent = restaurante.categoria.tipo_categoria;
+                restaurantesFiltered.forEach(restaurante => {
+                    restaurenteContainer = document.createElement("a");
+                    restaurantes = document.createElement("div");
 
-            distanceInfo.setAttribute("class", "distance infos")
-            iconDistance.setAttribute("class", "fas fa-route col-1");
-            distancia.setAttribute("class", "distancia")
-            distancia.textContent = '2km';
+                    fotoRestaurante = document.createElement("div");
+                    imgRestaurante = document.createElement("img");
 
-            infoNumeroPessoas.setAttribute("class", "info-num-pessoas");
-            numeroPessoas.setAttribute("class", "numero-pessoas");
-            qtdPessoas.setAttribute("class", "quantidade-pessoa");
-            iconPessoas.setAttribute("class", "fas fa-user-friends icon-pessoa");
-            qtdPessoas.textContent = restaurante.reserva.qtd_pessoa;
+                    infoRestaurante = document.createElement("div");
+                    nomeRestaurante = document.createElement("p");
 
-            restaurenteContainer.appendChild(restaurantes);
-            restaurantes.appendChild(fotoRestaurante);
-            fotoRestaurante.appendChild(imgRestaurante);
+                    categoriaInfo = document.createElement("div");
+                    iconCategoria = document.createElement("i");
+                    nomeCategoria = document.createElement("p");
 
-            restaurantes.appendChild(infoRestaurante);
-            infoRestaurante.appendChild(nomeRestaurante);
-            infoRestaurante.appendChild(categoriaInfo);
-            categoriaInfo.appendChild(iconCategoria);
-            categoriaInfo.appendChild(nomeCategoria);
+                    distanceInfo = document.createElement("div");
+                    iconDistance = document.createElement("i");
+                    distancia = document.createElement("p");
 
-            infoRestaurante.appendChild(distanceInfo);
-            distanceInfo.appendChild(iconDistance);
-            distanceInfo.appendChild(distancia);
+                    infoNumeroPessoas = document.createElement("div");
+                    numeroPessoas = document.createElement("div");
+                    qtdPessoas = document.createElement("p");
+                    iconPessoas = document.createElement("i");
 
-            restaurantes.appendChild(infoNumeroPessoas);
-            infoNumeroPessoas.appendChild(numeroPessoas);
-            numeroPessoas.appendChild(qtdPessoas);
-            numeroPessoas.appendChild(iconPessoas);
+                    restaurenteContainer.setAttribute("class", "restaurante-container");
+                    restaurenteContainer.setAttribute("id", "rest-" + idIncrement)
+                    restaurenteContainer.setAttribute("data-value", restaurante.id_estabelecimento)
+                    restaurantes.setAttribute("class", "restaurantes");
 
-            conteinerRestaurantes.appendChild(restaurenteContainer);
+                    fotoRestaurante.setAttribute("class", "foto-restaurante");
+                    imgRestaurante.setAttribute("src", "../../../myreserve/" + restaurante.img_estabelecimento);
 
-        })
+                    infoRestaurante.setAttribute("class", "info-restaurante");
+                    nomeRestaurante.setAttribute("class", "nome-restaurante infos");
+                    nomeRestaurante.textContent = restaurante.nome;
+
+                    categoriaInfo.setAttribute("class", "categoria infos");
+                    iconCategoria.setAttribute("class", "fas fa-utensils col-1");
+                    nomeCategoria.setAttribute("class", "categoria")
+                    nomeCategoria.textContent = restaurante.categoria.tipo_categoria;
+
+                    distanceInfo.setAttribute("class", "distance infos")
+                    iconDistance.setAttribute("class", "fas fa-route col-1");
+                    distancia.setAttribute("class", "distancia")
+                    if (restaurante.kilometers < 1) {
+                        distancia.textContent = `<1km`
+                    } else {
+                        distancia.textContent = `${restaurante.kilometers}km`
+                    }
+                    infoNumeroPessoas.setAttribute("class", "info-num-pessoas");
+                    numeroPessoas.setAttribute("class", "numero-pessoas");
+                    qtdPessoas.setAttribute("class", "quantidade-pessoa");
+                    iconPessoas.setAttribute("class", "fas fa-user-friends icon-pessoa");
+                    qtdPessoas.textContent = restaurante.max_pessoas;
+
+                    restaurenteContainer.appendChild(restaurantes);
+                    restaurantes.appendChild(fotoRestaurante);
+                    fotoRestaurante.appendChild(imgRestaurante);
+
+                    restaurantes.appendChild(infoRestaurante);
+                    infoRestaurante.appendChild(nomeRestaurante);
+                    infoRestaurante.appendChild(categoriaInfo);
+                    categoriaInfo.appendChild(iconCategoria);
+                    categoriaInfo.appendChild(nomeCategoria);
+
+                    infoRestaurante.appendChild(distanceInfo);
+                    distanceInfo.appendChild(iconDistance);
+                    distanceInfo.appendChild(distancia);
+
+                    restaurantes.appendChild(infoNumeroPessoas);
+                    infoNumeroPessoas.appendChild(numeroPessoas);
+                    numeroPessoas.appendChild(qtdPessoas);
+                    numeroPessoas.appendChild(iconPessoas);
+
+                    conteinerRestaurantes.appendChild(restaurenteContainer);
+                    const newEvent = document.getElementById(`rest-${idIncrement}`)
+                    newEvent.addEventListener("click", () => { redirectInfoRest(newEvent.attributes[2].value) })
+
+                    idIncrement++
+                })
+            }
+        }).catch(err => console.log(err))
 
 }
 
@@ -98,8 +156,6 @@ function carregaCategorias() {
     })
         .then(res => res.json())
         .then(categoria => {
-            // const allCategorias = listaCategorias;
-            // var scale = 'scale(1.5)';
 
             btnPrev = document.createElement("button")
 
@@ -114,6 +170,7 @@ function carregaCategorias() {
                 nameCategoria = document.createElement("span");
 
                 tipoCategoria.setAttribute("class", "tipo-categoria")
+                tipoCategoria.setAttribute("data-value", values.id_categoria)
                 imgCarrousel.setAttribute("class", "img-carrousel")
                 imgCategoria.setAttribute("class", "img-categoria")
                 nameCategoria.setAttribute("class", "name-categoria")
@@ -128,9 +185,46 @@ function carregaCategorias() {
 
                 categoriaMain.appendChild(tipoCategoria)
             })
-        })
 
+            const categoriasMenu = document.getElementsByClassName('tipo-categoria')
+            for (let i = 0; i < categoriasMenu.length; i++) {
+                (function (index) {
+                    categoriasMenu[index].addEventListener("click", function () {
+                        buscaPorCategoria(categoriasMenu[index].attributes[1].value)
+                    })
+                })(i)
+            }
+        })
 }
 
-window.addEventListener("load", carregaRestaurantes)
+function buscaPorCategoria(dataValue) {
+    let url = `http://localhost:8080/restaurante/categoria/${parseInt(dataValue)}`
+    carregaRestaurantes(true, url)
+}
+
+function buscaPorNome() {
+    let url
+    searchBar.addEventListener("keyup", (e) => {
+        if (e.key === "Enter" && searchBar.value != "") {
+            url = `http://localhost:8080/restaurante/byNome?nome=${searchBar.value}`
+            carregaRestaurantes(true, url)
+        }
+    })
+
+    iconSearch.addEventListener("click", () => {
+        if (searchBar.value != "") {
+            url = `http://localhost:8080/restaurante/byNome?nome=${searchBar.value}`
+            carregaRestaurantes(true, url)
+        }
+    })
+}
+
+function redirectInfoRest(dataValue) {
+    localStorage.setItem("myreserve-identifier-rest", dataValue)
+    window.location.href = '../info-restaurante/info-restaurante.html'
+}
+
+
+window.addEventListener("load", buscaPorNome)
+//window.addEventListener("load", carregaRestaurantes)
 window.addEventListener("load", carregaCategorias)

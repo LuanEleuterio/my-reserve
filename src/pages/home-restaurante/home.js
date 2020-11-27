@@ -217,9 +217,6 @@ fetch("http://localhost:8080/categoria", {
       opt.innerHTML = tipos.tipo_categoria;
       opt.setAttribute("data-values", tipos.id_categoria)
       modalCategoria.appendChild(opt)
-
-
-
     })
 
   })
@@ -232,25 +229,22 @@ fetch(`http://localhost:8080/restaurante/${localStorage.getItem('myreserve-usr-i
 })
   .then((res) => res.json())
   .then((data) => {
-
-    console.log(data)
     document.getElementById("categoria-option").value = data.categoria.id_categoria
 
+    document.getElementById("foto-perfil").value = data.img_estabelecimento
     document.getElementById("name").value = data.nome
     document.getElementById("cnpj").value = data.cnpj
     document.getElementById("email").value = data.email
 
     document.getElementById("horarioDe").value = data.hora_funcionamento.slice(0, 5)
     document.getElementById("horarioAte").value = data.hora_funcionamento.slice(-5)
+    document.getElementById("qtdPessoa").value = data.max_pessoas
 
     document.getElementById("story").value = data.descricao
 
     const telefoneOrderById = data.telefone.sort(function (a, b) {
       return a.id_telefone < b.id_telefone ? -1 : a.id_telefone > b.id_telefone ? 1 : 0;
     })
-    console.log(telefoneOrderById)
-
-
 
     let nTel = 0
     telefoneOrderById.forEach((telefone) => {
@@ -290,6 +284,7 @@ btnModalEstab.addEventListener("click", (event) => {
       nome: document.getElementById("name").value,
       cnpj: document.getElementById("cnpj").value,
       email: document.getElementById("email").value,
+      max_pessoas: document.getElementById("qtdPessoa").value,
       hora_funcionamento: document.getElementById("horarioDe").value + " às " + document.getElementById("horarioAte").value,
       descricao: document.getElementById("story").value
     }
@@ -301,6 +296,7 @@ btnModalEstab.addEventListener("click", (event) => {
       nome: document.getElementById("name").value,
       cnpj: document.getElementById("cnpj").value,
       email: document.getElementById("email").value,
+      max_pessoas: document.getElementById("qtdPessoa").value,
       senha: document.getElementById("password").value,
       hora_funcionamento: document.getElementById("horarioDe").value + " às " + document.getElementById("horarioAte").value,
       descricao: document.getElementById("story").value
@@ -321,7 +317,7 @@ btnModalEstab.addEventListener("click", (event) => {
       throw Error(res.statusText)
     } else {
       montaObjTelefone()
-      exibeAlert(true, "Informacoes salvas.")
+      exibeAlert(true, "Informações salvas.")
       return res.json()
     }
   }).catch(err => {
@@ -353,9 +349,6 @@ function montaObjTelefone() {
       ddd: dddTel,
       numero: numeroTel,
     }
-
-    console.log(bodyDadosTelefone)
-    console.log(idTel)
 
     cadastraTelefone(bodyDadosTelefone, idTel)
 

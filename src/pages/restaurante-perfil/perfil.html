@@ -64,12 +64,12 @@
                     <label for="cnpj">CNPJ</label>
                     <input type="text" name="cnpj" id="cnpj" placeholder="xx.xxx.xxx/xxxx-xx" maxlength="18" required />
                 </div>
-                <!--
+
                 <div class="field">
-                    <label for="telefone">Telefone</label>
-                    <input type="text" name="telefone" id="telefone" placeholder="(xx) xxxxx-xxxx" required />
+                    <label for="qtdPessoa">Quantidade máxima de pessoa por reserva</label>
+                    <input type="number" name="qtdPessoa" id="qtdPessoa" required />
                 </div>
-                -->
+
                 <div class="field">
                     <label>Funcionamento</label>
                     <div class="horario">
@@ -132,7 +132,7 @@
             </fieldset>
 
             <input id="submit-salvar" class="botao btn-blue" type="submit" value="Salvar alteracoes">
-            <input class="botao btn-red" type="button" value="Desconectar">
+            <input class="botao btn-red logout-modal" type="button" value="Desconectar">
 
         </form>
 
@@ -180,6 +180,7 @@
     <script type="text/javascript" src="../../utils/geral-rest.js"></script>
     <script type="text/javascript" src="../../utils/footer-redirect-rest.js"></script>
     <script type="text/javascript" src="../../utils/sweetalert2.all.js"></script>
+    <script src="../../utils/logout.js"></script>
 </body>
 
 </html>

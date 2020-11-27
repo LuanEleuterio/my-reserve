@@ -18,6 +18,7 @@ const fieldSetDados = document.getElementById("fieldset-dados")
 const catPeople = document.querySelector(".group-categ-people")
 const passWord = document.getElementById("password")
 const description = document.getElementById("description")
+const btnArrowBack = document.getElementById("btn-arrow-header")
 var bodyDadosEndereco = {}
 
 const btnSubmit = document.getElementById("submit-estab")
@@ -203,6 +204,10 @@ btnSubmit.addEventListener("click", (e) => {
   insereEndEstab()
 })
 //-------------------------------------------------------------
+
+btnArrowBack.addEventListener("click", () => {
+  window.location.href = "../../../index.html"
+})
 
 function verificaAmOrPm(hora) {
   if (hora.substr(0, 2) < 12) {

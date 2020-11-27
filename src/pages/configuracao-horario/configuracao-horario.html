@@ -165,16 +165,16 @@
 
                     <fieldset class='modal-perfil-fieldset' id="fieldSet-ModalPerfil">
                         <legend>
-                            <img src="../../img/foto4.jpg" alt="">
+                            <img id="foto-perfil" alt="">
                             <div class="dados">
                                 <h4>Dados do Estabelecimento</h4>
                                 <div class="categoria">
                                     <h5>Categoria:</h5>
                                     <select name="categoria" id="categoria-option">
                                         <option value="nothing"></option>
-                                      <!--  <option value="arabe">Árabe</option> -->
-                                      <!--  <option value="mexicana">Mexicana</option> -->
-                                      <!--  <option value="mineira">Mineira</option> -->
+                                        <!--  <option value="arabe">Árabe</option> -->
+                                        <!--  <option value="mexicana">Mexicana</option> -->
+                                        <!--  <option value="mineira">Mineira</option> -->
                                     </select>
                                 </div>
                             </div>
@@ -200,11 +200,9 @@
                             <input type="email" name="email" id="email" placeholder="email@exemplo.com" required />
                         </div>
 
-                        <label id="label-senha" for="password">Senha</label>
-                        <div class="pass-container">
-                            <input type="password" name="senha" id="password" required />
-                            <button type="button" id="eye" class="glyphicon glyphicon-eye-close"
-                                onclick="mostrar(this)"></button>
+                        <div class="field">
+                            <label for="qtdPessoa">Quantidade máxima de pessoas por reserva</label>
+                            <input type="number" name="qtdPessoa" id="qtdPessoa" required />
                         </div>
 
                         <div class="field">
@@ -216,18 +214,17 @@
 
                             </div>
                         </div>
-                        <div class="field">
-                            <label>Duração da reserva</label>
-                            <select name="horario-de" class="duracao-reserva" required>
-                                <option value="nothing"></option>
-                                <option value="trinta">30 minutos</option>
-                                <option value="quarenta">40 minutos</option>
-                                <option value="umahora">60 minutos</option>
-                            </select>
-                        </div>
+
                         <div class="field">
                             <label>Descrição</label>
                             <textarea id="story" name="story" rows="3" cols="50" required></textarea>
+                        </div>
+
+                        <label id="label-senha" for="password">Senha</label>
+                        <div class="pass-container">
+                            <input type="password" name="senha" id="password" required />
+                            <button type="button" id="eye" class="glyphicon glyphicon-eye-close"
+                                onclick="mostrar(this)"></button>
                         </div>
 
                     </fieldset>
@@ -330,6 +327,7 @@
     <script type="text/javascript" src="../../utils/modal-perfil-rest.js"></script>
     <script type="text/javascript" src="../../utils/geral-rest.js"></script>
     <script type="text/javascript" src="../../utils/sweetalert2.all.js"></script>
+    <script src="../../utils/logout.js"></script>
 </body>
 
 </html>

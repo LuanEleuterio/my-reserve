@@ -234,6 +234,14 @@
         line-height: 38px;
         color: rgba(50, 33, 83, .8);
     }
+
+    #principal-login{
+        cursor: pointer;
+    }
+
+    #principal-login-btn{
+        cursor: pointer;
+    }
     
     .home a {
         width: 100%;
