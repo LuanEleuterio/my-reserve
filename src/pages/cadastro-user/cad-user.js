@@ -24,10 +24,10 @@ btnSubmit.addEventListener("click", (e) => {
     telefone: wppUsuario.value,
     cpf: cpfUsuario.value,
     senha: password.value,
-    img_perfil: localStorage.getItem("myreserve-img-perfil")
+    img_perfil: localStorage.getItem("myreserve-usr-img")
   }
 
-  localStorage.removeItem("myreserve-img-perfil")
+  localStorage.removeItem("myreserve-usr-img")
 
   cadastraUser(bodyDados)
 })
