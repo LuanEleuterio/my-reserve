@@ -124,7 +124,7 @@ btnSubmit.addEventListener("click", (e) => {
   let horaFinish = verificaAmOrPm(horaAte.value)
   let horaFunciona = `${horaStart} às ${horaFinish}`
   let exibeAlert = false
-
+  console.log(localStorage.getItem("myreserve-usr-img"))
   let bodyDados = {
     nome: nomeEmpresa.value,
     email: emailEmpresa.value,
@@ -133,7 +133,7 @@ btnSubmit.addEventListener("click", (e) => {
     descricao: description.value,
     hora_funcionamento: horaFunciona,
     max_pessoas: qtdPessoa,
-    img_estabelecimento: localStorage.getItem("myreserve-img-perfil"),
+    img_estabelecimento: localStorage.getItem("myreserve-usr-img"),
     fk_categoria: parseInt(optionCategoria.value)
   }
 

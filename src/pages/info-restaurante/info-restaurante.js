@@ -10,6 +10,7 @@ const categoriaRestaurante = document.getElementById("categoria-restaurante")
 const enderecoRestaurante = document.getElementById("endereco-restaurante")
 const horarioFuncionamento = document.getElementById("hora-funcionamento")
 const descricaoRestaurante = document.getElementById("description")
+const distanceEstab = document.getElementById("distance-estab")
 
 const blockHorario = document.getElementsByClassName("button-horario");
 
@@ -70,12 +71,13 @@ function carregaDescricao(option = true) {
     .then(descricao => {
 
       if (option) {
-        imageRestaurante.style.backgroundImage = `url('../../../myreserve/${descricao.img_estabelecimento}')`;
+        imageRestaurante.style.backgroundImage = `url('${descricao.img_estabelecimento}')`;
         nomeRestaurante.textContent = descricao.nome;
         categoriaRestaurante.textContent = descricao.categoria.tipo_categoria;
-        enderecoRestaurante.textContent = descricao.endereco.logradouro + ", " + descricao.endereco.numero;
+        enderecoRestaurante.textContent = descricao.endereco.logradouro + ", " + descricao.endereco.numero + " - " + descricao.endereco.cidade;
         horarioFuncionamento.textContent = descricao.hora_funcionamento;
         descricaoRestaurante.textContent = descricao.descricao;
+        distanceEstab.textContent = `${localStorage.getItem("myreserve-estab-distance")} km`
         maxPessoas.textContent = `Máximo ${descricao.max_pessoas}`
         inputPessoas.setAttribute("max", descricao.max_pessoas)
       }

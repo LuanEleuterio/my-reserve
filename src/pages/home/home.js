@@ -124,10 +124,11 @@ function carregaRestaurantes(numPage, deleteElements, url = null) {
                     restaurenteContainer.setAttribute("class", "restaurante-container");
                     restaurenteContainer.setAttribute("id", "rest-" + idIncrement)
                     restaurenteContainer.setAttribute("data-value", restaurante.id_estabelecimento)
+                    restaurenteContainer.setAttribute("data-km", restaurante.kilometers.toFixed(1))
                     restaurantes.setAttribute("class", "restaurantes");
 
                     fotoRestaurante.setAttribute("class", "foto-restaurante");
-                    imgRestaurante.setAttribute("src", "../../../myreserve/" + restaurante.img_estabelecimento);
+                    imgRestaurante.setAttribute("src", restaurante.img_estabelecimento);
 
                     infoRestaurante.setAttribute("class", "info-restaurante");
                     nomeRestaurante.setAttribute("class", "nome-restaurante infos");
@@ -144,7 +145,7 @@ function carregaRestaurantes(numPage, deleteElements, url = null) {
                     if (restaurante.kilometers < 1) {
                         distancia.textContent = `<1km`
                     } else {
-                        distancia.textContent = `${restaurante.kilometers}km`
+                        distancia.textContent = `${restaurante.kilometers.toFixed(1)} km`
                     }
                     infoNumeroPessoas.setAttribute("class", "info-num-pessoas");
                     numeroPessoas.setAttribute("class", "numero-pessoas");
@@ -172,8 +173,9 @@ function carregaRestaurantes(numPage, deleteElements, url = null) {
                     numeroPessoas.appendChild(iconPessoas);
 
                     conteinerRestaurantes.appendChild(restaurenteContainer);
+
                     const newEvent = document.getElementById(`rest-${idIncrement}`)
-                    newEvent.addEventListener("click", () => { redirectInfoRest(newEvent.attributes[2].value) })
+                    newEvent.addEventListener("click", () => { redirectInfoRest(newEvent.attributes[2].value, newEvent.attributes[3].value) })
 
                     idIncrement++
                 })
@@ -201,6 +203,7 @@ window.addEventListener("load", () => {
 
                 tipoCategoria.setAttribute("class", "tipo-categoria")
                 tipoCategoria.setAttribute("data-value", categoria.id_categoria)
+                tipoCategoria.setAttribute("id", "category-" + categoria.id_categoria)
                 imgCarrousel.setAttribute("class", "img-carrousel")
                 imgCategoria.setAttribute("class", "img-categoria")
                 nameCategoria.setAttribute("class", "name-categoria")
@@ -214,17 +217,22 @@ window.addEventListener("load", () => {
 
                 categoriaMain.appendChild(tipoCategoria)
 
-            })
+                const newEvent = document.getElementById(`category-${categoria.id_categoria}`)
+                newEvent.addEventListener("click", () => { buscaPorCategoria(newEvent.attributes[1].value) })
 
+
+            })
+            /*
             const categoriasMenu = document.getElementsByClassName('tipo-categoria')
             for (let i = 0; i < categoriasMenu.length; i++) {
                 (function (index) {
                     categoriasMenu[index].addEventListener("click", function () {
+                        console.log(categoriasMenu[index].attributes[1].value)
                         buscaPorCategoria(categoriasMenu[index].attributes[1].value)
                     })
                 })(i)
             }
-
+            */
             montaCarrouselSlick()
         })
         .catch(err => console.log(err))
@@ -483,8 +491,9 @@ async function calculaDistance(estabLocation) {
     return distance
 }
 
-function redirectInfoRest(dataValue) {
+function redirectInfoRest(dataValue, dataDistance) {
     localStorage.setItem("myreserve-identifier-rest", dataValue)
+    localStorage.setItem("myreserve-estab-distance", dataDistance)
     window.location.href = '../info-restaurante/info-restaurante.html'
 }
 
