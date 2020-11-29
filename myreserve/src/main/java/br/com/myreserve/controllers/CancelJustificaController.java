@@ -23,6 +23,7 @@ import br.com.myreserve.repositories.HorarioRepository;
 import br.com.myreserve.repositories.ReservaRepository;
 import br.com.myreserve.services.RequisitaReservaService;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/cancel-justifica")
 public class CancelJustificaController {
@@ -37,13 +38,11 @@ public class CancelJustificaController {
 	private static String atNow;
 	private static String dateNow;
 	
-	@CrossOrigin
 	@GetMapping({"/{id_cancel}"})
 	public Optional<CancelJustifica> getCancelamento(@PathVariable int id_cancel){
 		return cancelJustificaRepository.findById(id_cancel);
 	}
 	
-	@CrossOrigin
 	@PostMapping()
 	public Boolean addCancelamento(@RequestBody CancelJustifica cancelJustifica) throws Exception{
 		Reserva reserva = reservaRepository.findById(cancelJustifica.getFk_reserva())

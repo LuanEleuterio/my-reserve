@@ -17,6 +17,7 @@ import br.com.myreserve.entities.Endereco;
 import br.com.myreserve.entities.Estabelecimento;
 import br.com.myreserve.repositories.EnderecoRepository;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/endereco")
 public class EnderecoController {
@@ -24,25 +25,22 @@ public class EnderecoController {
 	@Autowired
 	EnderecoRepository enderecoRepository;
 	
-	@CrossOrigin
 	@GetMapping()
 	public Iterable<Endereco> getEnderecos(){
 		return enderecoRepository.findAll();
 	}
 	
-	@CrossOrigin
 	@GetMapping("/{id}")
 	public Optional<Endereco> getById(@PathVariable int id) {
 		return enderecoRepository.findById(id);
 	}
 	
-	@CrossOrigin
+
 	@PostMapping()
 	public void addEndereco(@RequestBody Endereco endereco) {
 		enderecoRepository.save(endereco);
 	}
 	
-	@CrossOrigin
 	@PutMapping("/{id_endereco}")
 	public Endereco updateEndereco(@PathVariable int id_endereco, @RequestBody Endereco dadosEndereco) throws Exception{
 		Endereco enderecoDB = enderecoRepository.findById(id_endereco)

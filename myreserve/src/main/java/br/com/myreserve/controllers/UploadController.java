@@ -12,12 +12,11 @@ import org.springframework.web.multipart.MultipartFile;
 
 import br.com.myreserve.utils.UploadUtil;
 
-
+@CrossOrigin
 @RestController
 public class UploadController {
 	
 	
-	@CrossOrigin
 	@PostMapping("/upload")
 	public String saveFile(@RequestParam("image") MultipartFile file) {
 		String fileName = StringUtils.cleanPath(file.getOriginalFilename());

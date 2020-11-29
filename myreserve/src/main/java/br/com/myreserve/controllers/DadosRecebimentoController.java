@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import br.com.myreserve.entities.DadosRecebimento;
 import br.com.myreserve.repositories.DadosRecebimentoRepository;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/dados-recebimento")
 public class DadosRecebimentoController {
@@ -22,19 +23,16 @@ public class DadosRecebimentoController {
 	@Autowired
 	DadosRecebimentoRepository recebeRepository;
 	
-	@CrossOrigin
 	@GetMapping("/{id}")
 	public Optional<DadosRecebimento> getDadosById(@PathVariable Integer id){
 		return recebeRepository.findById(id);
 	}
 	
-	@CrossOrigin
 	@PostMapping()
 	public void addDadosRecebe(@RequestBody DadosRecebimento dadosRecebimento) {
 		recebeRepository.save(dadosRecebimento);
 	}
 	
-	@CrossOrigin
 	@PutMapping("/{idEstab}")
 	public DadosRecebimento updateDadosRecebimento(@PathVariable Integer idEstab, @RequestBody DadosRecebimento dadosRecebimento) throws Exception{
 		DadosRecebimento dadosDB = recebeRepository.findById(idEstab)

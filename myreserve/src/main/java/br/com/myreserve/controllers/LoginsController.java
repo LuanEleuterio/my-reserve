@@ -25,6 +25,7 @@ import br.com.myreserve.services.LoginsService;
 import br.com.myreserve.services.UserOrEstabService;
 import lombok.RequiredArgsConstructor;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/login")
 @RequiredArgsConstructor
@@ -45,7 +46,6 @@ public class LoginsController {
 	@Autowired
 	LoginsRepository loginRepository;
 	
-	@CrossOrigin
 	@PostMapping("/auth")
 	public TokenDTO autenticar(@RequestBody CredenciaisDTO credenciais) throws Exception {
 		try {
@@ -74,7 +74,6 @@ public class LoginsController {
 		}
 	}
 	
-	@CrossOrigin
 	@DeleteMapping("/delete")
 	public void deleteLogin(@PathParam("idEstab") Integer idEstab, @PathParam("etapa") Integer etapa) throws IllegalAccessException {
 		deletaRegService.deletaAllEstabelecimento(idEstab, etapa);

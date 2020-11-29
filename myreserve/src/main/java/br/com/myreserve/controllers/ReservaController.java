@@ -26,6 +26,7 @@ import br.com.myreserve.repositories.ReservaRepository;
 import br.com.myreserve.repositories.UsuarioRepository;
 import br.com.myreserve.services.RequisitaReservaService;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/reserva")
 public class ReservaController {
@@ -42,25 +43,21 @@ public class ReservaController {
 	private static String atNow;
 	private static String dateNow;
 	
-	@CrossOrigin
 	@GetMapping()
 	public Iterable<Reserva> getReservas(){
 		return reservaRepository.findAll();
 	}
 	
-	@CrossOrigin
 	@GetMapping("/{id}")
 	public Optional<Reserva> getReservasById(@PathVariable Integer id) {
 		return reservaRepository.findById(id);
 	}
 	
-	@CrossOrigin
 	@GetMapping("/byUser/{id}")
 	public Iterable<Reserva> getAllByUser(@PathVariable Integer id){
 		return reservaRepository.findAllByUser(id);
 	}
 	
-	@CrossOrigin
 	@PostMapping()
 	public void addReserva(@RequestBody Reserva reserva) {
 		reservaRepository.save(reserva);
@@ -92,7 +89,6 @@ public class ReservaController {
 		}
 	}
 
-	@CrossOrigin
 	@PutMapping("/{status}")
 	public Reserva updateStatus(@PathVariable Integer id_reserva, @RequestBody Reserva statusReserva) throws Exception{
 		Reserva reservaDB = reservaRepository.findById(id_reserva)

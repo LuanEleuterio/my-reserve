@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import br.com.myreserve.entities.DadosPagamento;
 import br.com.myreserve.repositories.DadosPagamentoRepository;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/dados-pagamento")
 public class DadosPagamentoController {
@@ -22,19 +23,16 @@ public class DadosPagamentoController {
 	@Autowired
 	private DadosPagamentoRepository dadosPagamentoRepository;
 	
-	@CrossOrigin
 	@GetMapping("{id_pag}")
 	public Optional<DadosPagamento> getDadosPagamento(@PathVariable int id_pag){
 		return dadosPagamentoRepository.findById(id_pag);
 	}
 	
-	@CrossOrigin
 	@PostMapping()
 	public void addDadosPagamento(@RequestBody DadosPagamento dadosPagamento) {
 		dadosPagamentoRepository.save(dadosPagamento);
 	}
 	
-	@CrossOrigin
 	@PutMapping("/{id_pag}")
 	public DadosPagamento updateDadosPagamento(@RequestBody DadosPagamento dadosPagamento , @PathVariable int id_pag) throws Exception {
 		DadosPagamento dadosPagamentoDB = dadosPagamentoRepository.findById(id_pag)
