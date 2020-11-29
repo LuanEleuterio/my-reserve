@@ -11,7 +11,7 @@ var dataDeHoje = new Date()
 
 
 function carregaClientes() {
-  fetch("http://localhost:8080/reserva", {
+  fetch("https://myreserve-pi.herokuapp.com/reserva", {
     method: "GET",
     headers: {
       'Authorization': `Bearer ${localStorage.getItem("myreserve-usr-token")}`
@@ -173,7 +173,7 @@ modalBtnSubmit.addEventListener("click", function () {
     }
 
 
-    fetch("http://localhost:8080/cancel-justifica", {
+    fetch("https://myreserve-pi.herokuapp.com/cancel-justifica", {
       method: "POST",
       headers: {
         'Accept': 'application/json',
@@ -201,7 +201,7 @@ modalBtnSubmit.addEventListener("click", function () {
 })
 
 
-fetch("http://localhost:8080/categoria", {
+fetch("https://myreserve-pi.herokuapp.com/categoria", {
   method: "GET",
   headers: {
     'Authorization': `Bearer ${localStorage.getItem("myreserve-usr-token")}`
@@ -221,7 +221,7 @@ fetch("http://localhost:8080/categoria", {
 
   })
 
-fetch(`http://localhost:8080/restaurante/${localStorage.getItem('myreserve-usr-identifier')}`, {
+fetch(`https://myreserve-pi.herokuapp.com/restaurante/${localStorage.getItem('myreserve-usr-identifier')}`, {
   method: "GET",
   headers: {
     'Authorization': `Bearer ${localStorage.getItem("myreserve-usr-token")}`
@@ -304,7 +304,7 @@ btnModalEstab.addEventListener("click", (event) => {
   }
 
 
-  fetch(`http://localhost:8080/restaurante/${localStorage.getItem('myreserve-usr-identifier')}`, {
+  fetch(`https://myreserve-pi.herokuapp.com/restaurante/${localStorage.getItem('myreserve-usr-identifier')}`, {
     method: "PUT",
     headers: {
       'Accept': 'application/json',
@@ -362,7 +362,7 @@ function montaObjTelefone() {
 }
 
 function cadastraTelefone(obj, idTel) {
-  fetch(`http://localhost:8080/telefone/${idTel}`, {
+  fetch(`https://myreserve-pi.herokuapp.com/telefone/${idTel}`, {
     method: "PUT",
     headers: {
       'Accept': 'application/json',

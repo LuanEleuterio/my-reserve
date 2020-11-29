@@ -61,7 +61,7 @@ function initTime() {
 
 function carregaDescricao(option = true) {
   //option serve para quando eu fazer uma reserva, ele recarregar somento os horários
-  fetch(`http://localhost:8080/restaurante/${localStorage.getItem("myreserve-identifier-rest")}`, {
+  fetch(`https://myreserve-pi.herokuapp.com/${localStorage.getItem("myreserve-identifier-rest")}`, {
     method: "GET",
     headers: {
       'Authorization': `Bearer ${localStorage.getItem("myreserve-usr-token")}`
@@ -189,7 +189,7 @@ modalSubmitReserva.addEventListener("click", function () {
     fk_horario: idHorario
   }
 
-  fetch("http://localhost:8080/reserva/requisita", {
+  fetch("https://myreserve-pi.herokuapp.com/reserva/requisita", {
     method: "POST",
     headers: {
       'Accept': 'application/json',

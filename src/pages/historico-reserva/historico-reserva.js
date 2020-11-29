@@ -7,7 +7,7 @@ var idReserva
 
 function carregaReservas() {
 
-    fetch(`http://localhost:8080/reserva/byUser/${localStorage.getItem("myreserve-usr-identifier")}`, {
+    fetch(`https://myreserve-pi.herokuapp.com/reserva/byUser/${localStorage.getItem("myreserve-usr-identifier")}`, {
         method: "GET",
         headers: {
             'Authorization': `Bearer ${localStorage.getItem("myreserve-usr-token")}`
@@ -150,7 +150,7 @@ btnConfirmaCancel.addEventListener("click", () => {
         fk_reserva: idReserva
     }
 
-    fetch("http://localhost:8080/cancel-justifica", {
+    fetch("https://myreserve-pi.herokuapp.com/cancel-justifica", {
         method: "POST",
         headers: {
             'Accept': 'application/json',

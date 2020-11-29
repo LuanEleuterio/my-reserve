@@ -32,7 +32,7 @@ btnSubmit.addEventListener("click", (e) => {
 
 function cadastraUser(obj) {
 
-  fetch("http://localhost:8080/usuario", {
+  fetch("https://myreserve-pi.herokuapp.com/usuario", {
     method: "POST",
     headers: {
       'Accept': 'application/json',

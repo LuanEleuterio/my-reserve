@@ -74,7 +74,7 @@ if (submitEditar != null) {
             }
         }
 
-        fetch(`http://localhost:8080/usuario/${localStorage.getItem("myreserve-usr-identifier")}`, {
+        fetch(`https://myreserve-pi.herokuapp.com/usuario/${localStorage.getItem("myreserve-usr-identifier")}`, {
             method: "PUT",
             headers: {
                 'Accept': 'application/json',
@@ -99,7 +99,7 @@ if (submitEditar != null) {
 }
 
 function carregaDados() {
-    fetch(`http://localhost:8080/usuario/${localStorage.getItem("myreserve-usr-identifier")}`, {
+    fetch(`https://myreserve-pi.herokuapp.com/usuario/${localStorage.getItem("myreserve-usr-identifier")}`, {
         method: "GET",
         headers: {
             'Authorization': `Bearer ${localStorage.getItem("myreserve-usr-token")}`

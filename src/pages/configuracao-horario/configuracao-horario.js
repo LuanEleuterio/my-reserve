@@ -19,7 +19,7 @@ const fieldSet = document.getElementById("fieldSet-ModalPerfil")
 var idHour
 
 function carregaHorarios() {
-  fetch(`http://localhost:8080/horario/byEstab/${localStorage.getItem("myreserve-usr-identifier")}`, {
+  fetch(`https://myreserve-pi.herokuapp.com/horario/byEstab/${localStorage.getItem("myreserve-usr-identifier")}`, {
     method: "GET",
     headers: {
       'Authorization': `Bearer ${localStorage.getItem("myreserve-usr-token")}`
@@ -129,7 +129,7 @@ submitHorario.addEventListener("click", (e) => {
     fk_estabelecimento: parseInt(localStorage.getItem("myreserve-usr-identifier"))
   }
 
-  fetch("http://localhost:8080/horario", {
+  fetch("https://myreserve-pi.herokuapp.com/horario", {
     method: "POST",
     headers: {
       'Accept': 'application/json',
@@ -161,7 +161,7 @@ submitModal.addEventListener("click", (e) => {
     //fk_estabelecimento: parseInt(localStorage.getItem("myreserve-usr-identifier"))
   }
 
-  fetch(`http://localhost:8080/horario/altera?idHour=${idHour}`, {
+  fetch(`https://myreserve-pi.herokuapp.com/horario/altera?idHour=${idHour}`, {
     method: "PUT",
     headers: {
       'Accept': 'application/json',
@@ -186,7 +186,7 @@ submitModal.addEventListener("click", (e) => {
 btnCancelHour.addEventListener("click", (e) => {
   e.preventDefault()
 
-  fetch(`http://localhost:8080/horario/${idHour}`, {
+  fetch(`https://myreserve-pi.herokuapp.com/horario/${idHour}`, {
     method: "DELETE",
     headers: {
       'Accept': 'application/json',
@@ -207,7 +207,7 @@ btnCancelHour.addEventListener("click", (e) => {
 })
 
 window.addEventListener("load", () => {
-  fetch(`http://localhost:8080/restaurante/${localStorage.getItem("myreserve-usr-identifier")}`, {
+  fetch(`https://myreserve-pi.herokuapp.com/restaurante/${localStorage.getItem("myreserve-usr-identifier")}`, {
     method: "GET",
     headers: {
       'Authorization': `Bearer ${localStorage.getItem("myreserve-usr-token")}`
@@ -223,7 +223,7 @@ window.addEventListener("load", () => {
 })
 
 
-fetch("http://localhost:8080/categoria", {
+fetch("https://myreserve-pi.herokuapp.com/categoria", {
   method: "GET",
   headers: {
     'Authorization': `Bearer ${localStorage.getItem("myreserve-usr-token")}`
@@ -242,7 +242,7 @@ fetch("http://localhost:8080/categoria", {
     })
 
   })
-fetch(`http://localhost:8080/restaurante/${localStorage.getItem('myreserve-usr-identifier')}`, {
+fetch(`https://myreserve-pi.herokuapp.com/restaurante/${localStorage.getItem('myreserve-usr-identifier')}`, {
   method: "GET",
   headers: {
     'Authorization': `Bearer ${localStorage.getItem("myreserve-usr-token")}`
@@ -326,7 +326,7 @@ btnModalEstab.addEventListener("click", () => {
   }
 
 
-  fetch(`http://localhost:8080/restaurante/${localStorage.getItem('myreserve-usr-identifier')}`, {
+  fetch(`https://myreserve-pi.herokuapp.com/restaurante/${localStorage.getItem('myreserve-usr-identifier')}`, {
     method: "PUT",
     headers: {
       'Accept': 'application/json',
@@ -383,7 +383,7 @@ function montaObjTelefone() {
 }
 
 function cadastraTelefone(obj, idTel) {
-  fetch(`http://localhost:8080/telefone/${idTel}`, {
+  fetch(`https://myreserve-pi.herokuapp.com/telefone/${idTel}`, {
     method: "PUT",
     headers: {
       'Accept': 'application/json',

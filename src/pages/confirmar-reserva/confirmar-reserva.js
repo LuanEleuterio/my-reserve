@@ -4,7 +4,7 @@ const qtdVagas = document.getElementById("qtd-vagas")
 const qtdPessoa = document.getElementById("ipt-qtd-pessoa")
 function carregaHorariosMobile() {
 
-    fetch(`http://localhost:8080/horario/${localStorage.getItem("myreserve-hour-identifier")}`, {
+    fetch(`https://myreserve-pi.herokuapp.com/horario/${localStorage.getItem("myreserve-hour-identifier")}`, {
         method: "GET",
         headers: {
             'Authorization': `Bearer ${localStorage.getItem("myreserve-usr-token")}`
@@ -27,7 +27,7 @@ btnConfirmar.addEventListener("click", () => {
         fk_horario: parseInt(localStorage.getItem("myreserve-hour-identifier"))
     }
 
-    fetch("http://localhost:8080/reserva/requisita", {
+    fetch("https://myreserve-pi.herokuapp.com/reserva/requisita", {
         method: "POST",
         headers: {
             'Accept': 'application/json',

@@ -31,7 +31,7 @@ submitLogin.addEventListener("click", (e) => {
 
 function fazLogin(obj) {
 
-    const dadosLogin = fetch("http://localhost:8080/login/auth", {
+    const dadosLogin = fetch("https://myreserve-pi.herokuapp.com/login/auth", {
         method: "POST",
         headers: {
             'Accept': 'application/json',

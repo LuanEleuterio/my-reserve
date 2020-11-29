@@ -148,7 +148,7 @@ function carregaRestaurantes(deleteElements, url = null) {
 
 function carregaCategorias() {
 
-    fetch(`http://localhost:8080/categoria`, {
+    fetch(`https://myreserve-pi.herokuapp.com/categoria`, {
         method: "GET",
         headers: {
             'Authorization': `Bearer ${localStorage.getItem("myreserve-usr-token")}`
@@ -198,7 +198,7 @@ function carregaCategorias() {
 }
 
 function buscaPorCategoria(dataValue) {
-    let url = `http://localhost:8080/restaurante/categoria/${parseInt(dataValue)}`
+    let url = `https://myreserve-pi.herokuapp.com/restaurante/categoria/${parseInt(dataValue)}`
     carregaRestaurantes(true, url)
 }
 
@@ -206,14 +206,14 @@ function buscaPorNome() {
     let url
     searchBar.addEventListener("keyup", (e) => {
         if (e.key === "Enter" && searchBar.value != "") {
-            url = `http://localhost:8080/restaurante/byNome?nome=${searchBar.value}`
+            url = `https://myreserve-pi.herokuapp.com/restaurante/byNome?nome=${searchBar.value}`
             carregaRestaurantes(true, url)
         }
     })
 
     iconSearch.addEventListener("click", () => {
         if (searchBar.value != "") {
-            url = `http://localhost:8080/restaurante/byNome?nome=${searchBar.value}`
+            url = `https://myreserve-pi.herokuapp.com/restaurante/byNome?nome=${searchBar.value}`
             carregaRestaurantes(true, url)
         }
     })

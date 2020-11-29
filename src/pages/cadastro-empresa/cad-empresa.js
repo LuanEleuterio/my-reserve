@@ -77,7 +77,7 @@ cep.addEventListener("blur", (e) => {
 //Busca categorias na API
 window.addEventListener("load", (event) => {
 
-  fetch("http://localhost:8080/categoria")
+  fetch("https://myreserve-pi.herokuapp.com/categoria")
     .then(res => res.json())
     .then(categorias => {
       const fieldConteiner = document.createElement("div")
@@ -220,7 +220,7 @@ function verificaAmOrPm(hora) {
 
 function cadastraEstab(obj) {
 
-  const idEstab = fetch("http://localhost:8080/restaurante", {
+  const idEstab = fetch("https://myreserve-pi.herokuapp.com/restaurante", {
     method: "POST",
     headers: {
       'Accept': 'application/json',
@@ -248,7 +248,7 @@ function cadastraEstab(obj) {
 }
 
 function cadastraEnderecoEstab(obj) {
-  const okEndereco = fetch("http://localhost:8080/endereco", {
+  const okEndereco = fetch("https://myreserve-pi.herokuapp.com/endereco", {
     method: "POST",
     headers: {
       'Accept': 'application/json',
@@ -274,7 +274,7 @@ function cadastraEnderecoEstab(obj) {
 }
 
 function cadastraTelefoneEstab(obj) {
-  fetch("http://localhost:8080/telefone", {
+  fetch("https://myreserve-pi.herokuapp.com/telefone", {
     method: "POST",
     headers: {
       'Accept': 'application/json',
@@ -319,7 +319,7 @@ function exibeAlert(exibe) {
 
 function desfazCadastro(id, etapa) {
   setTimeout(function () {
-    fetch(`http://localhost:8080/login/delete?idEstab=${id}&etapa=${etapa}`, {
+    fetch(`https://myreserve-pi.herokuapp.com/login/delete?idEstab=${id}&etapa=${etapa}`, {
       method: "DELETE",
       headers: {
         'Accept': 'application/json',

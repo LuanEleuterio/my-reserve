@@ -8,7 +8,7 @@ fileInput.addEventListener("change", async (event) => {
 
   formData.append("file", img)
 
-  axios.post("http://localhost:8080/storage/upload", formData)
+  axios.post("https://myreserve-pi.herokuapp.com/storage/upload", formData)
     .then(res => {
       localStorage.setItem("myreserve-usr-img", res.data)
       exibeAlertImg(true)
