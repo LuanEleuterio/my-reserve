@@ -7,7 +7,12 @@ var idReserva
 
 function carregaReservas() {
 
-    fetch(`http://localhost:8080/reserva/byUser/${localStorage.getItem("myreserve-usr-identifier")}`)
+    fetch(`http://localhost:8080/reserva/byUser/${localStorage.getItem("myreserve-usr-identifier")}`, {
+        method: "GET",
+        headers: {
+            'Authorization': `Bearer ${localStorage.getItem("myreserve-usr-token")}`
+        }
+    })
         .then(res => res.json())
         .then(reservas => {
             reservas.sort(function (a, b) {
@@ -149,7 +154,8 @@ btnConfirmaCancel.addEventListener("click", () => {
         method: "POST",
         headers: {
             'Accept': 'application/json',
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${localStorage.getItem("myreserve-usr-token")}`
         },
         body: JSON.stringify(bodyCancel)
     }).then(res => {
