@@ -201,6 +201,7 @@ a {
 .cliente-container {
     cursor: pointer;
     margin-bottom: 2vh;
+    margin-left: 1em;
 }
 
 .infos {

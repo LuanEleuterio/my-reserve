@@ -253,13 +253,13 @@ fetch(`https://myreserve-pi.herokuapp.com/restaurante/${localStorage.getItem('my
 
     document.getElementById("categoria-option").value = data.categoria.id_categoria
 
-    document.getElementById("foto-perfil").value = data.img_estabelecimento
+    document.getElementById("foto-perfil").setAttribute("src", data.img_estabelecimento)
     document.getElementById("name").value = data.nome
     document.getElementById("cnpj").value = data.cnpj
     document.getElementById("email").value = data.email
 
     document.getElementById("horarioDe").value = data.hora_funcionamento.slice(0, 5)
-    document.getElementById("horarioAte").value = data.hora_funcionamento.slice(-5)
+    document.getElementById("horarioAte").value = data.hora_funcionamento.slice(11, 16)
     document.getElementById("qtdPessoa").value = data.max_pessoas
 
     document.getElementById("story").value = data.descricao

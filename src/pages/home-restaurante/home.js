@@ -26,7 +26,11 @@ function carregaClientes() {
         return dataDeHoje.getDate() == obj.data_reserva.slice(-2, 10) && dataDeHoje.getMonth() + 1 == obj.data_reserva.slice(5, -3)
       })
 
-      reservasDoDia.forEach(values => {
+      const onlyAtivar = reservasDoDia.filter((obj) => {
+        return obj.status_reserva == "Reservado"
+      })
+
+      onlyAtivar.forEach(values => {
 
 
         clienteContainer = document.createElement("a");
@@ -231,13 +235,13 @@ fetch(`https://myreserve-pi.herokuapp.com/restaurante/${localStorage.getItem('my
   .then((data) => {
     document.getElementById("categoria-option").value = data.categoria.id_categoria
 
-    document.getElementById("foto-perfil").value = data.img_estabelecimento
+    document.getElementById("foto-perfil").setAttribute("src", data.img_estabelecimento)
     document.getElementById("name").value = data.nome
     document.getElementById("cnpj").value = data.cnpj
     document.getElementById("email").value = data.email
 
     document.getElementById("horarioDe").value = data.hora_funcionamento.slice(0, 5)
-    document.getElementById("horarioAte").value = data.hora_funcionamento.slice(-5)
+    document.getElementById("horarioAte").value = data.hora_funcionamento.slice(11, 16)
     document.getElementById("qtdPessoa").value = data.max_pessoas
 
     document.getElementById("story").value = data.descricao

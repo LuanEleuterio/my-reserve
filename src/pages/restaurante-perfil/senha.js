@@ -52,7 +52,7 @@ function carregaDados() {
   })
     .then((res) => res.json())
     .then((data) => {
-      document.getElementById("foto-restaurante").setAttribute("src", "../../../myreserve/" + data.img_estabelecimento)
+      document.getElementById("foto-restaurante").setAttribute("src", data.img_estabelecimento)
       document.getElementById("categoria-option").value = data.categoria.id_categoria
 
       document.getElementById("name").value = data.nome
