@@ -61,7 +61,7 @@ function initTime() {
 
 function carregaDescricao(option = true) {
   //option serve para quando eu fazer uma reserva, ele recarregar somento os horários
-  fetch(`https://myreserve-pi.herokuapp.com/${localStorage.getItem("myreserve-identifier-rest")}`, {
+  fetch(`https://myreserve-pi.herokuapp.com/restaurante/${localStorage.getItem("myreserve-identifier-rest")}`, {
     method: "GET",
     headers: {
       'Authorization': `Bearer ${localStorage.getItem("myreserve-usr-token")}`
