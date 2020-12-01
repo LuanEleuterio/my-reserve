@@ -409,15 +409,22 @@ if (btnFilter != null) {
 //Event Listener Modal Filter
 window.addEventListener("load", () => {
     modalFilter.addEventListener("click", (e) => {
+        let bPessoa = false;
+        let bDistance = false
         if (e.target.id == "button-fechar" || e.target.className == modalFilter.className) {
             modalFilter.classList.remove('mostrar')
             if (valueRangePessoa.attributes[2] !== undefined) {
+                bPessoa = parseInt(localStorage.getItem("myreserve-filter-people")) != parseInt(valueRangePessoa.attributes[2].value)
                 localStorage.setItem("myreserve-filter-people", valueRangePessoa.attributes[2].value)
             }
             if (valueRangeDistancia.attributes[2] !== undefined) {
+                bDistance = parseInt(localStorage.getItem("myreserve-filter-distance")) != parseInt(valueRangeDistancia.attributes[2].value)
                 localStorage.setItem("myreserve-filter-distance", valueRangeDistancia.attributes[2].value)
             }
-            carregaRestaurantes(0, true)
+
+            if (bPessoa || bDistance) {
+                carregaRestaurantes(0, true)
+            }
         }
     })
 })
