@@ -19,7 +19,7 @@ myReserve é uma plataforma de reservas em restaurantes.
  
  ##### Back-end
  * Java 8
- * Spring boot
+ * Spring Boot
  * Spring Security
  * Lombok
  * JWT
