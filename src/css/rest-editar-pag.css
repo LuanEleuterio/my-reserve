@@ -1,0 +1,179 @@
+*:focus {
+  outline: 0;
+}
+
+/* Modal background start */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 7; /* Sit on top */
+  padding-top: 4vh; /*Location of the box*/
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.7); /* Black w/ opacity */
+  align-items: center;
+  justify-content: center;
+}
+/* Modal background end */
+
+/* modal start */
+.model-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.modal-pag-rest {
+  background-color: var(--secundaria);
+  margin: auto;
+  padding: 0 10px 10px 40px;
+  height: 30%;
+  border-radius: 8px;
+}
+/* modal end */
+
+/* close button start */
+.close-btn {
+  padding: 5px;
+  color: var(--principal);
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+.close-btn:hover,
+.close-btn:focus {
+  color: var(--destaque);
+  text-decoration: none;
+  cursor: pointer;
+}
+/* close button end */
+
+/* form start */
+.form-perfil {
+  max-width: 689px;
+  border-radius: 8px;
+
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+.modal-perfil-fieldset  {
+  margin-top: 24px;
+  min-inline-size: auto;
+  border: 0;
+}
+.form-perfil legend {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  border: none;
+}
+
+.form-perfil.field {
+  flex: 1;
+
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+.form-perfil .field input[type="text"]{
+  flex: 1;
+  background: var(--input);
+  border-radius: 8px;
+  border: 0;
+  padding: 5px 10px;
+  font-size: 14px;
+  color: var(--preto);
+}
+.form-perfil .field input::placeholder {
+  color: var(--border);
+  font-size: 14px;
+}
+.form-perfil .field label {
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+/* form end */
+
+/* submit button start */
+#pagamento-submit {
+  margin-top: 20px;
+  width: 100%;
+  padding: 5px 10px;
+  background: var(--principal);
+  border-radius: 8px;
+  color: var(--secundaria);
+  font-size: 16px;
+  border: 0;
+  transition: background-color 0.2s;
+  cursor: pointer;
+}
+#pagamento-submit:hover {
+  background: var(--destaque);
+}
+/* submit button end */
+
+
+.modal-pagamento-rest {
+  animation: modal-animation 0.5s;
+}
+
+@keyframes modal-animation {
+  from {
+      opacity: 0;
+      transform: translate3d(0, -200px, 0);
+  }
+
+  to {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+  }
+}
+
+@media (min-width: 300px) and (max-width: 768px){
+ #myModal-perfil{
+   display: none !important;
+ }
+}
+
+@media (min-width: 426px) {
+  form .field-group{
+      display: flex;
+  }
+}
+
+@media (min-width: 426px) and (max-width: 768px) {
+  form .field-group{
+      flex-direction: column;
+  }
+  .modal-pag-rest{
+      width: 60vw;;
+  }
+}
+
+@media (min-width: 426px) and (max-width: 768px) {
+  .modal-pag-rest{
+      width: 60vw;;
+  }
+}
+
+@media (min-width: 769px) {
+  form .field-group {
+      flex: 1;
+    }
+    form .field-group .field + .field {
+      margin-left: 24px;
+    }
+    
+    form .field-group input + input {
+      margin-left: 24px;
+    }
+    .modal-content{
+      width: 60vw;
+  }
+}

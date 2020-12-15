@@ -1,0 +1,941 @@
+@media (max-width:320px) {
+    body{
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    /*Inicio Header*/
+
+    .conteiner-header{
+        justify-content: unset;
+       }
+
+    .icon-header{
+        position: absolute;
+        right: 13.5em;
+        font-size: 1.4em;
+    }
+
+    .header-location{
+        position: relative;
+        left: 13vw;
+    }
+    
+    .header-location p{
+        font-size: medium;
+        font-weight: bolder;
+        margin: 0;
+    }
+    /* Fim Header*/
+
+    .info-restaurante{
+        width: 100vw;
+    }
+
+    /*Inicio info restaurante */
+
+    .img-restaurante{
+        height: 10em;
+    }
+    
+    .img-restaurante::after{
+        width: 91vw;
+    }
+
+    #foto-rest{
+        width: 90vw;
+        height: 8em;
+        margin-top: 1em;
+    }
+
+    #nome-restaurante{
+        font-size: x-large;
+        font-weight: bold;
+    }
+
+    .details-restaurante{
+        width: 90vw;
+    }
+
+    .details-restaurante::after{
+        width: 91vw;
+    }
+
+    .description-rest{
+       width: 90vw;
+    }
+
+    .description-rest p {
+        font-size: large;
+        font-weight: bold;
+        color: var(--texto);
+    }
+    /*Fim info restaurante */
+    
+}
+
+@media (min-width:321px) and (max-width:425px) {
+    body{
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    /*Inicio Header*/
+    .header{
+        justify-content: center;
+    }
+
+    .icon-header{
+        position: absolute;
+        right: 90vw;
+        font-size: 1.5em;
+    }
+
+    .header-location p{
+        font-size: medium;
+        font-weight: bolder;
+        margin: 0;
+    }
+    /*Fim Header*/
+
+    .info-restaurante{
+        width: 100vw;
+    }
+
+    /*Inicio info restaurante */
+
+    .img-restaurante{
+        height: 10em;
+    }
+    
+    .img-restaurante::after{
+        width: 91vw;
+    }
+
+    #foto-rest{
+        width: 90vw;
+        height: 8em;
+        margin-top: 1em;
+    }
+
+    #nome-restaurante{
+        font-size: x-large;
+        font-weight: bold;
+    }
+
+    .details-restaurante{
+        width: 90vw;
+    }
+
+    .details-restaurante::after{
+        width: 91vw;
+    }
+
+    .description-rest{
+       width: 90vw;
+    }
+
+    .description-rest p {
+        font-size: large;
+        font-weight: bold;
+        color: var(--texto);
+    }
+    /*Fim info restaurante */
+
+    /*Inicio footer*/
+    footer{
+        position: fixed;
+        bottom: 0;
+    }
+
+    .menu-option{
+        align-content: center;
+        flex-wrap: wrap;
+    }
+
+    .menu-option p{
+        margin: 0 auto;
+        font-size: smaller;
+    }
+        
+    .icon-footer{
+        display: flex;
+        justify-content: center;
+    }
+
+    .itens-footer{
+        display: flex;
+        justify-content: center;
+    }
+    /*Fim footer*/
+}
+
+@media (min-width:426px) and (max-width:768px){
+    body{
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    /*Inicio Header */
+    .header{
+        justify-content: center;
+    }
+
+    .icon-header{
+        position: absolute;
+        right: 95vw;
+        font-size: 1.5em;
+    }
+
+    .header-location p{
+        font-size: large;
+        font-weight: bolder;
+        margin: 0;
+    }
+    /*Fim header*/
+
+    .info-restaurante{
+        width: 100vw;
+    }
+
+    /*Inicio info restaurante */
+
+    .img-restaurante{
+        height: 10em;
+    }
+    
+    .img-restaurante::after{
+        width: 91vw;
+    }
+
+    #foto-rest{
+        width: 90vw;
+        height: 8em;
+        margin-top: 1em;
+    }
+
+    #nome-restaurante{
+        font-size: x-large;
+        font-weight: bold;
+    }
+
+    .details-restaurante{
+        width: 90vw;
+    }
+
+    .details-restaurante::after{
+        width: 91vw;
+    }
+
+    .description-rest{
+       width: 90vw;
+    }
+
+    .description-rest p {
+        font-size: large;
+        font-weight: bold;
+        color: var(--texto);
+    }
+    /*Fim info restaurante */
+}
+
+@media(min-width: 769px) and (max-width: 920px){
+
+    /*Inicio Header */
+    .logo img{
+        width: 1.7em !important;
+        height: 2em !important;
+    }
+
+    .logo p{
+        font-size: large !important;
+    }
+
+    #icon-search{
+        font-size: 1.3em !important;
+        top: 0.5em !important;
+    }
+
+    #search-bar{
+        width: 35vw !important;
+        height: 1.9em !important;
+    }
+
+    #icon-filter{
+        font-size: 1em !important;
+    }
+
+    .header-location p{
+        font-size: smaller !important;
+    }
+
+    .menu-option {
+        font-size: smaller !important;
+    }
+
+   /* Fim header*/
+
+   #name-horario{
+    font-size: medium !important;
+   }
+
+   #date-reserva{
+    font-size: small !important;
+   }
+
+   .icon-clock{
+    font-size: 1.2em !important;
+    }
+
+    #hour-reserva{
+        font-size: small !important;
+    }
+
+    .vagas p{
+        font-size: smaller !important;
+    }
+
+    #nome-restaurante{
+        font-size: x-large;
+    }
+
+    .col-icon-info{
+        font-size: 1em;
+    }
+
+    .col-paragrafo{
+        font-size: small;
+    }
+
+    .description-rest p {
+        font-size: large;
+    }
+
+    #description{
+        font-size: small;
+    }
+
+    .horario-funcionamento p{
+        font-size: small;
+    }
+
+    .button-horario:last-child{
+        margin-bottom: 2.5em !important;
+    }
+
+}
+
+@media(min-width: 921px) and (max-width: 1150px){
+
+   #name-horario{
+    font-size: large !important;
+   }
+
+   #date-reserva{
+    font-size: small !important;
+   }
+
+   .icon-clock{
+    font-size: 1.5em !important;
+   }
+
+   #hour-reserva{
+       font-size: small !important;
+   }
+
+   .vagas p{
+    font-size: smaller !important;
+}
+
+}
+
+@media (min-width:769px)  {
+
+    body{
+        flex-wrap: wrap;
+    }
+
+    /*Inicio Header*/
+    .header{
+        justify-content: center;
+    }
+
+    .logo, .logo a {
+        display: flex;
+    }
+
+    .logo img{
+        width: 2em;
+        height: 2.5em;
+    }
+
+    .logo p{
+        font-size: x-large;
+    }
+
+    .location{
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .header-location{
+        width: 21vw;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        max-width: 260px;
+    }
+
+    .header-location p {
+        font-size: small;
+        margin: 0;
+    }
+
+    .header-option{
+        display: flex;
+        max-width: 173px;
+    }
+    
+    .btn-header-option{
+        background-color: transparent;
+        border: none;
+        color: var(--destaque);
+        outline: none;
+        cursor: pointer;
+    }
+
+    .menu-option p{
+        font-size: 1em;
+    }
+
+    #sua-localizacao{
+        display: flex;
+        font-weight: bolder;
+        margin: 0;
+        font-size: medium;
+    }
+
+    .busca-header{
+        display: flex;
+        align-items: center;
+    }
+
+    .location-input{
+        width: 21vw;
+        max-width: 256px;
+    }
+
+    .endereco-location{
+        display: flex;
+    }
+
+    #seu-endereco{
+        position: relative;
+        left: .5em;
+    }
+
+    .name-box ::-webkit-input-placeholder{
+        color: var(--destaque);
+        font-size: large;
+        font-family: var(--font);
+        font-weight: 400;
+    }
+
+    .name-box input[type="text"] {
+        color : var(--destaque); 
+        font-size: large;
+        font-family: var(--font);
+        font-weight: 400;
+    }
+
+    #icon-search{
+        position: absolute;
+        color: var(--destaque);
+        font-size: 1.5em;
+        top: 0.4em;
+        left: 0.4em;
+    }
+
+    #icon-filter{
+        color: var(--preto);
+        font-size: 1.5em;
+        top: 0.4em;
+        left: 0.4em;
+    }
+
+    #search-bar{
+        border-radius: var(--border-radius);
+        border-color: var(--principal);
+        background-color: var(--input);
+        padding-left: 2.5em;
+        width: 40vw;
+        height: 2.1em;
+        border-style: none;
+        outline: none;
+        max-width: 531px;
+    }
+
+    .filter-header {
+        position: relative;
+        display: flex;
+        left: 0.5em;
+    }
+
+    .name-page{
+        display: none;
+    }
+
+    /*Fim Header*/
+
+    .ver-horario{
+        display: none;
+    }
+
+    /*Inicio Horarios p/ reserva */
+    .info-horarios{
+        display: flex;
+        justify-content: center;
+        align-content: flex-start;
+        flex-wrap: wrap;
+        width: 30vw;
+        max-width: 432px;
+        position: fixed;
+        right: 0vw;
+        background-color: transparent; 
+        box-shadow: -3px -3px 9px -6px var(--preto);
+        height: 100vh;
+    }
+
+    .info-horarios p{
+        color: var(--texto);
+    }
+
+    .box-name-horario{
+        width: 100vw;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 3em;
+    }
+
+    #name-horario{
+        font-size: x-large;
+        font-weight: bold;
+    }
+
+    #date-reserva{
+        margin-left: .7em;
+        margin-top: .2em;
+        font-weight: bolder;
+    }
+
+    .conteiner-horario{
+        width: 100vw;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-top: 1em;
+        overflow: auto;
+        max-height: 80vh;
+    }
+
+    .button-horario{
+        background-color: transparent;
+        border: none;
+        outline: none;
+        height: 4em;
+        margin-bottom: 1em;
+        max-width: 382px;
+        cursor: pointer;
+    }
+
+    .button-horario:last-child{
+        margin-bottom: 1em;
+    }
+
+    .box-horario{
+        width: 25vw;
+        display: flex;
+        justify-content: space-evenly;
+        height: 4em;
+        border: 1px solid var(--border);
+        border-radius: var(--border-radius);
+        max-width: 382px;
+    }
+
+    .col-horario{
+        display: flex;
+        align-items: center;
+    }
+
+    .vagas p{
+        color: var(--destaque);
+        display: flex;
+        justify-content: center;
+    }
+
+    .icon-clock{
+        font-size: 2em;
+        color: var(--destaque);
+    }
+
+    #hour-reserva{
+        color: var(--texto);
+        font-size: large;
+        font-weight: bolder;
+    }
+
+    /*Fim Horiarios p/ reserva */
+
+ /* Modals Filter e Perfil*/
+    .modal-conteiner-filter{
+        display: none;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .modal-conteiner-filter.mostrar{
+        display: flex;
+    }
+
+    .modal-conteudo{
+        width: 50vw;
+        max-width: 512px;
+        padding: 2vw;
+        box-sizing: border-box;
+        background: var(--secundaria);
+        border-radius: var(--border-radius);
+        position: relative;
+    }
+
+    .btn-fechar{
+        position: absolute;
+        background-color: transparent;
+        border: transparent;
+        outline: none;
+        top: 0.5em;
+        right: 1em;
+        cursor: pointer;
+    }
+
+    .fa-times{
+        color: var(--destaque);
+        font-size: large;
+    }
+
+    .mostrar .modal-conteudo{
+        animation: modal-animation .3s;
+    }
+
+    .modal-conteudo h3{
+        display: flex;
+        justify-content: center;
+        font-weight: bolder;
+    }
+
+    .slider-range-filter{
+        width: 100%;
+        -webkit-appearance: none;
+        width: 100%;
+        background: var(--input);
+        outline: none;
+        opacity: 0.7;
+        -webkit-transition: .2s;
+        transition: opacity .2s;
+        border-radius: var(--border-radius);
+    }
+
+    .slider-range-filter::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 1.1em;
+        height: 1em;
+        background: var(--destaque);
+        border-radius: 100%;
+        cursor: pointer;
+    }
+
+    .filtro-nomenclatura{
+        color: var(--texto);
+    }
+
+    .value-range-filter{
+        display: flex;
+        justify-content: center;
+        color: var(--destaque);
+        font-size: large;
+        font-weight: bolder;
+    }
+
+    .modal-conteiner-perfil{
+        display: none;
+    }
+
+    .modal-conteiner-perfil.mostrar{
+        display: flex;
+    }
+    
+    .modal-perfil{
+        position: absolute;
+        display: flex;
+        flex-wrap: wrap;
+        width: 13vw;
+        height: 13em;
+
+        background: var(--secundaria);
+        border-radius: var(--border-radius);
+        border: var(--preto);
+        box-shadow: 0 1px 3px 1px var(--preto);
+        z-index: 10;
+        top: 2.8em;
+        right: 3vw;
+    }
+
+    .mostrar .modal-perfil{
+        animation: modal-animation-perfil .3s;
+    }
+
+    .btn-modal-perfil{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        width: 100%;
+        border: none;
+        background: transparent;
+        outline: none;
+        cursor: pointer;
+    }
+
+    .btn-modal-perfil:hover .box-modal-perfil i{
+        color: var(--destaque);
+    }
+
+    .btn-modal-perfil:hover .box-modal-perfil p{
+        color: var(--destaque);
+    }
+
+    .box-modal-perfil{
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        position: relative;
+        width: 90%;
+    }
+
+    .box-modal-perfil i{
+        display: flex;
+        justify-content: flex-start;
+
+        box-sizing: border-box;
+        font-size: 1.8vw;
+        color: var(--texto);
+        margin-left: .5em;
+        width: 3vw;
+        max-width: 45px;
+    }
+
+    .box-modal-perfil p{
+        display: flex;
+        justify-content: flex-start;
+        font-size: 1.3vw;
+        font-weight: bolder;
+        color: var(--texto);
+    }
+
+
+    @keyframes modal-animation {
+        from{
+            opacity: 0;
+            transform: translate3d(0, -80px, 0);
+        }
+
+        to{
+            opacity: 1;
+            transform: translate3d(0, 0, 0);
+        }
+    }
+
+    @keyframes modal-animation-perfil {
+        from{
+            opacity: 0;
+        }
+        to{
+            opacity: 1;
+        }
+    }
+
+    /* Fim modals Perfil e Filter*/
+
+    footer{
+        display: none;
+    }
+
+        
+    /*Modal de horarios para reserva*/
+    .modalHorario{
+        display:flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 50vw;
+        max-width: 627px;
+        padding: 2vw;
+        box-sizing: border-box;
+        background: var(--secundaria);
+        border-radius: var(--border-radius);
+        position: relative;
+    }
+
+    .modalHorario h3{
+        display: flex;
+        justify-content: center;
+        font-weight: bold;
+        width: 100vw;
+        margin-bottom: 1em;
+    }
+
+    .hour-modal-conteudo{
+        max-width: 558px;
+    }
+
+    .box-horario-modal{
+        width: 41vw;
+        max-width: 556px;
+    }
+
+    .divisor{
+        border-bottom: 1px solid #CCC;
+        margin-top: 1em;
+        width: 41vw;
+        max-width: 556px;
+    }
+
+    .info-block{
+        margin-bottom: 2%;
+    }
+
+    .clock-modal{
+        font-size: 2em !important;
+    }
+
+    #hour-reserva-modal{
+        color: var(--texto);
+        font-size: large;
+        font-weight: bolder;
+    }
+
+    .info-pessoas{
+        display: flex;
+        color: #322153;
+        flex-wrap: wrap;
+        flex-direction: column;
+        margin: 2% 0 2% 0;
+    }
+    .preco{
+        width: 15vw;
+        max-width: 178px;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .box-quant{
+        display: flex;
+        justify-content: center;
+        border: 1px solid #CCC;
+        width: 4vw;
+        border-radius: 4px;
+        margin-right: 1em;
+    }
+    .info-pagamento{
+        display: flex;
+        flex-direction: column;
+    }
+    .btn-radio{
+        color: #4788ff;
+        fill: #4788ff;
+    }
+
+    .bold{
+        font-weight: bold;
+    }
+
+    .opaco{
+        color:rgb(155, 155, 155);
+        padding: 2% 0 2% 0;
+    }
+    .font-azul{
+        color: #4788ff;
+    }
+
+    .pagamento{
+        flex-wrap: nowrap;
+    }
+
+    .cartao{
+        display: flex;
+        align-items: center;
+        padding: 1% 0 1% 0;
+    }
+    .cartao .font-azul{
+        margin-left: .5em;
+    }
+    .cartoes {
+        height: 45px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    .debito, .credito{
+        width: 100px;
+        display: flex;
+        justify-content: space-between;
+    }
+    
+    .block-layout{
+        display: flex;
+        align-items: center;
+        width: 16vw;
+    }
+    .btn-confirmar{
+        color: var(--secundaria);
+        font-family: var(--font);
+        font-size: large;
+        font-weight: bolder;
+        background-color: #4788ff;
+        border-radius: 8px;
+        width: 41vw;
+        height: 2em;
+        border: none;
+        outline: none;
+        max-width: 558px;
+        cursor: pointer;
+    }
+
+}
+
+@media (min-width:1390px) {
+
+    body{
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    /*Header */
+
+    #sua-localizacao{
+        font-size: large;
+    }
+/*Fim Header*/
+    /* Modals Perfil e Filter */
+    .box-modal-perfil i{
+        font-size: 1.4em;
+    }
+
+    .box-modal-perfil p{
+        font-size: 1.3em;
+    }
+    /* Modals Perfil e Filter */
+
+    footer{
+        display: none;
+    }
+
+}

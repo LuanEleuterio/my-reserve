@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Historico de Reservas</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='./busca-mobile.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='./responsive.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='./../../theme/colors.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='./../../theme/default.css'>
+</head>
+
+<body>
+    <header class="header">
+        <div class="conteiner-header">
+            <div class="name-page">
+                <button id='btn-arrow-header'>
+                    <i class="fas fa-arrow-left arrow-header"></i>
+                </button>
+                <div class="busca-header">
+                    <div class="name-box">
+                        <i class="fas fa-search" id="icon-search"></i>
+                        <input type="text" id="search-bar" value="" placeholder="Busque por restaurantes...">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main class="content">
+        <section class="conteudo">
+            <div class="conteudo-restaurantes">
+            </div>
+            <div class="categorias-main">
+                <div class="nomenclatura-categoria">
+                    <p id='ident-categoria'>Categorias</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <section class="menu-bar">
+            <a id="footer-home">
+
+                <div class="menu-option home">
+                    <div class="icon-footer">
+                        <i class="fas fa-home itens-footer"></i>
+                    </div>
+                    <p>Inicio</p>
+                </div>
+            </a>
+            <a id="footer-search">
+                <div class="menu-option busca">
+                    <div class="icon-footer">
+                        <i class="fas fa-search itens-footer"></i>
+                    </div>
+                    <p>Buscar</p>
+                </div>
+            </a>
+            <a id="footer-reserva">
+                <div class="menu-option reserva">
+                    <div class="icon-footer">
+                        <i class="fas fa-chair itens-footer"></i>
+                    </div>
+                    <p>Reservas</p>
+                </div>
+            </a>
+            <a id="footer-perfil">
+                <div class="menu-option perfil">
+                    <div class="icon-footer">
+                        <i class="fas fa-user itens-footer"></i>
+                    </div>
+                    <p>Perfil</p>
+                </div>
+            </a>
+        </section>
+    </footer>
+
+    <script src="../../utils/distanceMatrixConfig.js"></script>
+    <script src="https://kit.fontawesome.com/37a6fc82c8.js" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="../busca-mobile/busca-mobile.js"></script>
+    <script type="text/javascript" src='../../utils/footer-redirect.js'></script>
+    <script type="text/javascript" src="../../utils/geral.js"></script>
+</body>
+
+</html>

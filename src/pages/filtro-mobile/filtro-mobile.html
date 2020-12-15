@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Historico de Reservas</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='./filtro-mobile.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='./responsive.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='./../../theme/colors.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='./../../theme/default.css'>
+</head>
+
+<body>
+    <header class="header">
+        <div class="conteiner-header">
+            <div class="name-page">
+                <button id='btn-arrow-header'>
+                    <i class="fas fa-arrow-left arrow-header"></i>
+                </button>
+                <p>Filtros</p>
+            </div>
+        </div>
+    </header>
+    <main class="content">
+        <section class="conteudo">
+            <div class="filtro-conteudo">
+                <div class="filtro-distancia">
+                    <p class='filtro-nomenclatura'>Pessoas por reserva</p>
+                    <input id="range-pessoa" class='slider-range-filter' type="range" min="1" max="30" value="5">
+                    <p id='value-range-pessoas' class='value-range-filter'></p>
+                </div>
+
+                <div class="filtro-pessoas">
+                    <p class='filtro-nomenclatura'>Distância</p>
+                    <input id="range-distancia" class='slider-range-filter' type="range" min="1" max="30" value="5">
+                    <p id="value-range-distancia" class='value-range-filter'></p>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <section class="menu-bar">
+            <a id="footer-home">
+                <div class="menu-option home">
+                    <div class="icon-footer">
+                        <i class="fas fa-home itens-footer"></i>
+                    </div>
+                    <p>Inicio</p>
+                </div>
+            </a>
+            <a id="footer-search">
+                <div class="menu-option busca">
+                    <div class="icon-footer">
+                        <i class="fas fa-search itens-footer"></i>
+                    </div>
+                    <p>Buscar</p>
+                </div>
+            </a>
+            <a id="footer-reserva">
+                <div class="menu-option reserva">
+                    <div class="icon-footer">
+                        <i class="fas fa-chair itens-footer"></i>
+                    </div>
+                    <p>Reservas</p>
+                </div>
+            </a>
+            <a id="footer-perfil">
+                <div class="menu-option perfil">
+                    <div class="icon-footer">
+                        <i class="fas fa-user itens-footer"></i>
+                    </div>
+                    <p>Perfil</p>
+                </div>
+            </a>
+        </section>
+    </footer>
+
+    <script src="https://kit.fontawesome.com/37a6fc82c8.js" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="../filtro-mobile/filtro-mobile.js"></script>
+    <!--<script type="text/javascript" src="../../utils/filtros.js"></script>-->
+    <script type="text/javascript" src="../../utils/footer-redirect.js"></script>
+    <script type="text/javascript" src="../../utils/geral.js"></script>
+    <script type="text/javascript" src="../../utils/modals-header.js"></script>
+
+</body>
+
+</html>

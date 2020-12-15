@@ -1,0 +1,500 @@
+    @import url('../../theme/colors.css');
+    * {
+        font-weight: 700;
+    }
+    
+    html {
+        scroll-behavior: smooth;
+    }
+    
+    body {
+        background: var(--secundaria);
+        color: var(--preto);
+    }
+    
+    #page-home {
+       /*
+        background: url('../../img/undraw_eating_together_tjhx.svg') no-repeat;
+        background-position: 40em 4em;
+        background-size: 30em;
+        */
+        max-width: 1440px;
+        margin: 0 auto;
+    }
+    
+    header {
+        display: flex;
+        justify-content: center;
+        height: 80px;
+        background-color: var(--secundaria);
+        box-shadow: 0px 1px 3px 0px var(--destaque);
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 10;
+    }
+    
+    .container-menu {
+        display: flex;
+        justify-content: space-between;
+        margin: 0px 30px 0px 5px;
+        width: 100%;
+        max-width: 1440px;
+    }
+
+    .foto-team{
+        width: 10em;
+        height: 10em;
+    }
+
+    #btn-sign-up{
+        padding: 15px;
+        border: none;
+        background-color: transparent;
+        outline: none;
+        color: var(--preto);
+        font-size: medium;
+        cursor: pointer;
+    }
+
+    #btn-sign-up:hover {
+        background-color: rgba(0, 0, 0, 0.03);
+        border-radius: 8px;
+    }
+    
+    .logo,
+    .logo a {
+        display: flex;
+        align-items: center;
+    }
+    
+    .logo p {
+        color: var(--preto);
+        margin-left: .4rem;
+        font-size: large;
+    }
+    
+    .logo img {
+        width: 2em;
+        height: 2.5em;
+    }
+    
+    .menu {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        justify-content: flex-start;
+    }
+
+    .menu a{
+        color: var(--preto) !important;
+    }
+    
+    nav ul,
+    nav li {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+    
+    nav ul {
+        display: flex;
+    }
+
+      .tooltipMenu{
+        min-height: 700px;
+        width: 75%;
+      }
+      
+      .tooltipMenu ul li{
+        color: var(--destaque);
+        padding: 10px 20px 10px 20px;
+        font-family: sans-serif;
+        font-size: 15px;
+        width: 200px;
+        height: 100px;
+        background: var(--secundaria);
+        box-shadow: 1px 0px 3px 0px var(--preto);
+      }
+      
+      
+      .tooltipMenu ul li:hover{
+        background: var(--destaque);
+        color: white;
+        cursor: pointer;
+        font-weight: bold;
+      }
+      /**************************Tooltip ends*************************/
+      
+      .tooltip{
+        position: relative;
+        display: inline-block;
+      }
+      
+      .tooltipMenu {
+        visibility: hidden;
+        position: absolute;
+        z-index: 1;
+      }
+      
+      nav ul li:hover .tooltipMenu{
+        visibility: visible;
+        cursor: pointer;
+      }
+      
+      .bottomSide {
+        margin-top: 35px;
+        top: 100%;
+        right: 95px;
+      }
+      
+      .tooltipMenu::after {
+          content: " ";
+          position: absolute;
+          border-width: 10px;
+          border-style: solid;
+      }
+      
+      .bottomSide.tooltipMenu::after {
+          bottom: 100%;
+          margin-left: 100px;
+          border-color: transparent transparent var(--secundaria) transparent;
+      }
+      
+      .far {
+          font-size: 50px;
+          margin: 5px;
+      }
+      .icon-menu {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          
+        box-shadow: 5px 5px 5px var(--border);
+      }
+     
+    .logo a,
+    .nav a,
+    .sign a {
+        padding: 15px;
+        text-decoration: none;
+        color: var(--secundaria);
+        margin-left: .8rem;
+    }
+
+    .sign ul{
+        width: 10em;
+        align-items: center;
+        margin-right: 30px;
+    }
+    
+    nav .active a,
+    nav a:hover {
+        background-color: rgba(0, 0, 0, 0.03);
+        border-radius: 8px;
+        color: #fff;
+    }
+    
+    nav {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .menuMobile {
+        display: none;
+        width: 30px;
+        height: 30px;
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+    
+    .mm-line {
+        height: 3px;
+        background-color: var(--destaque);
+    }
+    
+    .home {
+        margin-top: 5em;
+        height: 33em;
+        flex: 1;
+        width: 100%;
+        max-width: 1440px;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+    
+    .home h1 {
+        font-size: 54px;
+        color: var(--destaque);
+    }
+    
+    .home p {
+        max-width: 350px;
+        font-size: 20px;
+        margin-top: 24px;
+        line-height: 38px;
+        color: rgba(50, 33, 83, .8);
+    }
+
+    #principal-login{
+        cursor: pointer;
+    }
+
+    #principal-login-btn{
+        cursor: pointer;
+    }
+    
+    .home a {
+        width: 100%;
+        max-width: 260px;
+        height: 60px;
+        background: var(--destaque);
+        border-radius: 8px;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        overflow: hidden;
+        margin-top: 40px;
+    }
+    
+    .home a span {
+        display: block;
+        background: rgba(0, 0, 0, 0.08);
+        width: 72px;
+        height: 72px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background-color 0.2s;
+    }
+    
+    .home a strong {
+        flex: 1;
+        text-align: center;
+        color: var(--secundaria);
+    }
+    
+    .home a:hover {
+        background: var(--destaque);
+    }
+
+    .login-my{
+        max-width: 260px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: start;
+    }
+
+    .eating-my img{
+        width: 30em;
+    }
+
+    #no-have-account{
+        color: var(--destaque);
+        font-weight: 300;
+        margin-top: .2em;
+        cursor: pointer;
+        font-size: 18px;
+    }
+    
+    .team a {
+        text-decoration: none;
+    }
+    .team,
+    .why {
+        display: flex;
+        flex-wrap: wrap;
+        align-content: center;
+        justify-content: center;
+        height: 42em;
+        background: url('../../img/undraw_connected_world_wuay.svg') no-repeat;
+        background-position: center;
+        margin: 0px 30px;
+        margin-top: 5em;
+    }
+
+    .why{
+        margin-top: 1em !important;
+    }
+    
+    .team h2 {
+        position: relative; 
+        font-size: 54px;
+        color: var(--texto);
+        margin: 0 auto;
+        margin-bottom: 1em;
+        text-align: center;
+    }
+    
+    .team p {
+        position: relative;
+        max-width: 800px;
+        text-align: center;
+        font-size: 20px;
+        margin: 0 auto;
+        line-height: 30px;
+        color: var(--preto);
+        margin-bottom: 1em;
+    }
+    
+    .information {
+        position: relative;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        /* background-color: rgb(73, 72, 72); */
+        /* max-width: 1300px; */
+        margin-top: 1em;
+        width: 100%;
+        height: 170px;
+        flex-wrap: wrap;
+    }
+    
+    .info {
+        width: 90px;
+        height: 90px;
+        border: 1px solid #000;
+        border-radius: 50%;
+    }
+    
+    .info p {
+        font-size: 16px;
+        width: 150px;
+        top: 10px;
+        right: 20px;
+        color: var(--preto);
+    }
+    
+    .why h2 {
+        width: 100vw;
+        position: relative;
+        text-align: center;
+        font-size: 54px;
+        color: var(--texto);
+        margin-bottom: .6em;
+    }
+    
+    .why p {
+        max-width: 800px;
+        text-align: center;
+        font-size: 18px;
+        margin: 0 auto;
+        line-height: 30px;
+        color: var(--preto);
+        margin-bottom: 1em;
+    }
+
+    .items-team{
+        width: 6em !important;
+    }
+
+    .photo-container{
+        width: 8em;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .icon-social {
+        font-size: 3em;
+        color:  rgba(50, 33, 83, .9);
+    }
+    
+    .rede-social {
+        display: flex;
+        justify-content: space-around;
+        margin: 20px 0px 30px 0px;
+    }
+
+    .rede-social p{
+        color: rgba(50, 33, 83, .8);
+    }
+
+    .team-rede{
+        width: 5em;
+    }
+
+    .team-rede i{
+        font-size: 1.3em;
+    }
+    
+    .fab {
+        color: black;
+    }
+
+    .photo-container img{
+        border-radius: 50%;
+    }
+
+    /*Modal*/
+
+    .modal-type-form {
+        width: 100vw;
+        height: 100vh;
+        top: 0;
+        position: fixed;
+        background: var(--preto);
+        z-index: 10;
+        display: none;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .modal-type-form.mostrar{
+        display: flex;
+    }
+
+    .modal-conteudo{
+        width: 90vw;
+        height: 10em;
+        max-width: 512px;
+        padding: 2em;
+        box-sizing: border-box;
+        background: var(--secundaria);
+        border-radius: var(--border-radius);
+        position: relative;
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .mostrar .modal-conteudo{
+        animation: modal-animation .3s;
+    }
+
+    .modal-sign-up{
+        display: flex;
+        flex-wrap: wrap;
+        width: 10em;
+        justify-content: center;
+        text-decoration: none;
+        color: var(--preto)
+    }
+
+    .modal-sign-up:hover{
+        background-color: rgba(0, 0, 0, 0.03);
+        border-radius: 8px;
+    }
+
+    .icon-modal{
+        display: flex !important;
+        justify-content: center;
+        align-items: center;
+        width: 100vw;
+        margin-bottom: .1em;
+    }
+
+    @keyframes modal-animation {
+        from{
+            opacity: 0;
+            transform: translate3d(0, -80px, 0);
+        }
+
+        to{
+            opacity: 1;
+            transform: translate3d(0, 0, 0);
+        }
+    }

@@ -1,0 +1,114 @@
+.endereco-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--texto);
+  height: 80vh;
+}
+
+fieldset {
+  /* height: 80vh; */
+  margin-top: 10px;
+  max-width: 300px;
+  border: none;
+}
+ img {
+  width: 100%;
+  margin-top: 7.5em;
+  max-width: 300px;
+  height: 250px;
+  border-radius: var(--border-radius);
+  /* margin-bottom: 10px; */
+}
+legend {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* margin-bottom: 20px; */
+}
+
+legend h3{
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+legend h2 {
+  font-size: 24px;
+}
+
+
+legend span {
+  font-size: 14px;
+  font-weight: normal;
+  color: var(--texto);
+}
+form .field-group {
+  flex: 1;
+  display: flex;
+}
+form .field {
+  flex: 1;
+
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 12px;
+}
+/* .form-lcl-mobile {
+  max-width: 250px;
+  margin: 0 auto;
+} */
+#cep {
+  width: 8em;
+}
+#localidade {
+  margin-right: 6px;
+  width: 190px;
+}
+#logradouro {
+  width: 190px;
+}
+#numero {
+  width: 8em;
+}
+form .field input[type="text"],
+form .field input[type="number"] {
+  flex: 1;
+  background: var(--input);
+  border-radius: 8px;
+  border: 0;
+  padding: 8px 12px;
+  font-size: 14px;
+  color: var(--preto);
+}
+
+form .field input::placeholder {
+  color: var(--border);
+}
+form .field label {
+  font-size: 14px;
+  margin-bottom: 4px;
+  font-weight: bolder;
+}
+form .field-group .field + .field {
+  margin-left: 6px;
+}
+
+#loc-mob-submit {
+  height: 2.1em;
+  font-size: medium;
+  font-weight: bolder;
+  color: var(--secundaria);
+  margin-top: 1.2em;
+  cursor: pointer;
+  width: 100%;
+  padding: 5px 10px;
+  background: var(--principal);
+  border-radius: 8px;
+  border: 0;
+  cursor: pointer;
+}
+#loc-mob-submit:hover {
+  background: var(--destaque);
+}

@@ -1,0 +1,477 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+@font-face {
+    font-family: "Glyphicons Halflings";
+    src: url(../../fonts/glyphicons-halflings-regular.eot);
+    src: url(../../fonts/glyphicons-halflings-regular.eot?#iefix) format("embedded-opentype"),
+      url(../../fonts/glyphicons-halflings-regular.woff2) format("woff2"),
+      url(../../fonts/glyphicons-halflings-regular.woff) format("woff"),
+      url(../../fonts/glyphicons-halflings-regular.ttf) format("truetype"),
+      url(../../fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular) format("svg");
+  }
+body{
+    display: flex;
+    width: 100vw;
+    background-color: #F8F9FA;
+    justify-content: center;
+    
+}
+
+p{
+    font-family: var(--font);
+}
+
+a{
+    text-decoration: none;
+}
+
+h3{
+    font-family: var(--font);
+    color: var(--texto);
+}
+
+/* Inicio Header*/
+header{
+    position: fixed;
+    z-index: 5;
+}
+
+.header{
+    width: 100vw !important;
+    height: 3em;
+    display: flex;
+    background-color: var(--secundaria);
+    align-items: center;
+    /*border-bottom: 1px solid var(--destaque);*/
+    box-shadow: 0px 1px 3px 0px var(--destaque);
+}
+
+.conteiner-header{
+    width: 100vw;
+    max-width: 1440px !important;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.logo, .logo a {
+    display: none;
+    align-items: center;
+}
+
+.logo p {
+    color: var(--preto);
+    font-weight: bolder;
+    font-size: large;
+    margin-left: .4em;
+}
+
+.logo img{
+    color: var(--preto);
+    background-color: transparent;
+    width: 2em;
+    height: 2.5em;
+}
+
+.busca-header{
+    display: none;
+    position: relative;
+}
+
+.btn-filter{
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    outline: none;
+}
+
+.location{
+    display: none;
+    align-items: center;
+    max-height: 48px;
+}
+
+.endereco-location{
+    display: flex;
+}
+
+.location-input{
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    outline: none;
+}
+
+.name-page{
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.name-page p{
+    color: var(--preto);
+    font-size: large;
+    font-weight: bold;
+}
+
+#btn-arrow-header{
+    border: none;
+    background: transparent;
+    outline: none;
+    position: absolute;
+    left: 1em;
+}
+
+.arrow-header{
+    color: var(--preto);
+    font-size: 1.3em;
+}
+
+.icon-header{
+    display: flex;
+    align-items: center;
+}
+
+#icon-location{
+    color: var(--preto);
+}
+
+.header-location{
+    display: flex;
+    align-items: center;
+}
+
+.location p{
+    color: var(--preto);
+    margin: 0 auto;
+}
+
+#sua-localizacao{
+    display: none;
+}
+
+.header-option{
+    display: none;
+    width: 10vw;
+    justify-content: space-between;
+}
+
+.itens-header{
+    display: flex;
+    justify-content: center;
+    color: var(--preto);
+    font-size: 1.8em;
+    margin-bottom: .1em;
+}
+
+.menu-option{
+    align-content: center;
+    flex-wrap: wrap;
+}
+
+.menu-option p{
+    margin: 0 auto;
+    font-size: smaller;
+    color: var(--preto);
+}
+
+/* Fim Header*/
+
+.content{
+    max-width: 1440px !important;
+    position: relative;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    margin-top: 3.5em;
+}
+
+.conteudo{
+    flex-wrap: wrap;   
+    justify-content: center; 
+}
+
+.conteudo-reserva{
+    max-width: 1296px !important;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+}
+
+.info-reserva{
+    width: 90vw;
+    max-width: 1296px;
+    margin: 0 auto;
+    margin-bottom: 1.5vh;
+    display: none;
+}
+
+.info-reserva p {
+    color: var(--destaque);
+    font-weight: bolder;
+    font-size: x-large;
+}
+
+.reservas{
+    display: flex;
+    height: 5em;
+    border: 1px solid var(--border);
+    border-radius: var(--border-radius);
+    justify-content: space-evenly;
+    align-items: center;
+    max-width: 402px;
+    margin-bottom: 2vh;
+    max-width: 380px;
+}
+
+.date-reserve{
+    position: relative;
+    display:flex;
+    align-content: center;
+    margin-right: .3em;
+}
+
+.data-reserva{
+    display: flex;
+    align-items: center;
+    border-right: 1px solid var(--border); 
+    height: 4em; 
+
+}
+
+.data-info{
+    color: var(--preto);
+    font-weight: bold;
+    padding-right: .3em;
+}
+
+.info-restaurante{
+    width: 40vw;
+    max-width: 216px;
+}
+
+.info-restaurante p{
+    color: var(--texto);
+}
+
+.nome-restaurante {
+    font-size: large;
+    font-weight: bold;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.col-info{
+    font-size: small;
+}
+
+.btns-option{
+    width: 10vw;
+    max-width: 133px;
+    margin-right: 3px;
+}
+
+.col-btn{
+    width: 10vw;
+    height: 1.8em;
+    max-width: 136px;
+    font-weight: bolder;
+    color: var(--secundaria);
+    border: none;
+    border-radius: var(--border-radius);
+    outline: none;
+    cursor: pointer;
+}
+
+.btn-ver-restaurante{
+    height: 2.5em;
+    background-color: var(--destaque);
+    margin-bottom: .5em;
+}
+
+.btn-cancelar{
+    background-color: var(--vermelho);
+}
+
+.carrega-reserva{
+    display:none !important;
+    max-width: 1296px;
+}
+
+/*Inicio footer*/
+footer{
+    position: fixed;
+    bottom: 0;
+}
+
+.menu-bar{
+    width: 100vw;
+    height: 3em;
+    background-color: var(--secundaria);
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+    box-shadow: 1px 0px 3px 0px var(--destaque);
+}
+
+.menu-bar p {
+    color: var(--preto);
+}
+    
+.icon-footer{
+    display: flex;
+    justify-content: center;
+}
+
+.itens-footer{
+    display: flex;
+    justify-content: center;
+    color: var(--preto);
+}
+/*Fim footer*/
+
+
+.modal-perfil{
+    display:none;
+    max-width: 205px;
+}
+
+
+/*CSS Modal Cancelamento*/
+
+.divisor{
+    margin-top: 4%;
+    margin-bottom: 2%;
+    border-bottom: solid 1px #CCC;
+}
+
+.containerCancelar{
+    width: 75vw !important;
+    max-width: 725px !important;
+    display: flex;
+    flex-wrap: wrap;
+    position: absolute !important;
+}
+
+
+.mostrar .modal-conteudo {
+    animation: modal-animation .3s;
+}
+
+.snNomeRestaurante{
+    color: #322153d7;
+    font-size: large;
+    padding-right: 2%;
+    font-weight: 500;
+}
+
+.snTipoRestaurante{
+    color: var(--texto);
+    padding-right: 2%;
+    padding-left: 6%;
+    font-size: small;
+}
+
+.snEnderecoRestaurante{
+    color: var(--texto);
+    font-size: small;
+    padding-right: 2%;
+    display: grid;
+}
+
+.modalInfoRestaurante{
+    margin-top: 2%;
+    margin-bottom: 2%;
+    display: flex;
+    align-items: center;
+}
+
+.lineRestaurante{
+    margin-left: 1em;
+}
+
+.lineRestaurante span{
+    margin-left: .3em !important;
+}
+
+.box-horario{
+    width: 70vw;
+    display: flex;
+    justify-content: space-evenly;
+    height: 4em;
+    border: 1px solid var(--border);
+    border-radius: var(--border-radius);
+    max-width: 661px;
+}
+
+.box-horario p{
+    color: var(--texto);
+    font-weight: bolder;
+}
+
+.col-horario{
+    display: flex;
+    align-items: center;
+}
+
+.icon-clock{
+    font-size: 2em;
+    color: var(--destaque);
+}
+
+.icon-rest{
+    font-size: 1em;
+    color: rgba(50, 33, 83, .7);
+}
+
+#hour-reserva{
+    font-size: large;
+    font-weight: bolder;
+}
+.containerRelogio{
+    display: flex;
+    justify-content: center;
+}
+
+.alerta{
+    color: var(--vermelho);
+    text-align: left;
+    font-weight: bolder;
+}
+.blockBtnCan{
+    width: 100vw;
+}
+
+.btnConfirmarCancelamento{
+    margin-top: 2%;
+    color: var(--secundaria);
+    font-weight: bolder;
+    font-size: medium;
+    border: none;
+    border-radius: 9px;
+    outline: none;
+    width: 100%;
+    height: 2em;
+    background-color: #4788FF;
+    cursor: pointer;
+}
+
+.lineRestaurante{
+    display: flex;
+}
+
+#submit-pagamento, #submit-endereco {
+    height: 2.1em;
+    font-size: medium;
+    font-weight: bolder;
+    color: var(--secundaria);
+    margin-top: 1.2em;
+    cursor: pointer;
+    width: 100%;
+    padding: 5px 10px;
+    background: var(--principal);
+    border-radius: 8px;
+    border: 0;
+    cursor: pointer;
+}

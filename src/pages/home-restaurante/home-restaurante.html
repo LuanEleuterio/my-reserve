@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Cancelar Reserva</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='./home-restaurante.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='./responsive.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='../../theme/colors.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='../../theme/default.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='../../css/rest-editar-pag.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='../../css/rest-editar-dados.css'>
+    <link rel="stylesheet" type='text/css' media='screen' href="rest-cancelar-reserva.css">
+    <link rel="stylesheet" type='text/css' media='screen' href="../../css/modal-perfil-rest.css">
+</head>
+
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <a id="logo-rest">
+                    <img src="../../icons/knife-fork-black.svg" alt="">
+                    <p>myReserve</p>
+                </a>
+            </div>
+            <div class="busca-header">
+                <div class="name-box">
+                    <i class="fas fa-search" id="icon-search"></i>
+                    <input type="text" id="search-bar" value="" placeholder="Buscar reserva">
+                </div>
+            </div>
+
+            <div class="container-tooltip">
+                <a id="config-hour-redirect" class="icone-perfil">
+                    <i class="fas fa-cog"></i>
+                    <p>Configuração de horários</p>
+                </a>
+                <button id='btn-perfil-rest' class="icone-perfil">
+                    <i class="fas fa-user"></i>
+                    <p>Perfil</p>
+                </button>
+
+                <div class="tooltipMenu bottomSide">
+                    <ul class="container-tooltip" id="menu-profile">
+                        <li id="myBtn-perfil">
+                            <i class=" fas fa-user-cog profile-icon"></i>
+                            <p>Editar Dados</p>
+                        </li>
+                        <li id="myBtn-pag">
+                            <i class="fas fa-credit-card profile-icon"></i>
+                            <p>Pagamento</p>
+                        </li>
+                        <li>
+                            <i class="fas fa-sign-out-alt profile-icon"></i>
+                            <p>Desconectar</p>
+                        </li>
+                    </ul>
+                </div>
+                </li>
+                </ul>
+            </div>
+
+        </div>
+    </header>
+
+    <main class="content">
+        <section class="conteudo">
+            <div class="info-proximo">
+                <p>Controlar Reservas</p>
+            </div>
+            <div class="conteudo-clientes" id="myBtn-cancel"></div>
+            <!-- <div class="carrega-cliente"> 
+                <button id="btn-ver-mais">Mostrar mais reservas</button>
+            </div>
+            -->
+        </section>
+    </main>
+    <footer>
+        <a id="footer-home">
+            <section class="menu-bar">
+                <div class="menu-option home">
+                    <div class="icon-footer">
+                        <i class="fas fa-home itens-footer"></i>
+                    </div>
+                    <p>Inicio</p>
+                </div>
+        </a>
+        <a id="footer-reserva">
+            <div class="menu-option reserva">
+                <div class="icon-footer">
+                    <i class="fas fa-chair itens-footer"></i>
+                </div>
+                <p>Reservas</p>
+            </div>
+        </a>
+        <a id="footer-perfil">
+            <div class="menu-option perfil">
+                <div class="icon-footer">
+                    <i class="fas fa-user itens-footer"></i>
+                </div>
+                <p>Perfil</p>
+            </div>
+        </a>
+        </section>
+    </footer>
+
+
+    <div id="myModal-perfil" class="modal">
+        <div class="model-container modal-perfil-rest">
+            <div class="modal-content">
+                <span class="close-btn btn-perfil">&times;</span>
+
+                <form id="form" class="form-perfil">
+
+                    <fieldset class='modal-perfil-fieldset' id="fieldSet-modalPerfil">
+                        <legend>
+                            <img id="foto-perfil" alt="">
+                            <div class="dados">
+                                <h4>Dados do Estabelecimento</h4>
+                                <div class="categoria">
+                                    <h5>Categoria:</h5>
+                                    <select name="categoria" id="categoria-option">
+                                        <!-- <option value="arabe">Árabe</option> -->
+                                        <!-- <option value="mexicana">Mexicana</option> -->
+                                        <!-- <option value="mineira">Mineira</option> -->
+                                    </select>
+                                </div>
+                            </div>
+                        </legend>
+
+                        <div class="field">
+                            <label for="name">Nome do Estabelecimento</label>
+                            <input type="text" name="name" id="name" required />
+                        </div>
+
+                        <div class="field">
+                            <label for="cnpj">CNPJ</label>
+                            <input type="text" name="cnpj" id="cnpj" placeholder="00.000.000/0000-00" maxlength="18"
+                                required />
+                        </div>
+                        <!--
+                        <div class="field">
+                            <label for="telefone">Telefone</label>
+                            <input type="text" name="telefone" id="telefone" placeholder="(xx) xxxxx-xxxx"
+                                maxlength="15" required />
+                        </div>
+                        -->
+                        <div class="field">
+                            <label for="email">E-mail</label>
+                            <input type="email" name="email" id="email" placeholder="email@exemplo.com" required />
+                        </div>
+
+
+                        <div class="field">
+                            <label for="qtdPessoa">Quantidade máxima de pessoas por reserva</label>
+                            <input type="number" name="qtdPessoa" id="qtdPessoa" required />
+                        </div>
+
+                        <div class="field">
+                            <label>Funcionamento</label>
+                            <div class="horario">
+                                <input type="time" id="horarioDe" name="horario-de" class="horario-select" required>
+                                <span>até</span>
+                                <input type="time" id="horarioAte" name="horario-ate" class="horario-select" required>
+
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <label>Descrição</label>
+                            <textarea id="story" name="story" rows="3" cols="50" maxlength="1000" required></textarea>
+                        </div>
+
+
+                        <label id="label-senha" for="password">Senha</label>
+                        <div class="pass-container">
+                            <input type="password" name="senha" id="password" required />
+                            <button type="button" id="eye" class="glyphicon glyphicon-eye-close"
+                                onclick="mostrar(this)"></button>
+                        </div>
+
+                    </fieldset>
+                    <div class="field">
+                        <input id="submit-salvar" type="submit" value="Salvar alterações">
+                    </div>
+
+            </div>
+            </form>
+
+        </div>
+    </div>
+    </div>
+
+    <div id="myModal-pagamento" class="modal">
+
+        <div class="model-container modal-pagamento-rest">
+            <div class="modal-content modal-pag-rest">
+                <span class="close-btn btn-pag">&times;</span>
+
+                <form id="form" class="form-perfil">
+
+                    <fieldset class='modal-perfil-fieldset'>
+                        <legend>
+                            <h2>Dados de pagamento</h2>
+                        </legend>
+
+                        <div class="field">
+                            <label for="nome">Nome do Beneficiário</label>
+                            <input type="text" name="nome" id="nome" required />
+                        </div>
+
+                        <div class="field">
+                            <label for="identidade">CPF/CNPJ</label>
+                            <input type="text" name="identidade" id="identidade" maxlength="18" required />
+                        </div>
+
+                        <div class="field-group">
+                            <div class="field">
+                                <label for="banco">Banco</label>
+                                <input type="text" name="banco" id="banco" required />
+                            </div>
+                            <div class="field">
+                                <label for="agencia">Agência</label>
+                                <input type="text" name="agencia" id="agencia" required />
+                            </div>
+                        </div>
+
+                        <div class="field-group">
+                            <div class="field">
+                                <label for="tipo-conta">Tipo de conta</label>
+                                <input type="text" name="tipo-conta" id="tipo-conta" required />
+                            </div>
+                            <div class="field">
+                                <label for="nr-conta">Número da conta</label>
+                                <input type="text" name="nr-conta" id="nr-conta" required />
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <input id="pagamento-submit" type="submit" value="Salvar alterações">
+                        </div>
+                    </fieldset>
+
+            </div>
+            </form>
+
+        </div>
+    </div>
+
+    <div id="myModal-cancel" class="modal">
+        <div class="model-container modal-cancel-rest">
+            <div class="modal-content cancel-hour">
+                <span id="btn-cross-modal" class="close-btn btn-cancel">&times;</span>
+
+                <div class="modal-conteudo" id="cancelar-conteudo">
+                    <h4>Cancelamento da Reserva</h4>
+                    <div class="info-hour-date">
+                        <div class="hour">
+                            <i class="fas fa-clock"></i>
+                            <p id="pHoraReserva"></p>
+                        </div>
+                        <div class="date">
+                            <p id="pDataReserva"></p>
+                        </div>
+                    </div>
+                    <div class="justify">
+                        <h4>Justificativa</h4>
+                        <textarea name="justify" id="txtModalCancel" cols="84" rows="8" required></textarea>
+                    </div>
+
+                    <input id="btnSubmitCancelar" type="submit" value="Confirmar">
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-conteiner-perfil-rest">
+        <div class="modal-perfil-rest-sidebar">
+            <button id='btn-edit-perfil-rest' class='btn-modal-perfil-rest'>
+                <div class="editar-modal box-modal-perfil-rest" id='myBtn-editar-rest'>
+                    <i class="fas fa-user-cog"></i>
+                    <p>Editar Dados</p>
+                </div>
+            </button>
+
+            <button id='btn-pagamento-rest' class='btn-modal-perfil-rest'>
+                <div class="pagamento-modal box-modal-perfil-rest" id='myBtn-pag-rest'>
+                    <i class="fas fa-credit-card"></i>
+                    <p>Pagamento</p>
+                </div>
+            </button>
+
+            <button id='btn-sair-rest' class='btn-modal-perfil-rest'>
+                <div class="logout-modal box-modal-perfil-rest">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <p>Desconectar</p>
+                </div>
+            </button>
+        </div>
+    </div>
+
+    <script src="https://kit.fontawesome.com/37a6fc82c8.js" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="home.js"></script>
+    <script type="text/javascript" src="../../utils/rest-editar-pag.js"></script>
+    <script type="text/javascript" src="../../utils/rest-editar-dados.js"></script>
+    <!-- <script type="" src="rest-cancelar-reserva.js"></script> -->
+    <script type="text/javascript" src="../../utils/modal-perfil-rest.js"></script>
+    <script type="text/javascript" src="../../utils/geral-rest.js"></script>
+    <script type="text/javascript" src="../../utils/footer-redirect-rest.js"></script>
+    <script src="../../utils/sweetalert2.all.js"></script>
+    <script src="../../utils/logout.js"></script>
+</body>
+
+</html>

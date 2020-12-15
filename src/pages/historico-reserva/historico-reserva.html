@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Historico de Reservas</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='./historico-reserva.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='./responsive.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='../../theme/colors.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='../../theme/default.css'>
+    <link rel="stylesheet" href="../../css/modals-header.css">
+    <link rel="stylesheet" href="../../css/editar-perfil.css">
+    <link rel="stylesheet" href="../../css/editar-pagamento.css">
+    <link rel="stylesheet" href="../../css/modal-endereco.css">
+</head>
+
+<body>
+    <header class="header">
+        <div class="conteiner-header">
+            <div class="logo">
+                <a id="logo-cli">
+                    <img src="../../icons/knife-fork-black.svg" alt="">
+                    <p>myReserve</p>
+                </a>
+            </div>
+            <div class="busca-header">
+                <div class="name-box">
+                    <i class="fas fa-search" id="icon-search"></i>
+                    <input type="text" id="search-bar" value="" placeholder="Busque por restaurantes...">
+                </div>
+                <button class='btn-filter'>
+                    <div class="filter-header">
+                        <i class="fas fa-filter" id="icon-filter"></i>
+                    </div>
+                </button>
+            </div>
+            <div class="location" id="myBtn-loc">
+                <div class='header-location'>
+                    <p id="sua-localizacao">SUA LOCAZILAÇÃO</p>
+                    <button class='location-input'>
+                        <div class="endereco-location">
+                            <div class="icon-header">
+                                <i class="fas fa-map-marker-alt" id='icon-location'></i>
+                            </div>
+                            <p id="seu-endereco">Rua Tenente Comandante Oliveira</p>
+                        </div>
+                    </button>
+                </div>
+            </div>
+            <div class="name-page">
+                <button id='btn-arrow-header'>
+                    <i class="fas fa-arrow-left arrow-header"></i>
+                </button>
+                <p>Reservas</p>
+            </div>
+            <div class="header-option">
+                <button id='btn-reserva' class='btn-header-option'>
+                    <div class="menu-option reserva">
+                        <div class="icon-footer">
+                            <i class="fas fa-chair itens-header"></i>
+                        </div>
+                        <p>Reservas</p>
+                    </div>
+                </button>
+                <button id='btn-perfil' class='btn-header-option'>
+                    <div class="menu-option perfil">
+                        <div class="icon-footer">
+                            <i class="fas fa-user itens-header"></i>
+                        </div>
+                        <p>Perfil</p>
+                    </div>
+                </button>
+            </div>
+        </div>
+    </header>
+    <main class="content">
+        <section class="conteudo">
+            <div class="info-reserva">
+                <p>Reservas</p>
+            </div>
+            <div class="conteudo-reserva">
+            </div>
+            <div class="carrega-reserva">
+                <button id="btn-ver-mais">Mostrar mais reservas</button>
+            </div>
+        </section>
+
+    </main>
+    <footer>
+        <section class="menu-bar">
+            <a id="footer-home">
+                <div class="menu-option home">
+                    <div class="icon-footer">
+                        <i class="fas fa-home itens-footer"></i>
+                    </div>
+                    <p>Inicio</p>
+                </div>
+            </a>
+            <a id="footer-search">
+                <div class="menu-option busca">
+                    <div class="icon-footer">
+                        <i class="fas fa-search itens-footer"></i>
+                    </div>
+                    <p>Buscar</p>
+                </div>
+            </a>
+            <a id="footer-reserva">
+                <div class="menu-option reserva">
+                    <div class="icon-footer">
+                        <i class="fas fa-chair itens-footer"></i>
+                    </div>
+                    <p>Reservas</p>
+                </div>
+            </a>
+            <a id="footer-perfil">
+                <div class="menu-option perfil">
+                    <div class="icon-footer">
+                        <i class="fas fa-user itens-footer"></i>
+                    </div>
+                    <p>Perfil</p>
+                </div>
+            </a>
+        </section>
+    </footer>
+
+    <div id="myModal-editar" class="modal">
+        <div class="model-container">
+            <div class="modal-content">
+                <span class="close-btn-editar">&times;</span>
+
+                <form id="form-editar">
+
+                    <fieldset>
+                        <legend>
+                            <div class="dados">
+                                <img id="foto-perfil" alt="">
+                                <h2>Dados pessoais</h2>
+                            </div>
+                        </legend>
+
+                        <div class="field">
+                            <label for="name">Nome completo</label>
+                            <input type="text" name="name" id="name-editar" />
+                        </div>
+
+                        <div class="field">
+                            <label for="cpf">CPF</label>
+                            <input type="text" name="cpf" id="cpf-editar" />
+                        </div>
+                        <div class="field">
+                            <label for="whatsapp">Whatsapp</label>
+                            <input type="text" name="whatsapp" id="whatsapp-editar" placeholder="(xx) xxxxx-xxxx" />
+                        </div>
+
+                        <div class="field">
+                            <label for="email">E-mail</label>
+                            <input type="email" name="email" id="email-editar" placeholder="email@exemplo.com" />
+                        </div>
+
+                        <label id="label-senha" for="password">Senha</label>
+                        <div class="pass-container">
+                            <input type="password" name="senha" id="password-editar" required />
+                            <button type="button" id="eye" class="glyphicon glyphicon-eye-close"
+                                onclick="mostrar(this)"></button>
+                        </div>
+
+                        <div class="field">
+                            <input id="submit-editar" type="submit" value="Salvar alterações">
+                        </div>
+                    </fieldset>
+
+            </div>
+            </form>
+
+        </div>
+    </div>
+
+    <div id="myModal-pagamento" class="modal">
+
+        <div class="model-container">
+            <div class="modal-content">
+                <span class="close-btn-pag">&times;</span>
+
+                <form id="form-pag">
+
+                    <fieldset>
+                        <legend>
+                            <h2>Dados de pagamento</h2>
+                        </legend>
+
+                        <div class="field">
+                            <label for="nro-cartao">Número do cartão<i class="fas fa-lock"></i></label>
+                            <input type="text" name="nro-cartao" id="nro-cartao" />
+                        </div>
+
+                        <div class="field">
+                            <label for="validade">Validade</label>
+                            <input type="text" name="validade" id="validade" />
+                        </div>
+                        <div class="field">
+                            <label for="cvv">CVV</label>
+                            <input type="text" name="cvv" id="cvv" />
+                        </div>
+
+                        <div class="field">
+                            <label for="nome">Nome do titular</label>
+                            <input type="text" name="nome" id="nome-pag" />
+                        </div>
+                        <div class="field">
+                            <label for="identidade">CPF/CNPJ do titular</label>
+                            <input type="text" name="identidade" id="identidade" />
+                        </div>
+
+                        <div class="field">
+                            <input id="submit-pagamento" type="submit" value="Salvar alterações">
+                        </div>
+                    </fieldset>
+
+            </div>
+            </form>
+
+        </div>
+    </div>
+
+    <div id="modal-filter" class="modal-conteiner-filter">
+        <div class="modal-conteudo">
+            <button class="btn-fechar"><i id="button-fechar" class="fas fa-times"></i></button>
+            <h3>Filtros</h3>
+            <div class="filtro-conteudo">
+                <div class="filtro-distancia">
+                    <p class='filtro-nomenclatura'>Pessoas por reserva</p>
+                    <input id="range-pessoa" class='slider-range-filter' type="range" min="1" max="30" value="5">
+                    <p id='value-range-pessoas' class='value-range-filter'></p>
+                </div>
+
+                <div class="filtro-pessoas">
+                    <p class='filtro-nomenclatura'>Distância</p>
+                    <input id="range-distancia" class='slider-range-filter' type="range" min="1" max="30" value="5">
+                    <p id="value-range-distancia" class='value-range-filter'></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-conteiner-perfil">
+        <div class="modal-perfil">
+            <button id='btn-edit-perfil' class='btn-modal-perfil'>
+                <div class="editar-modal box-modal-perfil" id='myBtn-editar'>
+                    <i class="fas fa-user-cog"></i>
+                    <p>Editar Dados</p>
+                </div>
+            </button>
+
+            <button id='btn-pagamento' class='btn-modal-perfil'>
+                <div class="pagamento-modal box-modal-perfil" id='myBtn-pag'>
+                    <i class="fas fa-credit-card"></i>
+                    <p>Pagamento</p>
+                </div>
+            </button>
+
+            <button id='btn-sair' class='btn-modal-perfil'>
+                <div class="logout-modal box-modal-perfil">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <p>Desconectar</p>
+                </div>
+            </button>
+        </div>
+    </div>
+
+    <!--Modal Confirmacao de cancelamento-->
+    <div id="modal-cancelar" class="modal-conteiner-filter">
+        <div class="modal-conteudo containerCancelar">
+            <button class="btn-fechar"><i id="button-fechar" class="fas fa-times"></i></button>
+            <div>
+                <h3>Cancelamento da Reserva</h3>
+            </div>
+            <div class="filtro-conteudo">
+                <div class="modalInfoRestaurante">
+
+                    <span class="snNomeRestaurante"></span>
+                    <!--
+                    <div class="lineRestaurante">
+                        <i class="fas fa-utensils icon-rest"></i>
+                        <span class="snTipoRestaurante">Arabe</span>
+                    </div>
+
+                    <div class="lineRestaurante">
+                        <i class="fas fa-map-marker-alt icon-rest"></i>
+                        <span class="snEnderecoRestaurante">Av. Jucelino Kubitschek, 1004</span>
+                    </div>
+                    -->
+                </div>
+                <div class="containerRelogio">
+                    <div class="box-horario">
+                        <div class="icon-horario col-horario">
+                            <i class="fas fa-clock icon-clock"></i>
+                        </div>
+                        <div class="horario-reserva col-horario">
+                            <p id='hour-reserva'></p>
+                        </div>
+
+                        <div class="vagas col-horario">
+                            <span>
+                                <p id="data-reserva"></p>
+                                <p id='qtd-vagas'></p>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="divisor"></div>
+				<!--
+                <span class="alerta">Você está cancelando essa reserva próximo ao horário reservado,
+                    este cancelamento resultará no não reembolso da taxa de reserva!</span>
+				-->
+                <div><button class="btnConfirmarCancelamento">Confirmar</button></div>
+
+            </div>
+        </div>
+    </div>
+
+    <div id="myModal-not-found" class="modal modal-loc">
+
+        <div class="model-container-lcl">
+            <div class="modal-content-lcl">
+                <span class="close-btnn-lcl">&times;</span>
+
+                <section class="endereco-container">
+                    <img src="../../img/undraw_Destination_6jtj.svg" alt="">
+                    <fieldset id="field-container">
+                        <!-- <legend class="legend-loc">
+                            <h3>Endereço</h3>
+                            <span>Selecione o endereço no mapa</span>
+                        </legend> -->
+
+                        <form action="" class="form-loc">
+                            <div class="group">
+                                <div class="container-input">
+                                    <label for="cep">CEP</label>
+                                    <input type="text" name="cep" maxlength="9" id="cep" placeholder="00000-000" />
+                                </div>
+                                <div class="container-input">
+                                    <label for="localidade">Cidade</label>
+                                    <input type="text" name="localidade" id="localidade" />
+                                </div>
+
+                            </div>
+
+                            <div class="group">
+                                <div class="container-input">
+                                    <label for="logradouro">Logradouro</label>
+                                    <input type="text" name="logradouro" id="logradouro" />
+                                </div>
+
+                                <div class="container-input">
+                                    <label for="numero">Número</label>
+                                    <input type="number" name="numero" id="numero" />
+                                </div>
+                            </div>
+                            <div class="container-input">
+                                <input id="submit-location" type="submit" value="Confirmar localização">
+                            </div>
+                        </form>
+                    </fieldset>
+                </section>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="https://kit.fontawesome.com/37a6fc82c8.js" crossorigin="anonymous"></script>
+    <script type="text/javascript" src='../historico-reserva/allReservas.js'></script>
+    <script type="text/javascript" src="../historico-reserva/historico-reserva.js"></script>
+    <script type="text/javascript" src='../../utils/editar-perfil.js'></script>
+    <script type="text/javascript" src='../../utils/editar-pagamento.js'></script>
+    <script type="text/javascript" src="../../utils/modals-header.js"></script>
+    <script type="text/javascript" src="../../utils/not-found.js"></script>
+    <script type="text/javascript" src="../../utils/geral.js"></script>
+    <script type="text/javascript" src="../../utils/footer-redirect.js"></script>
+    <script type="text/javascript" src="../../utils/sweetalert2.all.js"></script>
+    <script src="../../utils/logout.js"></script>
+</body>
+
+</html>

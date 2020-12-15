@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Horarios para Reserva</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='./info-horarios.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='./responsive.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='./../../theme/colors.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='./../../theme/default.css'>
+
+</head>
+
+<body>
+    <header class="header">
+        <div class="conteiner-header">
+            <div class="logo">
+                <a href="">
+                    <img src="../../icons/knife-fork-black.svg" alt="">
+                    <p>myReserve</p>
+                </a>
+            </div>
+            <div class="name-page">
+                <button id='btn-arrow-header'>
+                    <i class="fas fa-arrow-left arrow-header"></i>
+                </button>
+                <p>Horários para reserva</p>
+            </div>
+            <div class="header-option">
+                <button id='btn-reserva' class='btn-header-option'>
+                    <div class="menu-option reserva">
+                        <div class="icon-footer">
+                            <i class="fas fa-chair itens-header"></i>
+                        </div>
+                        <p>Reservas</p>
+                    </div>
+                </button>
+                <button id='btn-perfil' class='btn-header-option'>
+                    <div class="menu-option perfil">
+                        <div class="icon-footer">
+                            <i class="fas fa-user itens-header"></i>
+                        </div>
+                        <p>Perfil</p>
+                    </div>
+                </button>
+            </div>
+        </div>
+    </header>
+    <main class="content">
+        <section class="conteudo">
+            <div class="info-horarios">
+                <div class="box-name-horario">
+                    <p id='name-horario'>Dia</p>
+                    <p id='date-reserva'></p>
+                </div>
+
+                <div class="conteiner-horario">
+                    <!--
+                    <button id='btn-horario' class='button-horario btn-hour-mobile'>
+                        <div class="box-horario">
+                            <div class="icon-horario col-horario">
+                                <i class="fas fa-clock icon-clock"></i>
+                            </div>
+                            <div class="horario-reserva col-horario">
+                                <p id='hour-reserva'>12:00 às 13:00</p>
+                            </div>
+
+                            <div class="vagas col-horario">
+                                <span>
+                                    <p>Vagas Disponivéis</p>
+                                    <p id='qtd-vagas'>12</p>
+                                </span>
+                            </div>
+                        </div>
+                    </button>
+                -->
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <section class="menu-bar">
+            <a id="footer-home">
+                <div class="menu-option home">
+                    <div class="icon-footer">
+                        <i class="fas fa-home itens-footer"></i>
+                    </div>
+                    <p>Inicio</p>
+                </div>
+            </a>
+            <a id="footer-search">
+                <div class="menu-option busca">
+                    <div class="icon-footer">
+                        <i class="fas fa-search itens-footer"></i>
+                    </div>
+                    <p>Buscar</p>
+                </div>
+            </a>
+            <a id="footer-reserva">
+                <div class="menu-option reserva">
+                    <div class="icon-footer">
+                        <i class="fas fa-chair itens-footer"></i>
+                    </div>
+                    <p>Reservas</p>
+                </div>
+            </a>
+            <a id="footer-perfil">
+                <div class="menu-option perfil">
+                    <div class="icon-footer">
+                        <i class="fas fa-user itens-footer"></i>
+                    </div>
+                    <p>Perfil</p>
+                </div>
+            </a>
+        </section>
+    </footer>
+
+    <div id="modal-filter" class="modal-conteiner-filter">
+        <div class="modal-conteudo">
+            <button class="btn-fechar"><i id="button-fechar" class="fas fa-times"></i></button>
+            <h3>Filtros</h3>
+            <div class="filtro-conteudo">
+                <div class="filtro-distancia">
+                    <p class='filtro-nomenclatura'>Pessoas por reserva</p>
+                    <input id="range-pessoa" class='slider-range-filter' type="range" min="1" max="30" value="5">
+                    <p id='value-range-pessoas' class='value-range-filter'></p>
+                </div>
+
+                <div class="filtro-pessoas">
+                    <p class='filtro-nomenclatura'>Distância</p>
+                    <input id="range-distancia" class='slider-range-filter' type="range" min="1" max="30" value="5">
+                    <p id="value-range-distancia" class='value-range-filter'></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-conteiner-perfil">
+        <div class="modal-perfil">
+            <button id='btn-edit-perfil' class='btn-modal-perfil'>
+                <div class="editar-modal box-modal-perfil">
+                    <i class="fas fa-user-cog"></i>
+                    <p>Editar Dados</p>
+                </div>
+            </button>
+
+            <button id='btn-pagamento' class='btn-modal-perfil'>
+                <div class="pagamento-modal box-modal-perfil">
+                    <i class="fas fa-credit-card"></i>
+                    <p>Pagamento</p>
+                </div>
+            </button>
+
+            <button id='btn-sair' class='btn-modal-perfil'>
+                <div class="logout-modal box-modal-perfil">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <p>Desconectar</p>
+                </div>
+            </button>
+        </div>
+    </div>
+
+    <script src="https://kit.fontawesome.com/37a6fc82c8.js" crossorigin="anonymous"></script>
+    <script type="text/javascript" src='../info-horarios/info-horarios.js'></script>
+    <script type="text/javascript" src="../../utils/footer-redirect.js"></script>
+    <script type="text/javascript" src="../../utils/geral.js"></script>
+</body>
+
+</html>

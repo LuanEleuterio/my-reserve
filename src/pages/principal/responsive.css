@@ -1,0 +1,141 @@
+@media(min-width:320px) and (max-width:768px){
+    body{
+        background-image: url('./../../img/undraw_connected_world_wuay.svg');
+        background-position: 50%;
+        background-attachment: fixed;
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+    .container-menu {
+        justify-content: center;
+    }
+}
+
+@media(min-width:300px) and (max-width:370px){
+    .icon-modal{
+        width: 40vw !important;
+    }
+
+    .modal-sign-up p{
+        font-size: small !important;
+    }
+}
+
+@media (max-width:320px) {
+    .menu{
+        display: none;
+    }
+
+    .eating-my{
+        display: none;
+    }
+
+    .init-my{
+        width: 15em;
+    }
+
+    .info-my h1{
+        font-size: 1.5em !important;
+    }
+
+    .info-my p{
+        font-size: 1em !important;
+    }
+
+    .team, .why{
+        margin-top: 1em;
+    }
+}
+
+@media (min-width:320px) and (max-width:425px) {
+    .menu{
+        display: none;
+    }
+
+    .init-my{
+        width: 20em;
+    }
+
+    .eating-my{
+        display: none;
+    }
+
+    .team, .why{
+        margin-top: 1em;
+    }
+    .information {
+        max-width: 200px;
+    }
+}
+
+@media (min-width:426px) and (max-width:768px){
+
+    .menu{
+        display: none;
+    }
+
+    .eating-my{
+        display: none;
+    }
+
+    .team, .why{
+        margin-top: 1em;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1200px){
+    
+    .init-my{
+        width: 25em !important;
+    }
+    
+    .eating-my img {
+        width: 20em !important;
+    }
+}
+
+@media (max-width: 769px) {
+    
+    .container-menu {
+        flex-direction: column;
+    }
+    header .container-menu {
+        flex-direction: row;
+    }
+    nav ul {
+        flex-direction: column;
+        display: none;
+        position: absolute;
+        left: 0;
+        width: 100%;
+        background-color: #fff;
+    }
+    .menuMobile {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+    }
+    .home h1,
+    .team h2,
+    .why h2 {
+        font-size: 2em;
+    }
+    .team,
+    .why {
+        background: none;
+    }
+}
+
+@media(max-width: 425px) {
+    #page-home,
+    .team,
+    .why {
+        background: none;
+    }
+    .login-my{
+        padding-left: 10px;
+    }
+    .info-my {
+        padding: 0 10px;
+    }
+}

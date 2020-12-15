@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Reserve</title>
+
+    <link rel="icon" type="imagem/png" href="src/icons/knife-fork.svg" />
+    <link rel="stylesheet" href="src/pages/principal/principal.css">
+    <link rel="stylesheet" href="src/theme/default.css">
+    <link rel="stylesheet" href="src/pages/principal/responsive.css">
+    <script type="text/javascript" src="src/pages/principal/principal.js"></script>
+</head>
+
+<body>
+    <header>
+        <div class="container-menu">
+            <div class="logo">
+                <a href="#">
+                    <img src="src/icons/knife-fork-black.svg" alt="">
+                    <p id="myReserve">myReserve</p>
+                </a>
+            </div>
+            <div class="menu">
+                <nav>
+                    <div class="nav">
+                        <ul>
+                            <li><a href="#team">Sobre o myReserve</a></li>
+                            <li><a href="#why">Team</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="sign">
+                        <ul>
+                            <li><a id="principal-login">Entrar</a></li>
+                            <li class="tooltip">
+                                <button id="btn-sign-up">Cadastrar</button>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <div id="page-home">
+
+        <section class="home">
+            <div class="init-my">
+                <div class="info-my">
+                    <h1>Criado para suas reservas.</h1>
+                    <p>Ajudamos pessoas a aproveitar seu tempo de forma eficiente.</p>
+                </div>
+                <div class="login-my">
+                    <a id="principal-login-btn">
+                        <span>
+                            <i class="fas fa-sign-in-alt" style="font-size: 20px; color: var(--secundaria);"></i>
+                        </span>
+                        <strong>Entrar</strong>
+                    </a>
+                    <p id='no-have-account'>Não tem uma conta?</p>
+                </div>
+            </div>
+            <div class="eating-my">
+                <img src="./src/img/undraw_eating_together_tjhx.svg" alt="">
+            </div>
+        </section>
+
+        <section id="team" class="team">
+            <h2>Reserve quando e onde quiser.</h2>
+            <p>O myReserve oferece à você tudo de que precisa para reservar seu lugar com mais rapidez.</p>
+            <p>A missão do myReserve é simples: facilitar a reserva nos restaurantes de sua prefência.</p>
+            <div class="information">
+                <div class="photo-container items-team">
+                    <i class="fas fa-chart-line icon-social"></i>
+                    <div class="rede-social">
+                        <p>Otimize</p>
+                    </div>
+                </div>
+                <div class="photo-container items-team">
+                    <i class="fas fa-map-marked-alt icon-social"></i>
+                    <div class="rede-social">
+                        <p>Escolha</p>
+                    </div>
+                </div>
+                <div class="photo-container items-team">
+                    <i class="fas fa-users icon-social"></i>
+                    <div class="rede-social">
+                        <p>Compartilhe</p>
+                    </div>
+                </div>
+                <!-- <div class="photo-container ">
+                    <img src="src/img/foto1.jpg" alt="">
+                    <div class="rede-social">
+                        <a href="">Otimize</a>
+                    </div>
+                </div> -->
+            </div>
+        </section>
+
+        <section id="why" class="why">
+            <h2>Team</h2>
+            <p>O myReserve foi criado à partir do Projeto Integrador do programa de bolsa do Santander Coders -
+                FullStack Java ministrado pela Digital House.</p>
+            <div class="information">
+
+                <div class="photo-container ">
+                    <img src="src/img/luan.png" class="foto-team" alt="">
+                    <div class="rede-social team-rede">
+                        <a href="https://www.linkedin.com/in/luan-eleutério/"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://github.com/LuanEleuterio/"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+
+                <div class="photo-container ">
+                    <img src="src/img/jess.jpg" class="foto-team" alt="">
+                    <div class="rede-social team-rede">
+                        <a href="https://www.linkedin.com/in/jessica-parise/"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://github.com/Jessica-Parise"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                <div class="photo-container ">
+                    <img src="src/img/gustavo.jpg" class="foto-team" alt="">
+                    <div class="rede-social team-rede">
+                        <a href=""><i class="fab fa-linkedin-in"></i></a>
+                        <a href=""><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+
+    <div class="tooltipMenu bottomSide">
+        <div class="cliente-sign-up">
+            <i class="far fa-user"></i>
+            <p>Cliente</p>
+        </div>
+        <div class="estab-sign-up">
+            <i class="far fa-building"></i>
+            <p>Estabelecimento</p>
+        </div>
+    </div>
+
+    <div id="modal-type" class="modal-type-form">
+        <div class="modal-conteudo">
+            <a id="sign-up-cliente" class="cliente modal-sign-up">
+                <i class="far fa-user icon-modal"></i>
+                <p>Sou Cliente</p>
+            </a>
+            <a id="sign-up-estab" class="estab modal-sign-up">
+                <i class="far fa-building icon-modal"></i>
+                <p>Sou Estabelecimento</p>
+            </a>
+        </div>
+    </div>
+
+    <script src="https://kit.fontawesome.com/37a6fc82c8.js" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="./src/pages/principal/principal.js"></script>
+</body>
+
+</html>

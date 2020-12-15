@@ -1,0 +1,231 @@
+@import url('../../theme/colors.css');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+body {
+    background: var(--secundaria);
+    color: var(--preto);
+}
+
+.container {
+    background: url('../../img/undraw_connected_world_wuay.svg') no-repeat center;
+    background-size: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    height: 570px;
+}
+
+.logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo p {
+    margin-left: .3rem;
+    font-weight: 700;
+}
+
+form {
+    border: 1px solid var(--border);
+    border-radius: var(--border-radius);
+    padding: 50px 20px;
+    max-width: 400px;
+    width: 85%;
+}
+
+.flex-outer {
+    list-style-type: none;
+}
+
+.flex-outer {
+    max-width: 350px;
+    margin: 0 auto;
+}
+
+.flex-outer li {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.flex-outer>li:not(:last-child) {
+    margin-bottom: 20px;
+}
+
+.flex-outer li input {
+    padding: 15px;
+    border: none;
+    width: 100%;
+}
+
+#forgot {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 5px;
+}
+
+#forgot a {
+    text-decoration: none;
+    color: var(--principal);
+    font-size: .9em;
+}
+
+input {
+    border: none;
+    outline: none;
+    background: none;
+}
+
+#submit-login{
+    width: 100%;
+    margin: 0 auto;
+    padding: 12px 16px;
+    border-radius: var(--border-radius);
+    background: var(--principal);
+    color: var(--secundaria);
+    text-transform: uppercase;
+    letter-spacing: .09em;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.password,
+.username {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    padding: 0px 15px 0px 20px;
+    border: 1px solid var(--border);
+    border-radius: var(--border-radius);
+    width: 350px;
+}
+
+.fa-lock,
+.fa-user {
+    display: inline-block;
+    color: #CCC;
+    margin-right: .5rem;
+}
+
+input[type=submit] {
+    margin: 0 auto;
+    padding: 8px 16px;
+    border-radius: var(--border-radius);
+    background: var(--principal);
+    color: var(--secundaria);
+    text-transform: uppercase;
+    letter-spacing: .09em;
+}
+
+.create-account {
+    margin-top: 2em;
+    max-width: 400px;
+    padding: 20px;
+    width: 85%;
+    border: 1px solid var(--border);
+    border-radius: var(--border-radius);
+    text-align: center;
+}
+
+.create-account a {
+    text-decoration: none;
+    color: var(--principal);
+}
+
+form,
+.logo {
+    margin-top: 1.5em;
+}
+
+#no-have-account{
+    cursor: pointer;
+}
+
+.modal-type-form {
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    position: fixed;
+    background: var(--preto);
+    z-index: 10;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-type-form.mostrar{
+    display: flex;
+}
+
+.modal-conteudo{
+    width: 90vw;
+    height: 10em;
+    max-width: 512px;
+    padding: 2em;
+    box-sizing: border-box;
+    background: var(--secundaria);
+    border-radius: var(--border-radius);
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+}
+
+.mostrar .modal-conteudo{
+    animation: modal-animation .3s;
+}
+
+.modal-sign-up{
+    display: flex;
+    flex-wrap: wrap;
+    width: 10em;
+    justify-content: center;
+    text-decoration: none;
+    color: var(--preto)
+}
+
+.modal-sign-up:hover{
+    background-color: rgba(0, 0, 0, 0.03);
+    border-radius: 8px;
+}
+
+.icon-modal{
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    margin-bottom: .1em;
+}
+
+.icon-modal {
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    margin-bottom: .1em;
+    font-size: 50px;
+    margin: 5px;
+    color: var(--preto);
+}
+
+@keyframes modal-animation {
+    from{
+        opacity: 0;
+        transform: translate3d(0, -80px, 0);
+    }
+
+    to{
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+@media (max-width: 370px) and (min-width: 300px){
+    .modal-sign-up p {
+        font-size: small !important;
+    }
+}
