@@ -6,7 +6,7 @@ Esse projeto foi desenvolvido para o curso de Desenvolvedor Full Stack Java na D
 myReserve é uma plataforma de reservas em restaurantes. 
 
 ### Objetivo :eyes:
- O myReserve tem um objetivo bem simples: oferecer à você tudo que precisa para reservar no restaurante de sua preferência de forma rápida, simple e objetiva. Tudo isso baseado na sua geolocalização.
+ O myReserve tem um objetivo bem simples: oferecer à você tudo que precisa para reservar no restaurante de sua preferência de forma rápida, simples e objetiva. Tudo isso baseado na sua geolocalização.
  
  ### Tecnologias utilizadas  :hammer:
  
