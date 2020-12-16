@@ -41,6 +41,6 @@ myReserve é uma plataforma de reservas em restaurantes.
 * Chat com estabelecimento
 * Geolocalização em tempo real
 * Avaliações nos restaurantes
-* Cátalogos de pratos
+* Catálogos de pratos
 * Métodos de pagamentos
 
