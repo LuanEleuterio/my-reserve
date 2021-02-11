@@ -8,6 +8,12 @@ myReserve é uma plataforma de reservas em restaurantes.
 ### Objetivo :eyes:
  O myReserve tem um objetivo bem simples: oferecer à você tudo que precisa para reservar no restaurante de sua preferência de forma rápida, simples e objetiva. Tudo isso baseado na sua geolocalização.
  
+### Layout do myReserve
+![my-reserve-1](https://user-images.githubusercontent.com/37514449/107691644-79d1a080-6c8a-11eb-9fa2-63d4279f076d.png)
+![myreserve-2](https://user-images.githubusercontent.com/37514449/107691682-848c3580-6c8a-11eb-882d-82b1360948dc.png)
+![my-reserve-3](https://user-images.githubusercontent.com/37514449/107691703-8b1aad00-6c8a-11eb-8d68-69230f2e2d7d.png)
+![myreserve-4](https://user-images.githubusercontent.com/37514449/107691718-9241bb00-6c8a-11eb-9da4-36c0a593956a.png)
+ 
  ### Tecnologias utilizadas  :hammer:
  
  ##### Front-end
